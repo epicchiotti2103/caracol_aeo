@@ -1,0 +1,6 @@
+# ERRO AEO: robots.txt genérico, sem menção a AI crawlers
+# Não libera explicitamente GPTBot, PerplexityBot, ClaudeBot
+# Não tem sitemap declarado
+
+User-agent: *
+Disallow: /admin/
