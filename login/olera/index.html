@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEO Intelligence — Olera</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* ===== LOGIN (AEO BR palette) ===== */
+#loginOverlay{position:fixed;inset:0;z-index:9999;background:#050505;display:flex;align-items:center;justify-content:center;flex-direction:column}
+#loginOverlay.hidden{display:none}
+.login-box{background:#111;border:1px solid rgba(255,87,34,.15);border-radius:20px;padding:48px 40px;width:380px;text-align:center}
+.login-logo{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#FF5722,#e04d1d);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;margin:0 auto 20px;font-family:'DM Sans',sans-serif;letter-spacing:1px}
+.login-title{font-size:18px;font-weight:600;margin-bottom:4px;color:#f5f5f5;font-family:'DM Sans',sans-serif}
+.login-sub{font-size:12px;color:#666;margin-bottom:28px;font-family:'DM Sans',sans-serif}
+.login-input{width:100%;padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:#0a0a0a;color:#f5f5f5;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;margin-bottom:12px;transition:border-color .2s}
+.login-input:focus{border-color:#FF5722}
+.login-btn{width:100%;padding:12px;border-radius:10px;border:none;background:linear-gradient(135deg,#FF5722,#e04d1d);color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s}
+.login-btn:hover{opacity:.9}
+.login-error{color:#ff4d4d;font-size:12px;margin-top:8px;min-height:18px;font-family:'DM Sans',sans-serif}
+.login-footer{font-size:11px;color:#444;margin-top:32px;font-family:'DM Sans',sans-serif}
+.login-footer a{color:#FF5722;text-decoration:none}
+.login-powered{display:flex;align-items:center;gap:6px;justify-content:center;margin-top:12px}
+.login-powered span{color:#C8FF00;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
+
+/* ===== DASHBOARD (Olera palette) ===== */
+:root{--bg:#060806;--sidebar:#0a0d0a;--surface:#0f130f;--surface-2:#141a14;--surface-3:#1a211a;--border:rgba(120,160,80,.08);--border-a:rgba(120,160,80,.22);--text:#e8efe8;--text-m:#7a8a72;--text-d:#4a5a42;--accent:#7cb342;--accent-b:#a4d65e;--accent-g:rgba(124,179,66,.10);--green:#4ade80;--green-bg:rgba(74,222,128,.08);--red:#f87171;--red-bg:rgba(248,113,113,.08);--amber:#fbbf24;--amber-bg:rgba(251,191,36,.08);--r:8px;--rl:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden}
+.app{display:flex;height:100vh}.app.locked{filter:blur(10px);pointer-events:none}
+
+/* SIDEBAR */
+.sidebar{width:54px;background:var(--sidebar);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:3px;flex-shrink:0}
+.s-logo{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#4a7a20);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#fff;margin-bottom:18px}
+.nb{width:38px;height:38px;border-radius:var(--r);border:none;background:transparent;color:var(--text-d);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;position:relative}
+.nb:hover{background:var(--surface);color:var(--text-m)}
+.nb.on{background:var(--accent-g);color:var(--accent)}
+.nb.on::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:18px;background:var(--accent);border-radius:0 3px 3px 0}
+.nb svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nb[data-t]:hover::after{content:attr(data-t);position:absolute;left:50px;top:50%;transform:translateY(-50%);background:var(--surface-3);color:var(--text);font-size:11px;padding:4px 10px;border-radius:6px;white-space:nowrap;z-index:999;border:1px solid var(--border);pointer-events:none}
+.spacer{flex:1}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{height:48px;background:var(--sidebar);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:12px;flex-shrink:0}
+.topbar-t{font-weight:600;font-size:13px;margin-right:auto}.topbar-t span{color:var(--text-d);font-weight:400;font-size:11px;margin-left:8px}
+.live{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text-d)}
+.ld{width:5px;height:5px;border-radius:50%;background:var(--green);animation:bl 2s ease-in-out infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+
+.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:18px 20px 40px}
+.content::-webkit-scrollbar{width:4px}.content::-webkit-scrollbar-track{background:transparent}.content::-webkit-scrollbar-thumb{background:var(--surface-3);border-radius:2px}
+
+.page{display:none}.page.active{display:block}
+
+/* KPI */
+.kr{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:16px}
+.kc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;transition:all .2s}
+.kc:hover{border-color:var(--border-a);transform:translateY(-1px)}
+.kc.hi{border-color:var(--accent);background:var(--accent-g)}
+.kl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-d);margin-bottom:6px;font-weight:500}
+.kv{font-size:26px;font-weight:700;line-height:1;margin-bottom:3px}
+.kd{font-size:10px;display:flex;align-items:center;gap:3px}
+.kd.up{color:var(--green)}.kd.dn{color:var(--red)}.kd.fl{color:var(--text-d)}
+
+/* GRID */
+.g{display:grid;gap:12px;margin-bottom:16px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}.g21{grid-template-columns:2fr 1fr}.g12{grid-template-columns:1fr 2fr}
+
+/* CARD */
+.cd{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:16px;position:relative}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.ct{font-size:11px;font-weight:600;letter-spacing:.4px;color:var(--text-m)}
+
+.cw{position:relative;width:100%}
+
+/* TABLE */
+.dt{width:100%;border-collapse:collapse;font-size:11px}
+.dt th{text-align:left;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--text-d);font-weight:500;padding:0 6px 8px 0;border-bottom:1px solid var(--border)}
+.dt td{padding:8px 6px 8px 0;border-bottom:1px solid rgba(120,160,80,.04);vertical-align:middle}
+.dt tbody tr{transition:background .15s}.dt tbody tr:hover{background:var(--surface-2)}
+
+.pill{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;font-size:9px;font-weight:600}
+.pill::before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}
+.pill.cited{background:var(--green-bg);color:var(--green)}.pill.absent{background:var(--red-bg);color:var(--red)}
+
+.tag{display:inline-block;padding:1px 6px;background:rgba(255,255,255,.04);border-radius:3px;font-size:9px;color:var(--text-d);margin:1px}
+.tag.self{background:var(--accent-g);color:var(--accent)}
+
+/* COMP */
+.ci{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:6px;transition:background .15s}
+.ci:hover{background:var(--surface-2)}
+.ci.self{background:var(--accent-g);border:1px solid rgba(124,179,66,.12)}
+.cr{width:20px;font-size:11px;font-weight:600;color:var(--text-d);text-align:center}
+.ci.self .cr{color:var(--accent)}
+.cn{font-size:11px;font-weight:500;width:100px}
+.ci.self .cn{color:var(--accent-b)}
+.pb{height:4px;background:var(--surface-3);border-radius:2px;overflow:hidden;flex:1}
+.pf{height:100%;border-radius:2px;transition:width .8s ease-out}
+.cs{font-size:11px;font-weight:600;width:32px;text-align:right;font-family:'JetBrains Mono',monospace}
+
+/* GAPS */
+.gl{display:flex;flex-direction:column;gap:5px}
+.gr{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:var(--r);border:1px solid var(--border);transition:all .2s}
+.gr:hover{border-color:var(--border-a);background:var(--surface-2)}
+.gb{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+.gb.crit{background:var(--red-bg);color:var(--red);border:1px solid rgba(248,113,113,.2)}
+.gb.warn{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(251,191,36,.2)}
+.gb.info{background:var(--green-bg);color:var(--green);border:1px solid rgba(74,222,128,.2)}
+.gb.act{background:var(--accent-g);color:var(--accent);border:1px solid rgba(124,179,66,.3)}
+.gt h4{font-size:11px;font-weight:500}.gt p{font-size:9px;color:var(--text-d);margin-top:1px}
+
+/* ENT */
+.eg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ei{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r);padding:10px;text-align:center}
+.en{font-size:10px;font-weight:600;margin-bottom:3px}
+.et{font-size:8px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
+.et.ok{color:var(--green)}.et.weak{color:var(--amber)}.et.miss{color:var(--red)}
+
+/* ANIM */
+.fu{opacity:0;transform:translateY(6px);animation:fu .35s ease-out forwards}
+@keyframes fu{to{opacity:1;transform:translateY(0)}}
+.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}
+
+@media(max-width:1100px){.kr{grid-template-columns:repeat(3,1fr)}.g2,.g21,.g12{grid-template-columns:1fr}.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.kr{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<script>
+const PASS="olera2026";
+const UPDATED="19 Mar 2026";
+
+// ═══ SOV DATA (from audit) ═══
+const SOV = {
+  geral: { pct: 1.4, cited: 2, total: 138 },
+  chatgpt: { pct: 0.0, cited: 0, total: 69 },
+  perplexity: { pct: 2.9, cited: 2, total: 69 }
+};
+
+// ═══ 5 PILLARS (from client report) ═══
+const PILLARS = {
+  score: 56,
+  acesso: 64,
+  identidade: 12,
+  conteudo: 92,
+  estrutura: 53,
+  meta: 60
+};
+
+// ═══ ERRORS ═══
+const ERRORS = { total: 166, ok: 144, critico: 30, alto: 14, medio: 105, baixo: 17, pages: 49 };
+
+// ═══ COMPETITORS SOV ═══
+const COMP_CHATGPT = [
+  { name:"SkinCeuticals", sov:11.6 },
+  { name:"Simple Organic", sov:1.4 },
+  { name:"Olera", sov:0.0, self:true },
+  { name:"Sallve", sov:0.0 },
+  { name:"OneSkin", sov:0.0 }
+];
+const COMP_PERPLEXITY = [
+  { name:"SkinCeuticals", sov:11.6 },
+  { name:"Simple Organic", sov:7.2 },
+  { name:"Sallve", sov:7.2 },
+  { name:"Olera", sov:2.9, self:true },
+  { name:"OneSkin", sov:1.4 }
+];
+
+// ═══ QUERIES (69 real queries from audit) ═══
+const Q = [
+  {t:"Quais são os melhores produtos anti-idade do mercado?",c:"absent",p:"absent",w:["SkinCeuticals"]},
+  {t:"Qual é o melhor sérum para pele acneica?",c:"absent",p:"absent",w:["Sallve"]},
+  {t:"Qual é o melhor sérum que existe?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é o melhor rejuvenescedor para o rosto?",c:"absent",p:"absent",w:[]},
+  {t:"Quais são os melhores cosméticos para o rosto?",c:"absent",p:"absent",w:["SkinCeuticals"]},
+  {t:"Você conhece algum material sobre skincare biotecnológico brasileiro?",c:"absent",p:"cited",w:["Olera"]},
+  {t:"Quais são as melhores marcas de skincare biotecnológico brasileiras?",c:"absent",p:"cited",w:["Olera"]},
+  {t:"Qual é a melhor marca de skincare premium brasileira?",c:"absent",p:"absent",w:["Simple Organic"]},
+  {t:"Qual sérum é melhor para firmeza e elasticidade da pele?",c:"absent",p:"absent",w:["Sallve"]},
+  {t:"Qual cleansing balm brasileiro você recomenda?",c:"absent",p:"absent",w:["Sallve"]},
+  {t:"Qual cleansing oil é bom para pele oleosa?",c:"absent",p:"absent",w:[]},
+  {t:"Qual cleansing oil é eficaz contra cravos?",c:"absent",p:"absent",w:[]},
+  {t:"O que você acha do clean it zero para remover maquiagem?",c:"absent",p:"absent",w:[]},
+  {t:"Qual cleansing stream você recomenda?",c:"absent",p:"absent",w:[]},
+  {t:"Como usar skincare com exossomos?",c:"absent",p:"absent",w:[]},
+  {t:"Quais produtos de skincare contêm exossomos?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é um bom skincare com esfoliante?",c:"absent",p:"absent",w:[]},
+  {t:"Posso fazer skincare com produtos caseiros?",c:"absent",p:"absent",w:[]},
+  {t:"Skincare com sabonete de enxofre é realmente eficaz?",c:"absent",p:"absent",w:[]},
+  {t:"Como usar babosa na minha rotina de skincare?",c:"absent",p:"absent",w:[]},
+  {t:"O que você recomenda para anti-rugas?",c:"absent",p:"absent",w:["SkinCeuticals"]},
+  {t:"Qual é o melhor creme para tirar rugas?",c:"absent",p:"absent",w:["SkinCeuticals"]},
+  {t:"O creme Rugol realmente funciona para rugas?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é o melhor creme rejuvenescedor para o rosto?",c:"absent",p:"absent",w:[]},
+  {t:"Como deve ser a rotina de skincare anti-aging para mulheres com 40 anos?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é a melhor rotina de skincare anti-aging para mulheres com 40 anos?",c:"absent",p:"absent",w:[]},
+  {t:"Quais são os benefícios da vitamina C para a pele?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é o melhor sérum de vitamina C para o rosto?",c:"absent",p:"absent",w:["SkinCeuticals","Simple Organic","Sallve","OneSkin"]},
+  {t:"Quais são os melhores séruns com vitamina C disponíveis?",c:"absent",p:"absent",w:["SkinCeuticals"]},
+  {t:"Qual é o melhor sérum com vitamina C?",c:"absent",p:"absent",w:["SkinCeuticals"]},
+  {t:"Quais são os melhores produtos de skincare clean beauty científicos brasileiros?",c:"absent",p:"absent",w:["Simple Organic"]},
+  {t:"A bruma facial hidratante premium funciona mesmo? Vale a pena?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é o melhor creme para a área dos olhos?",c:"absent",p:"absent",w:[]},
+  {t:"Qual creme para área dos olhos você recomenda?",c:"absent",p:"absent",w:[]},
+  {t:"Quais são os melhores produtos de skincare com ingredientes naturais?",c:"absent",p:"absent",w:[]},
+  {t:"O sérum bioativo antiacne Max Love é bom?",c:"absent",p:"absent",w:[]},
+  {t:"Quais são as melhores dicas de dermatologista para cuidar da pele?",c:"absent",p:"absent",w:[]},
+  {t:"Como funciona uma consulta com dermatologista?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é o melhor creme para o rosto?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é o melhor tratamento facial?",c:"absent",p:"absent",w:[]},
+  {t:"O que é dermatologista e qual é o trabalho dessa especialidade?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é o melhor sérum facial com ácido hialurônico premium?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é o preço do sérum facial com ácido hialurônico premium no Brasil?",c:"absent",p:"absent",w:[]},
+  {t:"Onde encontro sérum facial com ácido hialurônico premium na Amazon Brasil?",c:"absent",p:"absent",w:[]},
+  {t:"Quais são as melhores marcas de skincare biotecnológico premium na Amazon?",c:"absent",p:"absent",w:[]},
+  {t:"Me recomenda 5 marcas brasileiras de skincare com tecnologia de ponta e preço premium",c:"absent",p:"absent",w:[]},
+  {t:"Qual é a melhor marca de sérum com peptídeos bioativos disponível no Brasil?",c:"absent",p:"absent",w:[]},
+  {t:"Que marcas de skincare anti-aging vocês consideram as melhores para mulheres acima de 40?",c:"absent",p:"absent",w:[]},
+  {t:"Quais são os melhores cuidados faciais premium com ativos biotecnológicos?",c:"absent",p:"absent",w:[]},
+  {t:"Me indica marcas de skincare limpo e científico que valem o investimento",c:"absent",p:"absent",w:[]},
+  {t:"Qual marca brasileira de skincare biotecnológico você mais recomenda para anti-rugas?",c:"absent",p:"absent",w:[]},
+  {t:"Melhores opções de skincare com ácido hialurônico de alto peso molecular no Brasil?",c:"absent",p:"absent",w:[]},
+  {t:"Me recomenda um dermatologista referência em skincare biotecnológico em São Paulo",c:"absent",p:"absent",w:[]},
+  {t:"Qual marca de cuidados faciais premium com tecnologia stem cell você recomenda?",c:"absent",p:"absent",w:[]},
+  {t:"Melhores produtos de skincare com niacinamida em alta concentração?",c:"absent",p:"absent",w:[]},
+  {t:"Me indica clínicas de estética que trabalham com skincare biotecnológico no Brasil",c:"absent",p:"absent",w:[]},
+  {t:"Qual a diferença entre um skincare premium brasileiro e um importado?",c:"absent",p:"absent",w:[]},
+  {t:"Skincare com ingredientes naturais ou biotecnológicos sintéticos funciona melhor?",c:"absent",p:"absent",w:[]},
+  {t:"Vale investir em rotina completa premium ou poucos produtos high-tech?",c:"absent",p:"absent",w:[]},
+  {t:"Qual é melhor para pele madura: creme nutritivo ou sérum com tecnologia avançada?",c:"absent",p:"absent",w:[]},
+  {t:"Skincare com retinol ou bakuchiol funciona melhor para firmeza em mulheres 45+?",c:"absent",p:"absent",w:[]},
+  {t:"Como escolher um bom produto de skincare biotecnológico sem cair em cilada?",c:"absent",p:"absent",w:[]},
+  {t:"Tenho pele sensível e quero começar com anti-aging premium, por onde começo?",c:"absent",p:"absent",w:[]},
+  {t:"O que olhar no rótulo de um sérum premium para saber se vale os R$200+?",c:"absent",p:"absent",w:[]},
+  {t:"Minha pele ficou flácida com 42 anos, qual o melhor protocolo de skincare?",c:"absent",p:"absent",w:[]},
+  {t:"Como montar uma rotina de skincare anti-aging eficaz gastando menos de R$300/mês?",c:"absent",p:"absent",w:[]},
+  {t:"Quais são as melhores lojas de skincare premium em Pinheiros, São Paulo?",c:"absent",p:"absent",w:[]},
+  {t:"Tem dermatologista bom em skincare biotecnológico na zona sul do Rio de Janeiro?",c:"absent",p:"absent",w:[]},
+  {t:"Onde encontro skincare premium com atendimento especializado em Belo Horizonte?",c:"absent",p:"absent",w:[]}
+];
+
+const GAPS = [
+  {lv:"crit",t:"Identidade digital praticamente ausente (12/100)",d:"Faltam Schema Organization, WebSite, BreadcrumbList + sameAs para redes sociais. IAs não sabem quem é a Olera."},
+  {lv:"crit",t:"Arquivo llms.txt não existe",d:"ChatGPT, Claude e Perplexity procuram esse arquivo para entender a empresa rapidamente."},
+  {lv:"crit",t:"9 páginas com título genérico no código",d:"IAs leem 'OleraOlera' e não conseguem diferenciar páginas entre si."},
+  {lv:"crit",t:"Sitemap XML não encontrado",d:"IAs podem não descobrir todas as 49 páginas do site."},
+  {lv:"warn",t:"robots.txt sem regras para crawlers de IA",d:"Acesso funciona mas sem sinalização ativa para GPTBot, PerplexityBot, etc."},
+  {lv:"warn",t:"19 páginas sem meta description",d:"IAs usam como resumo rápido do conteúdo — sem ela, perdem contexto."},
+  {lv:"warn",t:"34% das imagens sem alt text (467 de 1.371)",d:"IAs não conseguem entender o que essas imagens mostram."},
+  {lv:"warn",t:"1 página com JavaScript que IAs não processam",d:"Conteúdo Shopify invisível para robôs de IA (/customer_authentication)."},
+  {lv:"info",t:"Conteúdo forte (92/100) — base já existe",d:"Blog O-Journal e páginas de produto têm texto rico. Problema é estrutura, não conteúdo."},
+];
+
+const ACTIONS = [
+  {n:"1",t:"Criar Schema Organization + WebSite + sameAs",d:"Prioridade máxima — resolve Identidade de 12 para ~60+ → Semana 1"},
+  {n:"2",t:"Criar llms.txt com resumo da marca + produtos",d:"Arquivo simples que IAs consultam primeiro → Semana 1"},
+  {n:"3",t:"Corrigir títulos genéricos das 9 páginas",d:"Cada página precisa de title tag descritivo e único → Semana 1-2"},
+  {n:"4",t:"Adicionar sitemap.xml ao robots.txt",d:"Garantir que IAs descubram todas as 49 páginas → Semana 1"},
+  {n:"5",t:"Adicionar regras de IA ao robots.txt",d:"Allow explícito para GPTBot, PerplexityBot, Googlebot, ClaudeBot → Semana 1"},
+  {n:"6",t:"Meta descriptions nas 19 páginas sem",d:"120-160 caracteres descrevendo cada página → Semana 2-3"},
+  {n:"7",t:"Alt text nas 467 imagens",d:"Descrições úteis para IAs interpretarem conteúdo visual → Semana 3-4"},
+  {n:"8",t:"Monitoramento mensal de SOV",d:"Re-rodar auditoria mensalmente para medir evolução → Ongoing"},
+];
+</script>
+
+<!-- LOGIN -->
+<div id="loginOverlay">
+  <div class="login-box">
+    <div class="login-logo">AEO</div>
+    <div class="login-title">AEO Intelligence</div>
+    <div class="login-sub">Dashboard de visibilidade em IA</div>
+    <input type="password" id="pi" class="login-input" placeholder="Senha de acesso" autocomplete="off">
+    <button class="login-btn" id="lb">Entrar</button>
+    <div class="login-error" id="le"></div>
+  </div>
+  <div class="login-footer">
+    <div class="login-powered"><span>Powered by AEO BR</span></div>
+    <a href="https://aeobr.com.br" target="_blank">aeobr.com.br</a> · Caracol Media
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app locked" id="app">
+<nav class="sidebar">
+  <div class="s-logo">O</div>
+  <button class="nb on" data-p="overview" data-t="Visão Geral"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
+  <button class="nb" data-p="queries" data-t="Queries (69)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <button class="nb" data-p="comp" data-t="Concorrentes"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></button>
+  <button class="nb" data-p="gaps" data-t="Gaps & Ações"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></button>
+  <div class="spacer"></div>
+  <button class="nb" data-t="Sair" onclick="location.reload()"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></button>
+</nav>
+
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-t">OLERA — AEO Intelligence <span>69 queries · 2 plataformas · 4 concorrentes</span></div>
+    <div class="live"><span class="ld"></span><span id="upd"></span></div>
+  </header>
+
+  <div class="content">
+    <!-- OVERVIEW -->
+    <div class="page active" id="page-overview">
+      <div class="kr fu" id="kpiRow"></div>
+      <div class="g g21 fu d1">
+        <div class="cd"><div class="ch"><span class="ct">Saúde do Site — 5 Pilares AEO</span></div><div class="cw" style="height:230px"><canvas id="radarChart"></canvas></div></div>
+        <div class="cd"><div class="ch"><span class="ct">SOV por Plataforma</span></div><div class="cw" style="height:230px"><canvas id="sovChart"></canvas></div></div>
+      </div>
+      <div class="g g3 fu d2">
+        <div class="cd"><div class="ch"><span class="ct">Queries com Citação (2 de 69)</span></div><div id="topQ"></div></div>
+        <div class="cd"><div class="ch"><span class="ct">Ranking SOV — Perplexity</span></div><div id="rankMini"></div></div>
+        <div class="cd"><div class="ch"><span class="ct">Erros por Severidade</span></div><div class="cw" style="height:180px"><canvas id="errChart"></canvas></div></div>
+      </div>
+    </div>
+
+    <!-- QUERIES -->
+    <div class="page" id="page-queries">
+      <div class="cd fu">
+        <div class="ch"><span class="ct">69 Queries Monitoradas — ChatGPT + Perplexity</span></div>
+        <div style="overflow-x:auto;max-height:calc(100vh - 160px);overflow-y:auto">
+          <table class="dt"><thead><tr><th style="width:45%">Query</th><th>ChatGPT</th><th>Perplexity</th><th>Quem aparece</th></tr></thead><tbody id="qBody"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPETITORS -->
+    <div class="page" id="page-comp">
+      <div class="g g2 fu">
+        <div class="cd"><div class="ch"><span class="ct">SOV — ChatGPT</span></div><div class="cw" style="height:260px"><canvas id="compCgChart"></canvas></div></div>
+        <div class="cd"><div class="ch"><span class="ct">SOV — Perplexity</span></div><div class="cw" style="height:260px"><canvas id="compPpChart"></canvas></div></div>
+      </div>
+      <div class="cd fu d1">
+        <div class="ch"><span class="ct">Gaps — Queries onde concorrentes aparecem e Olera não</span></div>
+        <div id="gapQueries"></div>
+      </div>
+    </div>
+
+    <!-- GAPS -->
+    <div class="page" id="page-gaps">
+      <div class="g g2 fu">
+        <div class="cd"><div class="ch"><span class="ct">Problemas Detectados — Priorizado</span></div><div class="gl" id="gapList"></div></div>
+        <div class="cd"><div class="ch"><span class="ct">Plano de Ação — 8 semanas</span></div><div class="gl" id="actList"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// LOGIN
+const pi=document.getElementById('pi'),lb=document.getElementById('lb'),le=document.getElementById('le');
+function doLogin(){if(pi.value===PASS){document.getElementById('loginOverlay').classList.add('hidden');document.getElementById('app').classList.remove('locked');init()}else{le.textContent='Senha incorreta';pi.value='';pi.focus()}}
+lb.addEventListener('click',doLogin);pi.addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});pi.focus();
+
+// NAV
+document.querySelectorAll('.nb[data-p]').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.nb').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const pg=document.getElementById('page-'+b.dataset.p);if(pg)pg.classList.add('active')})});
+
+function pill(s){return `<span class="pill ${s}">${s==='cited'?'Citada':'—'}</span>`}
+
+function init(){
+  document.getElementById('upd').textContent=UPDATED;
+
+  // KPIs
+  document.getElementById('kpiRow').innerHTML=`
+    <div class="kc hi"><div class="kl">Share of Voice</div><div class="kv" style="color:var(--red)">${SOV.geral.pct}%</div><div class="kd dn">${SOV.geral.cited} de ${SOV.geral.total} respostas</div></div>
+    <div class="kc"><div class="kl">Score AEO Site</div><div class="kv" style="color:var(--amber)">${PILLARS.score}</div><div class="kd fl">/100 — 5 pilares</div></div>
+    <div class="kc"><div class="kl">ChatGPT SOV</div><div class="kv" style="color:var(--red)">${SOV.chatgpt.pct}%</div><div class="kd dn">0 citações</div></div>
+    <div class="kc"><div class="kl">Perplexity SOV</div><div class="kv" style="color:var(--amber)">${SOV.perplexity.pct}%</div><div class="kd fl">${SOV.perplexity.cited} citações</div></div>
+    <div class="kc"><div class="kl">Identidade</div><div class="kv" style="color:var(--red)">${PILLARS.identidade}</div><div class="kd dn">CRÍTICO — Schema ausente</div></div>
+    <div class="kc"><div class="kl">Erros Encontrados</div><div class="kv" style="color:var(--red)">${ERRORS.total}</div><div class="kd dn">${ERRORS.critico} críticos</div></div>`;
+
+  // Top queries
+  const cited=Q.filter(q=>q.c==='cited'||q.p==='cited');
+  const topH=cited.length?cited.map(q=>`<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:11px"><span>"${q.t.substring(0,60)}..."</span><br><span class="pill cited" style="margin-top:3px">Perplexity</span></div>`).join(''):'<div style="font-size:11px;color:var(--text-d);padding:8px 0">Apenas 2 queries com citação — ambas no Perplexity, sobre "skincare biotecnológico brasileiro"</div>';
+  document.getElementById('topQ').innerHTML=topH;
+
+  // Ranking mini
+  const pp=COMP_PERPLEXITY.sort((a,b)=>b.sov-a.sov);
+  document.getElementById('rankMini').innerHTML=pp.map(c=>`<div class="ci${c.self?' self':''}"><span class="cr">${pp.indexOf(c)+1}</span><span class="cn">${c.name}</span><div class="pb"><div class="pf" style="width:${c.sov*5}%;background:${c.self?'var(--accent)':'var(--text-d)'}"></div></div><span class="cs"${c.self?' style="color:var(--accent)"':''}>${c.sov}%</span></div>`).join('');
+
+  // Query table
+  document.getElementById('qBody').innerHTML=Q.map(q=>{
+    const tags=q.w.length?q.w.map(w=>`<span class="tag${w==='Olera'?' self':''}">${w}</span>`).join(''):'<span class="tag">—</span>';
+    return `<tr><td style="font-size:11px">${q.t}</td><td>${pill(q.c)}</td><td>${pill(q.p)}</td><td>${tags}</td></tr>`
+  }).join('');
+
+  // Gap queries (where competitors appear and Olera doesn't)
+  const gapQ=Q.filter(q=>q.w.length>0&&!q.w.includes('Olera'));
+  document.getElementById('gapQueries').innerHTML='<div style="max-height:300px;overflow-y:auto">'+gapQ.map(q=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px"><span style="flex:1">"${q.t.substring(0,65)}..."</span><span>${q.w.map(w=>`<span class="tag">${w}</span>`).join('')}</span></div>`).join('')+'</div>';
+
+  // Gaps & Actions
+  document.getElementById('gapList').innerHTML=GAPS.map(g=>`<div class="gr"><div class="gb ${g.lv}">${g.lv==='crit'?'!':g.lv==='warn'?'▲':'○'}</div><div class="gt"><h4>${g.t}</h4><p>${g.d}</p></div></div>`).join('');
+  document.getElementById('actList').innerHTML=ACTIONS.map(a=>`<div class="gr"><div class="gb act">${a.n}</div><div class="gt"><h4>${a.t}</h4><p>${a.d}</p></div></div>`).join('');
+
+  // CHARTS
+  const cDef={responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#7a8a72',font:{family:'DM Sans',size:10},boxWidth:8,padding:10}}}};
+
+  // Radar (5 pillars)
+  new Chart(document.getElementById('radarChart'),{type:'radar',data:{
+    labels:['Acesso','Identidade','Conteúdo','Estrutura','Meta'],
+    datasets:[{label:'Olera',data:[PILLARS.acesso,PILLARS.identidade,PILLARS.conteudo,PILLARS.estrutura,PILLARS.meta],borderColor:'#7cb342',backgroundColor:'rgba(124,179,66,.1)',pointBackgroundColor:'#7cb342',borderWidth:2},{label:'Ideal',data:[80,80,80,80,80],borderColor:'rgba(255,255,255,.08)',backgroundColor:'transparent',pointRadius:0,borderWidth:1,borderDash:[3,3]}]
+  },options:{...cDef,scales:{r:{grid:{color:'rgba(120,160,80,.08)'},ticks:{display:false},pointLabels:{color:'#7a8a72',font:{family:'DM Sans',size:10}},min:0,max:100}}}});
+
+  // SOV bar
+  new Chart(document.getElementById('sovChart'),{type:'bar',data:{
+    labels:['ChatGPT','Perplexity'],
+    datasets:[{label:'Olera',data:[SOV.chatgpt.pct,SOV.perplexity.pct],backgroundColor:'#7cb342',borderRadius:4,barThickness:20},{label:'Líder (SkinCeuticals)',data:[11.6,11.6],backgroundColor:'rgba(255,255,255,.08)',borderRadius:4,barThickness:20}]
+  },options:{...cDef,scales:{x:{grid:{display:false},ticks:{color:'#4a5a42',font:{family:'DM Sans',size:10}},border:{display:false}},y:{grid:{color:'rgba(120,160,80,.05)'},ticks:{color:'#4a5a42',font:{family:'DM Sans',size:10},callback:v=>v+'%'},border:{display:false},max:15}}}});
+
+  // Error donut
+  new Chart(document.getElementById('errChart'),{type:'doughnut',data:{
+    labels:['Crítico','Alto','Médio','Baixo'],
+    datasets:[{data:[ERRORS.critico,ERRORS.alto,ERRORS.medio,ERRORS.baixo],backgroundColor:['#f87171','#fbbf24','#60a5fa','#4a5a42'],borderColor:'#0f130f',borderWidth:2}]
+  },options:{...cDef,cutout:'65%',plugins:{...cDef.plugins,legend:{position:'right',labels:{color:'#7a8a72',font:{family:'DM Sans',size:10},boxWidth:8,padding:8}}}}});
+
+  // Competitor charts
+  function compChart(id,data){
+    const sorted=[...data].sort((a,b)=>b.sov-a.sov);
+    new Chart(document.getElementById(id),{type:'bar',data:{
+      labels:sorted.map(c=>c.name),datasets:[{data:sorted.map(c=>c.sov),backgroundColor:sorted.map(c=>c.self?'#7cb342':'#4a5a42'),borderRadius:4,barThickness:20}]
+    },options:{...cDef,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(120,160,80,.05)'},ticks:{color:'#4a5a42',font:{family:'DM Sans',size:10},callback:v=>v+'%'},border:{display:false},max:15},y:{grid:{display:false},ticks:{color:'#7a8a72',font:{family:'DM Sans',size:10}},border:{display:false}}}}});
+  }
+  compChart('compCgChart',COMP_CHATGPT);
+  compChart('compPpChart',COMP_PERPLEXITY);
+}
+</script>
+</body>
+</html>
