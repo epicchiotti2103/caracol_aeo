@@ -92,13 +92,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);height
 .gt h4{font-size:11px;font-weight:500}.gt p{font-size:9px;color:var(--td);margin-top:1px}
 
 /* REPORTS TAB */
-.rpt-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--bdr);border-radius:var(--r);margin-bottom:8px;transition:all .2s}
-.rpt-item:hover{border-color:var(--ba);background:var(--s2)}
-.rpt-icon{width:48px;height:48px;border-radius:8px;overflow:hidden;flex-shrink:0}.rpt-icon img{width:100%;height:100%;object-fit:cover}
-.rpt-info{flex:1}
-.rpt-name{font-size:12px;font-weight:600;margin-bottom:2px}
-.rpt-meta{font-size:10px;color:var(--td)}
-.rpt-dl{padding:7px 14px;border-radius:6px;border:1px solid var(--ba);background:transparent;color:var(--ac);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.rpt-group{border:1px solid var(--bdr);border-radius:var(--rl);margin-bottom:10px;overflow:hidden}
+.rpt-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;cursor:pointer;transition:all .2s;background:var(--surface)}
+.rpt-header:hover{background:var(--s2)}
+.rpt-date{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+.rpt-date-icon{width:32px;height:32px;border-radius:8px;background:var(--ag);color:var(--ac);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.rpt-count{font-size:10px;color:var(--td);background:var(--s3);padding:2px 8px;border-radius:10px}
+.rpt-arrow{color:var(--td);font-size:14px;transition:transform .2s}
+.rpt-group.open .rpt-arrow{transform:rotate(180deg)}
+.rpt-body{display:none;border-top:1px solid var(--bdr)}
+.rpt-group.open .rpt-body{display:block}
+.rpt-item{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 58px;transition:all .15s;border-bottom:1px solid rgba(120,160,80,.04)}
+.rpt-item:last-child{border-bottom:none}
+.rpt-item:hover{background:var(--s2)}
+.rpt-tipo{font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:4px;flex-shrink:0}
+.rpt-tipo.SOV{background:rgba(74,222,128,.08);color:var(--gn)}
+.rpt-tipo.Site{background:rgba(251,191,36,.08);color:var(--am)}
+.rpt-tipo.Técnico{background:rgba(96,165,250,.08);color:#60a5fa}
+.rpt-name{font-size:12px;font-weight:500;flex:1}
+.rpt-dl{padding:6px 12px;border-radius:6px;border:1px solid var(--ba);background:transparent;color:var(--ac);font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
 .rpt-dl:hover{background:var(--ag);border-color:var(--ac)}
 
 .fu{opacity:0;transform:translateY(6px);animation:fu .35s ease-out forwards}
@@ -220,9 +232,9 @@ const ACTIONS=[
 // ═══ RELATÓRIOS PARA DOWNLOAD ═══
 // Du: quando rodar nova auditoria, adiciona uma linha aqui e sobe o arquivo na mesma pasta
 const RELATORIOS=[
-  {nome:"Auditoria SOV Completa (ChatGPT + Perplexity + Gemini)",data:"19/03/2026",arquivo:"aeo_audit_olera_20260319.html",tipo:"SOV",icon:"icon-sov.jpg"},
-  {nome:"Diagnóstico de Site — 5 Pilares AEO",data:"19/03/2026",arquivo:"aeo_cliente_olera_com_br_20260319_153534.html",tipo:"Site",icon:"icon-site.jpg"},
-  {nome:"Relatório Técnico Interno (166 oportunidades)",data:"19/03/2026",arquivo:"aeo_interno_olera_com_br_20260319_153534.html",tipo:"Técnico",icon:"icon-tecnico.jpg"},
+  {nome:"Auditoria SOV Completa (ChatGPT + Perplexity + Gemini)",data:"19/03/2026",arquivo:"aeo_audit_olera_20260319.html",tipo:"SOV"},
+  {nome:"Diagnóstico de Site — 5 Pilares AEO",data:"19/03/2026",arquivo:"aeo_cliente_olera_com_br_20260319_153534.html",tipo:"Site"},
+  {nome:"Relatório Técnico Interno (166 oportunidades)",data:"19/03/2026",arquivo:"aeo_interno_olera_com_br_20260319_153534.html",tipo:"Técnico"},
 ];
 </script>
 
@@ -355,16 +367,26 @@ function init(){
   document.getElementById('gapList').innerHTML=GAPS.map(g=>`<div class="gr"><div class="gba ${g.lv}">${g.lv==='crit'?'!':g.lv==='warn'?'▲':'○'}</div><div class="gt"><h4>${g.t}</h4><p>${g.d}</p></div></div>`).join('');
   document.getElementById('actList').innerHTML=ACTIONS.map(a=>`<div class="gr"><div class="gba act">${a.n}</div><div class="gt"><h4>${a.t}</h4><p>${a.d}</p></div></div>`).join('');
 
-  // Reports
-  document.getElementById('rptList').innerHTML=RELATORIOS.map(r=>`
-    <div class="rpt-item">
-      <div class="rpt-icon"><img src="${r.icon}" alt="${r.tipo}"></div>
-      <div class="rpt-info">
-        <div class="rpt-name">${r.nome}</div>
-        <div class="rpt-meta">${r.data} · ${r.tipo}</div>
+  // Reports - group by date
+  const grouped={};
+  RELATORIOS.forEach(r=>{if(!grouped[r.data])grouped[r.data]=[];grouped[r.data].push(r)});
+  const dates=Object.keys(grouped).sort((a,b)=>b.localeCompare(a));
+  document.getElementById('rptList').innerHTML=dates.map((d,i)=>{
+    const items=grouped[d];
+    const open=i===0?'open':'';
+    return`<div class="rpt-group ${open}">
+      <div class="rpt-header" onclick="this.parentElement.classList.toggle('open')">
+        <div class="rpt-date">${d}</div>
+        <div style="display:flex;align-items:center;gap:8px"><span class="rpt-count">${items.length} relatório${items.length>1?'s':''}</span><span class="rpt-arrow">▼</span></div>
       </div>
-      <a class="rpt-dl" href="${r.arquivo}" download>⬇ Download</a>
-    </div>`).join('');
+      <div class="rpt-body">${items.map(r=>`
+        <div class="rpt-item">
+          <span class="rpt-tipo ${r.tipo}">${r.tipo}</span>
+          <span class="rpt-name">${r.nome}</span>
+          <a class="rpt-dl" href="${r.arquivo}" download>⬇ Download</a>
+        </div>`).join('')}
+      </div>
+    </div>`}).join('');
 
   // CHARTS
   const cD={responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#7a8a72',font:{family:'DM Sans',size:10},boxWidth:8,padding:10}}}};
