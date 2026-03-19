@@ -1,0 +1,2508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoria AEO — Olera</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: white;
+    padding: 48px 40px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+  }
+  .header-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #60a5fa;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+    font-weight: 400;
+  }
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  /* Score Cards */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .score-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+  }
+  .score-card.highlight {
+    border: 2px solid #3b82f6;
+    background: linear-gradient(180deg, #eff6ff 0%, #fff 100%);
+  }
+  .score-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+  .score-value {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .score-value.red { color: #ef4444; }
+  .score-value.orange { color: #f59e0b; }
+  .score-value.green { color: #22c55e; }
+  .score-value.blue { color: #3b82f6; }
+  .score-detail {
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  /* Sections */
+  .section {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+  }
+  .section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section h2 .icon { font-size: 24px; }
+
+  /* Competitor Table */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .comp-table th {
+    text-align: left;
+    padding: 12px 16px;
+    background: #f8fafc;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .comp-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .comp-table tr:hover { background: #f8fafc; }
+
+  /* SOV Bar */
+  .sov-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sov-bar {
+    flex: 1;
+    height: 24px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .sov-bar-fill {
+    height: 100%;
+    border-radius: 12px;
+    transition: width 0.5s ease;
+  }
+  .sov-bar-fill.cliente { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .sov-bar-fill.concorrente { background: linear-gradient(90deg, #94a3b8, #cbd5e1); }
+  .sov-pct {
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 45px;
+    text-align: right;
+  }
+
+  /* Gap List */
+  .gap-item {
+    padding: 16px;
+    border-left: 3px solid #ef4444;
+    background: #fef2f2;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+  }
+  .gap-item .pergunta {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1e293b;
+    margin-bottom: 4px;
+  }
+  .gap-item .detalhe {
+    font-size: 12px;
+    color: #64748b;
+  }
+
+  /* Recommendations */
+  .rec-item {
+    padding: 16px 20px;
+    border-left: 3px solid #3b82f6;
+    background: #eff6ff;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+  }
+  .rec-item .titulo {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1e40af;
+    margin-bottom: 4px;
+  }
+  .rec-item .desc {
+    font-size: 13px;
+    color: #475569;
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge.cliente { background: #dbeafe; color: #1e40af; }
+  .badge.engine { background: #f1f5f9; color: #475569; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 32px 0;
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .container { padding: 0; }
+    .section { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Auditoria de Visibilidade em IA</div>
+    <h1>Olera</h1>
+    <div class="subtitle">Como as IAs estão respondendo sobre skincare biotecnológico premium no Brasil</div>
+    <div class="header-meta">
+      <span>📅 19/03/2026</span>
+      <span>🔗 https://olera.com.br</span>
+      <span>❓ 69 perguntas analisadas</span>
+    </div>
+  </div>
+
+  <!-- SCORE CARDS -->
+  <div class="score-grid">
+    <div class="score-card highlight">
+      <div class="score-label">Share of Voice Geral</div>
+      <div class="score-value red">
+        1.4%
+      </div>
+      <div class="score-detail">3 de 207 respostas</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">ChatGPT</div>
+      <div class="score-value red">
+        0.0%
+      </div>
+      <div class="score-detail">0 de 69 respostas</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">Perplexity</div>
+      <div class="score-value red">
+        2.9%
+      </div>
+      <div class="score-detail">2 de 69 respostas</div>
+    </div>
+    
+    <div class="score-card">
+      <div class="score-label">Gemini</div>
+      <div class="score-value red">
+        1.4%
+      </div>
+      <div class="score-detail">1 de 69 respostas</div>
+    </div>
+    
+  </div>
+
+  <!-- COMPARATIVO CONCORRENTES -->
+  <div class="section">
+    <h2><span class="icon">📊</span> Share of Voice: Olera vs Concorrentes</h2>
+
+    
+    
+    <h3 style="font-size: 14px; color: #64748b; margin-bottom: 16px;">ChatGPT</h3>
+    <div style="margin-bottom: 24px;">
+      <!-- Cliente -->
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 600; font-size: 13px;">Olera <span class="badge cliente">CLIENTE</span></span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill cliente" style="width: 0.0%"></div></div>
+          <span class="sov-pct" style="color: #3b82f6;">0.0%</span>
+        </div>
+      </div>
+      <!-- Concorrentes -->
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">SkinCeuticals</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 11.6%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">11.6%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">Simple Organic</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 1.4%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">1.4%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">Sallve</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 0.0%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">0.0%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">OneSkin</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 0.0%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">0.0%</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    <h3 style="font-size: 14px; color: #64748b; margin-bottom: 16px;">Perplexity</h3>
+    <div style="margin-bottom: 24px;">
+      <!-- Cliente -->
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 600; font-size: 13px;">Olera <span class="badge cliente">CLIENTE</span></span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill cliente" style="width: 2.9%"></div></div>
+          <span class="sov-pct" style="color: #3b82f6;">2.9%</span>
+        </div>
+      </div>
+      <!-- Concorrentes -->
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">SkinCeuticals</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 11.6%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">11.6%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">Simple Organic</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 5.8%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">5.8%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">Sallve</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 5.8%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">5.8%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">OneSkin</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 0.0%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">0.0%</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    <h3 style="font-size: 14px; color: #64748b; margin-bottom: 16px;">Gemini</h3>
+    <div style="margin-bottom: 24px;">
+      <!-- Cliente -->
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 600; font-size: 13px;">Olera <span class="badge cliente">CLIENTE</span></span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill cliente" style="width: 1.4%"></div></div>
+          <span class="sov-pct" style="color: #3b82f6;">1.4%</span>
+        </div>
+      </div>
+      <!-- Concorrentes -->
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">SkinCeuticals</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 7.2%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">7.2%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">Simple Organic</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 5.8%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">5.8%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">Sallve</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 7.2%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">7.2%</span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span style="font-weight: 500; font-size: 13px; color: #64748b;">OneSkin</span>
+        </div>
+        <div class="sov-bar-container">
+          <div class="sov-bar"><div class="sov-bar-fill concorrente" style="width: 4.3%"></div></div>
+          <span class="sov-pct" style="color: #64748b;">4.3%</span>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <!-- TABELA DETALHADA -->
+  <div class="section">
+    <h2><span class="icon">🔍</span> Resultado por Pergunta</h2>
+    
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th style="width: 45%;">Pergunta</th>
+          
+          <th>ChatGPT</th>
+          
+          <th>Perplexity</th>
+          
+          <th>Gemini</th>
+          
+          <th>Fonte</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são os melhores produtos anti-idade do mercado?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor sérum para pele acneica?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor sérum que existe?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor rejuvenescedor para o rosto?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são os melhores cosméticos para o rosto?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Você conhece algum material sobre skincare biotecnológico brasileiro?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #22c55e; font-weight: 700;">✅ Citado</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #22c55e; font-weight: 700;">✅ Citado</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são as melhores marcas de skincare biotecnológico brasileiras?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #22c55e; font-weight: 700;">✅ Citado</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é a melhor marca de skincare premium brasileira?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual sérum é melhor para firmeza e elasticidade da pele?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual cleansing balm brasileiro você recomenda?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual cleansing oil é bom para pele oleosa?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual cleansing oil é eficaz contra cravos?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">O que você acha do clean it zero para remover maquiagem?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual cleansing stream você recomenda?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Como usar skincare com exossomos?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais produtos de skincare contêm exossomos?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é um bom skincare com esfoliante?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Posso fazer skincare com produtos caseiros?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Skincare com sabonete de enxofre é realmente eficaz?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Como usar babosa na minha rotina de skincare?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">O que você recomenda para anti-rugas?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor creme para tirar rugas?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">O creme Rugol realmente funciona para rugas?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor creme rejuvenescedor para o rosto?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Como deve ser a rotina de skincare anti-aging para mulheres com 40 anos?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é a melhor rotina de skincare anti-aging para mulheres com 40 anos? Tem opções na Amazon?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são os benefícios da vitamina C para a pele?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor sérum de vitamina C para o rosto?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são os melhores séruns com vitamina C disponíveis?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor sérum com vitamina C?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são os melhores produtos de skincare clean beauty científicos brasileiros?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">A bruma facial hidratante premium funciona mesmo? Vale a pena?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor creme para a área dos olhos?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual creme para área dos olhos você recomenda?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são os melhores produtos de skincare com ingredientes naturais?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">O sérum bioativo antiacne Max Love é bom?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são as melhores dicas de dermatologista para cuidar da pele?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Como funciona uma consulta com dermatologista?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor creme para o rosto?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor tratamento facial?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">O que é dermatologista e qual é o trabalho dessa especialidade?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o melhor sérum facial com ácido hialurônico premium?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é o preço do sérum facial com ácido hialurônico premium no Brasil?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Onde encontro sérum facial com ácido hialurônico premium na Amazon Brasil?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">autocomplete_convertida</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são as melhores marcas de skincare biotecnológico premium que vendem na Amazon Brasil?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Me recomenda 5 marcas brasileiras de skincare com tecnologia de ponta e preço premium</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é a melhor marca de sérum com peptídeos bioativos disponível no Brasil?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Que marcas de skincare anti-aging vocês consideram as melhores para mulheres acima de 40 anos?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são os melhores cuidados faciais premium com ativos biotecnológicos que eu posso comprar online?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Me indica marcas de skincare limpo e científico que valem o investimento</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual marca brasileira de skincare biotecnológico você mais recomenda para começar um tratamento anti-rugas?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são as melhores opções de skincare com ácido hialurônico de alto peso molecular no Brasil?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Me recomenda um dermatologista referência em skincare biotecnológico em São Paulo</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual marca de cuidados faciais premium com tecnologia stem cell você mais recomenda?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são os melhores produtos de skincare com niacinamida em alta concentração que valem a pena?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Me indica clínicas de estética que trabalham com skincare biotecnológico de verdade no Brasil</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual a diferença entre um skincare premium brasileiro e um importado? Vale a pena pagar mais?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Skincare com ingredientes naturais ou com ativos biotecnológicos sintéticos funciona melhor para anti-rugas?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Vale mais a pena investir em uma rotina completa premium ou em poucos produtos high-tech?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Qual é melhor para pele madura: um creme nutritivo ou um sérum com tecnologia avançada?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Skincare com retinol ou com bakuchiol funciona melhor para firmeza em mulheres acima de 45 anos?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Como escolher um bom produto de skincare biotecnológico sem cair em cilada de marketing?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Tenho pele sensível e quero começar com anti-aging premium, por onde começo?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">O que olhar no rótulo de um sérum premium para saber se realmente vale os R$ 200+ que custa?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Minha pele começou a ficar flácida com 42 anos, qual é o melhor protocolo de skincare que devo seguir?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Como montar uma rotina de skincare anti-aging eficaz gastando menos de R$ 300 por mês?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Quais são as melhores lojas de skincare premium em Pinheiros, São Paulo?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Tem dermatologista bom em skincare biotecnológico na zona sul do Rio de Janeiro?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 500;">Onde encontro skincare de marca premium com atendimento especializado em Belo Horizonte?</td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td>
+            
+            
+              <span style="color: #ef4444;">❌ Ausente</span>
+            
+          </td>
+          
+          <td><span class="badge engine">llm_gerada</span></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GAPS -->
+  
+  <div class="section">
+    <h2><span class="icon">⚠️</span> Top Gaps — Onde os Concorrentes Aparecem e Você Não</h2>
+    <p style="color: #64748b; font-size: 14px; margin-bottom: 16px;">
+      Estas são as perguntas onde pelo menos um concorrente é mencionado, mas Olera não aparece.
+      São as maiores oportunidades de melhoria.
+    </p>
+    
+    <div class="gap-item">
+      <div class="pergunta">Quais são os melhores produtos anti-idade do mercado?</div>
+      <div class="detalhe">
+        <span class="badge engine">chatgpt</span>
+        Concorrentes presentes: SkinCeuticals
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual é o melhor sérum para pele acneica?</div>
+      <div class="detalhe">
+        <span class="badge engine">perplexity</span>
+        Concorrentes presentes: Sallve
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual é o melhor sérum que existe?</div>
+      <div class="detalhe">
+        <span class="badge engine">gemini</span>
+        Concorrentes presentes: SkinCeuticals
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Quais são os melhores cosméticos para o rosto?</div>
+      <div class="detalhe">
+        <span class="badge engine">chatgpt</span>
+        Concorrentes presentes: Skinceuticals
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual é a melhor marca de skincare premium brasileira?</div>
+      <div class="detalhe">
+        <span class="badge engine">perplexity</span>
+        Concorrentes presentes: Simple Organic
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual sérum é melhor para firmeza e elasticidade da pele?</div>
+      <div class="detalhe">
+        <span class="badge engine">perplexity</span>
+        Concorrentes presentes: Sallve
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual cleansing balm brasileiro você recomenda?</div>
+      <div class="detalhe">
+        <span class="badge engine">perplexity</span>
+        Concorrentes presentes: Sallve
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual cleansing balm brasileiro você recomenda?</div>
+      <div class="detalhe">
+        <span class="badge engine">gemini</span>
+        Concorrentes presentes: Sallve
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">O que você recomenda para anti-rugas?</div>
+      <div class="detalhe">
+        <span class="badge engine">perplexity</span>
+        Concorrentes presentes: SkinCeuticals
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual é o melhor creme para tirar rugas?</div>
+      <div class="detalhe">
+        <span class="badge engine">perplexity</span>
+        Concorrentes presentes: SkinCeuticals
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual é o melhor sérum de vitamina C para o rosto?</div>
+      <div class="detalhe">
+        <span class="badge engine">chatgpt</span>
+        Concorrentes presentes: SkinCeuticals
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual é o melhor sérum de vitamina C para o rosto?</div>
+      <div class="detalhe">
+        <span class="badge engine">perplexity</span>
+        Concorrentes presentes: SkinCeuticals, La Roche-Posay
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Quais são os melhores séruns com vitamina C disponíveis?</div>
+      <div class="detalhe">
+        <span class="badge engine">chatgpt</span>
+        Concorrentes presentes: SkinCeuticals
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Quais são os melhores séruns com vitamina C disponíveis?</div>
+      <div class="detalhe">
+        <span class="badge engine">gemini</span>
+        Concorrentes presentes: SkinCeuticals, Simple Organic, Sallve, OneSkin
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="pergunta">Qual é o melhor sérum com vitamina C?</div>
+      <div class="detalhe">
+        <span class="badge engine">chatgpt</span>
+        Concorrentes presentes: SkinCeuticals
+      </div>
+    </div>
+    
+  </div>
+  
+
+  <!-- RECOMENDAÇÕES -->
+  <div class="section">
+    <h2><span class="icon">🎯</span> Recomendações de Ação</h2>
+    <div class="rec-item">
+      <div class="titulo">1. Implementar Schema Markup (JSON-LD)</div>
+      <div class="desc">Adicionar dados estruturados ao site: Organization, LegalService, FAQPage e Article. Isso ajuda as IAs a identificarem e citarem Olera corretamente.</div>
+    </div>
+    <div class="rec-item">
+      <div class="titulo">2. Criar Páginas de FAQ por Área de Atuação</div>
+      <div class="desc">Para cada área (skincare biotecnológico premium no Brasil), criar uma página com as perguntas mais frequentes respondidas de forma direta e completa — no formato que as IAs preferem citar.</div>
+    </div>
+    <div class="rec-item">
+      <div class="titulo">3. Publicar Conteúdo Autoritativo</div>
+      <div class="desc">Artigos técnicos e guias práticos que posicionem Olera como referência. Priorizar as 33 perguntas onde há gaps em relação aos concorrentes.</div>
+    </div>
+    <div class="rec-item">
+      <div class="titulo">4. Fortalecer E-E-A-T (Experiência, Expertise, Autoridade, Confiança)</div>
+      <div class="desc">Incluir bios detalhadas dos profissionais, certificações, prêmios e depoimentos. As IAs priorizam fontes com sinais claros de autoridade.</div>
+    </div>
+    <div class="rec-item">
+      <div class="titulo">5. Monitoramento Contínuo</div>
+      <div class="desc">Rodar esta auditoria mensalmente para acompanhar a evolução do Share of Voice e medir o impacto das otimizações implementadas.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Relatório gerado automaticamente · 19/03/2026</p>
+    <p style="margin-top: 4px;">Auditoria AEO — Visibilidade em Inteligência Artificial</p>
+  </div>
+
+</div>
+</body>
+</html>
