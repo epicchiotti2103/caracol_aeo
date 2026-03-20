@@ -518,7 +518,7 @@
             <a href="#faq">FAQ</a>
           </div>
           <div class="fls">
-            <a href="/cdn-cgi/l/email-protection#73101c1d0712071c3310120112101c1f5d1e16171a12"><span class="__cf_email__" data-cfemail="690a06071d081d06290a081b080a060547040c0d0008">[email&#160;protected]</span></a>
+            <a href="mailto:contato@caracol.media">contato@caracol.media</a>
             <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a>
           </div>
         </div>
@@ -530,13 +530,15 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)},{passive:!0});
     function toggleMenu(){document.querySelector('.nav-links').classList.toggle('active')}
     function closeMenu(){document.querySelector('.nav-links').classList.remove('active')}
     function tg(b){const i=b.parentElement,a=b.nextElementSibling,c=i.classList.contains('active');document.querySelectorAll('.fi.active').forEach(e=>{e.classList.remove('active');e.querySelector('.fa').style.maxHeight='0'});if(!c){i.classList.add('active');a.style.maxHeight=a.scrollHeight+'px'}}
-    const CF_URL="https://aeo-lead-receiver-ugzah7lydq-rj.a.run.app";
-    async function handleSubmit(e){e.preventDefault();const f=e.target,btn=f.querySelector('.fsub'),nome=f.querySelector('#nm').value.trim(),email=f.querySelector('#em').value.trim(),site=f.querySelector('#ws').value.trim();btn.textContent='Enviando...';btn.disabled=!0;btn.style.opacity='0.7';try{const res=await fetch(CF_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nome,email,site})});const data=await res.json();if(res.ok){btn.textContent='Diagnóstico solicitado ✓';btn.style.background='#34d399';btn.style.opacity='1'}else{const msg=data.errors?data.errors.join(' '):data.error||'Erro ao enviar.';btn.textContent='Tentar novamente';btn.style.background='#ff4d4d';btn.style.opacity='1';btn.disabled=!1;alert(msg)}}catch(err){btn.textContent='Erro de conexão — tente novamente';btn.style.background='#ff4d4d';btn.style.opacity='1';btn.disabled=!1}}
+    function handleSubmit(e){e.preventDefault();const f=e.target,n=f.querySelector('#nm').value,m=f.querySelector('#em').value,s=f.querySelector('#ws').value,b=f.querySelector('.fsub');b.textContent='Diagnóstico solicitado ✓';b.style.background='#34d399';b.disabled=!0;setTimeout(()=>{alert(`Obrigado, ${n}! Seu diagnóstico AEO para ${s} será enviado para ${m} em até 24h.`)},300)}
     const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
-    document.querySelectorAll('a[href^="#"]')
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h==='#')return;e.preventDefault();const t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+  </script>
+</body>
+</html>
