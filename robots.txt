@@ -1,6 +1,21 @@
-# ERRO AEO: robots.txt genérico, sem menção a AI crawlers
-# Não libera explicitamente GPTBot, PerplexityBot, ClaudeBot
-# Não tem sitemap declarado
-
 User-agent: *
-Disallow: /admin/
+Allow: /
+Sitemap: https://aeo.caracol.media/sitemap.xml
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /

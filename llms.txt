@@ -1,0 +1,25 @@
+# Caracol AEO
+
+> Serviço de Answer Engine Optimization (AEO) que audita e otimiza a visibilidade de marcas nas respostas de IAs generativas como ChatGPT, Perplexity e Google AI Overview no mercado brasileiro.
+
+## Sobre
+
+Caracol AEO é uma empresa do grupo Caracol Media especializada em Answer Engine Optimization para o mercado brasileiro. Analisamos sites em 4 dimensões — Dados Estruturados (Schema), Conteúdo e Estrutura, Técnico/Crawlability e Meta Tags — e medimos o Share of Voice de marcas nas respostas do ChatGPT, Perplexity e Google AI.
+
+## Serviços
+
+- Diagnóstico AEO Gratuito: Score de visibilidade de 0 a 100 com análise por categoria
+- Relatório AEO Detalhado (R$29,90): Auditoria técnica completa por página com severidade de erros
+- Relatório AEO Competitivo (R$59,90): Relatório completo + Share of Voice + benchmarking contra concorrentes
+
+## Como Funciona
+
+1. Diagnóstico do Site: Análise de Schema Markup, estrutura de conteúdo, aspectos técnicos e meta tags
+2. Auditoria nas IAs: Consulta ao ChatGPT, Perplexity e Google AI com perguntas reais do nicho do cliente
+3. Plano de Ação: Recomendações priorizadas com Schema Markup, reestruturação de conteúdo e Digital PR
+
+## Contato
+
+- Site: https://aeo.caracol.media
+- E-mail: contato@caracol.media
+- Empresa: Caracol Media (CNPJ: 55.097.812/0001-99)
