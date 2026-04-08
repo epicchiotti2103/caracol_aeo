@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs — Caracol AEO</title>
+  <meta name="description" content="Guia completo do AI Performance do Bing Webmaster Tools: como acessar, interpretar métricas de citações em IAs e otimizar conteúdo baseado em dados reais do Copilot.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://aeobr.com.br/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs">
+  <meta property="og:description" content="Guia completo do AI Performance do Bing Webmaster Tools: como acessar, interpretar métricas de citações em IAs e otimizar conteúdo baseado em dados reais do Copilot.">
+  <meta property="og:url" content="https://aeobr.com.br/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-04-07">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs">
+  <meta name="twitter:description" content="Guia completo do AI Performance do Bing Webmaster Tools: como acessar, interpretar métricas de citações em IAs e otimizar conteúdo baseado em dados reais do Copilot.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG CARDS */
+    .bg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;transition:all .35s var(--ease);cursor:pointer;text-decoration:none;display:block}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px)}
+    .bci{height:180px;background:linear-gradient(135deg,rgba(255,87,34,.08),rgba(200,255,0,.05));display:flex;align-items:center;justify-content:center;font-size:48px;border-bottom:1px solid var(--bdr)}
+    .bcb{padding:24px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.35}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.5}
+    .bcf{padding:0 24px 20px;font-size:13px;color:var(--orange);font-weight:500}
+    .bcm{padding:0 24px 8px;font-size:12px;color:var(--t4)}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs",
+    "description": "Guia completo do AI Performance do Bing Webmaster Tools: como acessar, interpretar métricas de citações em IAs e otimizar conteúdo baseado em dados reais do Copilot.",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://aeobr.com.br"
+    },
+    "datePublished": "2026-04-07",
+    "dateModified": "2026-04-07",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aeobr.com.br/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Requisitos de acesso e período de dados disponíveis
+
+O AI Performance exige que seu site tenha recebido um volume mínimo de citações no Copilot nos últimos 28 dias. A Microsoft não divulga o threshold exato, mas a experiência prática indica que sites com menos de 1.000 páginas indexadas raramente têm acesso imediato.
+
+Os dados ficam disponíveis por 90 dias no painel. Depois desse período, você precisa exportar relatórios para manter histórico. O sistema oferece filtros por data (últimos 7, 28 ou 90 dias) e permite segmentação por página específica ou conjunto de URLs.
+
+Uma característica importante: os dados começam a aparecer apenas após a ativação do recurso. Não há dados retroativos, então é essencial ativar o recurso assim que disponível para não perder insights históricos.
+
+## Métricas principais: impressões, cliques e prompts
+
+O AI Performance trabalha com três métricas fundamentais que diferem significativamente das métricas tradicionais de busca. Entender essas diferenças é crucial para interpretar os dados corretamente.
+
+### Diferença entre impressão no Copilot e clique no site
+
+Uma **impressão** acontece quando o Copilot cita sua página como fonte em uma resposta gerada. Isso não significa que o usuário viu ou interagiu com o link - apenas que o conteúdo foi usado para construir a resposta da IA. É similar a aparecer nos resultados de busca, mas com uma diferença crucial: sua informação já foi processada e reformulada pela IA.
+
+Um **clique** ocorre quando o usuário efetivamente clica no link para seu site após receber a resposta do Copilot. A taxa de cliques (CTR) no AI Performance tende a ser mais baixa que na busca tradicional, já que o Copilot fornece respostas diretas que muitas vezes atendem à necessidade do usuário sem exigir navegação adicional.
+
+### Como interpretar a métrica de prompts
+
+A métrica de **prompts** mostra as perguntas exatas que usuários fizeram ao Copilot e que resultaram em citações do seu conteúdo. Esta é possivelmente a métrica mais valiosa para estratégia de conteúdo, pois revela a linguagem natural que as pessoas usam quando buscam informações no seu nicho.
+
+Dados de mercado indicam que Copilot processa prompts em mais de 100 idiomas, mas o AI Performance mostra apenas prompts que citaram especificamente suas páginas. Isso cria um dataset único de intenções de busca já validadas pelo seu conteúdo existente.
+
+| Métrica | Definição | Aplicação Estratégica |
+|---------|-----------|----------------------|
+| Impressões | Citações da página pelo Copilot | Volume de autoridade temática |
+| Cliques | Visitas vindas de citações | Qualidade do call-to-action implícito |
+| Prompts | Perguntas que geraram citações | Mapeamento de intenções de busca |
+
+## Como identificar quais prompts geram citações do seu conteúdo
+
+O relatório de prompts é onde acontece a análise mais estratégica. Você pode ordenar prompts por volume de impressões para identificar quais perguntas mais frequentemente resultam em citações do seu conteúdo. Isso revela padrões de demanda que não aparecem em ferramentas de keyword research tradicionais.
+
+### Análise de prompts por página e volume
+
+Filtre o relatório por página específica para entender quais perguntas levam usuários até conteúdos específicos. Uma página sobre "robots.txt" pode estar sendo citada para prompts como "como bloquear bot no site" ou "arquivo robots.txt exemplo", revelando variações de linguagem que você pode incorporar ao conteúdo.
+
+Ordene prompts por volume decrescente para priorizar otimizações. Prompts com muitas impressões mas poucos cliques indicam que sua página está sendo citada, mas o contexto ou call-to-action não incentiva a visita ao site. Isso sugere oportunidades de [otimizar conteúdo para citação por IAs](/blog/otimizar-conteudo-citacao-ia-generativa/) de forma mais efetiva.
+
+### Padrões de linguagem conversacional nos prompts
+
+Os prompts revelam como pessoas fazem perguntas conversacionais, não apenas buscas por palavras-chave. Você verá perguntas completas como "qual a diferença entre robots.txt e sitemap.xml para SEO?" em vez de apenas "robots.txt sitemap diferença".
+
+Estes padrões conversacionais são fundamentais para criar conteúdo que responda diretamente às perguntas dos usuários. Analise a estrutura das perguntas: começam com "como", "qual", "por que"? Incluem contexto adicional? Essa análise informa não apenas o que escrever, mas como estruturar as respostas.
+
+## O que fazer com os dados: otimizações práticas
+
+Os dados do AI Performance devem direcionar três tipos de ação: otimização de conteúdo existente, criação de conteúdo novo, e ajuste de estrutura informacional. Cada ação responde a um insight específico dos dados.
+
+### Ajustar conteúdo para cobrir gaps identificados nos prompts
+
+Quando um prompt gera impressões consistentes mas poucos cliques, analise se sua página responde completamente à pergunta. Muitas vezes, o Copilot está extraindo apenas parte da informação necessária, deixando gaps que reduzem a utilidade da citação.
+
+Adicione seções específicas que respondam diretamente aos prompts mais frequentes. Se usuários perguntam "como implementar robots.txt em WordPress", mas sua página fala genericamente sobre robots.txt, adicione uma seção específica para WordPress com passos detalhados.
+
+Revise também a estrutura de headings. IAs tendem a citar conteúdo bem estruturado com H2s que respondem perguntas específicas. Transforme insights dos prompts em headings que espelhem a linguagem natural dos usuários.
+
+### Criar conteúdo novo baseado em prompts sem citação
+
+Identifique prompts relacionados ao seu nicho que não geram citações das suas páginas. Estes representam demanda validada para conteúdo que você ainda não tem. É uma forma de keyword research baseada em demanda real de IA, não estimativas de volume.
+
+Priorize prompts que aparecem consistentemente mas citam apenas concorrentes. Isso indica oportunidades claras de criar conteúdo mais completo ou melhor estruturado para capturar essas citações.
+
+## Limitações do AI Performance e como complementar a análise
+
+O AI Performance tem limitações importantes que devem influenciar como você interpreta os dados. Primeiro, ele mostra apenas citações do Copilot, não de outras IAs como ChatGPT, Claude ou Perplexity. Isso representa uma fração do ecossistema total de citações em IA.
+
+A ferramenta também não mostra dados de intenção ou contexto da sessão do usuário. Você vê o prompt isolado, mas não sabe se fazia parte de uma conversa mais longa ou qual era o objetivo final do usuário. Isso limita a profundidade da análise de comportamento.
+
+Para análise completa, combine os dados do AI Performance com outras métricas: Google Analytics para entender o comportamento dos usuários que chegam via citações, Search Console para comparar com performance em busca tradicional, e ferramentas de monitoramento de menções para capturar citações em outras IAs.
+
+A latência de dados (até 2 dias) também significa que otimizações baseadas no AI Performance não mostram resultados imediatos. Use os dados para decisões estratégicas de médio prazo, não ajustes táticos diários.
+
+## Perguntas frequentes
+
+### Quanto tráfego é necessário para ter acesso ao AI Performance no Bing Webmaster Tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Microsoft não divulga o threshold exato, mas sites com menos de 1.000 páginas indexadas e baixo volume de citações raramente têm acesso imediato. O requisito parece estar baseado no número de citações recebidas nos últimos 28 dias, não no tráfego total do site."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "O AI Performance mostra citações do ChatGPT ou apenas do Copilot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O AI Performance mostra exclusivamente dados do Microsoft Copilot. Citações de outras IAs como ChatGPT, Claude ou Perplexity não aparecem neste relatório. Para análise completa, você precisa complementar com outras ferramentas de monitoramento."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "Como exportar dados de prompts do AI Performance para análise externa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No relatório do AI Performance, clique em \"Export\" no canto superior direito e selecione o formato CSV. O arquivo inclui todos os prompts, impressões, cliques e URLs correspondentes para o período selecionado. Você pode então analisar os dados em planilhas ou ferramentas de BI."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "É possível comparar performance de AI citações entre diferentes páginas do site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, use o filtro \"Page\" para visualizar dados de páginas específicas ou compare métricas na visualização geral. O relatório permite ordenação por impressões, cliques ou CTR para identificar quais páginas têm melhor performance em citações de IA."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "O que significa quando um prompt tem impressão mas zero cliques no AI Performance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Isso indica que o Copilot citou sua página na resposta, mas os usuários não clicaram no link para visitar seu site. Pode significar que a resposta da IA foi suficiente para a necessidade do usuário, ou que o contexto da citação não incentivou a navegação adicional."
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">bing webmaster tools · ai performance · métricas aeo</div>
+      <h1>Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs</h1>
+      <div class="meta">Elio Picchiotti · 7 de abril de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>O <strong>AI Performance do Bing Webmaster Tools</strong> é a primeira ferramenta gratuita que fornece métricas reais de citações em IAs generativas, especificamente no Microsoft Copilot. Ele mostra impressões, cliques e prompts completos que geraram citações do seu conteúdo, permitindo análise factual em vez de estimativas.</p>
+<p>Este recurso representa um marco para profissionais que trabalham com AEO. Pela primeira vez, temos acesso a dados oficiais de como nosso conteúdo está sendo citado por uma IA mainstream, substituindo análises especulativas por métricas concretas baseadas na interação real dos usuários com o Copilot.</p>
+<h2 id="o-que-e-o-ai-performance-do-bing-webmaster-tools">O que é o AI Performance do Bing Webmaster Tools</h2>
+<p>O AI Performance é um relatório específico dentro do Bing Webmaster Tools que monitora como páginas do seu site são citadas pelo Microsoft Copilot. Diferente das <a href="/blog/ferramentas-metricas-medir-resultados-aeo/">ferramentas para medir resultados em AEO</a> tradicionais, ele fornece dados primários coletados diretamente das interações entre usuários e a IA.</p>
+<p>A Microsoft lançou este recurso oficialmente em 2024, tornando-se a primeira empresa de tecnologia a oferecer transparência completa sobre citações em IAs generativas. O relatório funciona como uma extensão das métricas tradicionais de busca, mas voltado especificamente para interações conversacionais.</p>
+<p>O diferencial está no nível de detalhe: você vê o prompt exato que o usuário digitou, quantas vezes sua página apareceu como fonte citada (impressões), e quantas vezes os usuários clicaram no link para seu site após ver a citação. Segundo a Microsoft, o AI Performance mostra dados com até 2 dias de atraso em relação às citações reais no Copilot.</p>
+<h2 id="como-ativar-e-acessar-o-relatorio-de-ai-performance">Como ativar e acessar o relatório de AI Performance</h2>
+<p>Para acessar o AI Performance, faça login no Bing Webmaster Tools e procure por "AI Performance" no menu lateral esquerdo. Se não aparecer, significa que seu site ainda não atende aos requisitos mínimos de volume. O acesso não é universal - relatórios de adoção indicam que menos de 15% dos sites cadastrados no Bing Webmaster Tools têm acesso ao AI Performance devido a requisitos de volume mínimo.</p>
+<h3 id="requisitos-de-acesso-e-periodo-de-dados-disponiveis">Requisitos de acesso e período de dados disponíveis</h3>
+<p>O AI Performance exige que seu site tenha recebido um volume mínimo de citações no Copilot nos últimos 28 dias. A Microsoft não divulga o threshold exato, mas a experiência prática indica que sites com menos de 1.000 páginas indexadas raramente têm acesso imediato.</p>
+<p>Os dados ficam disponíveis por 90 dias no painel. Depois desse período, você precisa exportar relatórios para manter histórico. O sistema oferece filtros por data (últimos 7, 28 ou 90 dias) e permite segmentação por página específica ou conjunto de URLs.</p>
+<p>Uma característica importante: os dados começam a aparecer apenas após a ativação do recurso. Não há dados retroativos, então é essencial ativar o recurso assim que disponível para não perder insights históricos.</p>
+<h2 id="metricas-principais-impressoes-cliques-e-prompts">Métricas principais: impressões, cliques e prompts</h2>
+<p>O AI Performance trabalha com três métricas fundamentais que diferem significativamente das métricas tradicionais de busca. Entender essas diferenças é crucial para interpretar os dados corretamente.</p>
+<h3 id="diferenca-entre-impressao-no-copilot-e-clique-no-site">Diferença entre impressão no Copilot e clique no site</h3>
+<p>Uma <strong>impressão</strong> acontece quando o Copilot cita sua página como fonte em uma resposta gerada. Isso não significa que o usuário viu ou interagiu com o link - apenas que o conteúdo foi usado para construir a resposta da IA. É similar a aparecer nos resultados de busca, mas com uma diferença crucial: sua informação já foi processada e reformulada pela IA.</p>
+<p>Um <strong>clique</strong> ocorre quando o usuário efetivamente clica no link para seu site após receber a resposta do Copilot. A taxa de cliques (CTR) no AI Performance tende a ser mais baixa que na busca tradicional, já que o Copilot fornece respostas diretas que muitas vezes atendem à necessidade do usuário sem exigir navegação adicional.</p>
+<h3 id="como-interpretar-a-metrica-de-prompts">Como interpretar a métrica de prompts</h3>
+<p>A métrica de <strong>prompts</strong> mostra as perguntas exatas que usuários fizeram ao Copilot e que resultaram em citações do seu conteúdo. Esta é possivelmente a métrica mais valiosa para estratégia de conteúdo, pois revela a linguagem natural que as pessoas usam quando buscam informações no seu nicho.</p>
+<p>Dados de mercado indicam que Copilot processa prompts em mais de 100 idiomas, mas o AI Performance mostra apenas prompts que citaram especificamente suas páginas. Isso cria um dataset único de intenções de busca já validadas pelo seu conteúdo existente.</p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Definição</th>
+<th>Aplicação Estratégica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Impressões</td>
+<td>Citações da página pelo Copilot</td>
+<td>Volume de autoridade temática</td>
+</tr>
+<tr>
+<td>Cliques</td>
+<td>Visitas vindas de citações</td>
+<td>Qualidade do call-to-action implícito</td>
+</tr>
+<tr>
+<td>Prompts</td>
+<td>Perguntas que geraram citações</td>
+<td>Mapeamento de intenções de busca</td>
+</tr>
+</tbody>
+</table>
+<h2 id="como-identificar-quais-prompts-geram-citacoes-do-seu-conteudo">Como identificar quais prompts geram citações do seu conteúdo</h2>
+<p>O relatório de prompts é onde acontece a análise mais estratégica. Você pode ordenar prompts por volume de impressões para identificar quais perguntas mais frequentemente resultam em citações do seu conteúdo. Isso revela padrões de demanda que não aparecem em ferramentas de keyword research tradicionais.</p>
+<h3 id="analise-de-prompts-por-pagina-e-volume">Análise de prompts por página e volume</h3>
+<p>Filtre o relatório por página específica para entender quais perguntas levam usuários até conteúdos específicos. Uma página sobre "robots.txt" pode estar sendo citada para prompts como "como bloquear bot no site" ou "arquivo robots.txt exemplo", revelando variações de linguagem que você pode incorporar ao conteúdo.</p>
+<p>Ordene prompts por volume decrescente para priorizar otimizações. Prompts com muitas impressões mas poucos cliques indicam que sua página está sendo citada, mas o contexto ou call-to-action não incentiva a visita ao site. Isso sugere oportunidades de <a href="/blog/otimizar-conteudo-citacao-ia-generativa/">otimizar conteúdo para citação por IAs</a> de forma mais efetiva.</p>
+<h3 id="padroes-de-linguagem-conversacional-nos-prompts">Padrões de linguagem conversacional nos prompts</h3>
+<p>Os prompts revelam como pessoas fazem perguntas conversacionais, não apenas buscas por palavras-chave. Você verá perguntas completas como "qual a diferença entre robots.txt e sitemap.xml para SEO?" em vez de apenas "robots.txt sitemap diferença".</p>
+<p>Estes padrões conversacionais são fundamentais para criar conteúdo que responda diretamente às perguntas dos usuários. Analise a estrutura das perguntas: começam com "como", "qual", "por que"? Incluem contexto adicional? Essa análise informa não apenas o que escrever, mas como estruturar as respostas.</p>
+<h2 id="o-que-fazer-com-os-dados-otimizacoes-praticas">O que fazer com os dados: otimizações práticas</h2>
+<p>Os dados do AI Performance devem direcionar três tipos de ação: otimização de conteúdo existente, criação de conteúdo novo, e ajuste de estrutura informacional. Cada ação responde a um insight específico dos dados.</p>
+<h3 id="ajustar-conteudo-para-cobrir-gaps-identificados-nos-prompts">Ajustar conteúdo para cobrir gaps identificados nos prompts</h3>
+<p>Quando um prompt gera impressões consistentes mas poucos cliques, analise se sua página responde completamente à pergunta. Muitas vezes, o Copilot está extraindo apenas parte da informação necessária, deixando gaps que reduzem a utilidade da citação.</p>
+<p>Adicione seções específicas que respondam diretamente aos prompts mais frequentes. Se usuários perguntam "como implementar robots.txt em WordPress", mas sua página fala genericamente sobre robots.txt, adicione uma seção específica para WordPress com passos detalhados.</p>
+<p>Revise também a estrutura de headings. IAs tendem a citar conteúdo bem estruturado com H2s que respondem perguntas específicas. Transforme insights dos prompts em headings que espelhem a linguagem natural dos usuários.</p>
+<h3 id="criar-conteudo-novo-baseado-em-prompts-sem-citacao">Criar conteúdo novo baseado em prompts sem citação</h3>
+<p>Identifique prompts relacionados ao seu nicho que não geram citações das suas páginas. Estes representam demanda validada para conteúdo que você ainda não tem. É uma forma de keyword research baseada em demanda real de IA, não estimativas de volume.</p>
+<p>Priorize prompts que aparecem consistentemente mas citam apenas concorrentes. Isso indica oportunidades claras de criar conteúdo mais completo ou melhor estruturado para capturar essas citações.</p>
+<h2 id="limitacoes-do-ai-performance-e-como-complementar-a-analise">Limitações do AI Performance e como complementar a análise</h2>
+<p>O AI Performance tem limitações importantes que devem influenciar como você interpreta os dados. Primeiro, ele mostra apenas citações do Copilot, não de outras IAs como ChatGPT, Claude ou Perplexity. Isso representa uma fração do ecossistema total de citações em IA.</p>
+<p>A ferramenta também não mostra dados de intenção ou contexto da sessão do usuário. Você vê o prompt isolado, mas não sabe se fazia parte de uma conversa mais longa ou qual era o objetivo final do usuário. Isso limita a profundidade da análise de comportamento.</p>
+<p>Para análise completa, combine os dados do AI Performance com outras métricas: Google Analytics para entender o comportamento dos usuários que chegam via citações, Search Console para comparar com performance em busca tradicional, e ferramentas de monitoramento de menções para capturar citações em outras IAs.</p>
+<p>A latência de dados (até 2 dias) também significa que otimizações baseadas no AI Performance não mostram resultados imediatos. Use os dados para decisões estratégicas de médio prazo, não ajustes táticos diários.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="quanto-trafego-e-necessario-para-ter-acesso-ao-ai-performance-no-bing-webmaster-tools">Quanto tráfego é necessário para ter acesso ao AI Performance no Bing Webmaster Tools?</h3>
+<p>A Microsoft não divulga o threshold exato, mas sites com menos de 1.000 páginas indexadas e baixo volume de citações raramente têm acesso imediato. O requisito parece estar baseado no número de citações recebidas nos últimos 28 dias, não no tráfego total do site.</p>
+<h3 id="o-ai-performance-mostra-citacoes-do-chatgpt-ou-apenas-do-copilot">O AI Performance mostra citações do ChatGPT ou apenas do Copilot?</h3>
+<p>O AI Performance mostra exclusivamente dados do Microsoft Copilot. Citações de outras IAs como ChatGPT, Claude ou Perplexity não aparecem neste relatório. Para análise completa, você precisa complementar com outras ferramentas de monitoramento.</p>
+<h3 id="como-exportar-dados-de-prompts-do-ai-performance-para-analise-externa">Como exportar dados de prompts do AI Performance para análise externa?</h3>
+<p>No relatório do AI Performance, clique em "Export" no canto superior direito e selecione o formato CSV. O arquivo inclui todos os prompts, impressões, cliques e URLs correspondentes para o período selecionado. Você pode então analisar os dados em planilhas ou ferramentas de BI.</p>
+<h3 id="e-possivel-comparar-performance-de-ai-citacoes-entre-diferentes-paginas-do-site">É possível comparar performance de AI citações entre diferentes páginas do site?</h3>
+<p>Sim, use o filtro "Page" para visualizar dados de páginas específicas ou compare métricas na visualização geral. O relatório permite ordenação por impressões, cliques ou CTR para identificar quais páginas têm melhor performance em citações de IA.</p>
+<h3 id="o-que-significa-quando-um-prompt-tem-impressao-mas-zero-cliques-no-ai-performance">O que significa quando um prompt tem impressão mas zero cliques no AI Performance?</h3>
+<p>Isso indica que o Copilot citou sua página na resposta, mas os usuários não clicaram no link para visitar seu site. Pode significar que a resposta da IA foi suficiente para a necessidade do usuário, ou que o contexto da citação não incentivou a navegação adicional.</p>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>

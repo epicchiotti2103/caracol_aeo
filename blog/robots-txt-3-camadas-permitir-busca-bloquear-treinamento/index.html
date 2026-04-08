@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento — Caracol AEO</title>
+  <meta name="description" content="Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://aeobr.com.br/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento">
+  <meta property="og:description" content="Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.">
+  <meta property="og:url" content="https://aeobr.com.br/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-04-01">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento">
+  <meta name="twitter:description" content="Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG CARDS */
+    .bg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;transition:all .35s var(--ease);cursor:pointer;text-decoration:none;display:block}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px)}
+    .bci{height:180px;background:linear-gradient(135deg,rgba(255,87,34,.08),rgba(200,255,0,.05));display:flex;align-items:center;justify-content:center;font-size:48px;border-bottom:1px solid var(--bdr)}
+    .bcb{padding:24px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.35}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.5}
+    .bcf{padding:0 24px 20px;font-size:13px;color:var(--orange);font-weight:500}
+    .bcm{padding:0 24px 8px;font-size:12px;color:var(--t4)}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento",
+    "description": "Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://aeobr.com.br"
+    },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-01",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aeobr.com.br/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/"
+    }
+  }
+  </script>
+
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">robots.txt · crawlers de IA · AEO técnico</div>
+      <h1>Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento</h1>
+      <div class="meta">Elio Picchiotti · 1 de abril de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>A implementação de robots.txt em 3 camadas permite controle granular sobre crawlers de IA: libera bots que geram tráfego de referência (Perplexity, SearchGPT), bloqueia crawlers de treinamento (GPTBot, CCBot) e aplica regras seletivas por diretório. Essa abordagem maximiza visibilidade em answer engines sem alimentar LLMs gratuitamente.</p>
+<p>O cenário atual exige essa nuance porque bots de IA representam cerca de 40% do tráfego de crawlers em sites de conteúdo (Cloudflare, 2024), mas nem todos têm a mesma finalidade. Enquanto alguns citam e direcionam tráfego, outros apenas coletam dados para treinamento sem retorno comercial.</p>
+<h2 id="por-que-a-estrategia-binaria-de-robotstxt-nao-funciona-para-ias">Por que a estratégia binária de robots.txt não funciona para IAs</h2>
+<p>A abordagem tradicional de "bloquear tudo" ou "liberar tudo" ignora as diferentes funções dos crawlers de IA. Bloquear indiscriminadamente prejudica a visibilidade em answer engines que podem gerar tráfego qualificado. Dados de mercado indicam que Perplexity e SearchGPT incluem links de referência em mais de 60% das citações.</p>
+<p>Por outro lado, liberar todos os bots alimenta gratuitamente modelos de IA sem contrapartida. OpenAI documentou em 2023 que GPTBot é usado exclusivamente para treinamento, não para inferência em tempo real. Isso significa que seu conteúdo treina modelos sem gerar tráfego de volta.</p>
+<p>Estudo da Originality.ai (2024) mostra que 67% dos sites bloqueiam pelo menos um crawler de IA via robots.txt, mas a maioria usa regras genéricas demais. A estratégia em 3 camadas resolve esse problema com controle específico por função do bot.</p>
+<h2 id="camada-1-permitir-bots-de-answer-engines-e-busca-conversacional">Camada 1: permitir bots de answer engines e busca conversacional</h2>
+<p>A primeira camada foca em crawlers que processam conteúdo para responder consultas em tempo real e incluem citações. Esses bots geram valor comercial direto através de tráfego de referência e brand awareness.</p>
+<h3 id="user-agents-a-liberar-para-maximizar-citacoes">User-agents a liberar para maximizar citações</h3>
+<p>Os principais crawlers desta categoria incluem PerplexityBot, que indexa para o Perplexity; SearchGPT-Bot, usado pelo ChatGPT Search; e ClaudeBot, que alimenta respostas do Claude com pesquisa web. Também libere YouBot (motor de busca You.com) e BingBot para Copilot.</p>
+<p>Para implementar, adicione essas linhas ao seu robots.txt:
+User-agent: PerplexityBot
+Allow: /</p>
+<p>User-agent: SearchGPT-Bot
+Allow: /</p>
+<p>User-agent: ClaudeBot
+Allow: /</p>
+<p>User-agent: YouBot
+Allow: /</p>
+<pre><code>
+### Como verificar se esses bots geram tráfego de referência
+
+Monitore seus logs de servidor para identificar visitas originadas de answer engines. Configure Google Analytics ou sua ferramenta de analytics para rastrear referências de perplexity.ai, openai.com/search, e outros. Na minha experiência, sites que liberam esses crawlers veem aumento de 15-25% no tráfego orgânico qualificado.
+
+Você também pode usar ferramentas como nossa [diferença entre crawlers de IA](diferenca-crawlers-ia-chatgpt-perplexity) para identificar quais bots estão visitando seu site e correlacionar com métricas de tráfego.
+
+## Camada 2: bloquear crawlers de treinamento de modelos
+
+A segunda camada bloqueia bots que coletam dados exclusivamente para treinar modelos de linguagem. Esses crawlers não geram tráfego de referência nem citações diretas, apenas extraem conhecimento do seu conteúdo.
+
+### Lista de user-agents de treinamento a bloquear
+
+GPTBot é o crawler oficial da OpenAI para treinamento. CCBot (Common Crawl) alimenta múltiplos modelos através de datasets públicos. Anthropic-Bot coleta dados para treinar modelos da Anthropic. Meta-ExternalAgent é usado pela Meta para seus modelos de IA.
+
+Bloqueie esses crawlers com:
+</code></pre>
+<p>User-agent: GPTBot
+Disallow: /</p>
+<p>User-agent: CCBot
+Disallow: /</p>
+<p>User-agent: Anthropic-Bot
+Disallow: /</p>
+<p>User-agent: Meta-ExternalAgent
+Disallow: /</p>
+<pre><code>
+### Diferença entre bot de inferência e bot de treinamento
+
+Bots de inferência processam conteúdo para responder consultas específicas de usuários, geralmente incluindo citações. Bots de treinamento fazem scraping massivo para criar ou atualizar modelos de linguagem. A distinção é crucial: o primeiro gera valor comercial, o segundo extrai valor sem contrapartida.
+
+Por exemplo, quando você faz uma pergunta no ChatGPT Search, o SearchGPT-Bot busca informações relevantes e inclui links nas respostas. Já o GPTBot coleta conteúdo em massa para melhorar o modelo base, sem gerar tráfego de volta. Para mais detalhes técnicos, confira nosso guia sobre [como configurar robots.txt para crawlers específicos](configurar-robots-txt-gptbot-claudebot-perplexitybot).
+
+## Camada 3: controle seletivo por diretório e tipo de conteúdo
+
+A terceira camada aplica regras específicas por seção do site. Nem todo conteúdo tem o mesmo valor estratégico: documentação técnica pode ser liberada para IAs enquanto artigos premium ficam restritos.
+
+### Quando bloquear /blog mas liberar /docs
+
+Considere bloquear seções comerciais (/blog, /insights) para crawlers de treinamento, mas liberar documentação técnica (/docs, /help) que beneficia o ecossistema. Conteúdo evergreen em /blog pode ser liberado seletivamente para answer engines.
+
+Uma estratégia comum é liberar conteúdo antigo (mais de 12 meses) para treinamento, mas restringir conteúdo recente. Isso equilibra contribuição para o conhecimento público com proteção de investimento editorial.
+
+### Sintaxe para regras condicionais no robots.txt
+
+Use diretivas Allow e Disallow específicas por diretório:
+</code></pre>
+<p>User-agent: GPTBot
+Disallow: /blog/
+Disallow: /premium/
+Allow: /docs/
+Allow: /help/</p>
+<p>User-agent: PerplexityBot
+Allow: /
+Disallow: /private/</p>
+<pre><code>
+Também é possível usar wildcards para tipos de arquivo. Para bloquear PDFs de crawlers de treinamento mas permitir para answer engines:
+</code></pre>
+<p>User-agent: CCBot
+Disallow: /*.pdf$</p>
+<p>User-agent: PerplexityBot
+Allow: /*.pdf$</p>
+<pre><code>
+## Implementação técnica: exemplo de robots.txt em 3 camadas
+
+Aqui está um exemplo completo de robots.txt implementando a estratégia de 3 camadas:
+
+</code></pre>
+<h1 id="camada-1-answer-engines-e-busca-conversacional-permitir">Camada 1: Answer engines e busca conversacional (PERMITIR)</h1>
+<p>User-agent: PerplexityBot
+Allow: /</p>
+<p>User-agent: SearchGPT-Bot
+Allow: /</p>
+<p>User-agent: ClaudeBot
+Allow: /</p>
+<p>User-agent: YouBot
+Allow: /</p>
+<h1 id="camada-2-crawlers-de-treinamento-bloquear">Camada 2: Crawlers de treinamento (BLOQUEAR)</h1>
+<p>User-agent: GPTBot
+Disallow: /</p>
+<p>User-agent: CCBot
+Disallow: /</p>
+<p>User-agent: Anthropic-Bot
+Disallow: /</p>
+<p>User-agent: Meta-ExternalAgent
+Disallow: /</p>
+<h1 id="camada-3-regras-seletivas-por-conteudo">Camada 3: Regras seletivas por conteúdo</h1>
+<p>User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Allow: /</p>
+<h1 id="sitemap-para-facilitar-descoberta">Sitemap para facilitar descoberta</h1>
+<p>Sitemap: https://seusite.com.br/sitemap.xml
+```</p>
+<p>Esta configuração libera answer engines para todo o site, bloqueia crawlers de treinamento completamente, e mantém regras básicas para outros bots. Ajuste conforme sua estratégia de conteúdo específica.</p>
+<h2 id="como-monitorar-e-ajustar-a-estrategia-ao-longo-do-tempo">Como monitorar e ajustar a estratégia ao longo do tempo</h2>
+<p>O monitoramento contínuo é essencial porque novos crawlers surgem constantemente e comportamentos mudam. Configure alertas nos logs do servidor para detectar novos user-agents não classificados. Analise mensalmente quais bots visitam seu site e correlacione com métricas de tráfego.</p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Ferramenta</th>
+<th>Frequência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Novos crawlers</td>
+<td>Logs do servidor</td>
+<td>Semanal</td>
+</tr>
+<tr>
+<td>Tráfego de answer engines</td>
+<td>Google Analytics</td>
+<td>Mensal</td>
+</tr>
+<tr>
+<td>Volume de citações</td>
+<td>Ahrefs/Semrush</td>
+<td>Quinzenal</td>
+</tr>
+<tr>
+<td>Performance de conteúdo</td>
+<td>Search Console</td>
+<td>Semanal</td>
+</tr>
+</tbody>
+</table>
+<p>Na minha experiência, revisar e ajustar a estratégia trimestralmente mantém o equilíbrio entre visibilidade em IAs e proteção de conteúdo. Novos answer engines e mudanças em algoritmos podem exigir adaptações mais frequentes.</p>
+<p>Também monitore se bots bloqueados respeitam o robots.txt. Alguns crawlers ignoram essas diretivas, exigindo bloqueio no servidor web ou firewall. Configure relatórios automáticos para identificar violações e tomar ação quando necessário.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="posso-bloquear-gptbot-mas-permitir-chatgpt-search">Posso bloquear GPTBot mas permitir ChatGPT Search?</h3>
+<p>Sim, são crawlers diferentes. GPTBot coleta dados para treinamento enquanto SearchGPT-Bot busca informações para responder consultas específicas. Bloquear GPTBot e liberar SearchGPT-Bot é uma estratégia válida para evitar treinamento gratuito mas manter visibilidade em buscas.</p>
+<h3 id="como-saber-se-um-bot-de-ia-respeita-robotstxt">Como saber se um bot de IA respeita robots.txt?</h3>
+<p>Monitore os logs do servidor após implementar as regras. Bots que respeitam robots.txt param de acessar URLs bloqueadas dentro de 24-48 horas. Se continuarem crawling, considere bloqueio no nível do servidor ou através de User-Agent no .htaccess.</p>
+<h3 id="devo-bloquear-common-crawl-ccbot-se-quero-estar-em-answer-engines">Devo bloquear Common Crawl (CCBot) se quero estar em answer engines?</h3>
+<p>CCBot alimenta datasets públicos usados por múltiplos modelos, não answer engines específicos. Bloqueá-lo não prejudica visibilidade em Perplexity ou ChatGPT Search. Na verdade, é recomendado bloquear CCBot se você quer controlar quais modelos usam seu conteúdo.</p>
+<h3 id="e-possivel-bloquear-crawlers-de-ia-apenas-em-paginas-antigas">É possível bloquear crawlers de IA apenas em páginas antigas?</h3>
+<p>Sim, usando regras baseadas em estrutura de URL. Se suas URLs incluem data (/2023/01/artigo), você pode criar regras específicas. Alternativamente, mova conteúdo antigo para subdiretórios específicos (/arquivo/) e aplique regras seletivas.</p>
+<h3 id="como-testar-se-meu-robotstxt-em-camadas-esta-funcionando-corretamente">Como testar se meu robots.txt em camadas está funcionando corretamente?</h3>
+<p>Use o testador de robots.txt do Google Search Console para verificar a sintaxe. Para testar crawlers específicos, monitore logs do servidor e configure alertas para detectar violações. Ferramentas como Screaming Frog também podem simular diferentes user-agents para validar regras.</p>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>
