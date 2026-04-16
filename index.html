@@ -221,14 +221,24 @@
 
     /* BLOG */
     .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;transition:all .35s var(--ease);cursor:pointer}
-    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px)}
-    .bci{height:180px;background:linear-gradient(135deg,rgba(255,87,34,.08),rgba(200,255,0,.05));display:flex;align-items:center;justify-content:center;font-size:48px;border-bottom:1px solid var(--bdr)}
-    .bcb{padding:24px}
-    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-    .bcb h3{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.35}
-    .bcb p{font-size:13px;color:var(--t3);line-height:1.5}
-    .bcf{padding:0 24px 20px;font-size:13px;color:var(--orange);font-weight:500}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+    .bc-skeleton{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);height:200px;position:relative;overflow:hidden}
+    .bc-skeleton::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent);animation:shimmer 1.6s infinite}
+    @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+    .bg-empty{grid-column:1/-1;text-align:center;padding:48px 24px;color:var(--t3);font-size:14px}
+    .bg-more{grid-column:1/-1;text-align:center;margin-top:16px}
+    .bg-more a{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:transparent;color:var(--t1);border-radius:100px;font-weight:500;font-size:14px;border:1px solid var(--bdr-h);transition:all .25s var(--ease)}
+    .bg-more a:hover{background:rgba(255,255,255,.04);border-color:var(--orange);color:var(--orange)}
 
     /* FAQ */
     .fl{max-width:720px;margin:0 auto}
@@ -465,9 +475,11 @@
   <section id="blog">
     <div class="container">
       <div class="shc reveal"><div class="sl">Blog</div><h2 class="st">Aprenda sobre AEO e visibilidade em IAs</h2><p class="sd">Guias, estratégias e cases sobre como fazer sua marca aparecer nas respostas do ChatGPT, Perplexity e Google AI.</p></div>
-      <div class="bg">
-        <a href="/blog/o-que-e-aeo-answer-engine-optimization/" class="bc reveal"><div class="bci">📊</div><div class="bcb"><div class="bct">AEO</div><h3>O que é AEO (Answer Engine Optimization) e como funciona na prática?</h3><p>AEO é a otimização de conteúdo para ser citado por IAs como ChatGPT e Perplexity. Saiba como implementar na prática e complementar seu SEO.</p></div><div class="bcf">Ler artigo →</div></a>
-        </div>
+      <div class="bg" id="blog-grid">
+        <div class="bc-skeleton"></div>
+        <div class="bc-skeleton"></div>
+        <div class="bc-skeleton"></div>
+      </div>
     </div>
   </section>
 
@@ -537,6 +549,58 @@
     const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h==='#')return;e.preventDefault();const t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+    // ============ BLOG LOADER — lê /blog/posts.json gerado pelo build ============
+    (async function loadBlogPosts(){
+      const grid=document.getElementById('blog-grid');
+      if(!grid)return;
+      const MAX_CARDS=6;
+      const MESES=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+      const fmtDate=iso=>{
+        if(!iso)return '';
+        const d=new Date(iso);
+        if(isNaN(d))return '';
+        return `${String(d.getDate()).padStart(2,'0')} ${MESES[d.getMonth()]} ${d.getFullYear()}`;
+      };
+      const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+      try{
+        const res=await fetch('/blog/posts.json',{cache:'no-cache'});
+        if(!res.ok)throw new Error('posts.json '+res.status);
+        const data=await res.json();
+        const posts=(data.posts||[]);
+
+        if(posts.length===0){
+          grid.innerHTML='<div class="bg-empty">Nenhum artigo publicado ainda.</div>';
+          return;
+        }
+
+        posts.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+        const selected=posts.slice(0,MAX_CARDS);
+
+        grid.innerHTML=selected.map(p=>{
+          const dateShort=fmtDate(p.date);
+          const meta=dateShort
+            ?`<div class="bcm"><div class="bct">${esc(p.cat_label||'AEO')}</div><div class="bcd"></div><div class="bcdt">${esc(dateShort)}</div></div>`
+            :`<div class="bcm"><div class="bct">${esc(p.cat_label||'AEO')}</div></div>`;
+          const desc=p.desc||'';
+          const descShort=desc.length>140?desc.slice(0,137)+'…':desc;
+          return `<a href="${esc(p.url)}" class="bc reveal">${meta}<div class="bcb"><h3>${esc(p.title)}</h3><p>${esc(descShort)}</p><div class="bcf">Ler artigo →</div></div></a>`;
+        }).join('');
+
+        if(posts.length>MAX_CARDS){
+          const more=document.createElement('div');
+          more.className='bg-more';
+          more.innerHTML='<a href="/blog/">Ver todos os artigos →</a>';
+          grid.appendChild(more);
+        }
+
+        grid.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+      }catch(err){
+        console.warn('[blog-loader]',err);
+        grid.innerHTML='<div class="bg-empty">Não foi possível carregar os artigos agora. <a href="/blog/" style="color:var(--orange)">Ver blog →</a></div>';
+      }
+    })();
   </script>
 </body>
 </html>
