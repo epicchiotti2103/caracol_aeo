@@ -42,17 +42,50 @@
     .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
     .page-header .meta{font-size:14px;color:var(--t3)}
 
-    /* BLOG CARDS */
-    .bg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;transition:all .35s var(--ease);cursor:pointer;text-decoration:none;display:block}
-    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px)}
-    .bci{height:180px;background:linear-gradient(135deg,rgba(255,87,34,.08),rgba(200,255,0,.05));display:flex;align-items:center;justify-content:center;font-size:48px;border-bottom:1px solid var(--bdr)}
-    .bcb{padding:24px}
-    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-    .bcb h3{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.35}
-    .bcb p{font-size:13px;color:var(--t3);line-height:1.5}
-    .bcf{padding:0 24px 20px;font-size:13px;color:var(--orange);font-weight:500}
-    .bcm{padding:0 24px 8px;font-size:12px;color:var(--t4)}
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
 
     /* ARTICLE BODY */
     .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
@@ -91,7 +124,7 @@
     .fcp{font-size:12px;color:var(--t4)}
 
     /* RESPONSIVE */
-    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}}
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
     @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
 </style>
 </head>
@@ -123,298 +156,58 @@
 
   <section style="padding:0 0 120px">
     <div class="container">
-      <div class="bg">
 
-        <a href="/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">busca por voz</div>
-            <h3>Como estruturar conteúdo para busca por voz e assistentes multimodais em 2026?</h3>
-            <p>Framework técnico para otimizar conteúdo para consultas por voz e multimodais. Schema markup, formato answer-first e requisitos por assistente.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 15 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/5-passos-otimizar-aeo-blogs/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">AEO</div>
-            <h3>5 passos práticos para otimizar AEO em blogs corporativos</h3>
-            <p>Checklist completo para adaptar blogs corporativos para Answer Engine Optimization: crawler, conteúdo, schema, meta tags e atualização contínua</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 8 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/estruturar-faq-citacao-assistentes-ia/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-          <div class="bcb">
-            <div class="bct">FAQ</div>
-            <h3>Como estruturar FAQs para maximizar citações em assistentes de IA?</h3>
-            <p>Aprenda a criar FAQs com schema markup FAQPage, formatação semântica e linguagem conversacional para aumentar citações em respostas de LLMs.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 8 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/ferramentas-metricas-medir-resultados-aeo/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">ferramentas AEO</div>
-            <h3>Quais ferramentas e métricas usar para medir resultados em AEO?</h3>
-            <p>Descubra ferramentas especializadas e métricas essenciais para monitorar e mensurar resultados de Answer Engine Optimization em 2025.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 8 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">bing webmaster tools</div>
-            <h3>Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs</h3>
-            <p>Guia completo do AI Performance do Bing Webmaster Tools: como acessar, interpretar métricas de citações em IAs e otimizar conteúdo baseado em dados reais do Copilot.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 7 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/como-escrever-definition-lead-sentences-ias/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">AEO</div>
-            <h3>Como escrever definition-lead sentences que IAs conseguem extrair facilmente</h3>
-            <p>Definition-lead sentences são frases estruturadas que facilitam extração direta por LLMs. Use padrões sintáticos específicos nos primeiros 150 caracteres para maximizar citação.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 7 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">robots.txt</div>
-            <h3>Como configurar robots.txt para GPTBot, ClaudeBot e PerplexityBot</h3>
-            <p>Guia completo para configurar robots.txt com crawlers de IA: sintaxe exata para GPTBot, ClaudeBot e PerplexityBot, com controle granular por diretório.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 7 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/diferenca-crawlers-ia-chatgpt-perplexity/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">crawlers</div>
-            <h3>Qual a diferença entre crawlers de IA, ChatGPT e Perplexity?</h3>
-            <p>Crawlers coletam dados para treinamento, ChatGPT opera com modelo estático e Perplexity faz busca ativa em tempo real. Entenda as diferenças técnicas.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 7 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/information-gain-conteudo-llms-nao-geram/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">information gain</div>
-            <h3>Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos</h3>
-            <p>Information Gain diferencia conteúdo citável de genérico para LLMs. Aprenda a criar valor informacional único através de dados proprietários e experiência documentada.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 7 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/otimizar-conteudo-citacao-ia-generativa/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">AEO</div>
-            <h3>Como otimizar conteúdo para ser citado por IAs generativas em 2025</h3>
-            <p>Guia técnico para estruturar conteúdo que aumenta probabilidade de citação por ChatGPT, Perplexity e Claude. Estratégias práticas de AEO.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 7 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/cloudflare-pay-per-crawl-monetizar-bots-ia/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">cloudflare</div>
-            <h3>Cloudflare Pay-per-Crawl: vale a pena monetizar acesso de bots de IA?</h3>
-            <p>Análise completa do modelo Pay-per-Crawl da Cloudflare: custos, benefícios e critérios decisórios para monetizar ou bloquear bots de IA.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 6 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">freshness signals</div>
-            <h3>Freshness signals em AEO: como timestamps e sinais de atualização aumentam citações por IA</h3>
-            <p>LLMs priorizam conteúdo atualizado para citações. Aprenda como implementar timestamps, Schema dateModified e HTTP headers para aumentar citações por IA.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 6 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/gemini-ultrapassou-perplexity-trafego-referencia-aeo/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">gemini</div>
-            <h3>Por que Gemini ultrapassou Perplexity em tráfego de referência e o que isso muda na sua estratégia AEO</h3>
-            <p>Análise completa do crescimento do Gemini como fonte de tráfego AEO em 2024, superando Perplexity, e ajustes práticos necessários na estratégia editorial.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 6 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/crawlers-ia-nao-renderizam-javascript-client-side/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">crawlers de IA</div>
-            <h3>Por que crawlers de IA não renderizam JavaScript client-side e como auditar seu conteúdo</h3>
-            <p>Crawlers de IA como GPTBot e ClaudeBot não executam JavaScript, deixando conteúdo client-side invisível. Aprenda a auditar e resolver este problema de AEO.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 5 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/otimizar-conteudo-agentes-ia-autonomos-protocolo-mcp/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">MCP</div>
-            <h3>Como otimizar conteúdo para agentes de IA autônomos e o protocolo MCP</h3>
-            <p>Guia completo para preparar conteúdo web para agentes de IA autônomos usando o Model Context Protocol (MCP). Estruture dados para máxima citabilidade.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 5 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/otimizar-fan-out-queries-chatgpt-bing/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">fan-out queries</div>
-            <h3>Como otimizar para fan-out queries: as sub-pesquisas que ChatGPT faz no Bing</h3>
-            <p>Fan-out queries são sub-pesquisas paralelas que ChatGPT executa no Bing para decompor perguntas complexas. Aprenda a estruturar conteúdo para ser encontrado nessas buscas.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 5 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/claude-searchbot-oai-searchbot-crawlers-busca/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">crawlers</div>
-            <h3>Claude-SearchBot e OAI-SearchBot: como funcionam e o que fazer com esses crawlers</h3>
-            <p>Claude-SearchBot e OAI-SearchBot são crawlers específicos para busca conversacional. Saiba como configurar robots.txt corretamente sem perder visibilidade.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 4 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/schema-org-id-sameas-resolucao-entidades-ia/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-          <div class="bcb">
-            <div class="bct">schema.org</div>
-            <h3>Como usar @id e sameAs no Schema.org para melhorar resolução de entidades por IA?</h3>
-            <p>Aprenda a implementar @id e sameAs no Schema.org para criar identificadores únicos de entidades, facilitando compreensão por IAs e aumentando citações</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 4 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/yahoo-scout-novos-answer-engines-aeo/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">answer engines</div>
-            <h3>Yahoo Scout e novos answer engines: o que profissionais de AEO precisam saber</h3>
-            <p>Yahoo Scout representa a diversificação do ecossistema de answer engines. Entenda como adaptar sua estratégia AEO para múltiplas plataformas sem diluir esforços.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 4 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/criar-pesquisas-dados-originais-citacao-llms/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">pesquisas-originais</div>
-            <h3>Como criar pesquisas e dados originais para ser citado por LLMs e ferramentas de IA</h3>
-            <p>Metodologia completa para produzir pesquisas proprietárias, surveys e estatísticas que se tornam referência para citação por ChatGPT, Perplexity e outras IAs generativas.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 3 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-          <div class="bcb">
-            <div class="bct">Entity SEO</div>
-            <h3>Entity SEO para AEO: como fortalecer a presença de entidades no Knowledge Graph</h3>
-            <p>Entity SEO conecta sua marca ao Knowledge Graph, aumentando citações em LLMs. Implemente Schema.org, Wikidata e sinais de entidade para melhorar AEO.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 3 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/geo-aeo-llm-seo-qual-abordagem-escolher/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">GEO</div>
-            <h3>GEO vs AEO vs LLM SEO: qual abordagem escolher para sua estratégia em 2026?</h3>
-            <p>Guia definitivo sobre GEO, AEO e LLM SEO. Entenda as diferenças práticas e escolha a estratégia certa para otimização em IA generativa em 2026.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 3 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/applebot-extended-crawler-ia-apple/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">applebot-extended</div>
-            <h3>Applebot-Extended: o que é e como configurar o crawler de IA da Apple</h3>
-            <p>Applebot-Extended é o crawler da Apple para treinamento de IA, separado do Applebot tradicional. Saiba como configurar robots.txt para controlá-lo.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 2 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">auditoria-aeo</div>
-            <h3>Como auditar a visibilidade da sua marca em IAs usando prompts de teste manual</h3>
-            <p>Framework prático de prompts para auditar citações da marca em ChatGPT, Claude, Perplexity e Gemini, criando baseline mensurável de visibilidade.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 2 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">ai visibility</div>
-            <h3>Como monitorar AI visibility e share of voice nas respostas de ChatGPT, Claude e Perplexity</h3>
-            <p>Guia prático para medir presença da sua marca e conteúdo nas respostas de IAs generativas. Métodos manuais, ferramentas e métricas essenciais.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 2 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">llms.txt</div>
-            <h3>Como usar llms.txt para aumentar citações do seu site em ChatGPT e Google AI Overviews</h3>
-            <p>Implementação prática do llms.txt para orientar LLMs sobre conteúdo relevante e aumentar citações em ChatGPT e Google AI Overviews.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 1 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/diferencas-citacao-chatgpt-perplexity-gemini-ai-overviews/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">citações IA</div>
-            <h3>Como ChatGPT, Perplexity, Gemini e AI Overviews citam fontes de forma diferente?</h3>
-            <p>ChatGPT prioriza autoridade, Perplexity velocidade e recência, Gemini integração Google, AI Overviews relevância comercial. Entenda as diferenças para otimizar citações.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 1 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">robots.txt</div>
-            <h3>Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento</h3>
-            <p>Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 1 de abril de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
-        <a href="/blog/o-que-e-aeo-answer-engine-optimization/" class="bc">
-          <div class="bci"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF5722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
-          <div class="bcb">
-            <div class="bct">AEO</div>
-            <h3>O que é AEO (Answer Engine Optimization) e como funciona na prática?</h3>
-            <p>AEO é a otimização de conteúdo para ser citado por IAs como ChatGPT e Perplexity. Saiba como implementar na prática e complementar seu SEO.</p>
-          </div>
-          <div class="bcm">Elio Picchiotti · 16 de janeiro de 2026</div>
-          <div class="bcf">Ler artigo →</div>
-        </a>
+      <div class="blog-toolbar">
+        <div class="chip-row" id="chip-row">
+          <button class="chip active" data-cat="all">Todos <span class="chip-n">29</span></button>
+          <button class="chip" data-cat="fundamentos">Fundamentos <span class="chip-n">3</span></button>
+          <button class="chip" data-cat="tecnico">Técnico <span class="chip-n">10</span></button>
+          <button class="chip" data-cat="conteudo">Conteúdo <span class="chip-n">6</span></button>
+          <button class="chip" data-cat="medicao">Medição <span class="chip-n">5</span></button>
+          <button class="chip" data-cat="plataformas">Plataformas <span class="chip-n">3</span></button>
+          <button class="chip" data-cat="mercado">Mercado <span class="chip-n">2</span></button>
+        </div>
+        <div class="search-wrap" id="search-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="search-input" id="search-input" placeholder="Buscar artigos..." autocomplete="off">
+          <button class="search-clear" id="search-clear" aria-label="Limpar busca">×</button>
+        </div>
+      </div>
+
+      <div class="bg" id="blog-grid">
+        <a href="/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/" class="bc bc-featured" data-cat="conteudo" data-search="como estruturar conteudo para busca por voz e assistentes multimodais em 2026? framework tecnico para otimizar conteudo para consultas por voz e multimodais. schema markup, formato answer-first e requisitos por assistente."><div class="bcm"><div class="bct">Conteúdo</div><div class="bcd"></div><div class="bcdt">15 ABR 2026</div></div><div class="bcb"><h3>Como estruturar conteúdo para busca por voz e assistentes multimodais em 2026?</h3><p>Framework técnico para otimizar conteúdo para consultas por voz e multimodais. Schema markup, formato answer-first e requisitos por assistente.</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/5-passos-otimizar-aeo-blogs/" class="bc" data-cat="tecnico" data-search="5 passos praticos para otimizar aeo em blogs corporativos checklist completo para adaptar blogs corporativos para answer engine optimization: crawler, conteudo, schema, meta tags e atualizacao continua"><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">08 ABR 2026</div></div><div class="bcb"><h3>5 passos práticos para otimizar AEO em blogs corporativos</h3><p>Checklist completo para adaptar blogs corporativos para Answer Engine Optimization: crawler, conteúdo, schema, meta tags e atualização co…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/estruturar-faq-citacao-assistentes-ia/" class="bc" data-cat="conteudo" data-search="como estruturar faqs para maximizar citacoes em assistentes de ia? aprenda a criar faqs com schema markup faqpage, formatacao semantica e linguagem conversacional para aumentar citacoes em respostas de llms."><div class="bcm"><div class="bct">Conteúdo</div><div class="bcd"></div><div class="bcdt">08 ABR 2026</div></div><div class="bcb"><h3>Como estruturar FAQs para maximizar citações em assistentes de IA?</h3><p>Aprenda a criar FAQs com schema markup FAQPage, formatação semântica e linguagem conversacional para aumentar citações em respostas de LLMs.</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/ferramentas-metricas-medir-resultados-aeo/" class="bc" data-cat="medicao" data-search="quais ferramentas e metricas usar para medir resultados em aeo? descubra ferramentas especializadas e metricas essenciais para monitorar e mensurar resultados de answer engine optimization em 2025."><div class="bcm"><div class="bct">Medição</div><div class="bcd"></div><div class="bcdt">08 ABR 2026</div></div><div class="bcb"><h3>Quais ferramentas e métricas usar para medir resultados em AEO?</h3><p>Descubra ferramentas especializadas e métricas essenciais para monitorar e mensurar resultados de Answer Engine Optimization em 2025.</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/" class="bc" data-cat="medicao" data-search="como usar o bing webmaster tools ai performance para rastrear citacoes da sua marca em ias guia completo do ai performance do bing webmaster tools: como acessar, interpretar metricas de citacoes em ias e otimizar conteudo baseado em dados reais do copilot."><div class="bcm"><div class="bct">Medição</div><div class="bcd"></div><div class="bcdt">07 ABR 2026</div></div><div class="bcb"><h3>Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs</h3><p>Guia completo do AI Performance do Bing Webmaster Tools: como acessar, interpretar métricas de citações em IAs e otimizar conteúdo basead…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/como-escrever-definition-lead-sentences-ias/" class="bc" data-cat="conteudo" data-search="como escrever definition-lead sentences que ias conseguem extrair facilmente definition-lead sentences sao frases estruturadas que facilitam extracao direta por llms. use padroes sintaticos especificos nos primeiros 150 caracteres para maximizar citacao."><div class="bcm"><div class="bct">Conteúdo</div><div class="bcd"></div><div class="bcdt">07 ABR 2026</div></div><div class="bcb"><h3>Como escrever definition-lead sentences que IAs conseguem extrair facilmente</h3><p>Definition-lead sentences são frases estruturadas que facilitam extração direta por LLMs. Use padrões sintáticos específicos nos primeiro…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/" class="bc" data-cat="tecnico" data-search="como configurar robots.txt para gptbot, claudebot e perplexitybot guia completo para configurar robots.txt com crawlers de ia: sintaxe exata para gptbot, claudebot e perplexitybot, com controle granular por diretorio."><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">07 ABR 2026</div></div><div class="bcb"><h3>Como configurar robots.txt para GPTBot, ClaudeBot e PerplexityBot</h3><p>Guia completo para configurar robots.txt com crawlers de IA: sintaxe exata para GPTBot, ClaudeBot e PerplexityBot, com controle granular …</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/diferenca-crawlers-ia-chatgpt-perplexity/" class="bc" data-cat="tecnico" data-search="qual a diferenca entre crawlers de ia, chatgpt e perplexity? crawlers coletam dados para treinamento, chatgpt opera com modelo estatico e perplexity faz busca ativa em tempo real. entenda as diferencas tecnicas."><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">07 ABR 2026</div></div><div class="bcb"><h3>Qual a diferença entre crawlers de IA, ChatGPT e Perplexity?</h3><p>Crawlers coletam dados para treinamento, ChatGPT opera com modelo estático e Perplexity faz busca ativa em tempo real. Entenda as diferen…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/information-gain-conteudo-llms-nao-geram/" class="bc" data-cat="conteudo" data-search="information gain: como criar conteudo que llms nao conseguem gerar sozinhos information gain diferencia conteudo citavel de generico para llms. aprenda a criar valor informacional unico atraves de dados proprietarios e experiencia documentada."><div class="bcm"><div class="bct">Conteúdo</div><div class="bcd"></div><div class="bcdt">07 ABR 2026</div></div><div class="bcb"><h3>Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos</h3><p>Information Gain diferencia conteúdo citável de genérico para LLMs. Aprenda a criar valor informacional único através de dados proprietár…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/otimizar-conteudo-citacao-ia-generativa/" class="bc" data-cat="fundamentos" data-search="como otimizar conteudo para ser citado por ias generativas em 2025 guia tecnico para estruturar conteudo que aumenta probabilidade de citacao por chatgpt, perplexity e claude. estrategias praticas de aeo."><div class="bcm"><div class="bct">Fundamentos</div><div class="bcd"></div><div class="bcdt">07 ABR 2026</div></div><div class="bcb"><h3>Como otimizar conteúdo para ser citado por IAs generativas em 2025</h3><p>Guia técnico para estruturar conteúdo que aumenta probabilidade de citação por ChatGPT, Perplexity e Claude. Estratégias práticas de AEO.</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/cloudflare-pay-per-crawl-monetizar-bots-ia/" class="bc" data-cat="mercado" data-search="cloudflare pay-per-crawl: vale a pena monetizar acesso de bots de ia? analise completa do modelo pay-per-crawl da cloudflare: custos, beneficios e criterios decisorios para monetizar ou bloquear bots de ia."><div class="bcm"><div class="bct">Mercado</div><div class="bcd"></div><div class="bcdt">06 ABR 2026</div></div><div class="bcb"><h3>Cloudflare Pay-per-Crawl: vale a pena monetizar acesso de bots de IA?</h3><p>Análise completa do modelo Pay-per-Crawl da Cloudflare: custos, benefícios e critérios decisórios para monetizar ou bloquear bots de IA.</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/" class="bc" data-cat="conteudo" data-search="freshness signals em aeo: como timestamps e sinais de atualizacao aumentam citacoes por ia llms priorizam conteudo atualizado para citacoes. aprenda como implementar timestamps, schema datemodified e http headers para aumentar citacoes por ia."><div class="bcm"><div class="bct">Conteúdo</div><div class="bcd"></div><div class="bcdt">06 ABR 2026</div></div><div class="bcb"><h3>Freshness signals em AEO: como timestamps e sinais de atualização aumentam citações por IA</h3><p>LLMs priorizam conteúdo atualizado para citações. Aprenda como implementar timestamps, Schema dateModified e HTTP headers para aumentar c…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/gemini-ultrapassou-perplexity-trafego-referencia-aeo/" class="bc" data-cat="plataformas" data-search="por que gemini ultrapassou perplexity em trafego de referencia e o que isso muda na sua estrategia aeo analise completa do crescimento do gemini como fonte de trafego aeo em 2024, superando perplexity, e ajustes praticos necessarios na estrategia editorial."><div class="bcm"><div class="bct">Plataformas</div><div class="bcd"></div><div class="bcdt">06 ABR 2026</div></div><div class="bcb"><h3>Por que Gemini ultrapassou Perplexity em tráfego de referência e o que isso muda na sua estratégia AEO</h3><p>Análise completa do crescimento do Gemini como fonte de tráfego AEO em 2024, superando Perplexity, e ajustes práticos necessários na estr…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/crawlers-ia-nao-renderizam-javascript-client-side/" class="bc" data-cat="medicao" data-search="por que crawlers de ia nao renderizam javascript client-side e como auditar seu conteudo crawlers de ia como gptbot e claudebot nao executam javascript, deixando conteudo client-side invisivel. aprenda a auditar e resolver este problema de aeo."><div class="bcm"><div class="bct">Medição</div><div class="bcd"></div><div class="bcdt">05 ABR 2026</div></div><div class="bcb"><h3>Por que crawlers de IA não renderizam JavaScript client-side e como auditar seu conteúdo</h3><p>Crawlers de IA como GPTBot e ClaudeBot não executam JavaScript, deixando conteúdo client-side invisível. Aprenda a auditar e resolver est…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/otimizar-conteudo-agentes-ia-autonomos-protocolo-mcp/" class="bc" data-cat="plataformas" data-search="como otimizar conteudo para agentes de ia autonomos e o protocolo mcp guia completo para preparar conteudo web para agentes de ia autonomos usando o model context protocol (mcp). estruture dados para maxima citabilidade."><div class="bcm"><div class="bct">Plataformas</div><div class="bcd"></div><div class="bcdt">05 ABR 2026</div></div><div class="bcb"><h3>Como otimizar conteúdo para agentes de IA autônomos e o protocolo MCP</h3><p>Guia completo para preparar conteúdo web para agentes de IA autônomos usando o Model Context Protocol (MCP). Estruture dados para máxima …</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/otimizar-fan-out-queries-chatgpt-bing/" class="bc" data-cat="tecnico" data-search="como otimizar para fan-out queries: as sub-pesquisas que chatgpt faz no bing fan-out queries sao sub-pesquisas paralelas que chatgpt executa no bing para decompor perguntas complexas. aprenda a estruturar conteudo para ser encontrado nessas buscas."><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">05 ABR 2026</div></div><div class="bcb"><h3>Como otimizar para fan-out queries: as sub-pesquisas que ChatGPT faz no Bing</h3><p>Fan-out queries são sub-pesquisas paralelas que ChatGPT executa no Bing para decompor perguntas complexas. Aprenda a estruturar conteúdo …</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/claude-searchbot-oai-searchbot-crawlers-busca/" class="bc" data-cat="tecnico" data-search="claude-searchbot e oai-searchbot: como funcionam e o que fazer com esses crawlers claude-searchbot e oai-searchbot sao crawlers especificos para busca conversacional. saiba como configurar robots.txt corretamente sem perder visibilidade."><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">04 ABR 2026</div></div><div class="bcb"><h3>Claude-SearchBot e OAI-SearchBot: como funcionam e o que fazer com esses crawlers</h3><p>Claude-SearchBot e OAI-SearchBot são crawlers específicos para busca conversacional. Saiba como configurar robots.txt corretamente sem pe…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/schema-org-id-sameas-resolucao-entidades-ia/" class="bc" data-cat="tecnico" data-search="como usar @id e sameas no schema.org para melhorar resolucao de entidades por ia? aprenda a implementar @id e sameas no schema.org para criar identificadores unicos de entidades, facilitando compreensao por ias e aumentando citacoes"><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">04 ABR 2026</div></div><div class="bcb"><h3>Como usar @id e sameAs no Schema.org para melhorar resolução de entidades por IA?</h3><p>Aprenda a implementar @id e sameAs no Schema.org para criar identificadores únicos de entidades, facilitando compreensão por IAs e aument…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/yahoo-scout-novos-answer-engines-aeo/" class="bc" data-cat="mercado" data-search="yahoo scout e novos answer engines: o que profissionais de aeo precisam saber yahoo scout representa a diversificacao do ecossistema de answer engines. entenda como adaptar sua estrategia aeo para multiplas plataformas sem diluir esforcos."><div class="bcm"><div class="bct">Mercado</div><div class="bcd"></div><div class="bcdt">04 ABR 2026</div></div><div class="bcb"><h3>Yahoo Scout e novos answer engines: o que profissionais de AEO precisam saber</h3><p>Yahoo Scout representa a diversificação do ecossistema de answer engines. Entenda como adaptar sua estratégia AEO para múltiplas platafor…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/criar-pesquisas-dados-originais-citacao-llms/" class="bc" data-cat="conteudo" data-search="como criar pesquisas e dados originais para ser citado por llms e ferramentas de ia metodologia completa para produzir pesquisas proprietarias, surveys e estatisticas que se tornam referencia para citacao por chatgpt, perplexity e outras ias generativas."><div class="bcm"><div class="bct">Conteúdo</div><div class="bcd"></div><div class="bcdt">03 ABR 2026</div></div><div class="bcb"><h3>Como criar pesquisas e dados originais para ser citado por LLMs e ferramentas de IA</h3><p>Metodologia completa para produzir pesquisas proprietárias, surveys e estatísticas que se tornam referência para citação por ChatGPT, Per…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/" class="bc" data-cat="tecnico" data-search="entity seo para aeo: como fortalecer a presenca de entidades no knowledge graph entity seo conecta sua marca ao knowledge graph, aumentando citacoes em llms. implemente schema.org, wikidata e sinais de entidade para melhorar aeo."><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">03 ABR 2026</div></div><div class="bcb"><h3>Entity SEO para AEO: como fortalecer a presença de entidades no Knowledge Graph</h3><p>Entity SEO conecta sua marca ao Knowledge Graph, aumentando citações em LLMs. Implemente Schema.org, Wikidata e sinais de entidade para m…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/geo-aeo-llm-seo-qual-abordagem-escolher/" class="bc" data-cat="fundamentos" data-search="geo vs aeo vs llm seo: qual abordagem escolher para sua estrategia em 2026? guia definitivo sobre geo, aeo e llm seo. entenda as diferencas praticas e escolha a estrategia certa para otimizacao em ia generativa em 2026."><div class="bcm"><div class="bct">Fundamentos</div><div class="bcd"></div><div class="bcdt">03 ABR 2026</div></div><div class="bcb"><h3>GEO vs AEO vs LLM SEO: qual abordagem escolher para sua estratégia em 2026?</h3><p>Guia definitivo sobre GEO, AEO e LLM SEO. Entenda as diferenças práticas e escolha a estratégia certa para otimização em IA generativa em…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/applebot-extended-crawler-ia-apple/" class="bc" data-cat="tecnico" data-search="applebot-extended: o que e e como configurar o crawler de ia da apple applebot-extended e o crawler da apple para treinamento de ia, separado do applebot tradicional. saiba como configurar robots.txt para controla-lo."><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">02 ABR 2026</div></div><div class="bcb"><h3>Applebot-Extended: o que é e como configurar o crawler de IA da Apple</h3><p>Applebot-Extended é o crawler da Apple para treinamento de IA, separado do Applebot tradicional. Saiba como configurar robots.txt para co…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/" class="bc" data-cat="medicao" data-search="como auditar a visibilidade da sua marca em ias usando prompts de teste manual framework pratico de prompts para auditar citacoes da marca em chatgpt, claude, perplexity e gemini, criando baseline mensuravel de visibilidade."><div class="bcm"><div class="bct">Medição</div><div class="bcd"></div><div class="bcdt">02 ABR 2026</div></div><div class="bcb"><h3>Como auditar a visibilidade da sua marca em IAs usando prompts de teste manual</h3><p>Framework prático de prompts para auditar citações da marca em ChatGPT, Claude, Perplexity e Gemini, criando baseline mensurável de visib…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/" class="bc" data-cat="medicao" data-search="como monitorar ai visibility e share of voice nas respostas de chatgpt, claude e perplexity guia pratico para medir presenca da sua marca e conteudo nas respostas de ias generativas. metodos manuais, ferramentas e metricas essenciais."><div class="bcm"><div class="bct">Medição</div><div class="bcd"></div><div class="bcdt">02 ABR 2026</div></div><div class="bcb"><h3>Como monitorar AI visibility e share of voice nas respostas de ChatGPT, Claude e Perplexity</h3><p>Guia prático para medir presença da sua marca e conteúdo nas respostas de IAs generativas. Métodos manuais, ferramentas e métricas essenc…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/" class="bc" data-cat="tecnico" data-search="como usar llms.txt para aumentar citacoes do seu site em chatgpt e google ai overviews implementacao pratica do llms.txt para orientar llms sobre conteudo relevante e aumentar citacoes em chatgpt e google ai overviews."><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">01 ABR 2026</div></div><div class="bcb"><h3>Como usar llms.txt para aumentar citações do seu site em ChatGPT e Google AI Overviews</h3><p>Implementação prática do llms.txt para orientar LLMs sobre conteúdo relevante e aumentar citações em ChatGPT e Google AI Overviews.</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/diferencas-citacao-chatgpt-perplexity-gemini-ai-overviews/" class="bc" data-cat="plataformas" data-search="como chatgpt, perplexity, gemini e ai overviews citam fontes de forma diferente? chatgpt prioriza autoridade, perplexity velocidade e recencia, gemini integracao google, ai overviews relevancia comercial. entenda as diferencas para otimizar citacoes."><div class="bcm"><div class="bct">Plataformas</div><div class="bcd"></div><div class="bcdt">01 ABR 2026</div></div><div class="bcb"><h3>Como ChatGPT, Perplexity, Gemini e AI Overviews citam fontes de forma diferente?</h3><p>ChatGPT prioriza autoridade, Perplexity velocidade e recência, Gemini integração Google, AI Overviews relevância comercial. Entenda as di…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/" class="bc" data-cat="tecnico" data-search="como implementar robots.txt em 3 camadas para ias: permitir busca e bloquear treinamento estrategia intermediaria de robots.txt que permite bots de answer engines para citacoes mas bloqueia crawlers de treinamento de modelos de ia."><div class="bcm"><div class="bct">Técnico</div><div class="bcd"></div><div class="bcdt">01 ABR 2026</div></div><div class="bcb"><h3>Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento</h3><p>Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos d…</p><div class="bcf">Ler artigo →</div></div></a>
+        <a href="/blog/o-que-e-aeo-answer-engine-optimization/" class="bc" data-cat="fundamentos" data-search="o que e aeo (answer engine optimization) e como funciona na pratica? aeo e a otimizacao de conteudo para ser citado por ias como chatgpt e perplexity. saiba como implementar na pratica e complementar seu seo."><div class="bcm"><div class="bct">Fundamentos</div><div class="bcd"></div><div class="bcdt">16 JAN 2026</div></div><div class="bcb"><h3>O que é AEO (Answer Engine Optimization) e como funciona na prática?</h3><p>AEO é a otimização de conteúdo para ser citado por IAs como ChatGPT e Perplexity. Saiba como implementar na prática e complementar seu SEO.</p><div class="bcf">Ler artigo →</div></div></a>
+        <div class="empty-state" id="empty-state">
+          Nenhum artigo encontrado com esses filtros.
+          <br><button onclick="clearFilters()">Limpar filtros</button>
+        </div>
       </div>
     </div>
   </section>
@@ -447,6 +240,122 @@
 
   <script>
     function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+
+  <script>
+    (function(){
+      const chips = document.querySelectorAll('#chip-row .chip');
+      const cards = document.querySelectorAll('#blog-grid .bc');
+      const featuredCard = document.querySelector('.bc-featured');
+      const input = document.getElementById('search-input');
+      const clearBtn = document.getElementById('search-clear');
+      const searchWrap = document.getElementById('search-wrap');
+      const empty = document.getElementById('empty-state');
+
+      const stripAccents = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+
+      let activeCat = 'all';
+      let query = '';
+
+      function apply(){
+        let visible = 0;
+        const filtering = activeCat !== 'all' || query.length > 0;
+        if(featuredCard){
+          featuredCard.classList.toggle('bc-unfeatured-temp', filtering);
+        }
+        cards.forEach(card => {
+          const cat = card.dataset.cat;
+          const search = card.dataset.search || '';
+          const catMatch = activeCat === 'all' || cat === activeCat;
+          const queryMatch = !query || search.includes(query);
+          const show = catMatch && queryMatch;
+          card.classList.toggle('hidden', !show);
+          if(show) visible++;
+        });
+        empty.classList.toggle('show', visible === 0);
+        updateHash();
+      }
+
+      function updateHash(){
+        const parts = [];
+        if(activeCat !== 'all') parts.push('cat='+activeCat);
+        if(query) parts.push('q='+encodeURIComponent(query));
+        const hash = parts.length ? '#'+parts.join('&') : '';
+        if(hash !== location.hash){
+          history.replaceState(null, '', location.pathname + hash);
+        }
+      }
+
+      function readHash(){
+        const h = location.hash.slice(1);
+        if(!h) return;
+        const params = Object.fromEntries(h.split('&').map(p => {
+          const [k,v] = p.split('=');
+          return [k, decodeURIComponent(v||'')];
+        }));
+        if(params.cat){
+          activeCat = params.cat;
+          chips.forEach(c => c.classList.toggle('active', c.dataset.cat === activeCat));
+        }
+        if(params.q){
+          query = stripAccents(params.q);
+          input.value = params.q;
+          searchWrap.classList.add('has-value');
+        }
+      }
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          activeCat = chip.dataset.cat;
+          apply();
+        });
+      });
+
+      let debounce;
+      input.addEventListener('input', e => {
+        clearTimeout(debounce);
+        debounce = setTimeout(() => {
+          query = stripAccents(e.target.value.trim());
+          searchWrap.classList.toggle('has-value', query.length > 0);
+          apply();
+        }, 120);
+      });
+
+      clearBtn.addEventListener('click', () => {
+        input.value = '';
+        query = '';
+        searchWrap.classList.remove('has-value');
+        apply();
+        input.focus();
+      });
+
+      window.clearFilters = function(){
+        activeCat = 'all';
+        query = '';
+        input.value = '';
+        searchWrap.classList.remove('has-value');
+        chips.forEach(c => c.classList.toggle('active', c.dataset.cat === 'all'));
+        apply();
+      };
+
+      const style = document.createElement('style');
+      style.textContent = `
+        .bc-featured.bc-unfeatured-temp{grid-column:auto;padding:24px;background:var(--card);border-color:var(--bdr)}
+        .bc-featured.bc-unfeatured-temp:hover{background:var(--card-h);border-color:var(--bdr-h)}
+        .bc-featured.bc-unfeatured-temp .bcm{margin-bottom:14px}
+        .bc-featured.bc-unfeatured-temp .bcm::before{display:none}
+        .bc-featured.bc-unfeatured-temp .bcb h3{font-size:16px;line-height:1.35;margin-bottom:10px;letter-spacing:0}
+        .bc-featured.bc-unfeatured-temp .bcb p{font-size:13px;line-height:1.55;margin-bottom:16px}
+        .bc-featured.bc-unfeatured-temp .bcf{font-size:13px}
+      `;
+      document.head.appendChild(style);
+
+      readHash();
+      apply();
+    })();
   </script>
 
 </body>

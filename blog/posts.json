@@ -1,0 +1,293 @@
+{
+  "generated_at": "2026-04-16T20:48:06",
+  "count": 29,
+  "categories": [
+    {
+      "id": "fundamentos",
+      "label": "Fundamentos"
+    },
+    {
+      "id": "tecnico",
+      "label": "Técnico"
+    },
+    {
+      "id": "conteudo",
+      "label": "Conteúdo"
+    },
+    {
+      "id": "medicao",
+      "label": "Medição"
+    },
+    {
+      "id": "plataformas",
+      "label": "Plataformas"
+    },
+    {
+      "id": "mercado",
+      "label": "Mercado"
+    }
+  ],
+  "posts": [
+    {
+      "url": "/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/",
+      "slug": "estruturar-conteudo-busca-voz-assistentes-multimodais",
+      "title": "Como estruturar conteúdo para busca por voz e assistentes multimodais em 2026?",
+      "desc": "Framework técnico para otimizar conteúdo para consultas por voz e multimodais. Schema markup, formato answer-first e requisitos por assistente.",
+      "date": "2026-04-15",
+      "cat_id": "conteudo",
+      "cat_label": "Conteúdo"
+    },
+    {
+      "url": "/blog/5-passos-otimizar-aeo-blogs/",
+      "slug": "5-passos-otimizar-aeo-blogs",
+      "title": "5 passos práticos para otimizar AEO em blogs corporativos",
+      "desc": "Checklist completo para adaptar blogs corporativos para Answer Engine Optimization: crawler, conteúdo, schema, meta tags e atualização contínua",
+      "date": "2026-04-08",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/estruturar-faq-citacao-assistentes-ia/",
+      "slug": "estruturar-faq-citacao-assistentes-ia",
+      "title": "Como estruturar FAQs para maximizar citações em assistentes de IA?",
+      "desc": "Aprenda a criar FAQs com schema markup FAQPage, formatação semântica e linguagem conversacional para aumentar citações em respostas de LLMs.",
+      "date": "2026-04-08",
+      "cat_id": "conteudo",
+      "cat_label": "Conteúdo"
+    },
+    {
+      "url": "/blog/ferramentas-metricas-medir-resultados-aeo/",
+      "slug": "ferramentas-metricas-medir-resultados-aeo",
+      "title": "Quais ferramentas e métricas usar para medir resultados em AEO?",
+      "desc": "Descubra ferramentas especializadas e métricas essenciais para monitorar e mensurar resultados de Answer Engine Optimization em 2025.",
+      "date": "2026-04-08",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/",
+      "slug": "bing-webmaster-tools-ai-performance-rastrear-citacoes",
+      "title": "Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs",
+      "desc": "Guia completo do AI Performance do Bing Webmaster Tools: como acessar, interpretar métricas de citações em IAs e otimizar conteúdo baseado em dados reais do Copilot.",
+      "date": "2026-04-07",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/como-escrever-definition-lead-sentences-ias/",
+      "slug": "como-escrever-definition-lead-sentences-ias",
+      "title": "Como escrever definition-lead sentences que IAs conseguem extrair facilmente",
+      "desc": "Definition-lead sentences são frases estruturadas que facilitam extração direta por LLMs. Use padrões sintáticos específicos nos primeiros 150 caracteres para maximizar citação.",
+      "date": "2026-04-07",
+      "cat_id": "conteudo",
+      "cat_label": "Conteúdo"
+    },
+    {
+      "url": "/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/",
+      "slug": "configurar-robots-txt-gptbot-claudebot-perplexitybot",
+      "title": "Como configurar robots.txt para GPTBot, ClaudeBot e PerplexityBot",
+      "desc": "Guia completo para configurar robots.txt com crawlers de IA: sintaxe exata para GPTBot, ClaudeBot e PerplexityBot, com controle granular por diretório.",
+      "date": "2026-04-07",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/diferenca-crawlers-ia-chatgpt-perplexity/",
+      "slug": "diferenca-crawlers-ia-chatgpt-perplexity",
+      "title": "Qual a diferença entre crawlers de IA, ChatGPT e Perplexity?",
+      "desc": "Crawlers coletam dados para treinamento, ChatGPT opera com modelo estático e Perplexity faz busca ativa em tempo real. Entenda as diferenças técnicas.",
+      "date": "2026-04-07",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/information-gain-conteudo-llms-nao-geram/",
+      "slug": "information-gain-conteudo-llms-nao-geram",
+      "title": "Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos",
+      "desc": "Information Gain diferencia conteúdo citável de genérico para LLMs. Aprenda a criar valor informacional único através de dados proprietários e experiência documentada.",
+      "date": "2026-04-07",
+      "cat_id": "conteudo",
+      "cat_label": "Conteúdo"
+    },
+    {
+      "url": "/blog/otimizar-conteudo-citacao-ia-generativa/",
+      "slug": "otimizar-conteudo-citacao-ia-generativa",
+      "title": "Como otimizar conteúdo para ser citado por IAs generativas em 2025",
+      "desc": "Guia técnico para estruturar conteúdo que aumenta probabilidade de citação por ChatGPT, Perplexity e Claude. Estratégias práticas de AEO.",
+      "date": "2026-04-07",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
+    {
+      "url": "/blog/cloudflare-pay-per-crawl-monetizar-bots-ia/",
+      "slug": "cloudflare-pay-per-crawl-monetizar-bots-ia",
+      "title": "Cloudflare Pay-per-Crawl: vale a pena monetizar acesso de bots de IA?",
+      "desc": "Análise completa do modelo Pay-per-Crawl da Cloudflare: custos, benefícios e critérios decisórios para monetizar ou bloquear bots de IA.",
+      "date": "2026-04-06",
+      "cat_id": "mercado",
+      "cat_label": "Mercado"
+    },
+    {
+      "url": "/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/",
+      "slug": "freshness-signals-aeo-timestamps-sinais-atualizacao",
+      "title": "Freshness signals em AEO: como timestamps e sinais de atualização aumentam citações por IA",
+      "desc": "LLMs priorizam conteúdo atualizado para citações. Aprenda como implementar timestamps, Schema dateModified e HTTP headers para aumentar citações por IA.",
+      "date": "2026-04-06",
+      "cat_id": "conteudo",
+      "cat_label": "Conteúdo"
+    },
+    {
+      "url": "/blog/gemini-ultrapassou-perplexity-trafego-referencia-aeo/",
+      "slug": "gemini-ultrapassou-perplexity-trafego-referencia-aeo",
+      "title": "Por que Gemini ultrapassou Perplexity em tráfego de referência e o que isso muda na sua estratégia AEO",
+      "desc": "Análise completa do crescimento do Gemini como fonte de tráfego AEO em 2024, superando Perplexity, e ajustes práticos necessários na estratégia editorial.",
+      "date": "2026-04-06",
+      "cat_id": "plataformas",
+      "cat_label": "Plataformas"
+    },
+    {
+      "url": "/blog/crawlers-ia-nao-renderizam-javascript-client-side/",
+      "slug": "crawlers-ia-nao-renderizam-javascript-client-side",
+      "title": "Por que crawlers de IA não renderizam JavaScript client-side e como auditar seu conteúdo",
+      "desc": "Crawlers de IA como GPTBot e ClaudeBot não executam JavaScript, deixando conteúdo client-side invisível. Aprenda a auditar e resolver este problema de AEO.",
+      "date": "2026-04-05",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/otimizar-conteudo-agentes-ia-autonomos-protocolo-mcp/",
+      "slug": "otimizar-conteudo-agentes-ia-autonomos-protocolo-mcp",
+      "title": "Como otimizar conteúdo para agentes de IA autônomos e o protocolo MCP",
+      "desc": "Guia completo para preparar conteúdo web para agentes de IA autônomos usando o Model Context Protocol (MCP). Estruture dados para máxima citabilidade.",
+      "date": "2026-04-05",
+      "cat_id": "plataformas",
+      "cat_label": "Plataformas"
+    },
+    {
+      "url": "/blog/otimizar-fan-out-queries-chatgpt-bing/",
+      "slug": "otimizar-fan-out-queries-chatgpt-bing",
+      "title": "Como otimizar para fan-out queries: as sub-pesquisas que ChatGPT faz no Bing",
+      "desc": "Fan-out queries são sub-pesquisas paralelas que ChatGPT executa no Bing para decompor perguntas complexas. Aprenda a estruturar conteúdo para ser encontrado nessas buscas.",
+      "date": "2026-04-05",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/claude-searchbot-oai-searchbot-crawlers-busca/",
+      "slug": "claude-searchbot-oai-searchbot-crawlers-busca",
+      "title": "Claude-SearchBot e OAI-SearchBot: como funcionam e o que fazer com esses crawlers",
+      "desc": "Claude-SearchBot e OAI-SearchBot são crawlers específicos para busca conversacional. Saiba como configurar robots.txt corretamente sem perder visibilidade.",
+      "date": "2026-04-04",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/schema-org-id-sameas-resolucao-entidades-ia/",
+      "slug": "schema-org-id-sameas-resolucao-entidades-ia",
+      "title": "Como usar @id e sameAs no Schema.org para melhorar resolução de entidades por IA?",
+      "desc": "Aprenda a implementar @id e sameAs no Schema.org para criar identificadores únicos de entidades, facilitando compreensão por IAs e aumentando citações",
+      "date": "2026-04-04",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/yahoo-scout-novos-answer-engines-aeo/",
+      "slug": "yahoo-scout-novos-answer-engines-aeo",
+      "title": "Yahoo Scout e novos answer engines: o que profissionais de AEO precisam saber",
+      "desc": "Yahoo Scout representa a diversificação do ecossistema de answer engines. Entenda como adaptar sua estratégia AEO para múltiplas plataformas sem diluir esforços.",
+      "date": "2026-04-04",
+      "cat_id": "mercado",
+      "cat_label": "Mercado"
+    },
+    {
+      "url": "/blog/criar-pesquisas-dados-originais-citacao-llms/",
+      "slug": "criar-pesquisas-dados-originais-citacao-llms",
+      "title": "Como criar pesquisas e dados originais para ser citado por LLMs e ferramentas de IA",
+      "desc": "Metodologia completa para produzir pesquisas proprietárias, surveys e estatísticas que se tornam referência para citação por ChatGPT, Perplexity e outras IAs generativas.",
+      "date": "2026-04-03",
+      "cat_id": "conteudo",
+      "cat_label": "Conteúdo"
+    },
+    {
+      "url": "/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/",
+      "slug": "entity-seo-aeo-fortalecer-presenca-knowledge-graph",
+      "title": "Entity SEO para AEO: como fortalecer a presença de entidades no Knowledge Graph",
+      "desc": "Entity SEO conecta sua marca ao Knowledge Graph, aumentando citações em LLMs. Implemente Schema.org, Wikidata e sinais de entidade para melhorar AEO.",
+      "date": "2026-04-03",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/geo-aeo-llm-seo-qual-abordagem-escolher/",
+      "slug": "geo-aeo-llm-seo-qual-abordagem-escolher",
+      "title": "GEO vs AEO vs LLM SEO: qual abordagem escolher para sua estratégia em 2026?",
+      "desc": "Guia definitivo sobre GEO, AEO e LLM SEO. Entenda as diferenças práticas e escolha a estratégia certa para otimização em IA generativa em 2026.",
+      "date": "2026-04-03",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
+    {
+      "url": "/blog/applebot-extended-crawler-ia-apple/",
+      "slug": "applebot-extended-crawler-ia-apple",
+      "title": "Applebot-Extended: o que é e como configurar o crawler de IA da Apple",
+      "desc": "Applebot-Extended é o crawler da Apple para treinamento de IA, separado do Applebot tradicional. Saiba como configurar robots.txt para controlá-lo.",
+      "date": "2026-04-02",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/",
+      "slug": "auditar-visibilidade-marca-ias-prompts-teste-manual",
+      "title": "Como auditar a visibilidade da sua marca em IAs usando prompts de teste manual",
+      "desc": "Framework prático de prompts para auditar citações da marca em ChatGPT, Claude, Perplexity e Gemini, criando baseline mensurável de visibilidade.",
+      "date": "2026-04-02",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/",
+      "slug": "monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity",
+      "title": "Como monitorar AI visibility e share of voice nas respostas de ChatGPT, Claude e Perplexity",
+      "desc": "Guia prático para medir presença da sua marca e conteúdo nas respostas de IAs generativas. Métodos manuais, ferramentas e métricas essenciais.",
+      "date": "2026-04-02",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/",
+      "slug": "como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai",
+      "title": "Como usar llms.txt para aumentar citações do seu site em ChatGPT e Google AI Overviews",
+      "desc": "Implementação prática do llms.txt para orientar LLMs sobre conteúdo relevante e aumentar citações em ChatGPT e Google AI Overviews.",
+      "date": "2026-04-01",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/diferencas-citacao-chatgpt-perplexity-gemini-ai-overviews/",
+      "slug": "diferencas-citacao-chatgpt-perplexity-gemini-ai-overviews",
+      "title": "Como ChatGPT, Perplexity, Gemini e AI Overviews citam fontes de forma diferente?",
+      "desc": "ChatGPT prioriza autoridade, Perplexity velocidade e recência, Gemini integração Google, AI Overviews relevância comercial. Entenda as diferenças para otimizar citações.",
+      "date": "2026-04-01",
+      "cat_id": "plataformas",
+      "cat_label": "Plataformas"
+    },
+    {
+      "url": "/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/",
+      "slug": "robots-txt-3-camadas-permitir-busca-bloquear-treinamento",
+      "title": "Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento",
+      "desc": "Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.",
+      "date": "2026-04-01",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/o-que-e-aeo-answer-engine-optimization/",
+      "slug": "o-que-e-aeo-answer-engine-optimization",
+      "title": "O que é AEO (Answer Engine Optimization) e como funciona na prática?",
+      "desc": "AEO é a otimização de conteúdo para ser citado por IAs como ChatGPT e Perplexity. Saiba como implementar na prática e complementar seu SEO.",
+      "date": "2026-01-16",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    }
+  ]
+}

@@ -16,6 +16,7 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="article:author" content="Elio Picchiotti">
   <meta property="article:published_time" content="2026-04-07">
+  <meta property="article:section" content="Conteúdo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos">
   <meta name="twitter:description" content="Information Gain diferencia conteúdo citável de genérico para LLMs. Aprenda a criar valor informacional único através de dados proprietários e experiência documentada.">
@@ -54,17 +55,50 @@
     .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
     .page-header .meta{font-size:14px;color:var(--t3)}
 
-    /* BLOG CARDS */
-    .bg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);overflow:hidden;transition:all .35s var(--ease);cursor:pointer;text-decoration:none;display:block}
-    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px)}
-    .bci{height:180px;background:linear-gradient(135deg,rgba(255,87,34,.08),rgba(200,255,0,.05));display:flex;align-items:center;justify-content:center;font-size:48px;border-bottom:1px solid var(--bdr)}
-    .bcb{padding:24px}
-    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-    .bcb h3{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.35}
-    .bcb p{font-size:13px;color:var(--t3);line-height:1.5}
-    .bcf{padding:0 24px 20px;font-size:13px;color:var(--orange);font-weight:500}
-    .bcm{padding:0 24px 8px;font-size:12px;color:var(--t4)}
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
 
     /* ARTICLE BODY */
     .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
@@ -103,7 +137,7 @@
     .fcp{font-size:12px;color:var(--t4)}
 
     /* RESPONSIVE */
-    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}}
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
     @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
 </style>
   <script type="application/ld+json">
@@ -112,6 +146,7 @@
     "@type": "Article",
     "headline": "Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos",
     "description": "Information Gain diferencia conteúdo citável de genérico para LLMs. Aprenda a criar valor informacional único através de dados proprietários e experiência documentada.",
+    "articleSection": "Conteúdo",
     "author": {
       "@type": "Person",
       "name": "Elio Picchiotti",
@@ -306,7 +341,7 @@ Por último, atualidade e relevância temporal influenciam priorização. Conte�
 
   <div class="page-header">
     <div class="container">
-      <div class="sl">information gain · conteúdo original · AEO</div>
+      <div class="sl">Conteúdo</div>
       <h1>Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos</h1>
       <div class="meta">Elio Picchiotti · 7 de abril de 2026</div>
     </div>
