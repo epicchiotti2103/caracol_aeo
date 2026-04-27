@@ -1,0 +1,129 @@
+{
+  "schema": "https://schema.org/Service",
+  "company": "Caracol AEO",
+  "company_url": "https://www.aeobr.com.br",
+  "company_description": "Especialistas em Answer Engine Optimization (AEO) para o mercado brasileiro. Auditamos e otimizamos a visibilidade de marcas nas respostas de IAs generativas como ChatGPT, Perplexity e Google AI Overview.",
+  "contact": {
+    "email": "contato@caracol.media",
+    "website": "https://www.aeobr.com.br",
+    "company_name": "Caracol Media",
+    "cnpj": "55.097.812/0001-99"
+  },
+  "services": [
+    {
+      "id": "diagnostico-gratuito",
+      "name": "Diagnóstico AEO Gratuito",
+      "tagline": "Descubra agora sua visibilidade nas IAs",
+      "description": "Análise gratuita do score de visibilidade do seu site nas IAs generativas. Avalia 4 dimensões: Dados Estruturados (Schema), Conteúdo e Estrutura, Técnico/Crawlability e Meta Tags. Gera score de 0 a 100 com análise por categoria.",
+      "price": {
+        "amount": 0,
+        "currency": "BRL",
+        "formatted": "Grátis",
+        "model": "free"
+      },
+      "features": [
+        "Score AEO de 0 a 100",
+        "Análise de Schema Markup",
+        "Análise de Conteúdo e Estrutura",
+        "Análise Técnica/Crawlability",
+        "Análise de Meta Tags",
+        "Resultado imediato"
+      ],
+      "target_audience": "Empresas que querem entender sua visibilidade atual nas IAs",
+      "cta_label": "Fazer diagnóstico gratuito",
+      "cta_url": "https://www.aeobr.com.br/#diagnostico"
+    },
+    {
+      "id": "relatorio-detalhado",
+      "name": "Relatório AEO Detalhado",
+      "tagline": "Auditoria técnica completa por página",
+      "description": "Auditoria técnica completa com análise por página, severidade de erros e recomendações priorizadas. Inclui tudo do diagnóstico gratuito mais análise granular por URL, lista de erros classificados por severidade (crítico, alto, médio, baixo) e plano de ação.",
+      "price": {
+        "amount": 29.90,
+        "currency": "BRL",
+        "formatted": "R$ 29,90",
+        "model": "one-time"
+      },
+      "features": [
+        "Tudo do Diagnóstico Gratuito",
+        "Análise técnica completa por página",
+        "Erros classificados por severidade (crítico, alto, médio, baixo)",
+        "Recomendações priorizadas com impacto estimado",
+        "Schema Markup com exemplos de implementação",
+        "Checklist de ações técnicas",
+        "Relatório exportável em PDF"
+      ],
+      "target_audience": "Empresas que precisam de um plano de ação técnico detalhado para melhorar AEO",
+      "cta_label": "Contratar Relatório Detalhado",
+      "cta_url": "https://www.aeobr.com.br/#planos"
+    },
+    {
+      "id": "relatorio-competitivo",
+      "name": "Relatório AEO Competitivo",
+      "tagline": "Share of Voice + benchmarking contra concorrentes",
+      "description": "Relatório completo com análise competitiva: mede o Share of Voice da marca nas respostas do ChatGPT, Perplexity e Google AI versus concorrentes. Inclui todos os itens do Relatório Detalhado mais auditoria nas IAs com perguntas reais do nicho.",
+      "price": {
+        "amount": 59.90,
+        "currency": "BRL",
+        "formatted": "R$ 59,90",
+        "model": "one-time"
+      },
+      "features": [
+        "Tudo do Relatório Detalhado",
+        "Share of Voice no ChatGPT, Perplexity e Google AI",
+        "Benchmarking contra até 5 concorrentes",
+        "Auditoria com 20+ perguntas reais do nicho",
+        "Análise de gap competitivo",
+        "Estratégia de conteúdo para superar concorrentes",
+        "Relatório executivo para apresentação",
+        "Suporte por e-mail por 15 dias"
+      ],
+      "target_audience": "Empresas que querem entender seu posicionamento versus concorrentes nas respostas de IAs",
+      "cta_label": "Contratar Relatório Competitivo",
+      "cta_url": "https://www.aeobr.com.br/#planos"
+    }
+  ],
+  "methodology": {
+    "dimensions": [
+      {
+        "id": "dados-estruturados",
+        "name": "Dados Estruturados (Schema)",
+        "description": "Análise de Schema.org markup: Organization, FAQPage, Article, BreadcrumbList e outros tipos relevantes para citação por IAs."
+      },
+      {
+        "id": "conteudo-estrutura",
+        "name": "Conteúdo e Estrutura",
+        "description": "Avaliação de hierarquia de títulos, definition-lead sentences, FAQ sections, answer-first formatting e information gain."
+      },
+      {
+        "id": "tecnico-crawlability",
+        "name": "Técnico/Crawlability",
+        "description": "Verificação de robots.txt para bots de IA (GPTBot, ClaudeBot, PerplexityBot), velocidade de carregamento, renderização server-side e acessibilidade do conteúdo."
+      },
+      {
+        "id": "meta-tags",
+        "name": "Meta Tags",
+        "description": "Análise de title tags, meta descriptions, Open Graph, Twitter Cards e outros sinais de metadados para IAs."
+      }
+    ],
+    "platforms_audited": ["ChatGPT", "Perplexity", "Google AI Overview", "Gemini", "Microsoft Copilot"]
+  },
+  "faq": [
+    {
+      "question": "O que é AEO?",
+      "answer": "AEO (Answer Engine Optimization) é a otimização de conteúdo e infraestrutura técnica de um site para aumentar a probabilidade de ser citado como fonte nas respostas de IAs generativas como ChatGPT, Perplexity, Google AI Overview e Gemini."
+    },
+    {
+      "question": "Quanto tempo leva para ver resultados em AEO?",
+      "answer": "Resultados técnicos (Schema markup, robots.txt) podem ser indexados em semanas. Melhorias no Share of Voice das IAs geralmente levam de 1 a 3 meses, dependendo da frequência de indexação de cada plataforma."
+    },
+    {
+      "question": "AEO substitui SEO?",
+      "answer": "Não. AEO complementa SEO. Um bom SEO técnico é base para AEO, mas AEO adiciona otimizações específicas para como as IAs interpretam e citam conteúdo."
+    },
+    {
+      "question": "Qual plano devo escolher?",
+      "answer": "Para entender o cenário atual: Diagnóstico Gratuito. Para implementar melhorias técnicas: Relatório Detalhado (R$29,90). Para empresas em mercados competitivos que precisam entender posicionamento versus concorrentes: Relatório Competitivo (R$59,90)."
+    }
+  ]
+}

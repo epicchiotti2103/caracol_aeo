@@ -1,0 +1,318 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Caracol AEO API",
+    "description": "API pública da Caracol AEO — especialista em Answer Engine Optimization para o mercado brasileiro. Expõe dados estruturados de conteúdo, serviços e informações da empresa para consumo por agentes de IA e integrações externas.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Caracol AEO",
+      "url": "https://www.aeobr.com.br",
+      "email": "contato@caracol.media"
+    },
+    "license": {
+      "name": "Conteúdo protegido por direitos autorais",
+      "url": "https://www.aeobr.com.br"
+    },
+    "x-logo": {
+      "url": "https://www.aeobr.com.br/logo2.png",
+      "altText": "Caracol AEO Logo"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.aeobr.com.br",
+      "description": "Servidor de produção (site estático)"
+    }
+  ],
+  "tags": [
+    {
+      "name": "blog",
+      "description": "Artigos e conteúdo editorial sobre AEO"
+    },
+    {
+      "name": "services",
+      "description": "Serviços e planos oferecidos pela Caracol AEO"
+    },
+    {
+      "name": "company",
+      "description": "Informações institucionais da empresa"
+    }
+  ],
+  "paths": {
+    "/blog/posts.json": {
+      "get": {
+        "tags": ["blog"],
+        "operationId": "listBlogPosts",
+        "summary": "Listar todos os artigos do blog",
+        "description": "Retorna lista completa de artigos publicados com metadados: título, descrição, categoria, data e URL. Ideal para agentes de IA descobrirem conteúdo disponível sobre AEO.",
+        "responses": {
+          "200": {
+            "description": "Lista de artigos retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostsCollection"
+                },
+                "example": {
+                  "generated_at": "2026-04-27T16:27:10",
+                  "count": 30,
+                  "categories": [
+                    {"id": "fundamentos", "label": "Fundamentos"},
+                    {"id": "tecnico", "label": "Técnico"}
+                  ],
+                  "posts": [
+                    {
+                      "url": "/blog/o-que-e-aeo-answer-engine-optimization/",
+                      "slug": "o-que-e-aeo-answer-engine-optimization",
+                      "title": "O que é AEO (Answer Engine Optimization) e como funciona na prática?",
+                      "desc": "AEO é a otimização de conteúdo para ser citado por IAs como ChatGPT e Perplexity.",
+                      "date": "2026-01-16",
+                      "cat_id": "fundamentos",
+                      "cat_label": "Fundamentos"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services.json": {
+      "get": {
+        "tags": ["services"],
+        "operationId": "getServices",
+        "summary": "Obter serviços e planos disponíveis",
+        "description": "Retorna todos os serviços oferecidos pela Caracol AEO com preços, descrições e o que está incluído em cada plano.",
+        "responses": {
+          "200": {
+            "description": "Serviços retornados com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServicesCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "tags": ["company"],
+        "operationId": "getLlmGuide",
+        "summary": "Guia de conteúdo para LLMs",
+        "description": "Arquivo llms.txt com orientações para modelos de linguagem sobre o conteúdo e serviços da Caracol AEO. Segue o padrão llms.txt proposto por Answer.AI.",
+        "responses": {
+          "200": {
+            "description": "Guia retornado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms-full.txt": {
+      "get": {
+        "tags": ["company"],
+        "operationId": "getLlmFullGuide",
+        "summary": "Guia completo para LLMs com todos os artigos",
+        "description": "Versão expandida do llms.txt com links para todos os 30 artigos do blog organizados por categoria. Ideal para agentes de IA que precisam de contexto completo.",
+        "responses": {
+          "200": {
+            "description": "Guia completo retornado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "tags": ["company"],
+        "operationId": "getSitemap",
+        "summary": "Sitemap XML do site",
+        "description": "Sitemap XML com todas as URLs do site incluindo artigos do blog. Segue o protocolo Sitemaps 0.9.",
+        "responses": {
+          "200": {
+            "description": "Sitemap retornado com sucesso",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["fundamentos", "tecnico", "conteudo", "medicao", "plataformas", "mercado"],
+            "description": "Identificador único da categoria"
+          },
+          "label": {
+            "type": "string",
+            "description": "Nome legível da categoria em português"
+          }
+        },
+        "required": ["id", "label"]
+      },
+      "Post": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri-reference",
+            "description": "Caminho relativo para o artigo"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Identificador único do artigo no formato kebab-case"
+          },
+          "title": {
+            "type": "string",
+            "description": "Título completo do artigo"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Descrição curta do conteúdo do artigo"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Data de publicação no formato YYYY-MM-DD"
+          },
+          "cat_id": {
+            "type": "string",
+            "enum": ["fundamentos", "tecnico", "conteudo", "medicao", "plataformas", "mercado"],
+            "description": "Categoria do artigo"
+          },
+          "cat_label": {
+            "type": "string",
+            "description": "Nome legível da categoria"
+          }
+        },
+        "required": ["url", "slug", "title", "desc", "date", "cat_id", "cat_label"]
+      },
+      "PostsCollection": {
+        "type": "object",
+        "properties": {
+          "generated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp de geração do arquivo"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Total de artigos na coleção"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Post"
+            }
+          }
+        },
+        "required": ["count", "categories", "posts"]
+      },
+      "Service": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único do serviço"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do serviço"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição detalhada do serviço"
+          },
+          "price": {
+            "type": "object",
+            "properties": {
+              "amount": {"type": "number"},
+              "currency": {"type": "string"},
+              "formatted": {"type": "string"}
+            }
+          },
+          "features": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Lista de funcionalidades incluídas"
+          },
+          "cta_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL de contratação ou mais informações"
+          }
+        },
+        "required": ["id", "name", "description", "features"]
+      },
+      "ServicesCollection": {
+        "type": "object",
+        "properties": {
+          "company": {
+            "type": "string",
+            "description": "Nome da empresa"
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Service"
+            }
+          }
+        },
+        "required": ["services"]
+      }
+    }
+  },
+  "x-ai-agent-hints": {
+    "primary_language": "pt-BR",
+    "domain": "Answer Engine Optimization (AEO)",
+    "data_endpoints": [
+      {
+        "url": "/blog/posts.json",
+        "description": "Todos os artigos do blog em JSON estruturado",
+        "use_for": "Descobrir conteúdo disponível sobre AEO e filtrar por categoria"
+      },
+      {
+        "url": "/services.json",
+        "description": "Serviços e planos com preços",
+        "use_for": "Responder perguntas sobre serviços e preços da Caracol AEO"
+      },
+      {
+        "url": "/llms-full.txt",
+        "description": "Guia completo do site para LLMs",
+        "use_for": "Contexto completo sobre a empresa e todo o conteúdo disponível"
+      }
+    ]
+  }
+}
