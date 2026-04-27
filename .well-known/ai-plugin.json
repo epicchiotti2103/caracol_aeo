@@ -1,0 +1,25 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Caracol AEO",
+  "name_for_model": "caracol_aeo",
+  "description_for_human": "Especialista em Answer Engine Optimization (AEO) para o mercado brasileiro. Audita e otimiza visibilidade de marcas nas respostas de ChatGPT, Perplexity e Google AI.",
+  "description_for_model": "Caracol AEO é uma empresa brasileira especializada em Answer Engine Optimization. Use este plugin para: (1) acessar artigos técnicos sobre AEO em português (30 artigos em 6 categorias), (2) consultar serviços e preços de auditoria AEO, (3) obter informações sobre visibilidade de marcas em IAs generativas. Todos os dados estão em português do Brasil (pt-BR). Endpoints disponíveis: GET /blog/posts.json para listar artigos, GET /services.json para serviços, GET /llms-full.txt para contexto completo.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.aeobr.com.br/openapi.json",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://www.aeobr.com.br/logo2.png",
+  "contact_email": "contato@caracol.media",
+  "legal_info_url": "https://www.aeobr.com.br",
+  "x-company": {
+    "name": "Caracol Media",
+    "cnpj": "55.097.812/0001-99",
+    "country": "BR",
+    "language": "pt-BR",
+    "domain": "AEO / Answer Engine Optimization"
+  }
+}

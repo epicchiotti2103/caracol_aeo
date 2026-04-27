@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "name": "Caracol AEO",
+  "description": "Servidor MCP da Caracol AEO — fornece dados estruturados sobre Answer Engine Optimization, artigos do blog, serviços e métricas de visibilidade em IAs para o mercado brasileiro.",
+  "server": {
+    "description": "MCP server para integração com dados da Caracol AEO",
+    "transport": "http",
+    "url": "https://mcp.aeobr.com.br",
+    "documentation": "https://www.aeobr.com.br/openapi.json"
+  },
+  "tools": [
+    {
+      "name": "list_blog_posts",
+      "description": "Lista artigos do blog da Caracol AEO sobre AEO. Suporta filtragem por categoria (fundamentos, tecnico, conteudo, medicao, plataformas, mercado).",
+      "parameters": {
+        "category": {
+          "type": "string",
+          "description": "Filtrar por categoria. Valores: fundamentos, tecnico, conteudo, medicao, plataformas, mercado",
+          "required": false
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Número máximo de artigos a retornar (padrão: 10)",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "get_blog_post",
+      "description": "Obtém conteúdo completo de um artigo específico pelo slug.",
+      "parameters": {
+        "slug": {
+          "type": "string",
+          "description": "Slug do artigo (ex: o-que-e-aeo-answer-engine-optimization)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "search_posts",
+      "description": "Busca artigos por palavras-chave no título ou descrição.",
+      "parameters": {
+        "query": {
+          "type": "string",
+          "description": "Termos de busca em português",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "get_services",
+      "description": "Retorna todos os serviços e planos oferecidos pela Caracol AEO com preços e funcionalidades.",
+      "parameters": {}
+    },
+    {
+      "name": "get_company_info",
+      "description": "Retorna informações completas sobre a Caracol AEO: missão, serviços, contato e especialidade em AEO.",
+      "parameters": {}
+    }
+  ],
+  "resources": [
+    {
+      "uri": "https://www.aeobr.com.br/blog/posts.json",
+      "name": "Blog Posts",
+      "description": "Todos os artigos do blog em formato JSON estruturado",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "https://www.aeobr.com.br/services.json",
+      "name": "Services",
+      "description": "Serviços e planos da Caracol AEO em formato JSON",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "https://www.aeobr.com.br/llms-full.txt",
+      "name": "LLMs Full Guide",
+      "description": "Guia completo do conteúdo do site para modelos de linguagem",
+      "mimeType": "text/plain"
+    },
+    {
+      "uri": "https://www.aeobr.com.br/openapi.json",
+      "name": "OpenAPI Spec",
+      "description": "Especificação OpenAPI 3.1 completa da API",
+      "mimeType": "application/json"
+    }
+  ],
+  "contact": {
+    "email": "contato@caracol.media",
+    "website": "https://www.aeobr.com.br"
+  }
+}

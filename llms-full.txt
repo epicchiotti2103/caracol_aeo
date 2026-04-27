@@ -1,0 +1,140 @@
+# Caracol AEO — Guia Completo para Modelos de Linguagem
+
+> Caracol AEO é especialista em Answer Engine Optimization (AEO) para o mercado brasileiro. Auditamos e otimizamos a visibilidade de marcas nas respostas de IAs generativas como ChatGPT, Perplexity e Google AI Overview.
+
+## Dados Estruturados
+
+- OpenAPI Spec: https://www.aeobr.com.br/openapi.json
+- Serviços (JSON): https://www.aeobr.com.br/services.json
+- Blog Posts (JSON): https://www.aeobr.com.br/blog/posts.json
+- MCP Manifest: https://www.aeobr.com.br/.well-known/mcp.json
+- AI Plugin: https://www.aeobr.com.br/.well-known/ai-plugin.json
+
+## Sobre a Empresa
+
+Caracol AEO é uma empresa do grupo Caracol Media (CNPJ: 55.097.812/0001-99) especializada em Answer Engine Optimization para o mercado brasileiro. Analisamos sites em 4 dimensões:
+
+1. **Dados Estruturados (Schema)**: Schema.org markup para citação por IAs
+2. **Conteúdo e Estrutura**: Definition-lead sentences, FAQ sections, answer-first formatting
+3. **Técnico/Crawlability**: robots.txt para GPTBot/ClaudeBot/PerplexityBot, server-side rendering
+4. **Meta Tags**: Title, description, Open Graph e outros sinais de metadados
+
+Medimos o Share of Voice de marcas nas respostas do ChatGPT, Perplexity e Google AI.
+
+## Serviços e Preços
+
+- **Diagnóstico AEO Gratuito**: Score de visibilidade 0-100, análise por categoria, resultado imediato
+- **Relatório AEO Detalhado** (R$29,90): Auditoria técnica completa por página, erros por severidade, plano de ação
+- **Relatório AEO Competitivo** (R$59,90): Tudo do Detalhado + Share of Voice + benchmarking contra concorrentes
+
+## Contato
+
+- Site: https://www.aeobr.com.br
+- E-mail: contato@caracol.media
+- Empresa: Caracol Media
+
+---
+
+## Blog: Todos os Artigos por Categoria
+
+### Fundamentos (4 artigos)
+
+- [O que é AEO (Answer Engine Optimization) e como funciona na prática?](https://www.aeobr.com.br/blog/o-que-e-aeo-answer-engine-optimization/) — 2026-01-16
+  AEO é a otimização de conteúdo para ser citado por IAs como ChatGPT e Perplexity. Saiba como implementar na prática e complementar seu SEO.
+
+- [GEO vs AEO vs LLM SEO: qual abordagem escolher para sua estratégia em 2026?](https://www.aeobr.com.br/blog/geo-aeo-llm-seo-qual-abordagem-escolher/) — 2026-04-03
+  Guia definitivo sobre GEO, AEO e LLM SEO. Entenda as diferenças práticas e escolha a estratégia certa para otimização em IA generativa em 2026.
+
+- [Como otimizar conteúdo para ser citado por IAs generativas em 2025](https://www.aeobr.com.br/blog/otimizar-conteudo-citacao-ia-generativa/) — 2026-04-07
+  Guia técnico para estruturar conteúdo que aumenta probabilidade de citação por ChatGPT, Perplexity e Claude. Estratégias práticas de AEO.
+
+- [Como agentes de IA autônomos mudam a estratégia de AEO em 2025?](https://www.aeobr.com.br/blog/agentes-ia-autonomos-mudam-estrategia-aeo/) — 2026-04-27
+  Agentes de IA autônomos executam múltiplas buscas sequenciais e acessam APIs. Descubra como adaptar sua estratégia de AEO para essa nova realidade.
+
+### Técnico (9 artigos)
+
+- [Como usar llms.txt para aumentar citações do seu site em ChatGPT e Google AI Overviews](https://www.aeobr.com.br/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/) — 2026-04-01
+  Implementação prática do llms.txt para orientar LLMs sobre conteúdo relevante e aumentar citações em ChatGPT e Google AI Overviews.
+
+- [Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento](https://www.aeobr.com.br/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/) — 2026-04-01
+  Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.
+
+- [Applebot-Extended: o que é e como configurar o crawler de IA da Apple](https://www.aeobr.com.br/blog/applebot-extended-crawler-ia-apple/) — 2026-04-02
+  Applebot-Extended é o crawler da Apple para treinamento de IA, separado do Applebot tradicional. Saiba como configurar robots.txt para controlá-lo.
+
+- [Entity SEO para AEO: como fortalecer a presença de entidades no Knowledge Graph](https://www.aeobr.com.br/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/) — 2026-04-03
+  Entity SEO conecta sua marca ao Knowledge Graph, aumentando citações em LLMs. Implemente Schema.org, Wikidata e sinais de entidade para melhorar AEO.
+
+- [Claude-SearchBot e OAI-SearchBot: como funcionam e o que fazer com esses crawlers](https://www.aeobr.com.br/blog/claude-searchbot-oai-searchbot-crawlers-busca/) — 2026-04-04
+  Claude-SearchBot e OAI-SearchBot são crawlers específicos para busca conversacional. Saiba como configurar robots.txt corretamente sem perder visibilidade.
+
+- [Como usar @id e sameAs no Schema.org para melhorar resolução de entidades por IA?](https://www.aeobr.com.br/blog/schema-org-id-sameas-resolucao-entidades-ia/) — 2026-04-04
+  Aprenda a implementar @id e sameAs no Schema.org para criar identificadores únicos de entidades, facilitando compreensão por IAs e aumentando citações.
+
+- [Como otimizar para fan-out queries: as sub-pesquisas que ChatGPT faz no Bing](https://www.aeobr.com.br/blog/otimizar-fan-out-queries-chatgpt-bing/) — 2026-04-05
+  Fan-out queries são sub-pesquisas paralelas que ChatGPT executa no Bing para decompor perguntas complexas. Aprenda a estruturar conteúdo para ser encontrado nessas buscas.
+
+- [Como configurar robots.txt para GPTBot, ClaudeBot e PerplexityBot](https://www.aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/) — 2026-04-07
+  Guia completo para configurar robots.txt com crawlers de IA: sintaxe exata para GPTBot, ClaudeBot e PerplexityBot, com controle granular por diretório.
+
+- [Qual a diferença entre crawlers de IA, ChatGPT e Perplexity?](https://www.aeobr.com.br/blog/diferenca-crawlers-ia-chatgpt-perplexity/) — 2026-04-07
+  Crawlers coletam dados para treinamento, ChatGPT opera com modelo estático e Perplexity faz busca ativa em tempo real. Entenda as diferenças técnicas.
+
+- [5 passos práticos para otimizar AEO em blogs corporativos](https://www.aeobr.com.br/blog/5-passos-otimizar-aeo-blogs/) — 2026-04-08
+  Checklist completo para adaptar blogs corporativos para Answer Engine Optimization: crawler, conteúdo, schema, meta tags e atualização contínua.
+
+### Conteúdo (7 artigos)
+
+- [Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos](https://www.aeobr.com.br/blog/information-gain-conteudo-llms-nao-geram/) — 2026-04-07
+  Information Gain diferencia conteúdo citável de genérico para LLMs. Aprenda a criar valor informacional único através de dados proprietários e experiência documentada.
+
+- [Como escrever definition-lead sentences que IAs conseguem extrair facilmente](https://www.aeobr.com.br/blog/como-escrever-definition-lead-sentences-ias/) — 2026-04-07
+  Definition-lead sentences são frases estruturadas que facilitam extração direta por LLMs. Use padrões sintáticos específicos nos primeiros 150 caracteres para maximizar citação.
+
+- [Freshness signals em AEO: como timestamps e sinais de atualização aumentam citações por IA](https://www.aeobr.com.br/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/) — 2026-04-06
+  LLMs priorizam conteúdo atualizado para citações. Aprenda como implementar timestamps, Schema dateModified e HTTP headers para aumentar citações por IA.
+
+- [Como criar pesquisas e dados originais para ser citado por LLMs e ferramentas de IA](https://www.aeobr.com.br/blog/criar-pesquisas-dados-originais-citacao-llms/) — 2026-04-03
+  Metodologia completa para produzir pesquisas proprietárias, surveys e estatísticas que se tornam referência para citação por ChatGPT, Perplexity e outras IAs generativas.
+
+- [Como estruturar FAQs para maximizar citações em assistentes de IA?](https://www.aeobr.com.br/blog/estruturar-faq-citacao-assistentes-ia/) — 2026-04-08
+  Aprenda a criar FAQs com schema markup FAQPage, formatação semântica e linguagem conversacional para aumentar citações em respostas de LLMs.
+
+- [Como estruturar conteúdo para busca por voz e assistentes multimodais em 2026?](https://www.aeobr.com.br/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/) — 2026-04-15
+  Framework técnico para otimizar conteúdo para consultas por voz e multimodais. Schema markup, formato answer-first e requisitos por assistente.
+
+### Medição (5 artigos)
+
+- [Como auditar a visibilidade da sua marca em IAs usando prompts de teste manual](https://www.aeobr.com.br/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/) — 2026-04-02
+  Framework prático de prompts para auditar citações da marca em ChatGPT, Claude, Perplexity e Gemini, criando baseline mensurável de visibilidade.
+
+- [Como monitorar AI visibility e share of voice nas respostas de ChatGPT, Claude e Perplexity](https://www.aeobr.com.br/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/) — 2026-04-02
+  Guia prático para medir presença da sua marca e conteúdo nas respostas de IAs generativas. Métodos manuais, ferramentas e métricas essenciais.
+
+- [Por que crawlers de IA não renderizam JavaScript client-side e como auditar seu conteúdo](https://www.aeobr.com.br/blog/crawlers-ia-nao-renderizam-javascript-client-side/) — 2026-04-05
+  Crawlers de IA como GPTBot e ClaudeBot não executam JavaScript, deixando conteúdo client-side invisível. Aprenda a auditar e resolver este problema de AEO.
+
+- [Quais ferramentas e métricas usar para medir resultados em AEO?](https://www.aeobr.com.br/blog/ferramentas-metricas-medir-resultados-aeo/) — 2026-04-08
+  Descubra ferramentas especializadas e métricas essenciais para monitorar e mensurar resultados de Answer Engine Optimization em 2025.
+
+- [Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs](https://www.aeobr.com.br/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/) — 2026-04-07
+  Guia completo do AI Performance do Bing Webmaster Tools: como acessar, interpretar métricas de citações em IAs e otimizar conteúdo baseado em dados reais do Copilot.
+
+### Plataformas (3 artigos)
+
+- [Como ChatGPT, Perplexity, Gemini e AI Overviews citam fontes de forma diferente?](https://www.aeobr.com.br/blog/diferencas-citacao-chatgpt-perplexity-gemini-ai-overviews/) — 2026-04-01
+  ChatGPT prioriza autoridade, Perplexity velocidade e recência, Gemini integração Google, AI Overviews relevância comercial. Entenda as diferenças para otimizar citações.
+
+- [Como otimizar conteúdo para agentes de IA autônomos e o protocolo MCP](https://www.aeobr.com.br/blog/otimizar-conteudo-agentes-ia-autonomos-protocolo-mcp/) — 2026-04-05
+  Guia completo para preparar conteúdo web para agentes de IA autônomos usando o Model Context Protocol (MCP). Estruture dados para máxima citabilidade.
+
+- [Por que Gemini ultrapassou Perplexity em tráfego de referência e o que isso muda na sua estratégia AEO](https://www.aeobr.com.br/blog/gemini-ultrapassou-perplexity-trafego-referencia-aeo/) — 2026-04-06
+  Análise completa do crescimento do Gemini como fonte de tráfego AEO em 2024, superando Perplexity, e ajustes práticos necessários na estratégia editorial.
+
+### Mercado (2 artigos)
+
+- [Yahoo Scout e novos answer engines: o que profissionais de AEO precisam saber](https://www.aeobr.com.br/blog/yahoo-scout-novos-answer-engines-aeo/) — 2026-04-04
+  Yahoo Scout representa a diversificação do ecossistema de answer engines. Entenda como adaptar sua estratégia AEO para múltiplas plataformas sem diluir esforços.
+
+- [Cloudflare Pay-per-Crawl: vale a pena monetizar acesso de bots de IA?](https://www.aeobr.com.br/blog/cloudflare-pay-per-crawl-monetizar-bots-ia/) — 2026-04-06
+  Análise completa do modelo Pay-per-Crawl da Cloudflare: custos, benefícios e critérios decisórios para monetizar ou bloquear bots de IA.
