@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-16T20:48:06",
-  "count": 29,
+  "generated_at": "2026-04-27T16:27:10",
+  "count": 30,
   "categories": [
     {
       "id": "fundamentos",
@@ -28,6 +28,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/agentes-ia-autonomos-mudam-estrategia-aeo/",
+      "slug": "agentes-ia-autonomos-mudam-estrategia-aeo",
+      "title": "Como agentes de IA autônomos mudam a estratégia de AEO em 2025?",
+      "desc": "Agentes de IA autônomos executam múltiplas buscas sequenciais e acessam APIs. Descubra como adaptar sua estratégia de AEO para essa nova realidade.",
+      "date": "2026-04-27",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
     {
       "url": "/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/",
       "slug": "estruturar-conteudo-busca-voz-assistentes-multimodais",
