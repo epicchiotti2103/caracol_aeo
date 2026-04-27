@@ -1,0 +1,73 @@
+{
+  "schema_version": "2025-11",
+  "name": "caracol-aeo",
+  "title": "Caracol AEO",
+  "description": "Diagnóstico AEO 0-100 para qualquer site, mais catálogo de conteúdo técnico sobre Answer Engine Optimization no mercado brasileiro.",
+  "vendor": {
+    "name": "Caracol Media",
+    "url": "https://www.aeobr.com.br",
+    "contact": "contato@caracol.media"
+  },
+  "icon": "https://www.aeobr.com.br/logo2.png",
+  "documentation": "https://www.aeobr.com.br/openapi.json",
+  "language": "pt-BR",
+  "categories": ["seo", "marketing", "content", "ai-optimization"],
+  "endpoints": [
+    {
+      "url": "https://mcp.aeobr.com.br/mcp",
+      "transport": "streamable-http",
+      "auth": "none",
+      "primary": true
+    }
+  ],
+  "tools_preview": [
+    {
+      "name": "auditar_site_aeo",
+      "description": "Diagnóstico AEO 0-100 de qualquer URL: Schema.org, meta tags, robots.txt para bots de IA, estrutura de conteúdo. Retorna recomendações priorizadas.",
+      "inputs": ["url"],
+      "use_cases": [
+        "Audita meu site para AEO",
+        "Por que meu site não aparece no ChatGPT?",
+        "Que melhorias técnicas preciso fazer para ser citado por IAs?"
+      ]
+    },
+    {
+      "name": "list_blog_posts",
+      "description": "Lista artigos técnicos sobre AEO em português, filtrável por categoria.",
+      "inputs": ["category", "limit"]
+    },
+    {
+      "name": "get_blog_post",
+      "description": "Conteúdo completo de um artigo do blog pelo slug.",
+      "inputs": ["slug"]
+    },
+    {
+      "name": "search_posts",
+      "description": "Busca artigos por palavras-chave.",
+      "inputs": ["query"]
+    },
+    {
+      "name": "get_services",
+      "description": "Serviços e planos da Caracol AEO com preços.",
+      "inputs": []
+    },
+    {
+      "name": "get_company_info",
+      "description": "Informações institucionais e metodologia de auditoria.",
+      "inputs": []
+    }
+  ],
+  "rate_limits": {
+    "auditar_site_aeo": "10 req/min/IP",
+    "default": "60 req/min/IP"
+  },
+  "privacy": {
+    "stores_user_data": false,
+    "logs_audited_urls": true,
+    "data_retention_days": 30
+  },
+  "legal": {
+    "terms": "https://www.aeobr.com.br",
+    "privacy_policy": "https://www.aeobr.com.br"
+  }
+}
