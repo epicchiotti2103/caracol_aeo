@@ -23,9 +23,12 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://aeo.caracol.media/#organization",
     "name": "Caracol AEO",
     "alternateName": "Caracol Media AEO",
     "url": "https://aeo.caracol.media",
+    "logo": "https://aeo.caracol.media/logo2.png",
+    "image": "https://aeo.caracol.media/logo2.png",
     "email": "contato@caracol.media",
     "taxID": "55.097.812/0001-99",
     "description": "Serviço de Answer Engine Optimization (AEO) que audita e otimiza a visibilidade de marcas nas respostas de IAs generativas como ChatGPT, Perplexity e Google AI Overview no mercado brasileiro.",
@@ -33,6 +36,17 @@
     "serviceType": ["Answer Engine Optimization", "AEO", "AI Visibility Audit", "Share of Voice Analysis"],
     "knowsAbout": ["Answer Engine Optimization", "AEO", "ChatGPT optimization", "Perplexity optimization", "Google AI Overview", "Share of Voice em IAs", "Schema Markup", "E-E-A-T"],
     "parentOrganization": { "@type": "Organization", "name": "Caracol Media", "url": "https://caracol.media" },
+    "sameAs": [
+      "https://aeobr.com.br",
+      "https://www.aeobr.com.br",
+      "https://caracol.media"
+    ],
+    "subjectOf": [
+      { "@type": "DataCatalog", "name": "OpenAPI Specification", "url": "https://aeo.caracol.media/openapi.json", "encodingFormat": "application/json" },
+      { "@type": "DataCatalog", "name": "MCP Server Card", "url": "https://aeo.caracol.media/.well-known/mcp-server-card.json", "encodingFormat": "application/json" },
+      { "@type": "DataFeed", "name": "Services Feed", "url": "https://aeo.caracol.media/services.json", "encodingFormat": "application/json" },
+      { "@type": "DataFeed", "name": "Blog Posts Feed", "url": "https://aeo.caracol.media/blog/posts.json", "encodingFormat": "application/json" }
+    ],
     "priceRange": "$$",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -62,15 +76,38 @@
   }
   </script>
 
+  <!-- Schema.org: WebSite (com SearchAction) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://aeo.caracol.media/#website",
+    "name": "Caracol AEO",
+    "url": "https://aeo.caracol.media",
+    "inLanguage": "pt-BR",
+    "publisher": { "@id": "https://aeo.caracol.media/#organization" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://aeo.caracol.media/blog/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <!-- Schema.org: WebPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": "https://aeo.caracol.media/#webpage",
     "name": "Caracol AEO — Otimização de Visibilidade em IAs",
     "url": "https://aeo.caracol.media",
     "inLanguage": "pt-BR",
-    "isPartOf": { "@type": "WebSite", "name": "Caracol AEO", "url": "https://aeo.caracol.media" },
+    "isPartOf": { "@id": "https://aeo.caracol.media/#website" },
+    "about": { "@id": "https://aeo.caracol.media/#organization" },
     "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aeo.caracol.media" }] }
   }
   </script>
