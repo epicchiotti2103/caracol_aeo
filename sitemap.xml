@@ -43,6 +43,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aeobr.com.br/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aeobr.com.br/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -169,6 +175,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aeobr.com.br/blog/knowsabout-organization-schema-aumentar-citacoes-temas/</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aeobr.com.br/blog/llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -211,8 +223,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aeobr.com.br/blog/schema-org-dados-produto-agentes-ia-compras-autonomas/</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aeobr.com.br/blog/schema-org-id-sameas-resolucao-entidades-ia/</loc>
     <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aeobr.com.br/blog/speakable-schema-marcar-conteudo-assistentes-voz-busca-audio/</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

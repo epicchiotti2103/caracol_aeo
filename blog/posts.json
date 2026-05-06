@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-06T12:49:58",
-  "count": 35,
+  "generated_at": "2026-05-06T18:28:56",
+  "count": 39,
   "categories": [
     {
       "id": "fundamentos",
@@ -38,6 +38,15 @@
       "cat_label": "Fundamentos"
     },
     {
+      "url": "/blog/schema-org-dados-produto-agentes-ia-compras-autonomas/",
+      "slug": "schema-org-dados-produto-agentes-ia-compras-autonomas",
+      "title": "Como preparar dados de produto com Schema.org para agentes de IA realizarem compras autônomas",
+      "desc": "Implemente Schema.org Product de forma completa para agentes de IA autônomos. Guia técnico com propriedades essenciais e validação para agentic commerce.",
+      "date": "2026-05-05",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
       "url": "/blog/llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini/",
       "slug": "llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini",
       "title": "LLM Perception Drift: como monitorar e corrigir variações na forma como ChatGPT e Gemini descrevem sua marca",
@@ -47,11 +56,38 @@
       "cat_label": "Medição"
     },
     {
+      "url": "/blog/speakable-schema-marcar-conteudo-assistentes-voz-busca-audio/",
+      "slug": "speakable-schema-marcar-conteudo-assistentes-voz-busca-audio",
+      "title": "Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio",
+      "desc": "Aprenda a implementar Speakable Schema para controlar quais trechos do seu conteúdo são lidos por assistentes de voz e otimizar para busca por áudio.",
+      "date": "2026-05-04",
+      "cat_id": "conteudo",
+      "cat_label": "Conteúdo"
+    },
+    {
       "url": "/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/",
       "slug": "auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear",
       "title": "Como auditar o crawl-to-referral ratio dos bots de IA no seu site e decidir o que bloquear",
       "desc": "Aprenda a calcular o ROI real de cada bot de IA através do crawl-to-referral ratio e tome decisões estratégicas sobre bloqueios no robots.txt.",
       "date": "2026-05-03",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/knowsabout-organization-schema-aumentar-citacoes-temas/",
+      "slug": "knowsabout-organization-schema-aumentar-citacoes-temas",
+      "title": "Como usar knowsAbout e outras propriedades de Organization Schema para aumentar citações em temas específicos",
+      "desc": "A propriedade knowsAbout no Schema.org mapeia expertise organizacional para LLMs. Implementação prática com Organization Schema para aumentar citações temáticas.",
+      "date": "2026-05-03",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/",
+      "slug": "auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026",
+      "title": "Como auditar e reconstruir sua estratégia de schema markup após a atualização de março de 2026",
+      "desc": "Guia prático para auditar implementações existentes de schema markup e reconstruir estratégias de dados estruturados alinhadas aos novos padrões de interpretação por IA.",
+      "date": "2026-05-02",
       "cat_id": "medicao",
       "cat_label": "Medição"
     },

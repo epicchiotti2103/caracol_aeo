@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio — Caracol AEO</title>
+  <meta name="description" content="Aprenda a implementar Speakable Schema para controlar quais trechos do seu conteúdo são lidos por assistentes de voz e otimizar para busca por áudio.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://aeobr.com.br/blog/speakable-schema-marcar-conteudo-assistentes-voz-busca-audio/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio">
+  <meta property="og:description" content="Aprenda a implementar Speakable Schema para controlar quais trechos do seu conteúdo são lidos por assistentes de voz e otimizar para busca por áudio.">
+  <meta property="og:url" content="https://aeobr.com.br/blog/speakable-schema-marcar-conteudo-assistentes-voz-busca-audio/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-05-04">
+  <meta property="article:section" content="Conteúdo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio">
+  <meta name="twitter:description" content="Aprenda a implementar Speakable Schema para controlar quais trechos do seu conteúdo são lidos por assistentes de voz e otimizar para busca por áudio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio",
+    "description": "Aprenda a implementar Speakable Schema para controlar quais trechos do seu conteúdo são lidos por assistentes de voz e otimizar para busca por áudio.",
+    "articleSection": "Conteúdo",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-05-04",
+    "dateModified": "2026-05-04",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aeobr.com.br/blog/speakable-schema-marcar-conteudo-assistentes-voz-busca-audio/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Google Assistant e Actions on Google
+
+O Google Assistant é o principal consumidor de Speakable Schema. A plataforma utiliza esta marcação para identificar conteúdo adequado tanto em dispositivos móveis quanto em smart displays e alto-falantes inteligentes. Quando um usuário faz uma pergunta que resulta em conteúdo marcado com Speakable, o Assistant prioriza esses trechos para leitura.
+
+Actions on Google, plataforma para desenvolvedores criarem apps para Google Assistant, também reconhece Speakable Schema em conteúdo web integrado. Isso significa que publishers podem influenciar como suas informações são apresentadas em aplicações de terceiros que consomem seu conteúdo.
+
+### Alexa e outros assistentes
+
+Embora Amazon não tenha documentado oficialmente suporte nativo ao Speakable Schema, dados de mercado indicam que a plataforma pode reconhecer essa marcação em determinados contextos, especialmente quando integrada com skills que consomem conteúdo web estruturado.
+
+Assistentes como Siri (Apple), Cortana (Microsoft) e outros sistemas de voz também podem se beneficiar indiretamente da marcação Speakable, já que muitos utilizam dados estruturados para melhorar a compreensão de conteúdo. No entanto, o suporte varia significativamente entre plataformas.
+
+## Como implementar Speakable Schema: JSON-LD vs microdata
+
+A implementação de Speakable Schema pode ser feita através de JSON-LD (recomendado) ou microdata. JSON-LD oferece maior flexibilidade e facilidade de manutenção, sendo a abordagem preferida pela maioria dos desenvolvedores.
+
+### Exemplo de implementação em JSON-LD
+
+```json
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Guia completo de AEO para 2024",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".intro-paragraph", ".key-takeaways", ".conclusion"]
+  }
+}
+</script>
+Esta implementação marca três seções específicas como speakable usando seletores CSS. Alternativamente, você pode usar xpath para maior precisão na seleção de elementos. A vantagem dos seletores CSS é a simplicidade e compatibilidade com sistemas de CMS.
+
+### Validação com Rich Results Test
+
+Após implementar Speakable Schema, utilize o Rich Results Test do Google para validar a marcação. Acesse search.google.com/test/rich-results e insira a URL da página. A ferramenta identificará se a marcação Speakable foi reconhecida corretamente e apontará possíveis erros de sintaxe.
+
+É crucial testar tanto em ambiente de desenvolvimento quanto em produção, já que diferenças na estrutura HTML podem afetar a funcionalidade dos seletores CSS ou xpath especificados na marcação.
+
+## Critérios editoriais: como escolher quais trechos marcar como speakable
+
+### Características de conteúdo otimizado para áudio
+
+Conteúdo speakable deve ser autocontido e compreensível quando ouvido isoladamente. Evite marcar trechos que dependem de contexto visual, como referências a "imagem acima" ou "tabela a seguir". Prefira parágrafos que respondem diretamente a perguntas específicas ou resumem pontos-chave.
+
+Textos com linguagem conversacional e estrutura clara funcionam melhor para áudio. Listas numeradas e bullet points geralmente traduzem bem para fala, especialmente quando introduzidas adequadamente. Por exemplo, "três estratégias principais são:" seguido de lista funciona melhor que lista isolada.
+
+### Tamanho ideal de blocos speakable
+
+Segundo documentação técnica do Google para publishers, trechos speakable idealmente devem ter entre 20-30 segundos de leitura. Isso equivale aproximadamente a 50-80 palavras em velocidade normal de fala. Blocos muito curtos podem não fornecer informação suficiente, enquanto blocos muito longos podem perder a atenção do ouvinte.
+
+Na prática, prefiro marcar parágrafos completos que respondem a uma pergunta específica. Um parágrafo bem estruturado de 60-70 palavras geralmente oferece o equilíbrio ideal entre informação e digestibilidade para áudio.
+
+## Diferenças entre Speakable Schema e otimização tradicional para busca por voz
+
+| Aspecto | Speakable Schema | Busca por Voz Tradicional |
+|---------|------------------|---------------------------|
+| Controle editorial | Alto - você marca o que quer que seja lido | Baixo - algoritmo decide o que extrair |
+| Implementação | Marcação técnica específica | [Estruturação de conteúdo para busca por voz](/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/) geral |
+| Foco | Trechos específicos para áudio | Página completa otimizada |
+| Compatibilidade | Limitada a assistentes que suportam | Universal para todos os assistentes |
+
+A principal diferença está no nível de controle. Speakable Schema oferece controle granular sobre quais trechos são lidos, enquanto otimização tradicional para busca por voz foca na estrutura geral do conteúdo. Ambas as abordagens são complementares, não excludentes.
+
+Enquanto técnicas tradicionais de AEO priorizam respostas diretas e estrutura hierárquica clara, Speakable Schema permite especificar exatamente quais seções devem ser priorizadas para leitura, independentemente de sua posição na página.
+
+## Métricas e ferramentas para monitorar performance de conteúdo speakable
+
+O monitoramento de performance para Speakable Schema apresenta desafios únicos. Google Search Console não oferece relatórios específicos para este tipo de marcação, mas você pode monitorar indiretamente através de métricas de busca por voz e tráfego de dispositivos móveis com consultas conversacionais.
+
+Utilize Google Analytics 4 para criar audiências baseadas em dispositivos móveis e tablets com sessões de duração específica que indiquem consumo de áudio. Consultas que resultam em zero cliques mas alta impressão podem indicar que o conteúdo está sendo consumido via assistentes de voz.
+
+A [implementação de Schema.org para IAs](/blog/schema-org-id-sameas-resolucao-entidades-ia/) permite acompanhar como diferentes tipos de marcação afetam a visibilidade do conteúdo. Combine dados do Search Console com ferramentas de monitoramento de menções de marca para identificar quando seu conteúdo é citado por assistentes.
+
+Ferramentas como Screaming Frog podem auditar implementações de Speakable Schema em escala, identificando páginas com marcação incorreta ou ausente. Esta abordagem é essencial para sites com centenas ou milhares de artigos.
+
+## Erros comuns na implementação de Speakable Schema
+
+O erro mais frequente é marcar conteúdo inadequado para áudio como speakable. Trechos que fazem referência a elementos visuais ("como mostra o gráfico") ou dependem de formatação específica não funcionam bem quando lidos por assistentes de voz.
+
+Seletores CSS incorretos representam outro problema comum. Usar seletores muito específicos pode quebrar a funcionalidade quando a estrutura HTML muda. Prefira classes CSS estáveis e específicas para conteúdo speakable, evitando seletores baseados em posição ou elementos aninhados complexos.
+
+Marcar artigos inteiros como speakable é tecnicamente possível, mas raramente eficaz. Assistentes de voz funcionam melhor com trechos específicos que respondem diretamente a perguntas. Um artigo de 2000 palavras raramente deve ser totalmente speakable.
+
+A falta de teste em diferentes assistentes também compromete a implementação. O que funciona no Google Assistant pode não funcionar adequadamente em outros sistemas. Teste sempre em múltiplas plataformas quando possível.
+
+## Perguntas frequentes
+
+### Speakable Schema funciona para todos os assistentes de voz ou só para Google Assistant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O Google Assistant tem suporte oficial documentado para Speakable Schema. Outros assistentes como Alexa podem reconhecer a marcação em contextos específicos, mas o suporte varia entre plataformas. A implementação beneficia principalmente o ecossistema Google."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso marcar um artigo inteiro como speakable ou preciso selecionar trechos específicos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É possível marcar um artigo completo, mas não é recomendado. Assistentes de voz funcionam melhor com trechos específicos de 20-30 segundos de leitura. Selecione parágrafos que respondem diretamente a perguntas ou resumem pontos-chave."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Speakable Schema melhora ranking em busca por voz ou só controla o que é lido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Speakable Schema controla principalmente qual conteúdo é lido, não o ranking. No entanto, pode influenciar indiretamente a relevância ao garantir que os melhores trechos sejam apresentados aos usuários, potencialmente melhorando engagement e sinais de qualidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como testar se minha implementação de Speakable Schema está correta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use o Rich Results Test do Google (search.google.com/test/rich-results) para validar a marcação. Teste também fazendo perguntas relacionadas ao seu conteúdo para assistentes de voz e observe se os trechos marcados são utilizados nas respostas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre Speakable Schema e FAQ Schema para otimização de voz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FAQ Schema estrutura perguntas e respostas específicas, enquanto Speakable Schema marca qualquer conteúdo adequado para áudio. FAQ é mais específico para Q&A, Speakable é mais amplo para qualquer texto que funcione bem quando falado."
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Conteúdo</div>
+      <h1>Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio</h1>
+      <div class="meta">Elio Picchiotti · 4 de maio de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p><strong>Speakable Schema</strong> é uma marcação estruturada que permite controlar especificamente quais trechos do seu conteúdo serão lidos por assistentes de voz como Google Assistant e Alexa. Esta tecnologia identifica e marca blocos de texto adequados para reprodução em áudio, oferecendo controle editorial sobre a experiência de busca por voz.</p>
+<p>O crescimento das buscas por áudio e assistentes multimodais torna essa marcação cada vez mais relevante para publishers. Com dispositivos smart home dominando interações por voz, implementar Speakable Schema corretamente pode significar a diferença entre ter seu conteúdo lido ou ignorado pelos assistentes.</p>
+<h2 id="o-que-e-speakable-schema-e-por-que-assistentes-de-voz-precisam-dessa-marcacao">O que é Speakable Schema e por que assistentes de voz precisam dessa marcação</h2>
+<p>Speakable Schema é um tipo de marcação estruturada introduzida pelo Google em 2018 como parte do vocabulário Schema.org. Sua função principal é identificar seções específicas de um documento que são adequadas para reprodução em áudio por assistentes de voz.</p>
+<p>A necessidade desta marcação surge das limitações técnicas dos assistentes de voz. Diferentemente da busca tradicional, onde usuários podem escanear rapidamente uma página de resultados, assistentes precisam selecionar e vocalizar conteúdo específico. Sem marcação adequada, algoritmos podem escolher trechos inadequados para áudio ou simplesmente ignorar o conteúdo.</p>
+<p>Na minha experiência implementando AEO, sites que utilizam Speakable Schema têm maior controle sobre como seu conteúdo é apresentado em dispositivos de voz. A marcação funciona como um "roteiro" para assistentes, indicando exatamente quais parágrafos, listas ou seções devem ser priorizados para leitura.</p>
+<p>O Schema.org versão 13.0 (2023) mantém Speakable como tipo válido, com suporte para propriedades cssSelector e xpath, demonstrando a relevância contínua desta especificação para o ecossistema de busca por voz.</p>
+<h2 id="quais-plataformas-e-assistentes-de-voz-utilizam-speakable-schema">Quais plataformas e assistentes de voz utilizam Speakable Schema</h2>
+<h3 id="google-assistant-e-actions-on-google">Google Assistant e Actions on Google</h3>
+<p>O Google Assistant é o principal consumidor de Speakable Schema. A plataforma utiliza esta marcação para identificar conteúdo adequado tanto em dispositivos móveis quanto em smart displays e alto-falantes inteligentes. Quando um usuário faz uma pergunta que resulta em conteúdo marcado com Speakable, o Assistant prioriza esses trechos para leitura.</p>
+<p>Actions on Google, plataforma para desenvolvedores criarem apps para Google Assistant, também reconhece Speakable Schema em conteúdo web integrado. Isso significa que publishers podem influenciar como suas informações são apresentadas em aplicações de terceiros que consomem seu conteúdo.</p>
+<h3 id="alexa-e-outros-assistentes">Alexa e outros assistentes</h3>
+<p>Embora Amazon não tenha documentado oficialmente suporte nativo ao Speakable Schema, dados de mercado indicam que a plataforma pode reconhecer essa marcação em determinados contextos, especialmente quando integrada com skills que consomem conteúdo web estruturado.</p>
+<p>Assistentes como Siri (Apple), Cortana (Microsoft) e outros sistemas de voz também podem se beneficiar indiretamente da marcação Speakable, já que muitos utilizam dados estruturados para melhorar a compreensão de conteúdo. No entanto, o suporte varia significativamente entre plataformas.</p>
+<h2 id="como-implementar-speakable-schema-json-ld-vs-microdata">Como implementar Speakable Schema: JSON-LD vs microdata</h2>
+<p>A implementação de Speakable Schema pode ser feita através de JSON-LD (recomendado) ou microdata. JSON-LD oferece maior flexibilidade e facilidade de manutenção, sendo a abordagem preferida pela maioria dos desenvolvedores.</p>
+<h3 id="exemplo-de-implementacao-em-json-ld">Exemplo de implementação em JSON-LD</h3>
+<p>```json</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Guia completo de AEO para 2024",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".intro-paragraph", ".key-takeaways", ".conclusion"]
+  }
+}
+</script>
+<p>Esta implementação marca três seções específicas como speakable usando seletores CSS. Alternativamente, você pode usar xpath para maior precisão na seleção de elementos. A vantagem dos seletores CSS é a simplicidade e compatibilidade com sistemas de CMS.</p>
+<h3 id="validacao-com-rich-results-test">Validação com Rich Results Test</h3>
+<p>Após implementar Speakable Schema, utilize o Rich Results Test do Google para validar a marcação. Acesse search.google.com/test/rich-results e insira a URL da página. A ferramenta identificará se a marcação Speakable foi reconhecida corretamente e apontará possíveis erros de sintaxe.</p>
+<p>É crucial testar tanto em ambiente de desenvolvimento quanto em produção, já que diferenças na estrutura HTML podem afetar a funcionalidade dos seletores CSS ou xpath especificados na marcação.</p>
+<h2 id="criterios-editoriais-como-escolher-quais-trechos-marcar-como-speakable">Critérios editoriais: como escolher quais trechos marcar como speakable</h2>
+<h3 id="caracteristicas-de-conteudo-otimizado-para-audio">Características de conteúdo otimizado para áudio</h3>
+<p>Conteúdo speakable deve ser autocontido e compreensível quando ouvido isoladamente. Evite marcar trechos que dependem de contexto visual, como referências a "imagem acima" ou "tabela a seguir". Prefira parágrafos que respondem diretamente a perguntas específicas ou resumem pontos-chave.</p>
+<p>Textos com linguagem conversacional e estrutura clara funcionam melhor para áudio. Listas numeradas e bullet points geralmente traduzem bem para fala, especialmente quando introduzidas adequadamente. Por exemplo, "três estratégias principais são:" seguido de lista funciona melhor que lista isolada.</p>
+<h3 id="tamanho-ideal-de-blocos-speakable">Tamanho ideal de blocos speakable</h3>
+<p>Segundo documentação técnica do Google para publishers, trechos speakable idealmente devem ter entre 20-30 segundos de leitura. Isso equivale aproximadamente a 50-80 palavras em velocidade normal de fala. Blocos muito curtos podem não fornecer informação suficiente, enquanto blocos muito longos podem perder a atenção do ouvinte.</p>
+<p>Na prática, prefiro marcar parágrafos completos que respondem a uma pergunta específica. Um parágrafo bem estruturado de 60-70 palavras geralmente oferece o equilíbrio ideal entre informação e digestibilidade para áudio.</p>
+<h2 id="diferencas-entre-speakable-schema-e-otimizacao-tradicional-para-busca-por-voz">Diferenças entre Speakable Schema e otimização tradicional para busca por voz</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Speakable Schema</th>
+<th>Busca por Voz Tradicional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Controle editorial</td>
+<td>Alto - você marca o que quer que seja lido</td>
+<td>Baixo - algoritmo decide o que extrair</td>
+</tr>
+<tr>
+<td>Implementação</td>
+<td>Marcação técnica específica</td>
+<td><a href="/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/">Estruturação de conteúdo para busca por voz</a> geral</td>
+</tr>
+<tr>
+<td>Foco</td>
+<td>Trechos específicos para áudio</td>
+<td>Página completa otimizada</td>
+</tr>
+<tr>
+<td>Compatibilidade</td>
+<td>Limitada a assistentes que suportam</td>
+<td>Universal para todos os assistentes</td>
+</tr>
+</tbody>
+</table>
+<p>A principal diferença está no nível de controle. Speakable Schema oferece controle granular sobre quais trechos são lidos, enquanto otimização tradicional para busca por voz foca na estrutura geral do conteúdo. Ambas as abordagens são complementares, não excludentes.</p>
+<p>Enquanto técnicas tradicionais de AEO priorizam respostas diretas e estrutura hierárquica clara, Speakable Schema permite especificar exatamente quais seções devem ser priorizadas para leitura, independentemente de sua posição na página.</p>
+<h2 id="metricas-e-ferramentas-para-monitorar-performance-de-conteudo-speakable">Métricas e ferramentas para monitorar performance de conteúdo speakable</h2>
+<p>O monitoramento de performance para Speakable Schema apresenta desafios únicos. Google Search Console não oferece relatórios específicos para este tipo de marcação, mas você pode monitorar indiretamente através de métricas de busca por voz e tráfego de dispositivos móveis com consultas conversacionais.</p>
+<p>Utilize Google Analytics 4 para criar audiências baseadas em dispositivos móveis e tablets com sessões de duração específica que indiquem consumo de áudio. Consultas que resultam em zero cliques mas alta impressão podem indicar que o conteúdo está sendo consumido via assistentes de voz.</p>
+<p>A <a href="/blog/schema-org-id-sameas-resolucao-entidades-ia/">implementação de Schema.org para IAs</a> permite acompanhar como diferentes tipos de marcação afetam a visibilidade do conteúdo. Combine dados do Search Console com ferramentas de monitoramento de menções de marca para identificar quando seu conteúdo é citado por assistentes.</p>
+<p>Ferramentas como Screaming Frog podem auditar implementações de Speakable Schema em escala, identificando páginas com marcação incorreta ou ausente. Esta abordagem é essencial para sites com centenas ou milhares de artigos.</p>
+<h2 id="erros-comuns-na-implementacao-de-speakable-schema">Erros comuns na implementação de Speakable Schema</h2>
+<p>O erro mais frequente é marcar conteúdo inadequado para áudio como speakable. Trechos que fazem referência a elementos visuais ("como mostra o gráfico") ou dependem de formatação específica não funcionam bem quando lidos por assistentes de voz.</p>
+<p>Seletores CSS incorretos representam outro problema comum. Usar seletores muito específicos pode quebrar a funcionalidade quando a estrutura HTML muda. Prefira classes CSS estáveis e específicas para conteúdo speakable, evitando seletores baseados em posição ou elementos aninhados complexos.</p>
+<p>Marcar artigos inteiros como speakable é tecnicamente possível, mas raramente eficaz. Assistentes de voz funcionam melhor com trechos específicos que respondem diretamente a perguntas. Um artigo de 2000 palavras raramente deve ser totalmente speakable.</p>
+<p>A falta de teste em diferentes assistentes também compromete a implementação. O que funciona no Google Assistant pode não funcionar adequadamente em outros sistemas. Teste sempre em múltiplas plataformas quando possível.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="speakable-schema-funciona-para-todos-os-assistentes-de-voz-ou-so-para-google-assistant">Speakable Schema funciona para todos os assistentes de voz ou só para Google Assistant?</h3>
+<p>O Google Assistant tem suporte oficial documentado para Speakable Schema. Outros assistentes como Alexa podem reconhecer a marcação em contextos específicos, mas o suporte varia entre plataformas. A implementação beneficia principalmente o ecossistema Google.</p>
+<h3 id="posso-marcar-um-artigo-inteiro-como-speakable-ou-preciso-selecionar-trechos-especificos">Posso marcar um artigo inteiro como speakable ou preciso selecionar trechos específicos?</h3>
+<p>É possível marcar um artigo completo, mas não é recomendado. Assistentes de voz funcionam melhor com trechos específicos de 20-30 segundos de leitura. Selecione parágrafos que respondem diretamente a perguntas ou resumem pontos-chave.</p>
+<h3 id="speakable-schema-melhora-ranking-em-busca-por-voz-ou-so-controla-o-que-e-lido">Speakable Schema melhora ranking em busca por voz ou só controla o que é lido?</h3>
+<p>Speakable Schema controla principalmente qual conteúdo é lido, não o ranking. No entanto, pode influenciar indiretamente a relevância ao garantir que os melhores trechos sejam apresentados aos usuários, potencialmente melhorando engagement e sinais de qualidade.</p>
+<h3 id="como-testar-se-minha-implementacao-de-speakable-schema-esta-correta">Como testar se minha implementação de Speakable Schema está correta?</h3>
+<p>Use o Rich Results Test do Google (search.google.com/test/rich-results) para validar a marcação. Teste também fazendo perguntas relacionadas ao seu conteúdo para assistentes de voz e observe se os trechos marcados são utilizados nas respostas.</p>
+<h3 id="qual-a-diferenca-entre-speakable-schema-e-faq-schema-para-otimizacao-de-voz">Qual a diferença entre Speakable Schema e FAQ Schema para otimização de voz?</h3>
+<p>FAQ Schema estrutura perguntas e respostas específicas, enquanto Speakable Schema marca qualquer conteúdo adequado para áudio. FAQ é mais específico para Q&amp;A, Speakable é mais amplo para qualquer texto que funcione bem quando falado.</p>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>
