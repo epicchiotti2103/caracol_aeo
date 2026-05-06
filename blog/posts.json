@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-27T16:27:10",
-  "count": 30,
+  "generated_at": "2026-05-06T12:49:58",
+  "count": 35,
   "categories": [
     {
       "id": "fundamentos",
@@ -28,6 +28,51 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/otimizar-queries-intencao-chatgpt-ai-overviews-claude/",
+      "slug": "otimizar-queries-intencao-chatgpt-ai-overviews-claude",
+      "title": "Como otimizar para queries por intenção: diferenças entre ChatGPT, AI Overviews e Claude",
+      "desc": "ChatGPT prioriza intenção informacional, AI Overviews foca em transacional, Claude equilibra ambas. Aprenda a otimizar conteúdo para cada plataforma.",
+      "date": "2026-05-05",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
+    {
+      "url": "/blog/llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini/",
+      "slug": "llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini",
+      "title": "LLM Perception Drift: como monitorar e corrigir variações na forma como ChatGPT e Gemini descrevem sua marca",
+      "desc": "LLM Perception Drift faz ChatGPT e Gemini descreverem sua marca inconsistentemente. Aprenda metodologia prática para detectar, monitorar e corrigir através de content anchoring.",
+      "date": "2026-05-04",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/",
+      "slug": "auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear",
+      "title": "Como auditar o crawl-to-referral ratio dos bots de IA no seu site e decidir o que bloquear",
+      "desc": "Aprenda a calcular o ROI real de cada bot de IA através do crawl-to-referral ratio e tome decisões estratégicas sobre bloqueios no robots.txt.",
+      "date": "2026-05-03",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/claude-user-claude-searchbot-diferencas-configurar-robots-txt/",
+      "slug": "claude-user-claude-searchbot-diferencas-configurar-robots-txt",
+      "title": "Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt",
+      "desc": "Claude-User e Claude-SearchBot são bots distintos da Anthropic com propósitos diferentes. Aprenda as diferenças práticas e como configurar robots.txt para cada um.",
+      "date": "2026-05-02",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/google-search-console-identificar-queries-ia-oportunidades-conteudo/",
+      "slug": "google-search-console-identificar-queries-ia-oportunidades-conteudo",
+      "title": "Como usar o Google Search Console para identificar queries de IA e transformá-las em oportunidades de conteúdo",
+      "desc": "Aprenda a identificar queries conversacionais no GSC, filtrar dados para encontrar sinais de IA e transformar essas informações em estratégia de conteúdo para AEO.",
+      "date": "2026-05-01",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
     {
       "url": "/blog/agentes-ia-autonomos-mudam-estrategia-aeo/",
       "slug": "agentes-ia-autonomos-mudam-estrategia-aeo",

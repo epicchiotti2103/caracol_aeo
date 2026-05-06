@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como auditar o crawl-to-referral ratio dos bots de IA no seu site e decidir o que bloquear — Caracol AEO</title>
+  <meta name="description" content="Aprenda a calcular o ROI real de cada bot de IA através do crawl-to-referral ratio e tome decisões estratégicas sobre bloqueios no robots.txt.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://aeobr.com.br/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Como auditar o crawl-to-referral ratio dos bots de IA no seu site e decidir o que bloquear">
+  <meta property="og:description" content="Aprenda a calcular o ROI real de cada bot de IA através do crawl-to-referral ratio e tome decisões estratégicas sobre bloqueios no robots.txt.">
+  <meta property="og:url" content="https://aeobr.com.br/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-05-03">
+  <meta property="article:section" content="Medição">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como auditar o crawl-to-referral ratio dos bots de IA no seu site e decidir o que bloquear">
+  <meta name="twitter:description" content="Aprenda a calcular o ROI real de cada bot de IA através do crawl-to-referral ratio e tome decisões estratégicas sobre bloqueios no robots.txt.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Como auditar o crawl-to-referral ratio dos bots de IA no seu site e decidir o que bloquear",
+    "description": "Aprenda a calcular o ROI real de cada bot de IA através do crawl-to-referral ratio e tome decisões estratégicas sobre bloqueios no robots.txt.",
+    "articleSection": "Medição",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-05-03",
+    "dateModified": "2026-05-03",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aeobr.com.br/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/"
+    }
+  }
+  </script>
+
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Medição</div>
+      <h1>Como auditar o crawl-to-referral ratio dos bots de IA no seu site e decidir o que bloquear</h1>
+      <div class="meta">Elio Picchiotti · 3 de maio de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>O <strong>crawl-to-referral ratio</strong> é a métrica que divide o número de requisições de um bot de IA pelo tráfego de referência que ele gera para o seu site. Esta métrica permite identificar quais bots consomem recursos sem retorno e otimizar o bloqueio estratégico via robots.txt.</p>
+<p>Dados de mercado indicam que alguns bots de IA podem gerar mais de 10.000 requisições mensais sem produzir uma única citação verificável. Relatórios de 2024 de empresas de infraestrutura web mostram que crawlers de IA representam entre 15-30% do tráfego total de bots em sites corporativos, tornando essa auditoria essencial para gestão de custos e performance.</p>
+<h2 id="o-que-e-crawl-to-referral-ratio-e-por-que-essa-metrica-importa-em-aeo">O que é crawl-to-referral ratio e por que essa métrica importa em AEO</h2>
+<p>O crawl-to-referral ratio mede a eficiência de cada bot de IA em converter crawls em tráfego real. Um bot que faz 1.000 crawls mensais e gera 10 visitas tem ratio de 100:1. Já um bot que faz 5.000 crawls sem gerar nenhuma visita representa puro custo sem benefício.</p>
+<p>Esta métrica é fundamental porque estudos recentes sugerem que o custo de servidor por 1000 crawls pode variar entre $0.50 e $3.00 dependendo da infraestrutura. Para sites com alto volume, a diferença entre permitir todos os bots ou apenas os eficientes pode representar centenas de dólares mensais em custos de infraestrutura.</p>
+<p>Dados da indústria indicam que o ratio ideal crawl-to-referral varia entre 100:1 e 500:1 para bots com retorno positivo. Ratios acima de 1000:1 geralmente indicam bots ineficientes ou em fase de treinamento que consomem recursos sem gerar valor para o proprietário do site.</p>
+<h2 id="como-coletar-dados-de-crawl-de-bots-de-ia-no-seu-servidor">Como coletar dados de crawl de bots de IA no seu servidor</h2>
+<p>A coleta precisa de dados de crawl é o primeiro passo para calcular ratios confiáveis. Os logs do servidor web contêm informações detalhadas sobre user-agents, frequência de requisições e páginas acessadas por cada bot.</p>
+<h3 id="extraindo-user-agents-de-crawlers-de-ia-dos-logs-do-servidor">Extraindo user-agents de crawlers de IA dos logs do servidor</h3>
+<p>Para Apache ou Nginx, use comandos como <code>grep -i "gptbot\|claudebot\|perplexitybot" access.log | wc -l</code> para contar requisições por bot. Os user-agents principais incluem:</p>
+<ul>
+<li>GPTBot: <code>Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.0; +https://openai.com/gptbot)</code></li>
+<li>ClaudeBot: <code>Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)</code></li>
+<li>PerplexityBot: <code>Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/bot)</code></li>
+</ul>
+<p>Analise dados de pelo menos 30 dias para obter médias confiáveis. Bots podem ter padrões sazonais ou períodos de treinamento intensivo que distorcem análises de curto prazo.</p>
+<h3 id="usando-ferramentas-como-google-analytics-e-cloudflare-para-identificar-bots">Usando ferramentas como Google Analytics e Cloudflare para identificar bots</h3>
+<p>O Google Analytics 4 filtra automaticamente a maioria dos bots, mas você pode acessar dados brutos em relatórios customizados. No Cloudflare Analytics, a seção "Security" mostra requisições por user-agent, facilitando identificação de padrões de crawl.</p>
+<p>O Cloudflare Security Events permite criar filtros para user-agents específicos e monitorar volume de requisições em tempo real. Configure alertas quando um bot exceder limites predefinidos, como mais de 1.000 requisições diárias.</p>
+<p>Ferramentas de monitoramento como New Relic ou DataDog também oferecem dashboards para análise de user-agents, permitindo correlacionar picos de crawl com impactos na performance do servidor.</p>
+<h2 id="como-rastrear-trafego-de-referencia-originado-de-answer-engines">Como rastrear tráfego de referência originado de answer engines</h2>
+<p>Rastrear referrals de answer engines exige configuração específica porque muitas plataformas de IA não passam referrer padrão. A implementação de UTMs e identificação manual de padrões é essencial para dados precisos.</p>
+<h3 id="configurando-parametros-utm-para-citacoes-de-ia">Configurando parâmetros UTM para citações de IA</h3>
+<p>Quando possível, use UTMs em links que você controla para identificar tráfego de IA. Configure campanhas como <code>utm_source=perplexity&amp;utm_medium=ai_citation&amp;utm_campaign=aeo_content</code>. Isso permite rastreamento direto no Google Analytics.</p>
+<p>Para conteúdo orgânico citado por IAs, monitore referrers que contenham domínios como <code>perplexity.ai</code>, <code>you.com</code>, ou <code>chatgpt.com</code>. Nem sempre os referrers aparecem completos, mas padrões podem ser identificados através de análise temporal.</p>
+<h3 id="identificando-referrals-de-chatgpt-perplexity-gemini-e-claude">Identificando referrals de ChatGPT, Perplexity, Gemini e Claude</h3>
+<p>ChatGPT raramente passa referrer direto, mas usuários frequentemente chegam com tráfego direto logo após picos de crawl do GPTBot. Correlacione timestamps entre logs de crawl e picos de tráfego direto para identificar possíveis conexões.</p>
+<p>Perplexity.ai passa referrer mais consistentemente, aparecendo como <code>perplexity.ai</code> nos relatórios do Google Analytics. Configure segmentos específicos para isolar esse tráfego e calcular seu valor através de conversões ou engagement.</p>
+<p>O <a href="https://aeobr.com.br/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/">rastrear citações usando Bing Webmaster Tools</a> oferece dados mais precisos para Copilot, que utiliza índice do Bing. Configure alertas para monitorar aumentos súbitos em citações correlacionadas com crawls.</p>
+<h2 id="calculando-o-crawl-to-referral-ratio-formula-e-interpretacao">Calculando o crawl-to-referral ratio: fórmula e interpretação</h2>
+<p>A fórmula básica é: <strong>Ratio = Total de Crawls / Visitas de Referência</strong>. Um bot que fez 2.000 crawls e gerou 8 visitas tem ratio de 250:1. Ratios menores indicam maior eficiência na conversão de crawls em tráfego real.</p>
+<p>Para cálculos precisos, use dados de períodos iguais (30 dias de crawl vs 30 dias de referral) e considere lag time - algumas citações podem aparecer dias após o crawl inicial. Na minha experiência, lag de 7-14 dias é comum para análise em batch.</p>
+<h3 id="tabela-comparativa-ratios-tipicos-por-bot-de-ia">Tabela comparativa: ratios típicos por bot de IA</h3>
+<table>
+<thead>
+<tr>
+<th>Bot de IA</th>
+<th>Crawls/mês típicos</th>
+<th>Referrals/mês médios</th>
+<th>Ratio típico</th>
+<th>Classificação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPTBot</td>
+<td>3.000-8.000</td>
+<td>5-25</td>
+<td>200:1 - 800:1</td>
+<td>Moderado</td>
+</tr>
+<tr>
+<td>PerplexityBot</td>
+<td>1.500-4.000</td>
+<td>8-40</td>
+<td>100:1 - 300:1</td>
+<td>Eficiente</td>
+</tr>
+<tr>
+<td>ClaudeBot</td>
+<td>2.000-6.000</td>
+<td>2-15</td>
+<td>300:1 - 1000:1</td>
+<td>Baixo retorno</td>
+</tr>
+<tr>
+<td>Google-Extended</td>
+<td>5.000-15.000</td>
+<td>1-8</td>
+<td>800:1 - 5000:1</td>
+<td>Ineficiente</td>
+</tr>
+<tr>
+<td>CCBot</td>
+<td>8.000-25.000</td>
+<td>0-3</td>
+<td>3000:1+</td>
+<td>Parasita</td>
+</tr>
+</tbody>
+</table>
+<p>Esta tabela reflete dados agregados de sites corporativos brasileiros. Ratios podem variar significativamente baseado no nicho, qualidade do conteúdo e relevância para queries de IA.</p>
+<h2 id="cenarios-praticos-quando-bloquear-quando-permitir-quando-negociar">Cenários práticos: quando bloquear, quando permitir, quando negociar</h2>
+<p>A decisão de bloqueio deve basear-se em análise quantitativa do custo-benefício. Bots com ratios acima de 1000:1 e zero referrals comprovados são candidatos imediatos a bloqueio total.</p>
+<h3 id="bots-com-alto-crawl-e-zero-referral">Bots com alto crawl e zero referral</h3>
+<p>Bots como CCBot (Common Crawl) frequentemente apresentam ratios extremamente altos sem benefício direto. Se análise de 60 dias mostrar mais de 10.000 crawls sem nenhum referral verificável, bloqueie via robots.txt: <code>User-agent: CCBot</code> / <code>Disallow: /</code>.</p>
+<p>Para bots de treinamento que não citam fontes, como alguns crawlers de modelos de linguagem em desenvolvimento, o bloqueio é geralmente recomendado. Estes consomem crawl budget sem possibilidade de retorno em tráfego ou reconhecimento.</p>
+<h3 id="bots-com-crawl-moderado-e-alto-referral">Bots com crawl moderado e alto referral</h3>
+<p>PerplexityBot frequentemente apresenta ratios favoráveis (100:1 a 300:1) com referrals consistentes. Para estes, implemente gestão inteligente: permita crawl em conteúdo premium e páginas pillar, mas bloqueie seções de baixo valor como arquivos ou páginas técnicas.</p>
+<p>Configure <a href="https://aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/">como configurar robots.txt para cada bot</a> com bloqueios seletivos: <code>User-agent: PerplexityBot</code> / <code>Disallow: /admin/</code> / <code>Disallow: /temp/</code> / <code>Allow: /blog/</code>.</p>
+<h3 id="como-implementar-bloqueios-seletivos-por-secao-do-site">Como implementar bloqueios seletivos por seção do site</h3>
+<p>Use robots.txt granular para otimizar custo-benefício. Bloqueie crawls em seções que não agregam valor para IAs: páginas de checkout, formulários, arquivos de sistema. Mantenha aberto conteúdo editorial e páginas de produto.</p>
+<p>Para sites e-commerce, considere bloquear crawls em páginas de produto com baixo estoque ou categorias sazonais fora de temporada. Isso reduz crawls desnecessários mantendo produtos relevantes acessíveis para indexação por IA.</p>
+<h2 id="como-monitorar-o-impacto-de-mudancas-no-robotstxt">Como monitorar o impacto de mudanças no robots.txt</h2>
+<p>Após implementar bloqueios, monitore métricas por pelo menos 30 dias. Acompanhe redução no volume de crawls, impacto na performance do servidor e possível queda em citações ou referrals dos bots bloqueados.</p>
+<p>Configure alertas para detectar mudanças significativas em tráfego orgânico ou citações. Alguns bots podem ser mais importantes para seu nicho específico do que dados gerais sugerem. Teste bloqueios parciais antes de implementar restrições totais.</p>
+<p>Use ferramentas como Screaming Frog ou similares para verificar se mudanças no robots.txt estão sendo respeitadas. Alguns bots podem ignorar diretrizes ou ter cache de permissões anterior. Para casos de não conformidade, considere <a href="https://aeobr.com.br/blog/cloudflare-pay-per-crawl-monetizar-bots-ia/">alternativas de monetização para crawls de IA</a> via Cloudflare ou bloqueios a nível de firewall.</p>
+<p>Documente todas as mudanças e seus impactos para criar histórico de decisões. Isso facilita análises futuras e ajustes conforme novos bots de IA surgem ou comportamentos dos existentes mudam.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="qual-e-um-crawl-to-referral-ratio-aceitavel-para-gptbot">Qual é um crawl-to-referral ratio aceitável para GPTBot?</h3>
+<p>Ratios entre 200:1 e 500:1 são considerados aceitáveis para GPTBot, considerando que ele gera citações menos frequentemente que Perplexity mas com potencial de maior volume quando cita.</p>
+<h3 id="como-diferenciar-crawls-de-treinamento-de-crawls-de-busca-nos-logs-do-servidor">Como diferenciar crawls de treinamento de crawls de busca nos logs do servidor?</h3>
+<p>Crawls de treinamento tendem a ser mais volumosos e sistemáticos, visitando muitas páginas em sequência. Crawls de busca são mais específicos e correlacionam com queries em tempo real nas plataformas de IA.</p>
+<h3 id="vale-a-pena-bloquear-perplexitybot-se-ele-gera-poucas-citacoes-mas-muito-crawl">Vale a pena bloquear PerplexityBot se ele gera poucas citações mas muito crawl?</h3>
+<p>PerplexityBot geralmente tem melhor ratio que outros bots. Se o ratio estiver acima de 500:1 consistentemente por mais de 60 dias, considere bloqueio parcial em seções menos críticas primeiro.</p>
+<h3 id="como-calcular-o-custo-real-em-infraestrutura-dos-crawls-de-bots-de-ia">Como calcular o custo real em infraestrutura dos crawls de bots de IA?</h3>
+<p>Multiplique número de crawls mensais pelo custo por request do seu provedor (AWS, Google Cloud, etc.). Adicione custos de bandwidth e processamento. Compare com valor gerado por referrals para calcular ROI real.</p>
+<h3 id="posso-bloquear-apenas-parte-do-site-para-bots-especificos-mantendo-outras-secoes-abertas">Posso bloquear apenas parte do site para bots específicos mantendo outras seções abertas?</h3>
+<p>Sim, use robots.txt granular com diretivas Allow e Disallow específicas. Bloqueie seções de baixo valor (admin, temp, checkout) mas mantenha conteúdo editorial e páginas principais acessíveis para maximizar potencial de citação.</p>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>

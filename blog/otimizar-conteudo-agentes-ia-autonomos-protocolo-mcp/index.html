@@ -155,7 +155,11 @@
     "publisher": {
       "@type": "Organization",
       "name": "Caracol AEO",
-      "url": "https://aeobr.com.br"
+      "url": "https://aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aeobr.com.br/logo-negativo.png"
+      }
     },
     "datePublished": "2026-04-05",
     "dateModified": "2026-04-05",
@@ -347,28 +351,32 @@ Na minha experiência implementando diferentes approaches, o MCP oferece o melho
         "@type": "Answer",
         "text": "O llms.txt fornece instruções estáticas para modelos de IA, enquanto o MCP permite que agentes executem ações dinâmicas. MCP é mais complexo de implementar, mas oferece capacidades de interação que vão além da citação passiva, permitindo que agentes consultem dados em tempo real e executem ferramentas específicas."
       }
-    },\n    {
+    },
+    {
       "@type": "Question",
       "name": "Preciso saber programar para implementar o Model Context Protocol?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Sim, MCP requer conhecimentos de programação em TypeScript ou Python para configurar servidores e implementar tools customizados. Diferente de llms.txt que é um arquivo de texto, MCP envolve desenvolvimento de APIs e integração com sistemas existentes, demandando expertise técnica para implementação adequada."
       }
-    },\n    {
+    },
+    {
       "@type": "Question",
       "name": "Agentes de IA com MCP podem modificar conteúdo do meu site?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Apenas se você expor tools que permitam modificação. Por padrão, MCP fornece acesso read-only a resources. Tools que modificam dados devem ser explicitamente implementados e configurados com appropriate security controls, incluindo authentication, authorization, e logging de todas as modificações executadas."
       }
-    },\n    {
+    },
+    {
       "@type": "Question",
       "name": "O MCP funciona apenas com Claude ou outros modelos de IA também suportam?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Embora desenvolvido pela Anthropic, o MCP é um protocolo aberto que pode ser implementado por diferentes modelos de IA. Atualmente, o suporte mais robusto está no Claude Desktop, mas a especificação aberta permite que outros providers implementem compatibilidade MCP em seus sistemas."
       }
-    },\n    {
+    },
+    {
       "@type": "Question",
       "name": "Como medir se agentes MCP estão acessando meu conteúdo corretamente?",
       "acceptedAnswer": {

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como usar o Google Search Console para identificar queries de IA e transformá-las em oportunidades de conteúdo — Caracol AEO</title>
+  <meta name="description" content="Aprenda a identificar queries conversacionais no GSC, filtrar dados para encontrar sinais de IA e transformar essas informações em estratégia de conteúdo para AEO.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://aeobr.com.br/blog/google-search-console-identificar-queries-ia-oportunidades-conteudo/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Como usar o Google Search Console para identificar queries de IA e transformá-las em oportunidades de conteúdo">
+  <meta property="og:description" content="Aprenda a identificar queries conversacionais no GSC, filtrar dados para encontrar sinais de IA e transformar essas informações em estratégia de conteúdo para AEO.">
+  <meta property="og:url" content="https://aeobr.com.br/blog/google-search-console-identificar-queries-ia-oportunidades-conteudo/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-05-01">
+  <meta property="article:section" content="Fundamentos">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como usar o Google Search Console para identificar queries de IA e transformá-las em oportunidades de conteúdo">
+  <meta name="twitter:description" content="Aprenda a identificar queries conversacionais no GSC, filtrar dados para encontrar sinais de IA e transformar essas informações em estratégia de conteúdo para AEO.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Como usar o Google Search Console para identificar queries de IA e transformá-las em oportunidades de conteúdo",
+    "description": "Aprenda a identificar queries conversacionais no GSC, filtrar dados para encontrar sinais de IA e transformar essas informações em estratégia de conteúdo para AEO.",
+    "articleSection": "Fundamentos",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-05-01",
+    "dateModified": "2026-05-01",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aeobr.com.br/blog/google-search-console-identificar-queries-ia-oportunidades-conteudo/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Padrões de linguagem natural e perguntas completas
+
+Queries influenciadas por IA apresentam características linguísticas distintas no Search Console. Em vez de keywords fragmentadas como "CRM marketing digital", aparecem consultas completas: "qual é o melhor CRM para pequenas empresas de marketing digital". Essa mudança reflete como usuários formulam perguntas para assistentes virtuais.
+
+O padrão mais óbvio são as **question words** no início: "como", "por que", "qual", "quando", "onde", "quem". Mas queries de IA vão além - incluem contexto e especificações que tradicionalmente seriam omitidas. Por exemplo: "como implementar automação de marketing sem afetar o relacionamento com clientes".
+
+Outro indicador forte são as **frases de cortesia** adaptadas para busca: "você pode me explicar", "gostaria de saber", "preciso entender". Embora menos comum, esses patterns aparecem quando usuários copiam literalmente perguntas feitas a assistentes de IA para o Google.
+
+### Queries com context switching e multi-intent
+
+Context switching é quando uma query combina múltiplas intenções ou contextos em uma única consulta. No GSC, isso aparece como queries extremamente específicas que conectam conceitos aparentemente distintos: "como integrar Google Analytics 4 com CRM para melhorar ROI de campanhas de email marketing".
+
+Essas queries multi-intent são raras em busca tradicional porque usuários tendem a quebrar perguntas complexas em várias buscas menores. Mas assistentes de IA treinam users para fazer perguntas abrangentes, criando consultas que chegam ao Google com essa complexidade preservada.
+
+O volume dessas queries é baixo individualmente, mas coletivamente representam um goldmine para **métricas para medir resultados em AEO** (/blog/ferramentas-metricas-medir-resultados-aeo/). Sites que criam conteúdo respondendo essas consultas complexas frequentemente dominam long-tail conversacional.
+
+### Long-tail extremo e especificidade técnica
+
+Queries de IA apresentam especificidade técnica incomum em busca orgânica tradicional. Em vez de "marketing digital para dentistas", aparecem consultas como "estratégias de marketing digital para clínicas odontológicas especializadas em implantes com foco em pacientes acima de 50 anos".
+
+Essa granularidade extrema acontece porque assistentes de IA incentivam users a serem específicos para obter respostas mais precisas. O hábito se transfere para o Google, criando queries ultra-específicas que antes eram impensáveis.
+
+Análises de SEO indicam que páginas ranqueadas para queries long-tail conversacionais têm maior probabilidade de citação em respostas de IA. Isso ocorre porque o mesmo conteúdo que satisfaz uma consulta específica no Google também serve como fonte confiável para assistentes virtuais.
+
+## Como filtrar e exportar dados do GSC para análise de queries de IA
+
+### Filtros por tipo de pergunta (como, por que, qual, quando)
+
+O primeiro passo é configurar filtros no Search Console para capturar queries com question words. Acesse Performance > Search Results > + NEW e configure filtro "Query" com "Queries containing" para cada question word: "como", "por que", "qual", "quando", "onde", "quem".
+
+Para análise mais sofisticada, exporte os dados completos e use Excel ou Google Sheets com funções de busca. A fórmula `=COUNTIF(A:A,"*como*")` mostra quantas queries contêm "como". Repita para todas as question words e identifique patterns dominantes no seu nicho.
+
+Não se limite apenas às question words óbvias. Queries de IA também incluem conectores conversacionais: "diferença entre", "comparação", "vantagens de", "desvantagens de". Esses terms indicam consultas analíticas que assistentes de IA frequentemente geram.
+
+Crie uma planilha de classificação com colunas: Query, Volume (impressions), CTR, Position, Classification (traditional/conversational), AI_likelihood (score 1-10). Isso permite análise quantitativa dos patterns e identificação de oportunidades de maior potencial.
+
+### Regex para identificar padrões conversacionais
+
+Para análise avançada, use expressões regulares para identificar padrões conversacionais complexos. A regex `^(como|por que|qual|quando|onde|quem).*` captura queries que começam com question words, enquanto `.*\b(melhor|diferença|comparar|vantagem)\b.*` identifica terms comparativos.
+
+Uma regex útil para context switching: `.*\b(para|com|sem|durante|após)\b.*\b(empresas|negócios|profissionais)\b.*`. Isso identifica queries que conectam ferramentas ou estratégias com contextos específicos de negócio, padrão típico de consultas assistidas por IA.
+
+Use ferramentas como regex101.com para testar patterns antes de aplicar nos dados. A regex `.*\b\d{1,2}\s(passos|etapas|formas|maneiras|dicas)\b.*` captura queries que buscam listas estruturadas, formato favorito de assistentes virtuais.
+
+Para implementação prática, exporte dados do GSC e use Google Sheets com função REGEXMATCH. Por exemplo: `=REGEXMATCH(A2,"^(como|por que|qual)")` retorna TRUE para queries que começam com question words.
+
+### Segmentação por impressões baixas e CTR alto
+
+Queries de IA frequentemente apresentam impressões baixas (menos de 100 por mês) mas CTR acima da média do site. Esse padrão indica high-intent queries onde seu conteúdo responde exatamente o que o usuário busca, mesmo para consultas específicas.
+
+Configure filtro no GSC: Impressions entre 10-100 e CTR > 5%. Essas queries representam oportunidades de expansão - temas onde você já tem autoridade mas pode criar conteúdo mais aprofundado para capturar volume maior.
+
+Crie uma tabela de segmentação:
+
+| Segmento | Impressions | CTR | Características | Oportunidade |
+|----------|-------------|-----|-----------------|---------------|
+| High-Intent AI | 10-100 | >5% | Conversational, specific | Content expansion |
+| Emerging AI | 100-500 | >3% | Question-based, growing | Priority creation |
+| Traditional | >500 | <3% | Keyword-focused, stable | Optimization |
+
+O segmento "High-Intent AI" é onde está o maior potencial para **otimizar conteúdo para citação por IAs** (/blog/otimizar-conteudo-citacao-ia-generativa/). Essas queries mostram que você já tem match com intenção conversacional, mas pode expandir cobertura.
+
+## Método de classificação de queries por potencial de AEO
+
+Desenvolvi um método de scoring que classifica queries do GSC por potencial de Answer Engine Optimization. O score combina cinco fatores: conversational pattern (0-3 pontos), query length (0-2 pontos), CTR performance (0-2 pontos), competition gap (0-2 pontos), e business relevance (0-1 ponto).
+
+**Conversational pattern**: 3 pontos para queries completas com context switching, 2 para question words com especificidade, 1 para partial conversational terms, 0 para keywords tradicionais. Query "como integrar CRM com automação de email para e-commerce" = 3 pontos.
+
+**Query length**: 2 pontos para >8 palavras, 1 ponto para 5-8 palavras, 0 para <5 palavras. Queries longas indicam informational intent e maior probabilidade de match com conteúdo estruturado para AEO.
+
+**CTR performance**: 2 pontos para CTR >5%, 1 ponto para CTR 2-5%, 0 para CTR <2%. Alto CTR em queries específicas indica content-market fit forte, sugerindo potencial para expansion e otimização.
+
+**Competition gap**: Analise SERPs manualmente. 2 pontos se top 3 não responde completamente a query, 1 ponto se resposta parcial existe, 0 se concorrência é completa. Gap indica oportunidade de criar conteúdo superior.
+
+Queries com score 7-10 são prioridade máxima para briefings de conteúdo. Score 4-6 são oportunidades secundárias. Score 0-3 mantém estratégia tradicional. Na minha experiência, focar em queries score 7+ gera melhor ROI em projetos de AEO.
+
+## Como transformar clusters de queries em briefings de conteúdo
+
+### Mapeamento de intenção conversacional
+
+O primeiro passo é agrupar queries similares em clusters temáticos. Use ferramentas como Google Sheets com função VLOOKUP ou Python para clustering automático. Queries "como escolher CRM", "qual melhor CRM para pequenas empresas", "CRM vs planilha" formam um cluster sobre "seleção de CRM".
+
+Para cada cluster, identifique a **parent query** - a consulta mais abrangente que engloba as variações. Esta será o título do conteúdo. As queries secundárias viram H2 e H3, criando estrutura que responde múltiplas variações da mesma dúvida.
+
+Mapear intenção conversacional vai além de keyword intent tradicional. Analise o contexto implícito: "CRM para freelancers vs pequenas empresas" indica que o usuário quer comparação baseada em tamanho/estrutura organizacional, não apenas features técnicas.
+
+Crie um documento de mapeamento com: Cluster theme, Parent query, Secondary queries, User context, Expected answer format (list, comparison, step-by-step, analysis). Isso garante que o conteúdo address toda a intenção conversacional do cluster.
+
+### Priorização por volume e gap de conteúdo
+
+Desenvolva uma matriz de priorização combinando volume total do cluster com gap competitivo. Volume total = soma de impressions de todas queries do cluster. Gap competitivo = média de score de competition gap das queries principais.
+
+Matrix de priorização:
+- **High Volume + High Gap**: Prioridade 1 (conteúdo pillar imediato)  
+- **High Volume + Low Gap**: Prioridade 2 (otimização de conteúdo existente)
+- **Low Volume + High Gap**: Prioridade 3 (long-tail specialty content)
+- **Low Volume + Low Gap**: Prioridade 4 (manter monitoring)
+
+Para clusters Prioridade 1, crie briefings completos incluindo: Title baseado na parent query, estrutura de H2/H3 baseada em secondary queries, content format requirements, target word count, internal linking opportunities, e expected outcomes para AEO.
+
+Na minha prática, clusters com >1000 impressions totais e competition gap >1.5 geram os melhores resultados em projetos de AEO. Esses briefings se tornam pillar articles que capturam tanto tráfego orgânico quanto citações de IA.
+
+## Comparação entre queries tradicionais vs queries de IA no GSC
+
+| Aspecto | Queries Tradicionais | Queries de IA |
+|---------|---------------------|---------------|
+| **Estrutura** | Keywords fragmentadas | Perguntas completas |
+| **Comprimento** | 2-4 palavras | 6-15 palavras |
+| **Linguagem** | Telegráfica | Conversacional |
+| **Contexto** | Implícito | Explícito |
+| **Intenção** | Única | Múltipla |
+| **Volume individual** | Alto | Baixo |
+| **CTR médio** | 2-3% | 5-8% |
+| **Especificidade** | Genérica | Ultra-específica |
+
+A diferença mais marcante está na **completude informacional**. Queries tradicionais omitem contexto que o usuário assume como óbvio. Queries de IA incluem todo o contexto necessário para uma resposta precisa, criando consultas autocontidas.
+
+Essa completude gera oportunidades únicas de content matching. Conteúdo que responde queries de IA automaticamente satisfaz múltiplas variações de dúvidas relacionadas, aumentando relevância e autoridade topical.
+
+O padrão de CTR também revela behavior change significativo. Users que chegam via queries conversacionais já têm expectativa formada sobre o tipo de resposta, resultando em maior engagement quando o conteúdo delivers essa expectativa.
+
+## Perguntas frequentes
+
+### Como diferenciar queries orgânicas de queries geradas por assistentes de IA no Search Console?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Queries geradas por assistentes apresentam linguagem natural completa, contexto explícito e especificidade técnica incomum. Look for question words, queries com >6 palavras, e patterns como \"diferença entre X e Y para [contexto específico]\". O volume individual é baixo mas o CTR tende a ser alto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre queries conversacionais e queries tradicionais no GSC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Queries conversacionais usam linguagem natural completa (\"como implementar CRM para e-commerce\"), enquanto tradicionais são telegráficas (\"CRM e-commerce\"). Conversacionais têm mais palavras, incluem contexto explícito e geram CTR mais alto devido ao match mais preciso com intenção do usuário."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como exportar dados do Google Search Console para análise de padrões de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Acesse Performance > Search Results, configure filtros por date range desejado, exporte os dados completos via botão Export. Use Google Sheets ou Excel para aplicar filtros e regex patterns. Para análise avançada, use a API do Search Console para extrair volumes maiores de dados históricos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Queries com impressões baixas e CTR alto indicam oportunidade para AEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, especialmente quando são conversacionais. Alto CTR com baixas impressões indica content-market fit forte para intenção específica. Essas queries representam oportunidades de expansão - temas onde você tem autoridade mas pode criar conteúdo mais abrangente para capturar maior volume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como criar briefings de conteúdo a partir de clusters de queries conversacionais?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agrupe queries similares em clusters temáticos, identifique a parent query como título principal, use queries secundárias como estrutura de headings (H2/H3). Analise intenção conversacional completa do cluster e crie briefing que address todas as variações da dúvida em conteúdo único e estruturado."
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Fundamentos</div>
+      <h1>Como usar o Google Search Console para identificar queries de IA e transformá-las em oportunidades de conteúdo</h1>
+      <div class="meta">Elio Picchiotti · 1 de maio de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>O <strong>Google Search Console</strong> já captura queries conversacionais e assistidas por IA através dos dados de busca orgânica, permitindo identificar padrões de linguagem natural que indicam influência de assistentes virtuais. A chave está em filtrar e segmentar esses dados para encontrar oportunidades de conteúdo focadas em Answer Engine Optimization.</p>
+<p>Dados de mercado indicam que queries em formato de pergunta cresceram significativamente desde 2023 com a introdução de AI Overviews. Para profissionais de marketing digital, isso representa uma oportunidade única de capturar tráfego qualificado e posicionar conteúdo para citação por IAs generativas.</p>
+<h2 id="por-que-queries-de-ia-aparecem-no-google-search-console">Por que queries de IA aparecem no Google Search Console</h2>
+<p>As queries influenciadas por IA chegam ao Google Search Console porque usuários ainda utilizam o buscador para validar, aprofundar ou complementar respostas obtidas em assistentes virtuais. Este comportamento cria um fenômeno que chamo de "verificação cruzada" - o usuário pergunta ao ChatGPT, recebe uma resposta, e depois busca no Google para confirmar ou obter mais detalhes.</p>
+<p>O GSC captura essas consultas porque elas passam pelo algoritmo tradicional do Google, mesmo sendo formuladas inicialmente para assistentes de IA. Estudos de comportamento de busca mostram que queries conversacionais tendem a ter 30-50% mais palavras que queries tradicionais, criando uma assinatura distintiva nos dados.</p>
+<p>Além disso, quando users fazem follow-up questions em ferramentas como SearchGPT ou Perplexity, frequentemente refinam a busca no Google com linguagem similar. Isso gera um rastro de queries long-tail com características conversacionais que o Search Console registra como consultas orgânicas normais.</p>
+<p>Na minha experiência analisando dados de clientes, observo que sites com forte presença em queries conversacionais também tendem a ser citados com mais frequência em respostas de IA. Essa correlação não é coincidência - é evidência de que o Google e as IAs valorizam conteúdo que responde perguntas completas de forma estruturada.</p>
+<h2 id="sinais-de-queries-conversacionais-e-assistidas-por-ia-no-gsc">Sinais de queries conversacionais e assistidas por IA no GSC</h2>
+<h3 id="padroes-de-linguagem-natural-e-perguntas-completas">Padrões de linguagem natural e perguntas completas</h3>
+<p>Queries influenciadas por IA apresentam características linguísticas distintas no Search Console. Em vez de keywords fragmentadas como "CRM marketing digital", aparecem consultas completas: "qual é o melhor CRM para pequenas empresas de marketing digital". Essa mudança reflete como usuários formulam perguntas para assistentes virtuais.</p>
+<p>O padrão mais óbvio são as <strong>question words</strong> no início: "como", "por que", "qual", "quando", "onde", "quem". Mas queries de IA vão além - incluem contexto e especificações que tradicionalmente seriam omitidas. Por exemplo: "como implementar automação de marketing sem afetar o relacionamento com clientes".</p>
+<p>Outro indicador forte são as <strong>frases de cortesia</strong> adaptadas para busca: "você pode me explicar", "gostaria de saber", "preciso entender". Embora menos comum, esses patterns aparecem quando usuários copiam literalmente perguntas feitas a assistentes de IA para o Google.</p>
+<h3 id="queries-com-context-switching-e-multi-intent">Queries com context switching e multi-intent</h3>
+<p>Context switching é quando uma query combina múltiplas intenções ou contextos em uma única consulta. No GSC, isso aparece como queries extremamente específicas que conectam conceitos aparentemente distintos: "como integrar Google Analytics 4 com CRM para melhorar ROI de campanhas de email marketing".</p>
+<p>Essas queries multi-intent são raras em busca tradicional porque usuários tendem a quebrar perguntas complexas em várias buscas menores. Mas assistentes de IA treinam users para fazer perguntas abrangentes, criando consultas que chegam ao Google com essa complexidade preservada.</p>
+<p>O volume dessas queries é baixo individualmente, mas coletivamente representam um goldmine para <strong>métricas para medir resultados em AEO</strong> (/blog/ferramentas-metricas-medir-resultados-aeo/). Sites que criam conteúdo respondendo essas consultas complexas frequentemente dominam long-tail conversacional.</p>
+<h3 id="long-tail-extremo-e-especificidade-tecnica">Long-tail extremo e especificidade técnica</h3>
+<p>Queries de IA apresentam especificidade técnica incomum em busca orgânica tradicional. Em vez de "marketing digital para dentistas", aparecem consultas como "estratégias de marketing digital para clínicas odontológicas especializadas em implantes com foco em pacientes acima de 50 anos".</p>
+<p>Essa granularidade extrema acontece porque assistentes de IA incentivam users a serem específicos para obter respostas mais precisas. O hábito se transfere para o Google, criando queries ultra-específicas que antes eram impensáveis.</p>
+<p>Análises de SEO indicam que páginas ranqueadas para queries long-tail conversacionais têm maior probabilidade de citação em respostas de IA. Isso ocorre porque o mesmo conteúdo que satisfaz uma consulta específica no Google também serve como fonte confiável para assistentes virtuais.</p>
+<h2 id="como-filtrar-e-exportar-dados-do-gsc-para-analise-de-queries-de-ia">Como filtrar e exportar dados do GSC para análise de queries de IA</h2>
+<h3 id="filtros-por-tipo-de-pergunta-como-por-que-qual-quando">Filtros por tipo de pergunta (como, por que, qual, quando)</h3>
+<p>O primeiro passo é configurar filtros no Search Console para capturar queries com question words. Acesse Performance &gt; Search Results &gt; + NEW e configure filtro "Query" com "Queries containing" para cada question word: "como", "por que", "qual", "quando", "onde", "quem".</p>
+<p>Para análise mais sofisticada, exporte os dados completos e use Excel ou Google Sheets com funções de busca. A fórmula <code>=COUNTIF(A:A,"*como*")</code> mostra quantas queries contêm "como". Repita para todas as question words e identifique patterns dominantes no seu nicho.</p>
+<p>Não se limite apenas às question words óbvias. Queries de IA também incluem conectores conversacionais: "diferença entre", "comparação", "vantagens de", "desvantagens de". Esses terms indicam consultas analíticas que assistentes de IA frequentemente geram.</p>
+<p>Crie uma planilha de classificação com colunas: Query, Volume (impressions), CTR, Position, Classification (traditional/conversational), AI_likelihood (score 1-10). Isso permite análise quantitativa dos patterns e identificação de oportunidades de maior potencial.</p>
+<h3 id="regex-para-identificar-padroes-conversacionais">Regex para identificar padrões conversacionais</h3>
+<p>Para análise avançada, use expressões regulares para identificar padrões conversacionais complexos. A regex <code>^(como|por que|qual|quando|onde|quem).*</code> captura queries que começam com question words, enquanto <code>.*\b(melhor|diferença|comparar|vantagem)\b.*</code> identifica terms comparativos.</p>
+<p>Uma regex útil para context switching: <code>.*\b(para|com|sem|durante|após)\b.*\b(empresas|negócios|profissionais)\b.*</code>. Isso identifica queries que conectam ferramentas ou estratégias com contextos específicos de negócio, padrão típico de consultas assistidas por IA.</p>
+<p>Use ferramentas como regex101.com para testar patterns antes de aplicar nos dados. A regex <code>.*\b\d{1,2}\s(passos|etapas|formas|maneiras|dicas)\b.*</code> captura queries que buscam listas estruturadas, formato favorito de assistentes virtuais.</p>
+<p>Para implementação prática, exporte dados do GSC e use Google Sheets com função REGEXMATCH. Por exemplo: <code>=REGEXMATCH(A2,"^(como|por que|qual)")</code> retorna TRUE para queries que começam com question words.</p>
+<h3 id="segmentacao-por-impressoes-baixas-e-ctr-alto">Segmentação por impressões baixas e CTR alto</h3>
+<p>Queries de IA frequentemente apresentam impressões baixas (menos de 100 por mês) mas CTR acima da média do site. Esse padrão indica high-intent queries onde seu conteúdo responde exatamente o que o usuário busca, mesmo para consultas específicas.</p>
+<p>Configure filtro no GSC: Impressions entre 10-100 e CTR &gt; 5%. Essas queries representam oportunidades de expansão - temas onde você já tem autoridade mas pode criar conteúdo mais aprofundado para capturar volume maior.</p>
+<p>Crie uma tabela de segmentação:</p>
+<table>
+<thead>
+<tr>
+<th>Segmento</th>
+<th>Impressions</th>
+<th>CTR</th>
+<th>Características</th>
+<th>Oportunidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High-Intent AI</td>
+<td>10-100</td>
+<td>&gt;5%</td>
+<td>Conversational, specific</td>
+<td>Content expansion</td>
+</tr>
+<tr>
+<td>Emerging AI</td>
+<td>100-500</td>
+<td>&gt;3%</td>
+<td>Question-based, growing</td>
+<td>Priority creation</td>
+</tr>
+<tr>
+<td>Traditional</td>
+<td>&gt;500</td>
+<td>&lt;3%</td>
+<td>Keyword-focused, stable</td>
+<td>Optimization</td>
+</tr>
+</tbody>
+</table>
+<p>O segmento "High-Intent AI" é onde está o maior potencial para <strong>otimizar conteúdo para citação por IAs</strong> (/blog/otimizar-conteudo-citacao-ia-generativa/). Essas queries mostram que você já tem match com intenção conversacional, mas pode expandir cobertura.</p>
+<h2 id="metodo-de-classificacao-de-queries-por-potencial-de-aeo">Método de classificação de queries por potencial de AEO</h2>
+<p>Desenvolvi um método de scoring que classifica queries do GSC por potencial de Answer Engine Optimization. O score combina cinco fatores: conversational pattern (0-3 pontos), query length (0-2 pontos), CTR performance (0-2 pontos), competition gap (0-2 pontos), e business relevance (0-1 ponto).</p>
+<p><strong>Conversational pattern</strong>: 3 pontos para queries completas com context switching, 2 para question words com especificidade, 1 para partial conversational terms, 0 para keywords tradicionais. Query "como integrar CRM com automação de email para e-commerce" = 3 pontos.</p>
+<p><strong>Query length</strong>: 2 pontos para &gt;8 palavras, 1 ponto para 5-8 palavras, 0 para &lt;5 palavras. Queries longas indicam informational intent e maior probabilidade de match com conteúdo estruturado para AEO.</p>
+<p><strong>CTR performance</strong>: 2 pontos para CTR &gt;5%, 1 ponto para CTR 2-5%, 0 para CTR &lt;2%. Alto CTR em queries específicas indica content-market fit forte, sugerindo potencial para expansion e otimização.</p>
+<p><strong>Competition gap</strong>: Analise SERPs manualmente. 2 pontos se top 3 não responde completamente a query, 1 ponto se resposta parcial existe, 0 se concorrência é completa. Gap indica oportunidade de criar conteúdo superior.</p>
+<p>Queries com score 7-10 são prioridade máxima para briefings de conteúdo. Score 4-6 são oportunidades secundárias. Score 0-3 mantém estratégia tradicional. Na minha experiência, focar em queries score 7+ gera melhor ROI em projetos de AEO.</p>
+<h2 id="como-transformar-clusters-de-queries-em-briefings-de-conteudo">Como transformar clusters de queries em briefings de conteúdo</h2>
+<h3 id="mapeamento-de-intencao-conversacional">Mapeamento de intenção conversacional</h3>
+<p>O primeiro passo é agrupar queries similares em clusters temáticos. Use ferramentas como Google Sheets com função VLOOKUP ou Python para clustering automático. Queries "como escolher CRM", "qual melhor CRM para pequenas empresas", "CRM vs planilha" formam um cluster sobre "seleção de CRM".</p>
+<p>Para cada cluster, identifique a <strong>parent query</strong> - a consulta mais abrangente que engloba as variações. Esta será o título do conteúdo. As queries secundárias viram H2 e H3, criando estrutura que responde múltiplas variações da mesma dúvida.</p>
+<p>Mapear intenção conversacional vai além de keyword intent tradicional. Analise o contexto implícito: "CRM para freelancers vs pequenas empresas" indica que o usuário quer comparação baseada em tamanho/estrutura organizacional, não apenas features técnicas.</p>
+<p>Crie um documento de mapeamento com: Cluster theme, Parent query, Secondary queries, User context, Expected answer format (list, comparison, step-by-step, analysis). Isso garante que o conteúdo address toda a intenção conversacional do cluster.</p>
+<h3 id="priorizacao-por-volume-e-gap-de-conteudo">Priorização por volume e gap de conteúdo</h3>
+<p>Desenvolva uma matriz de priorização combinando volume total do cluster com gap competitivo. Volume total = soma de impressions de todas queries do cluster. Gap competitivo = média de score de competition gap das queries principais.</p>
+<p>Matrix de priorização:
+- <strong>High Volume + High Gap</strong>: Prioridade 1 (conteúdo pillar imediato)<br />
+- <strong>High Volume + Low Gap</strong>: Prioridade 2 (otimização de conteúdo existente)
+- <strong>Low Volume + High Gap</strong>: Prioridade 3 (long-tail specialty content)
+- <strong>Low Volume + Low Gap</strong>: Prioridade 4 (manter monitoring)</p>
+<p>Para clusters Prioridade 1, crie briefings completos incluindo: Title baseado na parent query, estrutura de H2/H3 baseada em secondary queries, content format requirements, target word count, internal linking opportunities, e expected outcomes para AEO.</p>
+<p>Na minha prática, clusters com &gt;1000 impressions totais e competition gap &gt;1.5 geram os melhores resultados em projetos de AEO. Esses briefings se tornam pillar articles que capturam tanto tráfego orgânico quanto citações de IA.</p>
+<h2 id="comparacao-entre-queries-tradicionais-vs-queries-de-ia-no-gsc">Comparação entre queries tradicionais vs queries de IA no GSC</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Queries Tradicionais</th>
+<th>Queries de IA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Estrutura</strong></td>
+<td>Keywords fragmentadas</td>
+<td>Perguntas completas</td>
+</tr>
+<tr>
+<td><strong>Comprimento</strong></td>
+<td>2-4 palavras</td>
+<td>6-15 palavras</td>
+</tr>
+<tr>
+<td><strong>Linguagem</strong></td>
+<td>Telegráfica</td>
+<td>Conversacional</td>
+</tr>
+<tr>
+<td><strong>Contexto</strong></td>
+<td>Implícito</td>
+<td>Explícito</td>
+</tr>
+<tr>
+<td><strong>Intenção</strong></td>
+<td>Única</td>
+<td>Múltipla</td>
+</tr>
+<tr>
+<td><strong>Volume individual</strong></td>
+<td>Alto</td>
+<td>Baixo</td>
+</tr>
+<tr>
+<td><strong>CTR médio</strong></td>
+<td>2-3%</td>
+<td>5-8%</td>
+</tr>
+<tr>
+<td><strong>Especificidade</strong></td>
+<td>Genérica</td>
+<td>Ultra-específica</td>
+</tr>
+</tbody>
+</table>
+<p>A diferença mais marcante está na <strong>completude informacional</strong>. Queries tradicionais omitem contexto que o usuário assume como óbvio. Queries de IA incluem todo o contexto necessário para uma resposta precisa, criando consultas autocontidas.</p>
+<p>Essa completude gera oportunidades únicas de content matching. Conteúdo que responde queries de IA automaticamente satisfaz múltiplas variações de dúvidas relacionadas, aumentando relevância e autoridade topical.</p>
+<p>O padrão de CTR também revela behavior change significativo. Users que chegam via queries conversacionais já têm expectativa formada sobre o tipo de resposta, resultando em maior engagement quando o conteúdo delivers essa expectativa.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="como-diferenciar-queries-organicas-de-queries-geradas-por-assistentes-de-ia-no-search-console">Como diferenciar queries orgânicas de queries geradas por assistentes de IA no Search Console?</h3>
+<p>Queries geradas por assistentes apresentam linguagem natural completa, contexto explícito e especificidade técnica incomum. Look for question words, queries com &gt;6 palavras, e patterns como "diferença entre X e Y para [contexto específico]". O volume individual é baixo mas o CTR tende a ser alto.</p>
+<h3 id="qual-a-diferenca-entre-queries-conversacionais-e-queries-tradicionais-no-gsc">Qual a diferença entre queries conversacionais e queries tradicionais no GSC?</h3>
+<p>Queries conversacionais usam linguagem natural completa ("como implementar CRM para e-commerce"), enquanto tradicionais são telegráficas ("CRM e-commerce"). Conversacionais têm mais palavras, incluem contexto explícito e geram CTR mais alto devido ao match mais preciso com intenção do usuário.</p>
+<h3 id="como-exportar-dados-do-google-search-console-para-analise-de-padroes-de-ia">Como exportar dados do Google Search Console para análise de padrões de IA?</h3>
+<p>Acesse Performance &gt; Search Results, configure filtros por date range desejado, exporte os dados completos via botão Export. Use Google Sheets ou Excel para aplicar filtros e regex patterns. Para análise avançada, use a API do Search Console para extrair volumes maiores de dados históricos.</p>
+<h3 id="queries-com-impressoes-baixas-e-ctr-alto-indicam-oportunidade-para-aeo">Queries com impressões baixas e CTR alto indicam oportunidade para AEO?</h3>
+<p>Sim, especialmente quando são conversacionais. Alto CTR com baixas impressões indica content-market fit forte para intenção específica. Essas queries representam oportunidades de expansão - temas onde você tem autoridade mas pode criar conteúdo mais abrangente para capturar maior volume.</p>
+<h3 id="como-criar-briefings-de-conteudo-a-partir-de-clusters-de-queries-conversacionais">Como criar briefings de conteúdo a partir de clusters de queries conversacionais?</h3>
+<p>Agrupe queries similares em clusters temáticos, identifique a parent query como título principal, use queries secundárias como estrutura de headings (H2/H3). Analise intenção conversacional completa do cluster e crie briefing que address todas as variações da dúvida em conteúdo único e estruturado.</p>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>

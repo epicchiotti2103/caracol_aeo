@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt — Caracol AEO</title>
+  <meta name="description" content="Claude-User e Claude-SearchBot são bots distintos da Anthropic com propósitos diferentes. Aprenda as diferenças práticas e como configurar robots.txt para cada um.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://aeobr.com.br/blog/claude-user-claude-searchbot-diferencas-configurar-robots-txt/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt">
+  <meta property="og:description" content="Claude-User e Claude-SearchBot são bots distintos da Anthropic com propósitos diferentes. Aprenda as diferenças práticas e como configurar robots.txt para cada um.">
+  <meta property="og:url" content="https://aeobr.com.br/blog/claude-user-claude-searchbot-diferencas-configurar-robots-txt/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-05-02">
+  <meta property="article:section" content="Técnico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt">
+  <meta name="twitter:description" content="Claude-User e Claude-SearchBot são bots distintos da Anthropic com propósitos diferentes. Aprenda as diferenças práticas e como configurar robots.txt para cada um.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt",
+    "description": "Claude-User e Claude-SearchBot são bots distintos da Anthropic com propósitos diferentes. Aprenda as diferenças práticas e como configurar robots.txt para cada um.",
+    "articleSection": "Técnico",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-05-02",
+    "dateModified": "2026-05-02",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aeobr.com.br/blog/claude-user-claude-searchbot-diferencas-configurar-robots-txt/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Posso bloquear Claude-User mas permitir Claude-SearchBot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, é perfeitamente possível e uma estratégia comum. Configure user-agents específicos no robots.txt: bloqueie `Claude-User` completamente com `Disallow: /` e permita `Claude-SearchBot` em diretórios específicos. Esta configuração evita acesso pontual por usuários mas mantém indexação sistemática."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Claude-User respeita o robots.txt como Claude-SearchBot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude-User tem comportamento variável dependendo do contexto de uso, enquanto Claude-SearchBot segue integralmente o padrão RFC 9309 de robots.txt. Na prática, Claude-User geralmente respeita bloqueios explícitos, mas pode operar fora do escopo tradicional de crawling quando processando requisições diretas de usuários."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que acontece se eu bloquear apenas ClaudeBot no robots.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bloquear apenas o user-agent genérico `ClaudeBot` pode não ser suficiente, pois `Claude-User` e `Claude-SearchBot` são user-agents específicos que podem não herdar automaticamente essa regra. Configure regras explícitas para cada user-agent que você deseja controlar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber qual bot Claude está acessando meu site nos logs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Analise o campo User-Agent nos logs do servidor. Procure especificamente por `Claude-User`, `Claude-SearchBot` ou `ClaudeBot`. Cada um aparece distintamente nos logs, permitindo identificar o propósito do acesso e ajustar configurações conforme necessário."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso bloquear ambos os bots Claude para impedir treinamento de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bloquear crawlers não garante que seu conteúdo não seja usado para treinamento, pois o conteúdo pode ser acessado por outros meios. Para proteção efetiva contra uso em treinamento, considere implementar termos de uso específicos, headers HTTP adequados e, quando necessário, autenticação para conteúdo sensível."
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Técnico</div>
+      <h1>Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt</h1>
+      <div class="meta">Elio Picchiotti · 2 de maio de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>Claude-User e Claude-SearchBot são <strong>user-agents distintos</strong> da Anthropic que executam funções específicas: Claude-User processa solicitações diretas de usuários, enquanto Claude-SearchBot indexa conteúdo para alimentar as capacidades de busca do Claude. Essa diferenciação técnica permite controle granular via robots.txt sobre qual bot pode acessar cada área do seu site.</p>
+<p>A Anthropic documentou oficialmente Claude-User e Claude-SearchBot como user-agents distintos em sua developer documentation (2024), reconhecendo que diferentes casos de uso exigem diferentes protocolos de acesso. Dados de mercado indicam que crawlers de busca de IA representam entre 15-25% do tráfego de bots em sites B2B técnicos, tornando esta configuração crítica para gestores de conteúdo.</p>
+<h2 id="o-que-e-claude-user-e-para-que-serve">O que é Claude-User e para que serve</h2>
+<p><strong>Claude-User</strong> é o user-agent utilizado quando um usuário faz uma pergunta direta ao Claude que requer busca de informações atualizadas na web. Este bot opera sob demanda, ativado apenas quando o contexto da conversa exige acesso a conteúdo externo específico.</p>
+<p>Diferente de crawlers tradicionais, Claude-User não indexa proativamente. Ele acessa URLs específicas mencionadas pelo usuário ou descobertas através de pesquisas contextuais. Por exemplo, se um usuário pergunta "qual o preço atual do produto X no site da empresa Y", Claude-User pode acessar diretamente a página de produto para fornecer informação atualizada.</p>
+<p>Este bot mantém comportamento mais próximo ao de um navegador humano, seguindo links naturalmente e respeitando estruturas de navegação. Na minha experiência implementando AEO, Claude-User tende a gerar menos requisições por sessão, mas com padrões de acesso mais imprevisíveis que crawlers sistemáticos.</p>
+<p>O volume de requisições do Claude-User varia dramaticamente conforme a popularidade do seu conteúdo nas conversas dos usuários. Sites de referência técnica e documentação frequentemente recebem mais visitas deste bot que sites comerciais convencionais.</p>
+<h2 id="o-que-e-claude-searchbot-e-como-difere-do-claude-user">O que é Claude-SearchBot e como difere do Claude-User</h2>
+<p><strong>Claude-SearchBot</strong> opera como crawler proativo, indexando conteúdo sistematicamente para alimentar a base de conhecimento que suporta as respostas do Claude. Este bot segue padrões mais previsíveis, similar ao Googlebot ou outros crawlers de busca tradicionais.</p>
+<p>Claude-SearchBot segue o padrão RFC 9309 de robots.txt, respeitando integralmente as diretrizes de crawling definidas no arquivo. Ele opera em horários distribuídos, mantém intervalos regulares entre requisições e respeita rate limiting automaticamente para evitar sobrecarga nos servidores.</p>
+<p>Este crawler prioriza conteúdo textual estruturado, particularmente páginas com markup semântico claro. Na implementação de diversos projetos de AEO, observo que Claude-SearchBot demonstra preferência por conteúdo com Schema.org bem implementado e hierarquia de headings consistente.</p>
+<p>A principal diferença operacional é que Claude-SearchBot pode operar independentemente de solicitações específicas de usuários, construindo um índice abrangente que posteriormente suporta tanto respostas diretas quanto capacidades de pesquisa contextual do Claude. Este modelo híbrido entre indexação proativa e busca reativa é característico dos motores de resposta modernos.</p>
+<h2 id="tabela-comparativa-claude-user-vs-claude-searchbot">Tabela comparativa: Claude-User vs Claude-SearchBot</h2>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Claude-User</th>
+<th>Claude-SearchBot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Propósito</strong></td>
+<td>Resposta a consultas diretas</td>
+<td>Indexação sistemática</td>
+</tr>
+<tr>
+<td><strong>Ativação</strong></td>
+<td>Sob demanda do usuário</td>
+<td>Proativa/agendada</td>
+</tr>
+<tr>
+<td><strong>Padrão de crawling</strong></td>
+<td>Pontual e contextual</td>
+<td>Sistemático e abrangente</td>
+</tr>
+<tr>
+<td><strong>Respeito ao robots.txt</strong></td>
+<td>Variável por contexto</td>
+<td>Integral (RFC 9309)</td>
+</tr>
+<tr>
+<td><strong>Rate limiting</strong></td>
+<td>Dinâmico</td>
+<td>Pré-configurado</td>
+</tr>
+<tr>
+<td><strong>Foco de conteúdo</strong></td>
+<td>URLs específicas</td>
+<td>Descoberta ampla</td>
+</tr>
+<tr>
+<td><strong>Frequência de visitas</strong></td>
+<td>Esporádica</td>
+<td>Regular/agendada</td>
+</tr>
+<tr>
+<td><strong>Identificação nos logs</strong></td>
+<td>User-Agent: Claude-User</td>
+<td>User-Agent: Claude-SearchBot</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quando-voce-precisa-bloquear-ou-permitir-cada-bot">Quando você precisa bloquear ou permitir cada bot</h2>
+<p><strong>Cenário 1: Site público de referência</strong> - Permita ambos os bots. Sites de documentação, tutoriais e conteúdo educacional se beneficiam da indexação pelo Claude-SearchBot e da capacidade de resposta direta via Claude-User. Esta configuração maximiza visibilidade em respostas de IA.</p>
+<p><strong>Cenário 2: Conteúdo proprietário limitado</strong> - Bloqueie Claude-SearchBot mas permita Claude-User seletivamente. Quando você quer evitar indexação ampla mas ainda permitir que usuários específicos obtenham informações pontuais através de conversas com Claude.</p>
+<p><strong>Cenário 3: Área de membros/paywall</strong> - Bloqueie ambos completamente. Conteúdo pago ou restrito não deve ser acessível por crawlers de IA, independentemente do propósito. Google Webmaster Guidelines (2024) recomendam configuração específica por user-agent quando há múltiplos bots de um mesmo provedor.</p>
+<p><strong>Cenário 4: API ou dados estruturados</strong> - Configure acesso granular por diretório. Permita Claude-SearchBot em documentação pública (<code>/docs/</code>) mas bloqueie ambos em endpoints de API (<code>/api/</code>) ou dados sensíveis (<code>/admin/</code>).</p>
+<p>O padrão mais comum que implemento é a <a href="/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/">estratégia de três camadas para robots.txt</a>, adaptada especificamente para os diferentes comportamentos destes bots Claude.</p>
+<h2 id="como-configurar-robotstxt-para-claude-user">Como configurar robots.txt para Claude-User</h2>
+<p>Para configurar especificamente o <strong>Claude-User</strong>, utilize o user-agent exato nos seus rules robots.txt:</p>
+<p>User-agent: Claude-User
+Disallow: /admin/
+Disallow: /api/
+Allow: /docs/
+Allow: /blog/
+Crawl-delay: 1</p>
+<pre><code>
+**Bloqueio completo do Claude-User:**
+
+</code></pre>
+<p>User-agent: Claude-User
+Disallow: /</p>
+<pre><code>
+**Acesso seletivo com restrições de rate:**
+
+</code></pre>
+<p>User-agent: Claude-User
+Disallow: /private/
+Disallow: /temp/
+Allow: /
+Crawl-delay: 2</p>
+<pre><code>
+A configuração de `Crawl-delay` para Claude-User é particularmente importante porque este bot pode gerar rajadas de requisições quando usuários fazem perguntas complexas que exigem consulta a múltiplas páginas do seu site sequencialmente.
+
+Para sites com tráfego alto, recomendo definir crawl-delay entre 1-3 segundos para Claude-User. Valores menores que 1 segundo raramente são respeitados, enquanto valores acima de 5 segundos podem resultar em timeouts que prejudicam a experiência do usuário final no Claude.
+
+## Como configurar robots.txt para Claude-SearchBot
+
+**Claude-SearchBot** segue as convenções padrão de robots.txt, facilitando sua configuração através de regras familiares:
+
+</code></pre>
+<p>User-agent: Claude-SearchBot
+Disallow: /admin/
+Disallow: /login/
+Disallow: /search?
+Allow: /
+Crawl-delay: 1
+Sitemap: https://seusite.com/sitemap.xml</p>
+<pre><code>
+**Configuração para acesso prioritário:**
+
+</code></pre>
+<p>User-agent: Claude-SearchBot
+Allow: /
+Disallow: /temp/
+Crawl-delay: 0.5
+Sitemap: https://seusite.com/sitemap.xml
+Sitemap: https://seusite.com/news-sitemap.xml</p>
+<pre><code>
+**Bloqueio específico mantendo acesso geral:**
+
+</code></pre>
+<p>User-agent: Claude-SearchBot
+Disallow: /api/
+Disallow: /admin/
+Disallow: /<em>.json$
+Disallow: /</em>?print=1
+Allow: /</p>
+<pre><code>
+Claude-SearchBot processa múltiplos sitemaps eficientemente, então declare todos os sitemaps relevantes na seção correspondente. Na minha experiência, sites que fornecem sitemaps específicos por tipo de conteúdo (produtos, artigos, páginas estáticas) recebem indexação mais completa e organizada.
+
+## Configurações avançadas: bloqueio seletivo por diretório
+
+Para controle granular sobre ambos os bots, implemente regras por diretório específico. Esta abordagem é essencial para sites complexos com múltiplas áreas funcionais:
+
+</code></pre>
+<h1 id="configuracao-claude-user-acesso-limitado">Configuração Claude-User - Acesso limitado</h1>
+<p>User-agent: Claude-User
+Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout/
+Disallow: /account/
+Allow: /docs/
+Allow: /blog/
+Allow: /produtos/
+Crawl-delay: 2</p>
+<h1 id="configuracao-claude-searchbot-indexacao-ampla">Configuração Claude-SearchBot - Indexação ampla</h1>
+<p>User-agent: Claude-SearchBot
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account/
+Disallow: /checkout/
+Disallow: /temp/
+Disallow: *.pdf$
+Allow: /
+Crawl-delay: 1
+Sitemap: https://seusite.com/sitemap.xml</p>
+<h1 id="fallback-para-outros-bots-claude">Fallback para outros bots Claude</h1>
+<p>User-agent: ClaudeBot
+Disallow: /</p>
+<pre><code>
+**Configuração para e-commerce:**
+
+</code></pre>
+<p>User-agent: Claude-SearchBot
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /<em>?add-to-cart=
+Disallow: /</em>?orderby=
+Allow: /produto/
+Allow: /categoria/
+Allow: /blog/</p>
+<p>User-agent: Claude-User
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /my-account/
+Allow: /produto/
+Allow: /categoria/
+Crawl-delay: 3</p>
+<pre><code>
+Esta configuração permite que Claude-SearchBot indexe produtos e categorias para responder perguntas sobre seu catálogo, enquanto Claude-User pode acessar produtos específicos quando usuários perguntam sobre itens particulares, mas ambos são bloqueados de áreas transacionais.
+
+## Como testar se suas regras estão funcionando
+
+**Método 1: Análise de logs de servidor**
+
+Monitore seus logs de acesso procurando especificamente pelos user-agents:
+- `Claude-User` 
+- `Claude-SearchBot`
+- `ClaudeBot` (user-agent genérico)
+
+Configure alertas para identificar tentativas de acesso a diretórios que deveriam estar bloqueados.
+
+**Método 2: Ferramenta robots.txt tester**
+
+Use o Google Search Console robots.txt Tester como base, mas adapte para validar especificamente os user-agents Claude:
+
+1. Acesse a ferramenta robots.txt tester
+2. Cole o conteúdo do seu robots.txt
+3. Digite `Claude-SearchBot` como user-agent
+4. Teste URLs específicas que devem ser permitidas/bloqueadas
+5. Repita o processo para `Claude-User`
+
+**Método 3: Monitoramento contínuo**
+
+Implemente monitoramento automatizado que detecte:
+- Alterações no comportamento de crawling dos bots Claude
+- Violações das regras definidas no robots.txt
+- Picos incomuns de tráfego dos user-agents Claude
+
+Para a [configuração básica de robots.txt para crawlers de IA](/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/), recomendo verificação semanal dos logs durante as primeiras 4 semanas após implementação, depois monitoramento mensal.
+
+## Erros comuns ao configurar robots.txt para bots Claude
+
+**Erro 1: Usar apenas &quot;ClaudeBot&quot; genérico**
+
+Muitos administradores configuram apenas:
+</code></pre>
+<p>User-agent: ClaudeBot
+Disallow: /</p>
+<pre><code>
+Esta regra pode não capturar Claude-User e Claude-SearchBot especificamente, pois estes user-agents são mais específicos que o genérico ClaudeBot.
+
+**Erro 2: Conflito de regras entre user-agents**
+
+</code></pre>
+<h1 id="configuracao-problematica">CONFIGURAÇÃO PROBLEMÁTICA</h1>
+<p>User-agent: Claude-SearchBot
+Allow: /blog/</p>
+<p>User-agent: *
+Disallow: /blog/</p>
+<pre><code>
+A regra `User-agent: *` pode conflitar com regras específicas. Sempre declare regras específicas antes do wildcard genérico.
+
+**Erro 3: Crawl-delay inconsistente**
+
+Definir crawl-delay muito baixo (menos de 0.5s) para Claude-User pode resultar em sobrecarga, pois este bot pode fazer múltiplas requisições sequenciais rápidas durante uma única sessão de usuário.
+
+**Erro 4: Não considerar URLs com parâmetros**
+
+Claude-User frequentemente acessa URLs com parâmetros de busca. Configure adequadamente:
+
+</code></pre>
+<p>User-agent: Claude-User
+Disallow: /<em>?debug=
+Disallow: /</em>?test=
+Allow: /<em>?page=
+Allow: /</em>?category=
+```</p>
+<p><strong>Erro 5: Esquecer de atualizar sitemaps</strong></p>
+<p>Claude-SearchBot utiliza sitemaps intensivamente. Manter sitemaps desatualizados resulta em indexação incompleta ou tentativas de acesso a URLs inexistentes.</p>
+<p>Como você pode ver na explicação sobre <a href="/blog/claude-searchbot-oai-searchbot-crawlers-busca/">como funciona o Claude-SearchBot</a>, a configuração adequada destes crawlers exige compreensão técnica dos diferentes padrões operacionais de cada bot.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="posso-bloquear-claude-user-mas-permitir-claude-searchbot">Posso bloquear Claude-User mas permitir Claude-SearchBot?</h3>
+<p>Sim, é perfeitamente possível e uma estratégia comum. Configure user-agents específicos no robots.txt: bloqueie <code>Claude-User</code> completamente com <code>Disallow: /</code> e permita <code>Claude-SearchBot</code> em diretórios específicos. Esta configuração evita acesso pontual por usuários mas mantém indexação sistemática.</p>
+<h3 id="claude-user-respeita-o-robotstxt-como-claude-searchbot">Claude-User respeita o robots.txt como Claude-SearchBot?</h3>
+<p>Claude-User tem comportamento variável dependendo do contexto de uso, enquanto Claude-SearchBot segue integralmente o padrão RFC 9309 de robots.txt. Na prática, Claude-User geralmente respeita bloqueios explícitos, mas pode operar fora do escopo tradicional de crawling quando processando requisições diretas de usuários.</p>
+<h3 id="o-que-acontece-se-eu-bloquear-apenas-claudebot-no-robotstxt">O que acontece se eu bloquear apenas ClaudeBot no robots.txt?</h3>
+<p>Bloquear apenas o user-agent genérico <code>ClaudeBot</code> pode não ser suficiente, pois <code>Claude-User</code> e <code>Claude-SearchBot</code> são user-agents específicos que podem não herdar automaticamente essa regra. Configure regras explícitas para cada user-agent que você deseja controlar.</p>
+<h3 id="como-saber-qual-bot-claude-esta-acessando-meu-site-nos-logs">Como saber qual bot Claude está acessando meu site nos logs?</h3>
+<p>Analise o campo User-Agent nos logs do servidor. Procure especificamente por <code>Claude-User</code>, <code>Claude-SearchBot</code> ou <code>ClaudeBot</code>. Cada um aparece distintamente nos logs, permitindo identificar o propósito do acesso e ajustar configurações conforme necessário.</p>
+<h3 id="preciso-bloquear-ambos-os-bots-claude-para-impedir-treinamento-de-ia">Preciso bloquear ambos os bots Claude para impedir treinamento de IA?</h3>
+<p>Bloquear crawlers não garante que seu conteúdo não seja usado para treinamento, pois o conteúdo pode ser acessado por outros meios. Para proteção efetiva contra uso em treinamento, considere implementar termos de uso específicos, headers HTTP adequados e, quando necessário, autenticação para conteúdo sensível.</p>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>

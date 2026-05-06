@@ -155,7 +155,11 @@
     "publisher": {
       "@type": "Organization",
       "name": "Caracol AEO",
-      "url": "https://aeobr.com.br"
+      "url": "https://aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aeobr.com.br/logo-negativo.png"
+      }
     },
     "datePublished": "2026-04-07",
     "dateModified": "2026-04-07",
@@ -345,28 +349,32 @@ Na minha análise de casos reais, sites que implementaram controle granular (per
         "@type": "Answer",
         "text": "Não necessariamente. O GPTBot coleta dados para treinamento futuro, mas o ChatGPT já possui conhecimento de conteúdo coletado anteriormente. Bloquear o bot reduz chances de citações de conteúdo novo, mas não elimina referências baseadas em dados históricos."
       }
-    },\n    {
+    },
+    {
       "@type": "Question",
       "name": "Como permitir apenas parte do site para crawlers de IA?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Use `Allow:` para diretórios específicos combinado com `Disallow: /` para bloquear o resto. Exemplo: `Allow: /blog/` seguido de `Disallow: /` permite apenas a seção blog. A ordem das regras no robots.txt define precedência."
       }
-    },\n    {
+    },
+    {
       "@type": "Question",
       "name": "É possível bloquear todos os bots de IA de uma vez no robots.txt?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Sim, agrupe múltiplos user-agents sob uma regra comum. Liste cada bot (GPTBot, ClaudeBot, PerplexityBot, etc.) seguido de `Disallow: /`. Porém, novos bots podem surgir com user-agents diferentes, exigindo atualizações regulares."
       }
-    },\n    {
+    },
+    {
       "@type": "Question",
       "name": "Quanto tempo leva para mudanças no robots.txt afetarem crawlers de IA?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Geralmente 24-48 horas para os principais bots, mas pode variar. GPTBot e ClaudeBot costumam respeitar mudanças mais rapidamente que outros. Monitore logs do servidor para confirmar quando os crawlers começam a seguir as novas regras."
       }
-    },\n    {
+    },
+    {
       "@type": "Question",
       "name": "Devo bloquear ou permitir crawlers de IA para AEO?",
       "acceptedAnswer": {
