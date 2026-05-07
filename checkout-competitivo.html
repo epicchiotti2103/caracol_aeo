@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout — Relatório Competitivo AEO | Caracol</title>
+<meta name="description" content="Análise AEO completa + Share of Voice nas IAs (ChatGPT, Perplexity, Gemini) + benchmarking contra 3 concorrentes.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --bg-card: #141414;
+    --bg-input: #1C1C1C;
+    --border: #2A2A2A;
+    --border-strong: #3A3A3A;
+    --text: #F5F5F5;
+    --text-muted: #999;
+    --text-dim: #666;
+    --orange: #FF6B1A;
+    --orange-dark: #E55A0F;
+    --lime: #C8FF00;
+    --error: #FF4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.55; font-size: 16px; min-height: 100vh;
+  }
+  .topbar {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .topbar a.brand {
+    color: var(--text); text-decoration: none;
+    font-weight: 700; letter-spacing: -0.02em; font-size: 18px;
+  }
+  .topbar a.brand span { color: var(--orange); }
+  .topbar a.back {
+    color: var(--text-muted); text-decoration: none; font-size: 14px;
+  }
+  .topbar a.back:hover { color: var(--text); }
+
+  .container {
+    max-width: 1100px; margin: 0 auto; padding: 48px 32px;
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px;
+  }
+  @media (max-width: 820px) {
+    .container { grid-template-columns: 1fr; padding: 32px 20px; gap: 24px; }
+  }
+
+  .plan-summary { padding: 8px 0; }
+  .badge {
+    display: inline-block;
+    background: var(--lime); color: #000;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    font-weight: 600; padding: 4px 10px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 32px; font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.2; margin-bottom: 14px;
+  }
+  .price { font-size: 44px; font-weight: 700; color: var(--orange); margin: 18px 0 4px; }
+  .price small { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+
+  .features { list-style: none; margin-top: 28px; }
+  .features li {
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px;
+  }
+  .features li:last-child { border-bottom: none; }
+  .features li::before {
+    content: "✓"; color: var(--lime); font-weight: 700; font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .compare-note {
+    margin-top: 24px; padding: 14px 16px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; font-size: 13px; color: var(--text-muted);
+  }
+  .compare-note strong { color: var(--text); }
+
+  .checkout-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 32px;
+  }
+  .checkout-card h2 {
+    font-size: 18px; font-weight: 600;
+    margin-bottom: 6px; letter-spacing: -0.01em;
+  }
+  .checkout-card .sub {
+    color: var(--text-muted); font-size: 13px; margin-bottom: 24px;
+  }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-size: 13px; font-weight: 500;
+    margin-bottom: 6px; color: var(--text);
+  }
+  .form-group .hint {
+    font-size: 12px; color: var(--text-dim); margin-top: 4px; line-height: 1.45;
+  }
+  .form-group input, .form-group textarea {
+    width: 100%; background: var(--bg-input);
+    border: 1px solid var(--border-strong); color: var(--text);
+    padding: 11px 14px; border-radius: 6px; font-size: 14px;
+    font-family: inherit; transition: border-color 0.15s;
+    resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    outline: none; border-color: var(--orange);
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder {
+    color: var(--text-dim);
+  }
+
+  .section-divider {
+    border-top: 1px solid var(--border);
+    padding-top: 20px; margin-top: 4px;
+  }
+  .section-divider h3 {
+    font-size: 14px; font-weight: 600; margin-bottom: 6px;
+  }
+  .section-divider .help {
+    font-size: 12px; color: var(--text-muted); margin-bottom: 12px;
+  }
+
+  .submit-btn {
+    width: 100%; background: var(--orange); color: #fff;
+    border: none; padding: 14px; border-radius: 8px;
+    font-family: inherit; font-size: 15px; font-weight: 600;
+    cursor: pointer; margin-top: 12px;
+    transition: background 0.15s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .submit-btn:hover:not(:disabled) { background: var(--orange-dark); }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .submit-btn .spinner {
+    display: none; width: 14px; height: 14px;
+    border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
+    border-radius: 50%; animation: spin 0.7s linear infinite;
+  }
+  .submit-btn.loading .spinner { display: inline-block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .legal {
+    margin-top: 14px; font-size: 11px; color: var(--text-dim);
+    text-align: center; line-height: 1.5;
+  }
+  .legal a { color: var(--text-muted); text-decoration: underline; }
+
+  .error-msg {
+    display: none; background: rgba(255,68,68,0.1);
+    border: 1px solid var(--error); color: var(--error);
+    padding: 10px 14px; border-radius: 6px; font-size: 13px;
+    margin-top: 14px;
+  }
+  .error-msg.show { display: block; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="/">Caracol<span> AEO</span></a>
+  <a class="back" href="/">← voltar</a>
+</div>
+
+<div class="container">
+
+  <!-- LEFT: plan summary -->
+  <div class="plan-summary">
+    <div class="badge">Mais completo</div>
+    <h1>Relatório AEO Competitivo</h1>
+    <p style="color: var(--text-muted); font-size: 15px;">
+      Tudo do Detalhado <strong style="color:var(--text);">+</strong>
+      Share of Voice nas IAs <strong style="color:var(--text);">+</strong>
+      benchmarking contra 3 concorrentes.
+    </p>
+
+    <div class="price">R$ 59,90 <small>/ pagamento único</small></div>
+
+    <ul class="features">
+      <li>Auditoria AEO completa do seu site (Acesso, Identidade, Conteúdo, Estrutura, Meta)</li>
+      <li>Relatório executivo + relatório técnico página a página</li>
+      <li><strong>Share of Voice</strong> nas 3 principais IAs: ChatGPT, Perplexity e Gemini</li>
+      <li>Comparativo direto contra <strong>3 concorrentes</strong> que você definir</li>
+      <li>Identificação de <strong>gaps</strong> — perguntas onde concorrentes ganham e você não aparece</li>
+      <li>Recomendações priorizadas de conteúdo pra ganhar essas citações</li>
+      <li>Entrega em PDF combinado, em até 24h por email</li>
+    </ul>
+
+    <div class="compare-note">
+      <strong>Diferença pro plano Detalhado:</strong> o Detalhado audita o seu site.
+      O Competitivo audita o seu site <em>e</em> mede onde você está (e onde não está)
+      sendo citado pelas IAs em comparação direta com seus concorrentes.
+    </div>
+  </div>
+
+  <!-- RIGHT: form -->
+  <div class="checkout-card">
+    <h2>Dados pra geração do relatório</h2>
+    <p class="sub">Preencha pra continuarmos pro pagamento via Mercado Pago.</p>
+
+    <div class="form-group">
+      <label for="nome">Seu nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Ex: Maria Silva" required autocomplete="name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email pra entrega do relatório</label>
+      <input type="email" id="email" name="email" placeholder="voce@empresa.com.br" required autocomplete="email">
+    </div>
+
+    <div class="form-group">
+      <label for="site">URL do seu site</label>
+      <input type="url" id="site" name="site" placeholder="https://suaempresa.com.br" required>
+    </div>
+
+    <div class="form-group">
+      <label for="nicho">Descreva seu nicho em 1 frase</label>
+      <textarea id="nicho" name="nicho" rows="2" placeholder="Ex: agência de skincare premium para mulheres 30+" required></textarea>
+      <div class="hint">
+        Seja específico — bom: "escritório de advocacia trabalhista em São Paulo".
+        Ruim: "venda de produtos online". É a partir dessa descrição que vamos formular
+        as perguntas que serão feitas às IAs.
+      </div>
+    </div>
+
+    <div class="section-divider">
+      <h3>Seus 3 principais concorrentes</h3>
+      <p class="help">Sites diretos de concorrentes que você quer comparar. Os 3 são obrigatórios.</p>
+
+      <div class="form-group">
+        <label for="comp1">Concorrente 1</label>
+        <input type="url" id="comp1" name="comp1" placeholder="https://concorrente1.com.br" required>
+      </div>
+      <div class="form-group">
+        <label for="comp2">Concorrente 2</label>
+        <input type="url" id="comp2" name="comp2" placeholder="https://concorrente2.com.br" required>
+      </div>
+      <div class="form-group">
+        <label for="comp3">Concorrente 3</label>
+        <input type="url" id="comp3" name="comp3" placeholder="https://concorrente3.com.br" required>
+      </div>
+    </div>
+
+    <button class="submit-btn" id="submitBtn" onclick="submitCheckout()">
+      <span class="spinner"></span>
+      <span class="label">Pagar R$ 59,90 →</span>
+    </button>
+
+    <div class="error-msg" id="errorMsg"></div>
+
+    <p class="legal">
+      Pagamento processado pelo Mercado Pago.
+      Ao continuar você concorda com nossos
+      <a href="/termos" target="_blank">termos</a> e
+      <a href="/privacidade" target="_blank">política de privacidade</a>.
+    </p>
+  </div>
+
+</div>
+
+<script>
+const CHECKOUT_ENDPOINT = "https://aeo-checkout-create-ugzah7lydq-rj.a.run.app";
+
+function showError(msg) {
+  const el = document.getElementById("errorMsg");
+  el.textContent = msg;
+  el.classList.add("show");
+}
+function clearError() { document.getElementById("errorMsg").classList.remove("show"); }
+function setLoading(on) {
+  const btn = document.getElementById("submitBtn");
+  if (on) {
+    btn.classList.add("loading"); btn.disabled = true;
+    btn.querySelector(".label").textContent = "Redirecionando...";
+  } else {
+    btn.classList.remove("loading"); btn.disabled = false;
+    btn.querySelector(".label").textContent = "Pagar R$ 59,90 →";
+  }
+}
+
+function normalizeUrl(u) {
+  u = (u || "").trim();
+  if (!u) return "";
+  if (!/^https?:\/\//i.test(u)) u = "https://" + u;
+  return u;
+}
+
+async function submitCheckout() {
+  clearError();
+
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const site = normalizeUrl(document.getElementById("site").value);
+  const nicho = document.getElementById("nicho").value.trim();
+  const c1 = normalizeUrl(document.getElementById("comp1").value);
+  const c2 = normalizeUrl(document.getElementById("comp2").value);
+  const c3 = normalizeUrl(document.getElementById("comp3").value);
+
+  if (!nome) return showError("Informe seu nome.");
+  if (!email || !email.includes("@")) return showError("Email inválido.");
+  if (!site) return showError("Informe a URL do seu site.");
+  if (!nicho || nicho.length < 10) return showError("Descreva seu nicho em uma frase (mínimo 10 caracteres).");
+  if (nicho.length > 500) return showError("Descrição do nicho muito longa (máx 500 caracteres).");
+  if (!c1 || !c2 || !c3) return showError("Informe os 3 concorrentes (todos obrigatórios).");
+
+  // Reflete URLs normalizadas
+  document.getElementById("site").value = site;
+  document.getElementById("comp1").value = c1;
+  document.getElementById("comp2").value = c2;
+  document.getElementById("comp3").value = c3;
+
+  setLoading(true);
+  try {
+    const r = await fetch(CHECKOUT_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tier: "competitive",
+        nome: nome,
+        email: email,
+        site: site,
+        nicho_descricao: nicho,
+        competitor_sites: [c1, c2, c3],
+      }),
+    });
+    if (!r.ok) {
+      const err = await r.text().catch(() => "");
+      throw new Error(`Erro ${r.status}: ${err || "tente novamente"}`);
+    }
+    const data = await r.json();
+    if (!data.init_point) throw new Error("Resposta inválida do servidor.");
+    window.location.href = data.init_point;
+  } catch (e) {
+    setLoading(false);
+    showError(e.message || "Erro ao iniciar checkout. Tente novamente.");
+  }
+}
+
+// Submit on Enter (exceto no textarea)
+document.querySelectorAll("input").forEach(el => {
+  el.addEventListener("keydown", e => {
+    if (e.key === "Enter") submitCheckout();
+  });
+});
+</script>
+
+</body>
+</html>
