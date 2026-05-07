@@ -134,6 +134,15 @@
     font-size: 12px; color: var(--text-muted); margin-bottom: 12px;
   }
 
+  .delivery-note {
+    background: rgba(200, 255, 0, 0.06);
+    border: 1px solid rgba(200, 255, 0, 0.2);
+    color: var(--text);
+    padding: 12px 14px; border-radius: 6px;
+    font-size: 13px; line-height: 1.5;
+    margin: 18px 0 8px;
+  }
+  .delivery-note strong { color: var(--lime); font-weight: 600; }
   .submit-btn {
     width: 100%; background: var(--orange); color: #fff;
     border: none; padding: 14px; border-radius: 8px;
@@ -251,6 +260,11 @@
         <label for="comp3">Concorrente 3</label>
         <input type="url" id="comp3" name="comp3" placeholder="https://concorrente3.com.br" required>
       </div>
+    </div>
+
+    <div class="delivery-note">
+      ⏱ <strong>Tempo de entrega:</strong> após confirmação do pagamento, o relatório
+      é processado e enviado por email em <strong>até 20 minutos</strong>.
     </div>
 
     <button class="submit-btn" id="submitBtn" onclick="submitCheckout()">
