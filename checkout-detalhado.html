@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Relatório AEO Detalhado | Caracol AEO</title>
+  <meta name="description" content="Finalize a compra do Relatório AEO Detalhado por R$ 29,90. Pagamento seguro via Mercado Pago — Pix ou cartão.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.aeobr.com.br/checkout-detalhado">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    a{color:inherit;text-decoration:none}
+    button,input{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    ::selection{background:var(--orange);color:#fff}
+
+    .top{padding:20px 24px;border-bottom:1px solid var(--bdr);background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+    .top-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em}
+    .brand-mark{width:28px;height:28px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;color:#fff;font-weight:700}
+    .back{font-size:13px;color:var(--t2);display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+    .back:hover{color:var(--t1)}
+
+    .main{flex:1;display:flex;align-items:center;padding:48px 24px;position:relative;overflow:hidden}
+    .main::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:1000px;height:600px;background:radial-gradient(ellipse,var(--orange-glow) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+    .wrap{max-width:1000px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;position:relative;z-index:1}
+
+    /* LEFT: summary */
+    .sum{padding:8px 0}
+    .kicker{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .sum h1{font-size:clamp(28px,4vw,38px);font-weight:700;line-height:1.1;letter-spacing:-.025em;margin-bottom:14px}
+    .sum-sub{font-size:15px;color:var(--t2);margin-bottom:28px;line-height:1.55}
+    .price-card{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;margin-bottom:24px;position:relative;overflow:hidden}
+    .price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange)}
+    .pc-name{font-size:14px;font-weight:600;color:var(--t2);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+    .pc-badge{padding:3px 10px;background:var(--orange);color:#fff;border-radius:100px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .pc-price{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+    .pc-cu{font-size:14px;color:var(--t2);font-weight:500}
+    .pc-am{font-size:42px;font-weight:700;letter-spacing:-.03em;line-height:1}
+    .pc-cents{font-size:22px;font-weight:600}
+    .pc-recurr{font-size:12px;color:var(--t4);margin-top:4px}
+    .feats{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .feats li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--t2);line-height:1.5}
+    .feats .ck{width:18px;height:18px;min-width:18px;border-radius:50%;background:rgba(255,87,34,.12);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--orange);margin-top:2px}
+    .trust{margin-top:24px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--t3)}
+    .trust div{display:flex;align-items:center;gap:8px}
+    .trust .dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+
+    /* RIGHT: form */
+    .form-card{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-xl);padding:32px;position:relative}
+    .form-title{font-size:18px;font-weight:600;margin-bottom:4px}
+    .form-sub{font-size:13px;color:var(--t3);margin-bottom:24px}
+    .fg{margin-bottom:16px}
+    .fg label{display:block;font-size:13px;font-weight:500;color:var(--t2);margin-bottom:6px}
+    .fg input{width:100%;padding:12px 16px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;transition:all .2s}
+    .fg input::placeholder{color:var(--t4)}
+    .fg input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .fg .err{display:none;font-size:12px;color:var(--red);margin-top:6px}
+    .fg.invalid input{border-color:var(--red)}
+    .fg.invalid .err{display:block}
+
+    .pay-btn{width:100%;padding:15px;background:var(--orange);color:#fff;border-radius:var(--r-sm);font-weight:600;font-size:15px;cursor:pointer;transition:all .25s var(--ease);margin-top:6px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+    .pay-btn:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 8px 20px var(--orange-strong)}
+    .pay-btn:disabled{opacity:.7;cursor:not-allowed}
+    .pay-btn .spin{display:none;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite}
+    .pay-btn.loading .spin{display:inline-block}
+    .pay-btn.loading .lbl{display:none}
+
+    .gw{margin-top:18px;font-size:12px;color:var(--t4);text-align:center;line-height:1.55}
+    .gw strong{color:var(--t2);font-weight:500}
+    .gw a{color:var(--orange)}
+
+    .pay-icons{display:flex;gap:10px;margin-top:18px;justify-content:center;align-items:center;opacity:.6}
+    .pay-icons span{font-family:var(--mono);font-size:11px;color:var(--t3);padding:4px 10px;border:1px solid var(--bdr);border-radius:6px;letter-spacing:.05em}
+
+    .alert{display:none;background:rgba(255,77,77,.08);border:1px solid rgba(255,77,77,.3);border-radius:var(--r-sm);padding:12px 14px;font-size:13px;color:var(--red);margin-bottom:16px;line-height:1.5}
+    .alert.show{display:block}
+
+    @keyframes sp{to{transform:rotate(360deg)}}
+    @keyframes fu{to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(20px);animation:fu .7s var(--ease) forwards}
+    .reveal.d1{animation-delay:.1s}
+    .reveal.d2{animation-delay:.2s}
+
+    .foot{padding:24px;text-align:center;font-size:12px;color:var(--t4);border-top:1px solid var(--bdr)}
+    .foot a{color:var(--t3)}
+    .foot a:hover{color:var(--t1)}
+
+    @media(max-width:780px){
+      .wrap{grid-template-columns:1fr;gap:32px}
+      .main{padding:32px 20px}
+      .form-card{padding:24px}
+      .price-card{padding:20px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="top-inner">
+      <a href="https://www.aeobr.com.br/" class="brand">
+        <span class="brand-mark">Æ</span>
+        <span>Caracol AEO</span>
+      </a>
+      <a href="https://www.aeobr.com.br/#precos" class="back">← Voltar pros planos</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="wrap">
+
+      <!-- LEFT: Plan summary -->
+      <section class="sum reveal">
+        <div class="kicker">Você está adquirindo</div>
+        <h1>Relatório AEO Detalhado</h1>
+        <p class="sum-sub">Auditoria técnica completa do seu site, com análise por página, severidade dos erros e recomendações priorizadas.</p>
+
+        <div class="price-card">
+          <div class="pc-name">
+            <span>Relatório único</span>
+            <span class="pc-badge">Mais Popular</span>
+          </div>
+          <div class="pc-price">
+            <span class="pc-cu">R$</span>
+            <span class="pc-am">29</span>
+            <span class="pc-cents">,90</span>
+          </div>
+          <div class="pc-recurr">Pagamento único, sem assinatura</div>
+        </div>
+
+        <ul class="feats">
+          <li><span class="ck">✓</span><span>Score AEO geral + por categoria (0-100)</span></li>
+          <li><span class="ck">✓</span><span>Análise detalhada de cada página auditada</span></li>
+          <li><span class="ck">✓</span><span>Severidade por erro (Crítico / Alto / Médio)</span></li>
+          <li><span class="ck">✓</span><span>Recomendações priorizadas com textos sugeridos</span></li>
+          <li><span class="ck">✓</span><span>Análise de robots.txt, sitemap e llms.txt</span></li>
+          <li><span class="ck">✓</span><span>PDF entregue por email em até 5 minutos</span></li>
+        </ul>
+
+        <div class="trust">
+          <div><span class="dot"></span>Pagamento processado pelo Mercado Pago</div>
+          <div><span class="dot"></span>Pix, cartão de crédito ou débito</div>
+          <div><span class="dot"></span>Sem assinatura, sem cobrança recorrente</div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Form -->
+      <section class="form-card reveal d1">
+        <div class="form-title">Seus dados pra auditoria</div>
+        <div class="form-sub">Vamos auditar este site e mandar o PDF pro email informado.</div>
+
+        <div id="alert" class="alert"></div>
+
+        <form id="checkoutForm" onsubmit="handleCheckout(event)" novalidate>
+          <div class="fg" id="fg-nome">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required autocomplete="name" minlength="2" maxlength="100">
+            <div class="err">Informe um nome válido (mín. 2 caracteres).</div>
+          </div>
+
+          <div class="fg" id="fg-email">
+            <label for="email">E-mail (onde vamos enviar o relatório)</label>
+            <input type="email" id="email" name="email" placeholder="nome@empresa.com.br" required autocomplete="email">
+            <div class="err">E-mail inválido.</div>
+          </div>
+
+          <div class="fg" id="fg-site">
+            <label for="site">Site da empresa</label>
+            <input type="text" id="site" name="site" placeholder="https://suaempresa.com.br" required>
+            <div class="err">URL inválida — use o formato https://...</div>
+          </div>
+
+          <button type="submit" class="pay-btn" id="payBtn">
+            <span class="lbl">Pagar R$ 29,90 →</span>
+            <span class="spin"></span>
+          </button>
+
+          <div class="pay-icons">
+            <span>Pix</span>
+            <span>Crédito</span>
+            <span>Débito</span>
+          </div>
+
+          <p class="gw">Ao clicar em pagar, você será redirecionado para o ambiente seguro do <strong>Mercado Pago</strong>. Após a confirmação, o relatório é gerado automaticamente e enviado por email em até 5 minutos.</p>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div>© Caracol AEO — Otimização de visibilidade em IAs · <a href="https://www.aeobr.com.br/">aeobr.com.br</a></div>
+  </footer>
+
+  <script>
+    const CHECKOUT_URL = "https://aeo-checkout-create-ugzah7lydq-rj.a.run.app";
+
+    // Tier vem da query string (?tier=detailed). Default é detailed.
+    const params = new URLSearchParams(window.location.search);
+    const TIER = params.get("tier") || "detailed";
+
+    const EMAIL_RE = /^[\w.\-+]+@[\w-]+(\.[\w-]+)+$/;
+
+    function setInvalid(fgId, invalid) {
+      const fg = document.getElementById(fgId);
+      if (!fg) return;
+      fg.classList.toggle("invalid", invalid);
+    }
+
+    function showAlert(msg) {
+      const al = document.getElementById("alert");
+      al.textContent = msg;
+      al.classList.add("show");
+    }
+    function hideAlert() {
+      document.getElementById("alert").classList.remove("show");
+    }
+
+    function normalizeSite(s) {
+      s = (s || "").trim();
+      if (s && !/^https?:\/\//i.test(s)) s = "https://" + s;
+      return s;
+    }
+
+    async function handleCheckout(e) {
+      e.preventDefault();
+      hideAlert();
+
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      let site = normalizeSite(document.getElementById("site").value);
+
+      // Validação cliente
+      let ok = true;
+      if (nome.length < 2 || nome.length > 100) { setInvalid("fg-nome", true); ok = false; } else setInvalid("fg-nome", false);
+      if (!EMAIL_RE.test(email))                 { setInvalid("fg-email", true); ok = false; } else setInvalid("fg-email", false);
+      try { new URL(site); setInvalid("fg-site", false); } catch { setInvalid("fg-site", true); ok = false; }
+      if (!ok) return;
+
+      const btn = document.getElementById("payBtn");
+      btn.classList.add("loading");
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(CHECKOUT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome, email, site, tier: TIER })
+        });
+        const data = await res.json();
+
+        if (res.ok && data.init_point) {
+          // Redireciona para o checkout do Mercado Pago
+          window.location.href = data.init_point;
+          return;
+        }
+
+        const msg = (data.errors && data.errors.join(" ")) || data.error || "Erro inesperado. Tente novamente.";
+        showAlert(msg);
+      } catch (err) {
+        console.error(err);
+        showAlert("Erro de conexão. Verifique sua internet e tente novamente.");
+      } finally {
+        btn.classList.remove("loading");
+        btn.disabled = false;
+      }
+    }
+
+    // Auto-preenche campos se vierem na URL (?nome=...&email=...&site=...)
+    ["nome","email","site"].forEach(k => {
+      const v = params.get(k);
+      if (v) document.getElementById(k).value = decodeURIComponent(v);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento não aprovado — Caracol AEO</title>
+  <meta name="description" content="O pagamento não foi aprovado. Tente novamente ou use outro método de pagamento.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.aeobr.com.br/erro-pagamento">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--orange:#FF5722;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--red-glow:rgba(255,77,77,.12);--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:var(--orange);color:#fff}
+
+    .top{padding:20px 24px;border-bottom:1px solid var(--bdr)}
+    .top-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em}
+    .brand-mark{width:28px;height:28px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;color:#fff;font-weight:700}
+
+    .main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 24px;position:relative;overflow:hidden}
+    .main::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,var(--red-glow) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+    .panel{max-width:520px;width:100%;text-align:center;position:relative;z-index:1}
+
+    .icon{width:84px;height:84px;border-radius:50%;background:rgba(255,77,77,.10);border:1px solid rgba(255,77,77,.25);display:inline-flex;align-items:center;justify-content:center;margin-bottom:28px;animation:pop .6s var(--ease) both}
+    .icon svg{width:36px;height:36px;color:var(--red)}
+
+    .kicker{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:14px;opacity:0;animation:fu .6s var(--ease) .2s forwards}
+    h1{font-size:clamp(28px,4vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.025em;margin-bottom:14px;opacity:0;animation:fu .6s var(--ease) .3s forwards}
+    .lead{font-size:16px;color:var(--t2);margin-bottom:28px;line-height:1.6;opacity:0;animation:fu .6s var(--ease) .4s forwards}
+
+    .reasons{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:22px 24px;margin-bottom:28px;text-align:left;opacity:0;animation:fu .6s var(--ease) .5s forwards}
+    .reasons-tit{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:14px}
+    .reasons ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .reasons li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--t2);line-height:1.5}
+    .reasons li::before{content:'•';color:var(--orange);font-weight:700;font-size:16px;line-height:1}
+
+    .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu .6s var(--ease) .6s forwards}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:100px;font-weight:600;font-size:14px;cursor:pointer;transition:all .25s var(--ease)}
+    .btn-primary{background:var(--orange);color:#fff}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--orange-strong)}
+    .btn-ghost{background:transparent;color:var(--t1);border:1px solid var(--bdr-h)}
+    .btn-ghost:hover{background:rgba(255,255,255,.04);border-color:var(--bdr-h)}
+
+    .ref{font-family:var(--mono);font-size:11px;color:var(--t4);margin-top:24px;letter-spacing:.05em}
+    .ref strong{color:var(--t3);font-weight:500}
+
+    .foot{padding:24px;text-align:center;font-size:12px;color:var(--t4);border-top:1px solid var(--bdr)}
+    .foot a{color:var(--t3)}
+    .foot a:hover{color:var(--t1)}
+
+    @keyframes pop{0%{transform:scale(.7);opacity:0}60%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+    @keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:560px){
+      .main{padding:32px 20px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="top-inner">
+      <a href="https://www.aeobr.com.br/" class="brand">
+        <span class="brand-mark">Æ</span>
+        <span>Caracol AEO</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="panel">
+
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="6" x2="18" y2="18"/>
+          <line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </div>
+
+      <div class="kicker">Pagamento não aprovado</div>
+      <h1>Não conseguimos confirmar seu pagamento.</h1>
+      <p class="lead">A transação não foi concluída e <strong style="color:var(--t1)">você não foi cobrado</strong>. Tente novamente ou use outro método de pagamento.</p>
+
+      <div class="reasons">
+        <div class="reasons-tit">Possíveis causas</div>
+        <ul>
+          <li>Saldo insuficiente ou limite do cartão excedido</li>
+          <li>Dados do cartão digitados incorretamente</li>
+          <li>Cartão recusado pelo emissor (tente entrar em contato com o banco)</li>
+          <li>Pagamento cancelado durante o processo</li>
+        </ul>
+      </div>
+
+      <div class="actions">
+        <a href="/checkout-detalhado?tier=detailed" class="btn btn-primary">Tentar novamente →</a>
+        <a href="https://www.aeobr.com.br/" class="btn btn-ghost">Voltar pra home</a>
+      </div>
+
+      <div class="ref" id="payment-ref"></div>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div>© Caracol AEO — Otimização de visibilidade em IAs · <a href="https://www.aeobr.com.br/">aeobr.com.br</a></div>
+  </footer>
+
+  <script>
+    // Mostra detalhes da falha se vierem do MP
+    const params = new URLSearchParams(window.location.search);
+    const paymentId = params.get("payment_id") || params.get("collection_id");
+    const status = params.get("status") || params.get("collection_status");
+    if (paymentId || status) {
+      const parts = [];
+      if (paymentId) parts.push('<strong>ID:</strong> ' + paymentId);
+      if (status) parts.push('<strong>Status:</strong> ' + status);
+      document.getElementById("payment-ref").innerHTML = parts.join(' · ');
+    }
+  </script>
+</body>
+</html>
