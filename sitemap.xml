@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aeobr.com.br/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aeobr.com.br/blog/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -57,6 +57,12 @@
   <url>
     <loc>https://aeobr.com.br/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/</loc>
     <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aeobr.com.br/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -139,6 +145,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aeobr.com.br/blog/estruturar-topic-clusters-internos-ias-pagina-hub-autoridade/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aeobr.com.br/blog/ferramentas-metricas-medir-resultados-aeo/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -189,6 +201,18 @@
   <url>
     <loc>https://aeobr.com.br/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/</loc>
     <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aeobr.com.br/blog/negative-ai-seo-proteger-marca-ai-poisoning-mencoes-negativas/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aeobr.com.br/blog/otimizar-chatgpt-shopping-estrategias-aeo-ecommerce/</loc>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-06T18:28:56",
-  "count": 39,
+  "generated_at": "2026-05-14T13:58:00",
+  "count": 43,
   "categories": [
     {
       "id": "fundamentos",
@@ -28,6 +28,42 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/otimizar-chatgpt-shopping-estrategias-aeo-ecommerce/",
+      "slug": "otimizar-chatgpt-shopping-estrategias-aeo-ecommerce",
+      "title": "Como otimizar para ChatGPT Shopping: estratégias AEO para e-commerce serem citados nas buscas de produto por IA",
+      "desc": "Guia técnico para e-commerces otimizarem Product Schema, descrições e markup para serem citados e recomendados pelo ChatGPT Shopping através de estratégias AEO.",
+      "date": "2026-05-13",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/",
+      "slug": "bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt",
+      "title": "Bytespider e bots de IA não-conformes: como detectar crawlers que ignoram robots.txt e o que fazer",
+      "desc": "Guia completo para detectar e bloquear Bytespider e outros crawlers de IA que ignoram robots.txt, com técnicas de monitoramento e bloqueio em servidor.",
+      "date": "2026-05-12",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/estruturar-topic-clusters-internos-ias-pagina-hub-autoridade/",
+      "slug": "estruturar-topic-clusters-internos-ias-pagina-hub-autoridade",
+      "title": "Como estruturar topic clusters internos para que IAs identifiquem sua página-hub como autoridade no tema",
+      "desc": "Estruture clusters com hierarquia clara e linking bidirecional para que crawlers de IA mapeiem sua página-hub como centro de autoridade topical.",
+      "date": "2026-05-11",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/negative-ai-seo-proteger-marca-ai-poisoning-mencoes-negativas/",
+      "slug": "negative-ai-seo-proteger-marca-ai-poisoning-mencoes-negativas",
+      "title": "Negative AI SEO: como proteger sua marca contra AI poisoning e menções negativas plantadas",
+      "desc": "Negative AI SEO é uma nova forma de ataque que planta conteúdo negativo para manipular como LLMs descrevem marcas. Saiba como detectar, prevenir e responder.",
+      "date": "2026-05-10",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
     {
       "url": "/blog/otimizar-queries-intencao-chatgpt-ai-overviews-claude/",
       "slug": "otimizar-queries-intencao-chatgpt-ai-overviews-claude",
