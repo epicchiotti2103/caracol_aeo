@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-14T13:58:00",
-  "count": 43,
+  "generated_at": "2026-05-15T17:50:24",
+  "count": 45,
   "categories": [
     {
       "id": "fundamentos",
@@ -28,6 +28,24 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/otimizar-conteudo-meta-ai-whatsapp-instagram-2/",
+      "slug": "otimizar-conteudo-meta-ai-whatsapp-instagram-2",
+      "title": "Como otimizar conteúdo para Meta AI no WhatsApp e Instagram em 2025?",
+      "desc": "Estratégias práticas para aumentar citações da sua marca na Meta AI integrada ao WhatsApp e Instagram. Táticas específicas para o contexto conversacional.",
+      "date": "2026-05-15",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
+    {
+      "url": "/blog/otimizar-conteudo-meta-ai-whatsapp-instagram/",
+      "slug": "otimizar-conteudo-meta-ai-whatsapp-instagram",
+      "title": "Como otimizar conteúdo para Meta AI no WhatsApp e Instagram em 2025?",
+      "desc": "Guia completo para estruturar perfis e posts nas plataformas Meta para maximizar citações pela Meta AI integrada ao WhatsApp e Instagram.",
+      "date": "2026-05-15",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
     {
       "url": "/blog/otimizar-chatgpt-shopping-estrategias-aeo-ecommerce/",
       "slug": "otimizar-chatgpt-shopping-estrategias-aeo-ecommerce",
