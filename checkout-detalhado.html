@@ -214,6 +214,12 @@
     const params = new URLSearchParams(window.location.search);
     const TIER = params.get("tier") || "detailed";
 
+    // Captura click_id (?cid=...) e persiste pro postback de conversão
+    (function(){
+      const c = params.get("cid");
+      if (c) { try { localStorage.setItem("caracol_cid", c); } catch(_){} }
+    })();
+
     const EMAIL_RE = /^[\w.\-+]+@[\w-]+(\.[\w-]+)+$/;
 
     function setInvalid(fgId, invalid) {
@@ -265,6 +271,8 @@
         const data = await res.json();
 
         if (res.ok && data.init_point) {
+          // Marca tier pra disparar postback de conversão na obrigado.html
+          try { localStorage.setItem("caracol_tier", "detailed"); } catch(_){}
           // Redireciona para o checkout do Mercado Pago
           window.location.href = data.init_point;
           return;

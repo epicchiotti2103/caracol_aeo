@@ -295,6 +295,12 @@
 <script>
 const CHECKOUT_ENDPOINT = "https://aeo-checkout-create-ugzah7lydq-rj.a.run.app";
 
+// Captura click_id (?cid=...) e persiste pro postback de conversão
+(function(){
+  const c = new URLSearchParams(location.search).get("cid");
+  if (c) { try { localStorage.setItem("caracol_cid", c); } catch(_){} }
+})();
+
 function showError(msg) {
   const el = document.getElementById("errorMsg");
   el.textContent = msg;
@@ -363,6 +369,8 @@ async function submitCheckout() {
     }
     const data = await r.json();
     if (!data.init_point) throw new Error("Resposta inválida do servidor.");
+    // Marca tier pra disparar postback de conversão na obrigado.html
+    try { localStorage.setItem("caracol_tier", "competitive"); } catch(_){}
     window.location.href = data.init_point;
   } catch (e) {
     setLoading(false);

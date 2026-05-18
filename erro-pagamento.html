@@ -132,6 +132,10 @@
       if (status) parts.push('<strong>Status:</strong> ' + status);
       document.getElementById("payment-ref").innerHTML = parts.join(' · ');
     }
+
+    // Pagamento falhou: limpa tier pra não disparar postback indevidamente.
+    // Mantém caracol_cid pra eventual retry com sucesso.
+    try { localStorage.removeItem("caracol_tier"); } catch(_){}
   </script>
 </body>
 </html>

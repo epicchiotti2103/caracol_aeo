@@ -325,6 +325,13 @@
   gtag('js', new Date());
   gtag('config', 'G-4282EKRBJD');
 </script>
+<script>
+  // Captura click_id (?cid=...) e persiste pro postback de conversão
+  (function(){
+    const c = new URLSearchParams(location.search).get("cid");
+    if (c) { try { localStorage.setItem("caracol_cid", c); } catch(_){} }
+  })();
+</script>
 </head>
 <body>
 

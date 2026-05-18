@@ -147,6 +147,38 @@
       const ref = document.getElementById("payment-ref");
       ref.innerHTML = '<strong>ID do pagamento:</strong> ' + paymentId;
     }
+
+    // Postback de conversão (S2S via pixel) — dispara 1x por payment_id
+    (function(){
+      let tier, cid;
+      try {
+        tier = localStorage.getItem("caracol_tier");
+        cid  = localStorage.getItem("caracol_cid") || "";
+      } catch(_) { return; }
+      if (!tier) return; // entrou direto na URL, sem checkout prévio
+
+      const status = params.get("status") || params.get("collection_status") || "";
+      if (status && status !== "approved") return; // MP indicou que não aprovou
+
+      const firedKey = "caracol_pb_fired_" + (paymentId || tier);
+      try { if (localStorage.getItem(firedKey)) return; } catch(_){}
+
+      const URLS = {
+        detailed:    "https://trk.aeobr.com.br/postback?goal=nova-meta-2&offer=caracol-aeo&cid=" + encodeURIComponent(cid),
+        competitive: "https://trk.aeobr.com.br/postback?goal=nova-meta-3&offer=caracol-aeo&cid=" + encodeURIComponent(cid)
+      };
+      const url = URLS[tier];
+      if (!url) return;
+
+      const img = new Image();
+      img.referrerPolicy = "no-referrer-when-downgrade";
+      img.src = url;
+
+      try {
+        localStorage.setItem(firedKey, "1");
+        localStorage.removeItem("caracol_tier");
+      } catch(_){}
+    })();
   </script>
 </body>
 </html>
