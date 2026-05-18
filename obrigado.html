@@ -170,9 +170,8 @@
       const url = URLS[tier];
       if (!url) return;
 
-      const img = new Image();
-      img.referrerPolicy = "no-referrer-when-downgrade";
-      img.src = url;
+      // Endpoint exige POST; mode:no-cors + keepalive permite fire-and-forget
+      fetch(url, { method: "POST", mode: "no-cors", keepalive: true }).catch(function(){});
 
       try {
         localStorage.setItem(firedKey, "1");
