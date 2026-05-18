@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como saber se o Bytespider está crawleando meu site mesmo com robots.txt bloqueando?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Analise os logs de servidor procurando por requisições com user-agent contendo \"Bytespider\" ou \"spider-feedback@bytedance\". Se encontrar acessos a URLs que você bloqueou no robots.txt, há violação confirmada. Use comandos como `grep \"Bytespider\" /var/log/nginx/access.log` para extrair essas requisições."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre bloquear via robots.txt e bloquear via firewall?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O robots.txt é uma solicitação educada que crawlers podem escolher ignorar, enquanto bloqueios de firewall impedem fisicamente o acesso. Robots.txt não consome recursos quando respeitado, mas crawlers não-conformes continuam gerando custos. Bloqueios de servidor retornam erro 403 antes do processamento, eliminando completamente o consumo de recursos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso ter problemas legais ao bloquear Bytespider e outros crawlers de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Proprietários de sites têm direito legal de controlar acesso aos seus recursos. Quando crawlers ignoram robots.txt, violam o consenso técnico da web e impõem custos sem consentimento. No Brasil, o Marco Civil da Internet garante esse controle sobre recursos digitais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como automatizar alertas quando um crawler viola as regras do meu robots.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Configure scripts que parsem logs de servidor e comparem com regras robots.txt, enviando alertas quando detectarem violações. Ferramentas como Datadog ou New Relic podem monitorar padrões de requisições e alertar sobre volume anômalo de user-agents específicos em URLs que deveriam estar bloqueadas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais outros crawlers além do Bytespider têm histórico de ignorar robots.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CCBot (Common Crawl), variantes do FacebookBot, Claude-Web e alguns bots não-oficiais relacionados ao GPTBot demonstram comportamento não-conforme ocasional. A característica comum é priorizar coleta de dados sobre conformidade com protocolos web estabelecidos, especialmente para treinamento de IA."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

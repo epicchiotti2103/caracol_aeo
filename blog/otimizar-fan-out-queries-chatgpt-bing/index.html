@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Fan-out queries funcionam apenas no ChatGPT ou em outras IAs também?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O comportamento de fan-out queries é mais documentado no ChatGPT devido à integração com Bing, mas outras IAs como Perplexity e Bing Chat também executam estratégias similares de busca paralela quando conectadas a mecanismos de busca."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber quantas sub-pesquisas o ChatGPT fez para responder minha pergunta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O ChatGPT não revela explicitamente quantas sub-pesquisas executou, mas você pode inferir pela diversidade de fontes citadas e pela complexidade da resposta. Respostas com 4+ fontes diferentes geralmente indicam múltiplas sub-pesquisas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Conteúdo otimizado para fan-out queries melhora ranking no Bing tradicional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não necessariamente. Fan-out queries priorizam relevância contextual específica sobre autoridade geral do domínio. Um artigo pode ser citado em fan-out queries sem rankear bem no Bing tradicional para a mesma consulta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre otimizar para fan-out queries e otimizar para featured snippets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Featured snippets otimizam para uma pergunta específica com resposta direta. Fan-out queries otimizam para múltiplas sub-perguntas relacionadas, priorizando densidade informacional e modularidade sobre concisão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É possível bloquear fan-out queries mas permitir busca direta do ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não há controle granular específico para fan-out queries. As configurações de robots.txt e user-agent que afetam crawlers de IA se aplicam a todas as formas de acesso, incluindo fan-out queries e buscas diretas."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

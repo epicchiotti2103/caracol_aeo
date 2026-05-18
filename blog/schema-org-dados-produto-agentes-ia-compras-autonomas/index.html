@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre Schema.org Product para SEO tradicional e para agentes de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO tradicional foca em propriedades que melhoram rich results para humanos, como imagens atrativas e descriptions persuasivas. Para agentes de IA, priorize propriedades técnicas objetivas como gtin, especificações detalhadas e dados comerciais precisos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Agentes de IA conseguem interpretar dados de produto sem Schema.org?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agentes podem extrair informações básicas de texto não estruturado, mas com precisão limitada. Schema.org fornece dados estruturados que agentes processam com 100% de confiabilidade, essencial para decisões de compra autônomas que envolvem valores financeiros."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como implementar AggregateRating sem violar políticas de review manipulation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use apenas ratings de plataformas verificadas e inclua reviewCount realista. Implemente reviewAspect para especificar aspectos avaliados e mantenha reviews individuais com author verificado. Agentes de IA detectam padrões artificiais de rating."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais propriedades de Schema.org Offer são obrigatórias para agentic commerce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Além de price e priceCurrency, agentes requerem availability, validFrom/validThrough, seller detalhado e shippingDetails. Para B2B, adicione eligibleQuantity, deliveryLeadTime e warranty. Dados incompletos fazem agentes rejeitarem a oferta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como testar se meus dados estruturados estão sendo corretamente interpretados por agentes de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Além de validadores Schema.org, teste com APIs de agentes de IA disponíveis publicly ou simule queries que agentes fariam. Monitore logs de acesso para identificar bots de agentes e verifique se conseguem extrair informações necessárias para decisão de compra."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

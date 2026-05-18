@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Posso bloquear GPTBot mas permitir ChatGPT Search?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, são crawlers diferentes. GPTBot coleta dados para treinamento enquanto SearchGPT-Bot busca informações para responder consultas específicas. Bloquear GPTBot e liberar SearchGPT-Bot é uma estratégia válida para evitar treinamento gratuito mas manter visibilidade em buscas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber se um bot de IA respeita robots.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monitore os logs do servidor após implementar as regras. Bots que respeitam robots.txt param de acessar URLs bloqueadas dentro de 24-48 horas. Se continuarem crawling, considere bloqueio no nível do servidor ou através de User-Agent no .htaccess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Devo bloquear Common Crawl (CCBot) se quero estar em answer engines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CCBot alimenta datasets públicos usados por múltiplos modelos, não answer engines específicos. Bloqueá-lo não prejudica visibilidade em Perplexity ou ChatGPT Search. Na verdade, é recomendado bloquear CCBot se você quer controlar quais modelos usam seu conteúdo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É possível bloquear crawlers de IA apenas em páginas antigas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, usando regras baseadas em estrutura de URL. Se suas URLs incluem data (/2023/01/artigo), você pode criar regras específicas. Alternativamente, mova conteúdo antigo para subdiretórios específicos (/arquivo/) e aplique regras seletivas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como testar se meu robots.txt em camadas está funcionando corretamente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use o testador de robots.txt do Google Search Console para verificar a sintaxe. Para testar crawlers específicos, monitore logs do servidor e configure alertas para detectar violações. Ferramentas como Screaming Frog também podem simular diferentes user-agents para validar regras."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

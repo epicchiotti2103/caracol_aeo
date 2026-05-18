@@ -176,59 +176,7 @@
     "mainEntity": [
     {
       "@type": "Question",
-      "name": "Exemplo de cálculo para site com 100k páginas/mês
-
-Para um site B2B que publica 100 mil páginas indexáveis por mês, a receita estimada varia conforme a tabela abaixo:
-
-| Cenário | Crawls/mês | Preço por crawl | Receita mensal | Receita anual |
-|---------|------------|-----------------|----------------|---------------|
-| Conservador | 50.000 | US$ 0,002 | US$ 100 | US$ 1.200 |
-| Moderado | 150.000 | US$ 0,005 | US$ 750 | US$ 9.000 |
-| Otimista | 300.000 | US$ 0,01 | US$ 3.000 | US$ 36.000 |
-
-Estes números assumem que 30-40% do seu conteúdo é crawleado mensalmente pelos bots de IA. Sites com conteúdo evergreen podem ter volumes menores, enquanto sites de notícias ou dados em tempo real podem superar essas estimativas significativamente.
-
-## Bloquear, monetizar ou liberar: matriz de decisão por tipo de negócio
-
-A decisão de monetizar crawls deve ser baseada no seu modelo de receita principal e nos objetivos de marketing de conteúdo. Cada estratégia tem trade-offs específicos que variam por setor e tipo de negócio.
-
-### Publishers com modelo de assinatura
-
-Publishers que dependem de assinaturas devem avaliar cuidadosamente o Pay-per-Crawl. A receita direta de crawls é geralmente menor que o valor de um novo assinante adquirido através de citações em answer engines. 
-
-A estratégia mais comum é liberar parcialmente o conteúdo: permitir crawl gratuito de trechos ou resumos, mas bloquear artigos completos para assinantes. Isso mantém visibilidade em IAs enquanto protege o conteúdo premium. Sites como Wall Street Journal e Financial Times adotam variações dessa abordagem.
-
-### Sites B2B com foco em lead generation
-
-Para empresas B2B, a visibilidade em answer engines geralmente vale mais que a receita direta de crawls. Ser citado como fonte em respostas do ChatGPT ou Perplexity gera tráfego qualificado e autoridade de marca que podem converter em leads de alto valor.
-
-Recomendo liberar o crawl gratuitamente para estes casos, mas implementar tracking robusto para medir o impacto em geração de leads. Se você pode atribuir US$ 100+ em pipeline por menção em IA, monetizar crawls por centavos não faz sentido estratégico.
-
-### Conteúdo educacional e blogs corporativos
-
-Blogs corporativos e sites educacionais devem priorizar alcance sobre monetização direta. O objetivo é estabelecer autoridade e atrair audiência, não gerar receita imediata do conteúdo.
-
-Para estes casos, configure [acesso de bots no robots.txt](https://aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/) liberando completamente os crawlers principais. A receita vem indiretamente através de conversões de tráfego orgânico e reconhecimento de marca em citações.
-
-## Alternativas ao Pay-per-Crawl: licenciamento direto e parcerias
-
-O modelo da Cloudflare não é a única opção para monetizar seu conteúdo com empresas de IA. **Licenciamento direto** oferece potencial de receita maior, mas exige negociação individual com cada empresa.
-
-A Perplexity AI firmou acordos de licenciamento com publishers como Time e Fortune em 2024, reportando valores significativamente maiores que modelos pay-per-crawl (reportagens tech press, 2024). Esses acordos incluem citação preferencial e acesso a APIs de conteúdo.
-
-Parcerias estratégicas são outra alternativa interessante. Algumas empresas oferecem participação em receita de anúncios quando seu conteúdo é usado em respostas, ou acesso prioritário a novos produtos de IA em troca de dados de treinamento. Na minha análise, essas parcerias funcionam melhor para publishers com grande volume de conteúdo único e atualizado regularmente.
-
-## Impacto de bloquear bots na visibilidade em answer engines
-
-Bloquear completamente os bots de IA tem consequências severas na sua visibilidade digital. Sistemas como ChatGPT, Perplexity e Claude dependem do crawling para manter suas bases de conhecimento atualizadas. Sem acesso ao seu conteúdo, eles não podem citá-lo em respostas.
-
-O impacto varia por tipo de consulta. Para perguntas factuais e informações atualizadas, sites bloqueados praticamente desaparecem dos resultados. Para consultas mais gerais, o conteúdo pode ainda ser referenciado se foi crawleado antes do bloqueio, mas perde relevância com o tempo.
-
-O que tenho observado na prática é uma redução dramática no tráfego referral de answer engines quando sites implementam bloqueios completos. Isso afeta especialmente a descoberta de conteúdo por audiências novas, que cada vez mais usam IA para pesquisa inicial antes de visitar sites diretamente.
-
-## Perguntas frequentes
-
-### Como configurar Pay-per-Crawl da Cloudflare no meu site?",
+      "name": "Como configurar Pay-per-Crawl da Cloudflare no meu site?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Acesse o dashboard da Cloudflare, navegue até a seção \"Bots\", e ative o \"AI Bot Monetization\". Defina preços por crawler, estabeleça limites mensais e configure métodos de pagamento. A ativação leva até 24 horas para entrar em vigor."

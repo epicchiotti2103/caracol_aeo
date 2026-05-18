@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre ClaudeBot e Claude-SearchBot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ClaudeBot coleta dados para treinamento de modelos IA, operando de forma sistemática. Claude-SearchBot faz buscas pontuais em tempo real quando usuários fazem perguntas específicas ao Claude."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bloquear OAI-SearchBot impede que meu site apareça no ChatGPT Search?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, bloquear OAI-SearchBot impede que seu conteúdo seja acessado e citado nas respostas do ChatGPT Search, reduzindo sua visibilidade nessa funcionalidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como permitir crawlers de busca mas bloquear crawlers de treinamento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Configure robots.txt bloqueando especificamente GPTBot e ClaudeBot (treinamento) enquanto permite OAI-SearchBot e Claude-SearchBot (busca). Use regras granulares por user-agent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Claude-SearchBot respeita configurações de robots.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, tanto Claude-SearchBot quanto OAI-SearchBot respeitam as configurações do robots.txt. Se você bloquear esses crawlers, eles não acessarão seu conteúdo para busca conversacional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vale a pena bloquear crawlers de busca conversacional em 2025?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para a maioria dos sites, não vale a pena. Busca conversacional está crescendo rapidamente e bloquear esses crawlers significa perder oportunidades de citação e tráfego qualificado de usuários desses assistentes."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

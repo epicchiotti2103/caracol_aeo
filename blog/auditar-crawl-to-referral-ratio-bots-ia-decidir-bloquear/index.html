@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual é um crawl-to-referral ratio aceitável para GPTBot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ratios entre 200:1 e 500:1 são considerados aceitáveis para GPTBot, considerando que ele gera citações menos frequentemente que Perplexity mas com potencial de maior volume quando cita."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como diferenciar crawls de treinamento de crawls de busca nos logs do servidor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crawls de treinamento tendem a ser mais volumosos e sistemáticos, visitando muitas páginas em sequência. Crawls de busca são mais específicos e correlacionam com queries em tempo real nas plataformas de IA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vale a pena bloquear PerplexityBot se ele gera poucas citações mas muito crawl?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PerplexityBot geralmente tem melhor ratio que outros bots. Se o ratio estiver acima de 500:1 consistentemente por mais de 60 dias, considere bloqueio parcial em seções menos críticas primeiro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como calcular o custo real em infraestrutura dos crawls de bots de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiplique número de crawls mensais pelo custo por request do seu provedor (AWS, Google Cloud, etc.). Adicione custos de bandwidth e processamento. Compare com valor gerado por referrals para calcular ROI real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso bloquear apenas parte do site para bots específicos mantendo outras seções abertas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, use robots.txt granular com diretivas Allow e Disallow específicas. Bloqueie seções de baixo valor (admin, temp, checkout) mas mantenha conteúdo editorial e páginas principais acessíveis para maximizar potencial de citação."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

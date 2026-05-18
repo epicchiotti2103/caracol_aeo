@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre Applebot e Applebot-Extended?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O Applebot tradicional coleta dados para indexação em resultados de busca, enquanto o Applebot-Extended é usado exclusivamente para treinamento de modelos de IA. Eles operam independentemente e podem ser controlados separadamente via robots.txt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bloquear Applebot-Extended afeta o ranking no Safari ou Apple Search?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Bloquear o Applebot-Extended não impacta o ranking nos resultados de busca da Apple, pois este crawler não é usado para indexação. O Applebot tradicional permanece responsável pelos dados de busca."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como verificar nos logs do servidor se o Applebot-Extended está crawleando meu site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Procure por entries contendo \"AppleBot-Extended\" nos logs de acesso do servidor web. Use comandos grep no terminal ou configure filtros em ferramentas de análise de logs para monitoramento contínuo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso bloquear Applebot-Extended se já bloqueio GPTBot e ClaudeBot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende da sua estratégia. Se você bloqueia outros crawlers de IA por política consistente, é recomendado incluir o Applebot-Extended. Se a decisão é específica por crawler, avalie individualmente o impacto da Apple Intelligence em seus objetivos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O Applebot-Extended respeita meta tags robots noindex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, o Applebot-Extended processa corretamente meta tags robots incluindo noindex, nofollow e noarchive. No entanto, robots.txt oferece controle mais granular e é a método recomendado para gerenciar acesso de crawlers de IA."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

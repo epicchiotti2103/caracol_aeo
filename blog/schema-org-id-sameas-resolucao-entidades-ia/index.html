@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre @id e @type no Schema.org?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O @type define que tipo de coisa é uma entidade (Person, Organization, Product), enquanto @id cria um identificador único para aquela instância específica. @type é categoria, @id é identidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso usar sameAs para linkar perfis de redes sociais?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, mas apenas perfis que pertencem exatamente à mesma entidade. Perfis verificados têm maior valor para IAs. Evite perfis duplicados ou não oficiais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como criar URIs únicas para @id em sites multi-idioma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a estrutura do seu site: `https://site.com/pt/pessoa/nome` ou `https://site.com/pessoa/nome?lang=pt`. Mantenha consistência entre versões de idioma da mesma entidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O @id precisa ser uma URL acessível ou pode ser apenas um identificador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pode ser apenas um identificador, mas URLs do seu domínio são preferíveis. Não precisa retornar conteúdo, mas deve ser uma URI válida e consistente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quantos links sameAs devo incluir para cada entidade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entre 2-5 links para as fontes mais autoritativas. Muitos links diluem a confiança, poucos links limitam a validação cruzada. Qualidade supera quantidade."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre agentes de IA autônomos e assistentes conversacionais?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agentes autônomos executam sequências de ações para completar tarefas específicas, realizando múltiplas buscas e acessando APIs. Assistentes conversacionais respondem perguntas isoladas baseadas em treinamento anterior."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como documentar APIs para que agentes de IA consigam descobrir e usar conteúdo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use especificações OpenAPI 3.0+ com metadados ricos sobre contexto de uso, permissões, e relacionamentos entre dados. Implemente o protocolo MCP quando disponível para descoberta automática."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Agentes autônomos substituem ou complementam a otimização para ChatGPT e Perplexity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Complementam, mas exigem estratégia paralela. Agentes priorizam dados estruturados e acessibilidade via API, enquanto chatbots focam em conteúdo textual otimizado para citação direta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais protocolos técnicos são essenciais para comunicação com agentes de IA em 2025?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OpenAPI para documentação de endpoints, MCP para descoberta de fontes, Schema.org para metadados semânticos, e JSON-LD para estruturação de dados relacionados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como medir se agentes autônomos estão acessando e citando meu conteúdo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monitore logs de API para identificar user-agents de agentes, implemente tracking de referrers estruturados, e use ferramentas de monitoramento de citações em contextos de IA generativa."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

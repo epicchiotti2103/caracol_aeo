@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O ChatGPT acessa meu site em tempo real?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O ChatGPT opera com conhecimento pré-treinado e não acessa sites durante conversas normais. Apenas crawlers como GPTBot coletam dados para treinar futuras versões."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bloquear GPTBot impede que o ChatGPT use meu conteúdo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bloquear GPTBot impede apenas coleta futura para treinamento. Conteúdo já processado em versões anteriores permanece no conhecimento do modelo atual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Perplexity usa o mesmo crawler que o ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Perplexity opera o PerplexityBot para busca em tempo real, enquanto ChatGPT não usa crawler próprio para operação normal - apenas o GPTBot para coleta de dados de treinamento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como identificar se meu site está sendo crawleado por IAs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monitore logs de servidor procurando user-agents como \"GPTBot\", \"ClaudeBot\", \"PerplexityBot\" e \"Google-Extended\". Ferramentas de analytics também podem mostrar esses acessos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vale a pena bloquear crawlers de treinamento de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende da estratégia. Sites que se beneficiam de citações em IAs devem permitir acesso. Empresas com conteúdo proprietário podem preferir bloqueio seletivo para proteger vantagem competitiva."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

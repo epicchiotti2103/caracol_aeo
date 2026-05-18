@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como saber se meu schema markup atual está sendo lido corretamente por crawlers de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Verifique se o schema aparece no HTML source inicial (sem JavaScript) usando curl ou view-source. Use Rich Results Test do Google e monitore logs de servidor para patterns de crawling por bots de IA específicos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais propriedades de schema são mais importantes para citações em ChatGPT e Perplexity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Priorize @id, sameAs, author com Person schema completo, dateModified atualizado, e FAQPage schema para perguntas long-tail. Estas propriedades facilitam resolução de entidades e extração precisa de informação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Schema markup em JavaScript client-side ainda funciona após março de 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não para a maioria dos crawlers de IA. Migre para renderização server-side usando SSR, SSG, ou injeção durante build process. Crawlers de IA geralmente não executam JavaScript."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como testar se o @id e sameAs estão ajudando na resolução de entidades por IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Configure testes A/B comparando páginas com e sem @id/sameAs implementados. Monitore citation rates em answer engines e use structured data testing tools para validar linking entre entidades."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso revalidar todo meu schema markup ou só tipos específicos após a atualização?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Foque Article, FAQPage, Organization e Person schemas primeiro. Estes têm maior impacto em citações por IA. Valide implementações client-side para migração server-side prioritariamente."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 

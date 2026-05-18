@@ -169,7 +169,54 @@
     }
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como saber se meu site React está visível para GPTBot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desabilite JavaScript no navegador e acesse sua página. Se o conteúdo principal desaparecer ou áreas ficarem vazias, isso indica que GPTBot não consegue ver esse conteúdo. Alternativamente, use cURL com user-agent GPTBot/1.0 para ver exatamente o HTML que o crawler recebe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Next.js com SSR resolve o problema de crawlers de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, Next.js com SSR (usando getServerSideProps ou App Router server components) renderiza conteúdo no servidor antes de enviar para o cliente. Isso garante que crawlers de IA recebam HTML completo com todo o conteúdo visível, resolvendo a limitação de JavaScript."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Crawlers de IA conseguem ler conteúdo carregado via fetch API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Qualquer conteúdo carregado via fetch, axios ou outras chamadas AJAX client-side permanece invisível para crawlers como GPTBot e ClaudeBot. Esse conteúdo precisa estar presente no HTML inicial retornado pelo servidor para ser acessível."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre SSR e SSG para otimização AEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SSR renderiza páginas sob demanda no servidor, ideal para conteúdo que muda frequentemente. SSG pré-renderiza páginas estáticas no build, oferecendo melhor performance e visibilidade garantida para crawlers. Para AEO, ambos funcionam bem, mas SSG é preferível para conteúdo relativamente estático."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Progressive Enhancement funciona para sites que já usam frameworks JavaScript?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, mas requer refatoração. Comece identificando conteúdo crítico que deve funcionar sem JavaScript, renderize-o no servidor, depois adicione camadas de JavaScript para melhorar a experiência. Esta abordagem garante compatibilidade com crawlers de IA mantendo funcionalidades avançadas."
+      }
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
 
