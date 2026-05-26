@@ -7,11 +7,11 @@
   <meta name="description" content="Guia completo para detectar e bloquear Bytespider e outros crawlers de IA que ignoram robots.txt, com técnicas de monitoramento e bloqueio em servidor.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
-  <link rel="canonical" href="https://aeobr.com.br/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Bytespider e bots de IA não-conformes: como detectar crawlers que ignoram robots.txt e o que fazer">
   <meta property="og:description" content="Guia completo para detectar e bloquear Bytespider e outros crawlers de IA que ignoram robots.txt, com técnicas de monitoramento e bloqueio em servidor.">
-  <meta property="og:url" content="https://aeobr.com.br/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/">
   <meta property="og:site_name" content="Caracol AEO">
   <meta property="og:locale" content="pt_BR">
   <meta property="article:author" content="Elio Picchiotti">
@@ -150,22 +150,22 @@
     "author": {
       "@type": "Person",
       "name": "Elio Picchiotti",
-      "url": "https://aeobr.com.br/pages/sobre.html"
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Caracol AEO",
-      "url": "https://aeobr.com.br",
+      "url": "https://www.aeobr.com.br",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://aeobr.com.br/logo-negativo.png"
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
       }
     },
     "datePublished": "2026-05-12",
     "dateModified": "2026-05-12",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://aeobr.com.br/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/"
+      "@id": "https://www.aeobr.com.br/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/"
     }
   }
   </script>
@@ -417,13 +417,13 @@ server {
 <p>O bloqueio de crawlers levanta questões legais e éticas importantes. Legalmente, proprietários de sites têm direito de controlar acesso aos seus recursos, similar ao controle de acesso físico à propriedade privada.</p>
 <p>O protocolo robots.txt estabelece expectativa técnica e ética de que crawlers devem obedecê-lo. Quando crawlers ignoram essas diretivas, violam o consenso técnico da comunidade web e impõem custos sem consentimento.</p>
 <p>No Brasil, o Marco Civil da Internet garante controle sobre dados e recursos digitais. Bloquear crawlers que violam robots.txt é exercício legítimo desse controle, especialmente quando há impacto financeiro mensurável.</p>
-<p>Eticamente, considere implementar <a href="https://aeobr.com.br/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/">auditar o comportamento de bots no seu site</a> antes de bloqueios permanentes. Alguns crawlers podem trazer valor futuro através de indexação em mecanismos de busca ou referral traffic.</p>
+<p>Eticamente, considere implementar <a href="https://www.aeobr.com.br/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/">auditar o comportamento de bots no seu site</a> antes de bloqueios permanentes. Alguns crawlers podem trazer valor futuro através de indexação em mecanismos de busca ou referral traffic.</p>
 <p>Documente as violações e tentativas de comunicação com operadores de bots antes de implementar bloqueios. Isso fornece justificativa técnica e legal para as medidas tomadas.</p>
 <h2 id="monitoramento-continuo-como-validar-que-o-bloqueio-esta-funcionando">Monitoramento contínuo: como validar que o bloqueio está funcionando</h2>
 <p>Após implementar bloqueios, monitoramento contínuo é essencial para validar efetividade. Crawlers frequentemente mudam user-agents ou táticas para contornar bloqueios, exigindo ajustes nas regras.</p>
 <p>Configure alertas para detectar novos user-agents com padrões suspeitos. Volume de requisições anormalmente alto de user-agents desconhecidos pode indicar crawlers usando identificações falsas.</p>
 <p>Monitore métricas de infraestrutura como uso de CPU, banda e tempo de resposta. Bloqueios efetivos de crawlers agressivos devem resultar em melhorias mensuráveis nessas métricas.</p>
-<p>Para validação completa, implemente <a href="https://aeobr.com.br/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/">implementação em camadas do robots.txt</a> combinada com bloqueios de servidor. Essa abordagem híbrida oferece controle máximo sobre quais crawlers podem acessar diferentes partes do site.</p>
+<p>Para validação completa, implemente <a href="https://www.aeobr.com.br/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/">implementação em camadas do robots.txt</a> combinada com bloqueios de servidor. Essa abordagem híbrida oferece controle máximo sobre quais crawlers podem acessar diferentes partes do site.</p>
 <p>Revise logs semanalmente procurando por novas tentativas de acesso de bots bloqueados. Persistência em tentar acessar após bloqueio confirma comportamento não-conforme e justifica medidas mais restritivas.</p>
 <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
 <h3 id="como-saber-se-o-bytespider-esta-crawleando-meu-site-mesmo-com-robotstxt-bloqueando">Como saber se o Bytespider está crawleando meu site mesmo com robots.txt bloqueando?</h3>

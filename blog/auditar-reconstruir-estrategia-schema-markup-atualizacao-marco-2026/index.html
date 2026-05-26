@@ -7,11 +7,11 @@
   <meta name="description" content="Guia prático para auditar implementações existentes de schema markup e reconstruir estratégias de dados estruturados alinhadas aos novos padrões de interpretação por IA.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
-  <link rel="canonical" href="https://aeobr.com.br/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Como auditar e reconstruir sua estratégia de schema markup após a atualização de março de 2026">
   <meta property="og:description" content="Guia prático para auditar implementações existentes de schema markup e reconstruir estratégias de dados estruturados alinhadas aos novos padrões de interpretação por IA.">
-  <meta property="og:url" content="https://aeobr.com.br/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/">
   <meta property="og:site_name" content="Caracol AEO">
   <meta property="og:locale" content="pt_BR">
   <meta property="article:author" content="Elio Picchiotti">
@@ -150,22 +150,22 @@
     "author": {
       "@type": "Person",
       "name": "Elio Picchiotti",
-      "url": "https://aeobr.com.br/pages/sobre.html"
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Caracol AEO",
-      "url": "https://aeobr.com.br",
+      "url": "https://www.aeobr.com.br",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://aeobr.com.br/logo-negativo.png"
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
       }
     },
     "datePublished": "2026-05-02",
     "dateModified": "2026-05-02",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://aeobr.com.br/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/"
+      "@id": "https://www.aeobr.com.br/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/"
     }
   }
   </script>
@@ -258,13 +258,13 @@
 <h2 id="como-auditar-schema-markup-existente-em-4-etapas-tecnicas">Como auditar schema markup existente em 4 etapas técnicas</h2>
 <p>O processo de auditoria segue metodologia específica para identificar incompatibilidades com padrões pós-2026. Cada etapa revela aspectos diferentes da implementação atual e problemas que impedem processamento adequado por crawlers de IA.</p>
 <h3 id="validar-renderizacao-server-side-vs-client-side">Validar renderização server-side vs client-side</h3>
-<p>Execute verificação técnica comparando o HTML inicial (<code>curl -s URL</code>) com a versão renderizada no navegador. Dados estruturados que aparecem apenas após execução JavaScript estão inacessíveis para <a href="./crawlers-ia-nao-renderizam-javascript-client-side/">crawlers de IA não renderizam JavaScript</a>.</p>
+<p>Execute verificação técnica comparando o HTML inicial (<code>curl -s URL</code>) com a versão renderizada no navegador. Dados estruturados que aparecem apenas após execução JavaScript estão inacessíveis para <a href="/blog/crawlers-ia-nao-renderizam-javascript-client-side/">crawlers de IA não renderizam JavaScript</a>.</p>
 <p>Use o comando <code>curl -H "User-Agent: ChatGPT-User/1.0" URL | grep -o '"@type"[^}]*'</code> para extrair schema markup visível para crawlers. Compare com a saída do Google Structured Data Testing Tool para identificar discrepâncias entre renderização server-side e client-side.</p>
 <p>Documente todos os elementos de schema que dependem de JavaScript para carregamento. Estes precisam migração prioritária para renderização no servidor, seja através de SSR, SSG, ou injeção dinâmica server-side durante o build.</p>
 <h3 id="verificar-propriedades-criticas-para-resolucao-de-entidades">Verificar propriedades críticas para resolução de entidades</h3>
 <p>Implemente checklist técnico para propriedades que afetam resolução de entidades por IA: <code>@id</code> único e consistente, <code>sameAs</code> linkando para fontes autoritativas, <code>mainEntityOfPage</code> conectando artigos aos temas principais.</p>
 <p>Utilize validator customizado para verificar se <code>@id</code> values são URLs absolutas válidas e únicamente identificam entidades específicas no seu domínio. Propriedades <code>sameAs</code> devem apontar para perfis sociais oficiais, Wikipedia, ou outras fontes que confirmem identidade da entidade.</p>
-<p>Teste consistência de propriedades author e publisher across different content types. Implementações de Schema.org com <a href="./schema-org-id-sameas-resolucao-entidades-ia/">propriedades @id e sameAs para resolução de entidades</a> apresentam melhor taxa de resolução de entidades em testes com ChatGPT e Perplexity (observações de campo 2025-2026).</p>
+<p>Teste consistência de propriedades author e publisher across different content types. Implementações de Schema.org com <a href="/blog/schema-org-id-sameas-resolucao-entidades-ia/">propriedades @id e sameAs para resolução de entidades</a> apresentam melhor taxa de resolução de entidades em testes com ChatGPT e Perplexity (observações de campo 2025-2026).</p>
 <h3 id="testar-compatibilidade-com-crawlers-de-ia-especificos">Testar compatibilidade com crawlers de IA específicos</h3>
 <p>Configure testes específicos simulando diferentes user agents de crawlers: <code>ChatGPT-User</code>, <code>PerplexityBot</code>, <code>ClaudeBot</code>. Cada crawler tem interpretações ligeiramente diferentes de propriedades schema, exigindo validação individual.</p>
 <p>Monitore logs de servidor para identificar patterns de crawling por diferentes bots de IA. Analise quais páginas são crawleadas com mais frequência e se correlaciona com qualidade/completude do schema markup implementado.</p>
@@ -316,7 +316,7 @@
 <h2 id="como-reconstruir-markup-para-maximizar-citacoes-por-ia">Como reconstruir markup para maximizar citações por IA</h2>
 <p>A reconstrução estratégica foca implementação técnica que facilita extração precisa de informação por algoritmos de processamento de linguagem natural. Cada elemento deve contribuir para compreensão semântica completa do conteúdo.</p>
 <h3 id="implementar-id-e-sameas-corretamente">Implementar @id e sameAs corretamente</h3>
-<p>Configure <code>@id</code> como URL canônica absoluta que identifica unicamente cada entidade. Para artigos, use <code>"@id": "https://aeobr.com.br/artigo-slug/"</code>. Para authors, use <code>"@id": "https://aeobr.com.br/author/nome-autor/"</code>.</p>
+<p>Configure <code>@id</code> como URL canônica absoluta que identifica unicamente cada entidade. Para artigos, use <code>"@id": "https://www.aeobr.com.br/artigo-slug/"</code>. Para authors, use <code>"@id": "https://www.aeobr.com.br/author/nome-autor/"</code>.</p>
 <p>Implemente <code>sameAs</code> arrays linkando para todas as propriedades online relevantes da entidade. Para Organization schema, inclua perfis sociais oficiais, Wikipedia, Crunchbase. Para Person schema, inclua LinkedIn, Twitter, site pessoal.</p>
 <p>Mantenha consistência cross-page garantindo que o mesmo <code>@id</code> value é usado para identificar a mesma entidade em diferentes páginas. Isto facilita graph building pelos crawlers e melhora understanding de relacionamentos entre conteúdos.</p>
 <h3 id="estruturar-article-e-faqpage-para-extracao-por-llms">Estruturar Article e FAQPage para extração por LLMs</h3>

@@ -7,11 +7,11 @@
   <meta name="description" content="LLMs priorizam conteúdo atualizado para citações. Aprenda como implementar timestamps, Schema dateModified e HTTP headers para aumentar citações por IA.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
-  <link rel="canonical" href="https://aeobr.com.br/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Freshness signals em AEO: como timestamps e sinais de atualização aumentam citações por IA">
   <meta property="og:description" content="LLMs priorizam conteúdo atualizado para citações. Aprenda como implementar timestamps, Schema dateModified e HTTP headers para aumentar citações por IA.">
-  <meta property="og:url" content="https://aeobr.com.br/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/">
   <meta property="og:site_name" content="Caracol AEO">
   <meta property="og:locale" content="pt_BR">
   <meta property="article:author" content="Elio Picchiotti">
@@ -150,22 +150,22 @@
     "author": {
       "@type": "Person",
       "name": "Elio Picchiotti",
-      "url": "https://aeobr.com.br/pages/sobre.html"
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Caracol AEO",
-      "url": "https://aeobr.com.br",
+      "url": "https://www.aeobr.com.br",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://aeobr.com.br/logo-negativo.png"
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
       }
     },
     "datePublished": "2026-04-06",
     "dateModified": "2026-04-06",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://aeobr.com.br/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/"
+      "@id": "https://www.aeobr.com.br/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/"
     }
   }
   </script>
@@ -283,7 +283,7 @@ A data deve aparecer em local proeminente, preferencialmente no primeiro fold da
 </code></pre>
 <p>Posicione o timestamp próximo ao título (h1) ou byline do autor. IAs escaneiam os primeiros 500 pixels da página com mais atenção, então timestamps "enterrados" no rodapé têm impacto menor. Use formato de data consistente em todo o site - isso ajuda IAs a identificar padrões de atualização.</p>
 <h3 id="schemaorg-article-com-datemodified-correto">Schema.org Article com dateModified correto</h3>
-<p>A implementação correta do Schema Article é crucial para <a href="https://aeobr.com.br/blog/schema-org-id-sameas-resolucao-entidades-ia/">marcação estruturada para IA</a>. Além de datePublished e dateModified, inclua também <code>author</code> e <code>publisher</code> para aumentar autoridade do timestamp:</p>
+<p>A implementação correta do Schema Article é crucial para <a href="https://www.aeobr.com.br/blog/schema-org-id-sameas-resolucao-entidades-ia/">marcação estruturada para IA</a>. Além de datePublished e dateModified, inclua também <code>author</code> e <code>publisher</code> para aumentar autoridade do timestamp:</p>
 <pre><code class="language-json">{
   &quot;@context&quot;: &quot;https://schema.org&quot;,
   &quot;@type&quot;: &quot;Article&quot;,
@@ -388,7 +388,7 @@ A data deve aparecer em local proeminente, preferencialmente no primeiro fold da
 <h2 id="casos-de-uso-queries-que-exigem-freshness-vs-evergreen">Casos de uso: queries que exigem freshness vs evergreen</h2>
 <p>Queries que exigem freshness incluem tendências ("marketing digital 2024"), notícias ("últimas atualizações do ChatGPT"), dados estatísticos ("crescimento do e-commerce no Brasil") e mudanças regulatórias ("nova LGPD"). Para esses tópicos, freshness signals são decisivos para citações.</p>
 <p>Conteúdo evergreen como "o que é SEO" ou "como criar meta descriptions" não depende tanto de freshness, mas ainda se beneficia de timestamps para <a href="/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/">estabelecer autoridade</a>. IAs usam freshness como tiebreaker quando múltiplas fontes têm qualidade similar.</p>
-<p>A estratégia híbrida funciona melhor: mantenha seções evergreen com fundamentos do tópico e adicione seções que são atualizadas regularmente com novidades. Isso maximiza tanto citações em queries fundamentais quanto em buscas por informações recentes, aproveitando a <a href="https://aeobr.com.br/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/">otimização de citações via llms.txt</a>.</p>
+<p>A estratégia híbrida funciona melhor: mantenha seções evergreen com fundamentos do tópico e adicione seções que são atualizadas regularmente com novidades. Isso maximiza tanto citações em queries fundamentais quanto em buscas por informações recentes, aproveitando a <a href="https://www.aeobr.com.br/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/">otimização de citações via llms.txt</a>.</p>
 <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
 <h3 id="com-que-frequencia-devo-atualizar-conteudo-para-manter-freshness-em-aeo">Com que frequência devo atualizar conteúdo para manter freshness em AEO?</h3>
 <p>A frequência ideal depende da volatilidade do tópico. Conteúdo sobre IA e tecnologia precisa de revisão mensal, marketing digital trimestral, e fundamentos técnicos semestralmente. O importante é manter consistência e fazer atualizações substantivas, não apenas cosméticas.</p>

@@ -7,11 +7,11 @@
   <meta name="description" content="A propriedade knowsAbout no Schema.org mapeia expertise organizacional para LLMs. Implementação prática com Organization Schema para aumentar citações temáticas.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
-  <link rel="canonical" href="https://aeobr.com.br/blog/knowsabout-organization-schema-aumentar-citacoes-temas/">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/knowsabout-organization-schema-aumentar-citacoes-temas/">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Como usar knowsAbout e outras propriedades de Organization Schema para aumentar citações em temas específicos">
   <meta property="og:description" content="A propriedade knowsAbout no Schema.org mapeia expertise organizacional para LLMs. Implementação prática com Organization Schema para aumentar citações temáticas.">
-  <meta property="og:url" content="https://aeobr.com.br/blog/knowsabout-organization-schema-aumentar-citacoes-temas/">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/knowsabout-organization-schema-aumentar-citacoes-temas/">
   <meta property="og:site_name" content="Caracol AEO">
   <meta property="og:locale" content="pt_BR">
   <meta property="article:author" content="Elio Picchiotti">
@@ -150,22 +150,22 @@
     "author": {
       "@type": "Person",
       "name": "Elio Picchiotti",
-      "url": "https://aeobr.com.br/pages/sobre.html"
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Caracol AEO",
-      "url": "https://aeobr.com.br",
+      "url": "https://www.aeobr.com.br",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://aeobr.com.br/logo-negativo.png"
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
       }
     },
     "datePublished": "2026-05-03",
     "dateModified": "2026-05-03",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://aeobr.com.br/blog/knowsabout-organization-schema-aumentar-citacoes-temas/"
+      "@id": "https://www.aeobr.com.br/blog/knowsabout-organization-schema-aumentar-citacoes-temas/"
     }
   }
   </script>
@@ -251,7 +251,7 @@
 <p>A propriedade <strong>knowsAbout</strong> foi introduzida para mapear o conhecimento ou expertise de uma entidade sobre tópicos específicos. No contexto de Organization Schema, ela indica as áreas temáticas onde a organização possui autoridade reconhecida.</p>
 <p>Diferentemente de propriedades descritivas como description ou about, knowsAbout cria uma relação semântica estruturada entre a organização e domínios de conhecimento. Ela aceita tanto valores Text quanto URLs para things conforme especificação Schema.org 15.0, permitindo flexibilidade na implementação.</p>
 <p>O valor pode referenciar conceitos específicos através de URIs do Wikidata, DBpedia ou outras bases de conhecimento, criando conexões explícitas no grafo semântico. Alternativamente, pode usar texto livre para temas mais específicos ou nichos não mapeados em bases de conhecimento públicas.</p>
-<p>Esta estruturação é fundamental para <a href="fortalecer-presenca-knowledge-graph/">fortalecer a presença de entidades no Knowledge Graph</a> e estabelecer autoridade temática de forma que LLMs possam interpretar e utilizar na seleção de fontes.</p>
+<p>Esta estruturação é fundamental para <a href="/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/">fortalecer a presença de entidades no Knowledge Graph</a> e estabelecer autoridade temática de forma que LLMs possam interpretar e utilizar na seleção de fontes.</p>
 <h2 id="por-que-llms-usam-schemaorg-para-determinar-autoridade-tematica">Por que LLMs usam Schema.org para determinar autoridade temática</h2>
 <p>Os grandes modelos de linguagem utilizam múltiplos sinais para avaliar a autoridade de uma fonte, sendo Schema.org um dos indicadores estruturados mais confiáveis. O Google Knowledge Graph usa Schema.org como um dos sinais para resolução de entidades desde 2011, padrão que se estendeu para sistemas de IA modernos.</p>
 <p>Quando um LLM processa uma query, ele precisa determinar rapidamente quais fontes possuem expertise relevante. Schema markup fornece esses metadados de forma estruturada, eliminando a necessidade de inferência contextual complexa sobre autoridade organizacional.</p>
@@ -361,7 +361,7 @@ A propriedade **expertise** complementa knowsAbout mapeando habilidades prática
 </table>
 <p>A escolha do Schema type afeta como LLMs interpretam autoridade. Organization Schema é ideal para entidades corporativas com equipes especializadas. Person Schema funciona melhor para especialistas individuais com expertise reconhecida.</p>
 <p>WebSite Schema não suporta knowsAbout ou expertise diretamente, limitando sua eficácia para mapeamento de autoridade temática. Sites sem entidade organizacional ou pessoal clara devem considerar implementar Organization Schema para a empresa por trás do site.</p>
-<p>A estratégia mais robusta combina múltiplos Schema types: Organization para a empresa, Person para especialistas-chave, e <a href="usar-id-sameas-resolucao-entidades-ia/">usar @id e sameAs para melhorar resolução de entidades</a> conectando todos os elementos.</p>
+<p>A estratégia mais robusta combina múltiplos Schema types: Organization para a empresa, Person para especialistas-chave, e <a href="/blog/schema-org-id-sameas-resolucao-entidades-ia/">usar @id e sameAs para melhorar resolução de entidades</a> conectando todos os elementos.</p>
 <h2 id="casos-de-uso-quando-knowsabout-faz-diferenca-real-em-citacoes">Casos de uso: quando knowsAbout faz diferença real em citações</h2>
 <p>O impacto de knowsAbout é mais evidente em nichos específicos onde autoridade temática é crucial para credibilidade. Em minha experiência implementando AEO, observo maior efetividade em três cenários principais.</p>
 <p><strong>Consultoria especializada</strong>: Organizações que atendem nichos técnicos específicos, como implementação de Schema.org ou otimização para IA. knowsAbout ajuda LLMs identificarem rapidamente a relevância da fonte para queries técnicas específicas.</p>

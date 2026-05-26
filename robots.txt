@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://aeo.caracol.media/sitemap.xml
+Sitemap: https://www.aeobr.com.br/sitemap.xml
 
 User-agent: GPTBot
 Allow: /
