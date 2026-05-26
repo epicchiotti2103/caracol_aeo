@@ -245,7 +245,7 @@
   </div>
 
   <article class="article-body">
-<p>O <strong>Model Context Protocol (MCP)</strong> otimiza conteúdo expondo recursos estruturados que agentes de IA podem acessar e executar ações, indo além da indexação passiva. Diferente de crawlers tradicionais, agentes MCP interagem dinamicamente com dados estruturados através de servidores dedicados.</p>
+<p>O <strong>Model Context Protocol (MCP)</strong> otimiza conteúdo expondo recursos estruturados que agentes de IA podem acessar e executar ações, indo além da indexação passiva. Diferente de <a href="/blog/diferenca-crawlers-ia-chatgpt-perplexity/">crawlers tradicionais</a>, agentes MCP interagem dinamicamente com dados estruturados através de servidores dedicados.</p>
 <p>A Anthropic lançou o MCP em novembro de 2024 como protocolo aberto para integração de agentes de IA (Anthropic, 2024). Esta mudança representa a transição de sistemas que apenas leem conteúdo para agentes que executam tarefas específicas com dados estruturados, criando novas oportunidades para quem estrutura conteúdo adequadamente.</p>
 <h2 id="o-que-e-o-model-context-protocol-mcp-e-por-que-importa-para-aeo">O que é o Model Context Protocol (MCP) e por que importa para AEO</h2>
 <p>O Model Context Protocol é um padrão aberto que permite agentes de IA acessarem recursos externos de forma controlada e executarem ações específicas. Ao contrário da <a href="https://aeobr.com.br/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/">implementação de llms.txt</a> que oferece instruções estáticas, o MCP cria uma ponte dinâmica entre modelos de linguagem e sistemas externos.</p>
@@ -314,14 +314,14 @@
 <p>A implementação eficaz requer estruturar documentação em módulos independentes com metadados ricos. Cada seção deve incluir tags de classificação, nível de complexidade, e relacionamentos com outras seções para que agentes possam navegar eficientemente baseado no contexto da consulta.</p>
 <h3 id="e-commerce-e-catalogos-de-produtos">E-commerce e catálogos de produtos</h3>
 <p>Catálogos de produtos com MCP permitem que agentes executem comparações dinâmicas, calculem preços personalizados, e verifiquem disponibilidade em tempo real. Diferente de dados estáticos em Schema.org, agentes MCP podem aplicar filtros complexos e executar cálculos baseados em parâmetros específicos da consulta.</p>
-<p>A implementação requer APIs que exponham produtos com metadados ricos: categorias, atributos técnicos, pricing rules, e availability data. Tools específicos podem incluir price calculation, inventory check, e product comparison baseados em critérios definidos pelo usuário.</p>
+<p>A implementação requer APIs que exponham produtos com <a href="/blog/schema-org-dados-produto-agentes-ia-compras-autonomas/">metadados ricos</a>: categorias, atributos técnicos, pricing rules, e availability data. Tools específicos podem incluir price calculation, inventory check, e product comparison baseados em critérios definidos pelo usuário.</p>
 <h3 id="apis-e-servicos-b2b">APIs e serviços B2B</h3>
 <p>Serviços B2B podem usar MCP para expor funcionalidades específicas que agentes executam durante conversas técnicas. Por exemplo, um serviço de analytics pode expor tools para gerar relatórios customizados, aplicar filtros específicos, ou calcular métricas baseadas em parâmetros fornecidos pelo usuário.</p>
 <p>A exposição eficaz requer documentar claramente rate limits, authentication requirements, e data formats. Tools devem incluir error handling robusto e responses que agentes possam interpretar sem ambiguidade durante execução automática.</p>
 <h2 id="seguranca-e-controle-de-acesso-em-ambientes-mcp">Segurança e controle de acesso em ambientes MCP</h2>
 <p>Servidores MCP devem implementar authentication e authorization adequados, especialmente quando expõem dados sensíveis ou tools que modificam sistemas externos. O protocolo suporta diferentes modelos de autenticação: API keys, OAuth flows, ou custom authentication schemes baseados no contexto de implementação.</p>
 <p>Rate limiting é crucial para prevenir abuse, especialmente em tools que executam operações computacionalmente intensivas. Implementações robustas incluem logging detalhado, monitoring de usage patterns, e circuit breakers que previnem degradação de performance quando agentes fazem chamadas excessivas.</p>
-<p>Dados de mercado indicam que agentes autônomos de IA devem representar uma mudança significativa na forma como sistemas consomem conteúdo web até 2026, tornando security considerations fundamentais para implementações de produção.</p>
+<p>Dados de mercado indicam que <a href="/blog/agentes-ia-autonomos-mudam-estrategia-aeo/">agentes autônomos de IA</a> devem representar uma mudança significativa na forma como sistemas consomem conteúdo web até 2026, tornando security considerations fundamentais para implementações de produção.</p>
 <h2 id="tabela-comparativa-llmstxt-vs-schemaorg-vs-mcp">Tabela comparativa: llms.txt vs Schema.org vs MCP</h2>
 <table>
 <thead>

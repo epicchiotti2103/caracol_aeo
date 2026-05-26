@@ -246,7 +246,7 @@
 
   <article class="article-body">
 <p><strong>Topic clusters</strong> bem estruturados funcionam como mapas semânticos que guiam crawlers de IA até sua página-hub, estabelecendo autoridade topical clara. Dados de mercado indicam que páginas-hub com 8-12 spokes conectados recebem 73% mais citações em respostas de IA do que conteúdos isolados.</p>
-<p>LLMs como ChatGPT e Perplexity interpretam autoridade através de sinais de profundidade temática e conectividade semântica. Quando sua estrutura interna demonstra expertise abrangente sobre um tema central, com subtópicos organizados hierarquicamente, os algoritmos de IA reconhecem padrões de especialização que espelham como conhecimento é estruturado em bases acadêmicas.</p>
+<p>LLMs como <a href="/blog/diferenca-crawlers-ia-chatgpt-perplexity/">ChatGPT e Perplexity</a> interpretam autoridade através de sinais de profundidade temática e conectividade semântica. Quando sua estrutura interna demonstra expertise abrangente sobre um tema central, com subtópicos organizados hierarquicamente, os algoritmos de IA reconhecem padrões de especialização que espelham como <a href="/blog/o-que-e-aeo-answer-engine-optimization/">conhecimento é estruturado</a> em bases acadêmicas.</p>
 <h2 id="por-que-ias-priorizam-paginas-hub-em-topic-clusters-bem-estruturados">Por que IAs priorizam páginas-hub em topic clusters bem estruturados</h2>
 <p>Crawlers de IA avaliam autoridade topical seguindo padrões de graph traversal similares aos usados em Knowledge Graphs. Análise de crawl behavior (2024) mostra que crawlers de IA seguem até 3 níveis de profundidade em clusters bem estruturados antes de avaliar autoridade topical.</p>
 <p>O processo funciona assim: quando um bot encontra sua página-hub, ele mapeia todas as conexões internas para identificar a amplitude temática. Se encontra links contextuais para 8-10 subtópicos relacionados, e esses subtópicos linkam de volta para a hub com anchor text relevante, o algoritmo interpreta isso como sinal de expertise consolidada.</p>
@@ -306,7 +306,7 @@
 <p>Links para conteúdo fora do cluster diluem sinais de autoridade topical. Se precisar linkar para temas não relacionados, use seções separadas ("leitura relacionada") ou considere marcação nofollow para não confundir crawlers sobre o foco temático principal.</p>
 <h2 id="como-usar-schemaorg-para-reforcar-a-estrutura-do-cluster">Como usar Schema.org para reforçar a estrutura do cluster</h2>
 <h3 id="propriedades-ispartof-e-haspart">Propriedades isPartOf e hasPart</h3>
-<p>Implemente Schema markup usando <code>isPartOf</code> nos spokes apontando para a hub, e <code>hasPart</code> na hub listando todos os spokes. Implementação de Schema isPartOf/hasPart aumenta taxa de reconhecimento de clusters por LLMs em 41% segundo testes com Google AI Overviews.</p>
+<p>Implemente <a href="/blog/schema-org-id-sameas-resolucao-entidades-ia/">Schema markup usando <code>isPartOf</code></a> nos spokes apontando para a hub, e <code>hasPart</code> na hub listando todos os spokes. Implementação de Schema isPartOf/hasPart aumenta taxa de reconhecimento de clusters por LLMs em 41% segundo testes com Google AI Overviews.</p>
 <p>```json
 // Na página hub
 "@type": "Article",
@@ -322,10 +322,10 @@
 <p>Estruture breadcrumbs que reflitam a hierarquia hub-spoke usando <code>BreadcrumbList</code> Schema. IAs usam essa marcação para entender relacionamentos hierárquicos e identificar páginas centrais nos clusters.</p>
 <h2 id="auditoria-tecnica-como-verificar-se-ias-estao-mapeando-seu-cluster-corretamente">Auditoria técnica: como verificar se IAs estão mapeando seu cluster corretamente</h2>
 <h3 id="analise-de-crawl-patterns-em-logs">Análise de crawl patterns em logs</h3>
-<p>Monitore logs do servidor para identificar padrões de crawling de bots de IA. Crawlers que seguem links hub→spoke→hub em sequência indicam reconhecimento da estrutura de cluster. Se bots visitam páginas isoladamente sem seguir links internos, a estrutura precisa ajustes.</p>
+<p>Monitore <a href="/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/">logs do servidor para identificar padrões de crawling</a> de bots de IA. Crawlers que seguem links hub→spoke→hub em sequência indicam reconhecimento da estrutura de cluster. Se bots visitam páginas isoladamente sem seguir links internos, a estrutura precisa ajustes.</p>
 <p>Procure por sequências como: bot acessa hub → segue link para spoke A → retorna à hub → segue link para spoke B. Esse comportamento indica mapeamento correto da hierarquia.</p>
 <h3 id="teste-de-citacoes-com-prompts-estruturados">Teste de citações com prompts estruturados</h3>
-<p>Teste sistematicamente se IAs citam sua hub como autoridade quando perguntadas sobre o tema central. Use prompts como "quais são as melhores práticas para [seu tema]?" em ChatGPT, Perplexity e Claude.</p>
+<p>Teste sistematicamente se <a href="/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/">IAs citam sua hub como autoridade</a> quando perguntadas sobre o tema central. Use prompts como "quais são as melhores práticas para [seu tema]?" em ChatGPT, Perplexity e Claude.</p>
 <p>Se spokes são citados mais frequentemente que a hub, isso indica problemas na estrutura de autoridade. A hub deveria ser a referência primária, com spokes aparecendo como fontes complementares.</p>
 <h2 id="erros-comuns-que-quebram-a-percepcao-de-autoridade-topical">Erros comuns que quebram a percepção de autoridade topical</h2>
 <p>O erro mais comum é criar hubs muito específicas que competem com os spokes. A hub deve manter nível de abstração superior, abordando o tema de forma panorâmica enquanto direciona para especializações.</p>

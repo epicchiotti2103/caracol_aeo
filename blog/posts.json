@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-18T12:42:14",
-  "count": 45,
+  "generated_at": "2026-05-26T13:44:49",
+  "count": 46,
   "categories": [
     {
       "id": "fundamentos",
@@ -28,6 +28,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/aeo-profissionais-liberais-atrair-clientes-assistentes-ia/",
+      "slug": "aeo-profissionais-liberais-atrair-clientes-assistentes-ia",
+      "title": "Como profissionais liberais podem usar AEO para atrair clientes via assistentes de IA?",
+      "desc": "Profissionais liberais podem usar Answer Engine Optimization para ser citados por ChatGPT, Perplexity e Gemini através de Schema markup, conteúdo educacional e otimização local.",
+      "date": "2026-05-26",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
     {
       "url": "/blog/otimizar-conteudo-meta-ai-whatsapp-instagram-2/",
       "slug": "otimizar-conteudo-meta-ai-whatsapp-instagram-2",

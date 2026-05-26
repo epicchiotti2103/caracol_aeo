@@ -245,7 +245,7 @@
   </div>
 
   <article class="article-body">
-<p>A implementação de robots.txt em 3 camadas permite controle granular sobre crawlers de IA: libera bots que geram tráfego de referência (Perplexity, SearchGPT), bloqueia crawlers de treinamento (GPTBot, CCBot) e aplica regras seletivas por diretório. Essa abordagem maximiza visibilidade em answer engines sem alimentar LLMs gratuitamente.</p>
+<p>A implementação de <a href="/blog/o-que-e-aeo-answer-engine-optimization/">robots.txt em 3 camadas</a> permite controle granular sobre crawlers de IA: libera bots que geram tráfego de referência (Perplexity, SearchGPT), bloqueia crawlers de treinamento (GPTBot, CCBot) e aplica regras seletivas por diretório. Essa abordagem maximiza visibilidade em answer engines sem alimentar LLMs gratuitamente.</p>
 <p>O cenário atual exige essa nuance porque bots de IA representam cerca de 40% do tráfego de crawlers em sites de conteúdo (Cloudflare, 2024), mas nem todos têm a mesma finalidade. Enquanto alguns citam e direcionam tráfego, outros apenas coletam dados para treinamento sem retorno comercial.</p>
 <h2 id="por-que-a-estrategia-binaria-de-robotstxt-nao-funciona-para-ias">Por que a estratégia binária de robots.txt não funciona para IAs</h2>
 <p>A abordagem tradicional de "bloquear tudo" ou "liberar tudo" ignora as diferentes funções dos crawlers de IA. Bloquear indiscriminadamente prejudica a visibilidade em answer engines que podem gerar tráfego qualificado. Dados de mercado indicam que Perplexity e SearchGPT incluem links de referência em mais de 60% das citações.</p>
@@ -267,9 +267,9 @@ Allow: /</p>
 <pre><code>
 ### Como verificar se esses bots geram tráfego de referência
 
-Monitore seus logs de servidor para identificar visitas originadas de answer engines. Configure Google Analytics ou sua ferramenta de analytics para rastrear referências de perplexity.ai, openai.com/search, e outros. Na minha experiência, sites que liberam esses crawlers veem aumento de 15-25% no tráfego orgânico qualificado.
+Monitore seus logs de servidor para identificar visitas originadas de answer engines. Configure Google Analytics ou sua ferramenta de analytics para [rastrear referências de perplexity.ai, openai.com/search, e outros](/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/). Na minha experiência, sites que liberam esses crawlers veem aumento de 15-25% no tráfego orgânico qualificado.
 
-Você também pode usar ferramentas como nossa [diferença entre crawlers de IA](diferenca-crawlers-ia-chatgpt-perplexity) para identificar quais bots estão visitando seu site e correlacionar com métricas de tráfego.
+Você também pode usar ferramentas como nossa [diferença entre crawlers de IA](/blog/diferenca-crawlers-ia-chatgpt-perplexity/) para identificar quais bots estão visitando seu site e correlacionar com métricas de tráfego.
 
 ## Camada 2: bloquear crawlers de treinamento de modelos
 
@@ -294,7 +294,7 @@ Disallow: /</p>
 
 Bots de inferência processam conteúdo para responder consultas específicas de usuários, geralmente incluindo citações. Bots de treinamento fazem scraping massivo para criar ou atualizar modelos de linguagem. A distinção é crucial: o primeiro gera valor comercial, o segundo extrai valor sem contrapartida.
 
-Por exemplo, quando você faz uma pergunta no ChatGPT Search, o SearchGPT-Bot busca informações relevantes e inclui links nas respostas. Já o GPTBot coleta conteúdo em massa para melhorar o modelo base, sem gerar tráfego de volta. Para mais detalhes técnicos, confira nosso guia sobre [como configurar robots.txt para crawlers específicos](configurar-robots-txt-gptbot-claudebot-perplexitybot).
+Por exemplo, quando você faz uma pergunta no [ChatGPT Search, o SearchGPT-Bot](/blog/claude-searchbot-oai-searchbot-crawlers-busca/) busca informações relevantes e inclui links nas respostas. Já o GPTBot coleta conteúdo em massa para melhorar o modelo base, sem gerar tráfego de volta. Para mais detalhes técnicos, confira nosso guia sobre [como configurar robots.txt para crawlers específicos](/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/).
 
 ## Camada 3: controle seletivo por diretório e tipo de conteúdo
 
@@ -392,7 +392,7 @@ Allow: /</p>
 </tbody>
 </table>
 <p>Na minha experiência, revisar e ajustar a estratégia trimestralmente mantém o equilíbrio entre visibilidade em IAs e proteção de conteúdo. Novos answer engines e mudanças em algoritmos podem exigir adaptações mais frequentes.</p>
-<p>Também monitore se bots bloqueados respeitam o robots.txt. Alguns crawlers ignoram essas diretivas, exigindo bloqueio no servidor web ou firewall. Configure relatórios automáticos para identificar violações e tomar ação quando necessário.</p>
+<p>Também monitore se <a href="/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/">bots bloqueados respeitam o robots.txt</a>. Alguns crawlers ignoram essas diretivas, exigindo bloqueio no servidor web ou firewall. Configure relatórios automáticos para identificar violações e tomar ação quando necessário.</p>
 <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
 <h3 id="posso-bloquear-gptbot-mas-permitir-chatgpt-search">Posso bloquear GPTBot mas permitir ChatGPT Search?</h3>
 <p>Sim, são crawlers diferentes. GPTBot coleta dados para treinamento enquanto SearchGPT-Bot busca informações para responder consultas específicas. Bloquear GPTBot e liberar SearchGPT-Bot é uma estratégia válida para evitar treinamento gratuito mas manter visibilidade em buscas.</p>

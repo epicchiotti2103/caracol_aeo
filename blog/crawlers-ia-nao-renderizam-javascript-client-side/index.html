@@ -246,7 +246,7 @@
 
   <article class="article-body">
 <p>Crawlers de IA como GPTBot e ClaudeBot funcionam como parsers HTML simples que não executam JavaScript, diferente do Googlebot. Isso significa que qualquer conteúdo renderizado client-side permanece invisível durante o processo de treinamento e coleta de dados dessas IAs.</p>
-<p>Esta limitação técnica afeta diretamente a capacidade dos modelos de linguagem citarem informações de sites que dependem de JavaScript para exibir conteúdo. Em um cenário onde dados de mercado indicam que cerca de 40% dos sites corporativos B2B usam frameworks JavaScript com renderização client-side predominante, compreender e resolver esta questão torna-se fundamental para uma estratégia de AEO eficaz.</p>
+<p>Esta limitação técnica afeta diretamente a capacidade dos <a href="/blog/otimizar-conteudo-citacao-ia-generativa/">modelos de linguagem citarem informações</a> de sites que dependem de JavaScript para exibir conteúdo. Em um cenário onde dados de mercado indicam que cerca de 40% dos sites corporativos B2B usam frameworks JavaScript com renderização client-side predominante, compreender e resolver esta questão torna-se fundamental para uma <a href="/blog/o-que-e-aeo-answer-engine-optimization/">estratégia de AEO eficaz</a>.</p>
 <h2 id="como-crawlers-de-ia-processam-paginas-web">Como crawlers de IA processam páginas web</h2>
 <h3 id="diferenca-entre-crawlers-de-busca-tradicionais-e-crawlers-de-ia">Diferença entre crawlers de busca tradicionais e crawlers de IA</h3>
 <p>Os crawlers tradicionais de busca, especialmente o Googlebot, evoluíram significativamente desde 2015 para incluir capacidades de renderização JavaScript. O Googlebot utiliza uma versão do Chrome para executar scripts e capturar o DOM final após todas as operações client-side.</p>
@@ -286,7 +286,7 @@
 <h3 id="progressive-enhancement-como-estrategia-intermediaria">Progressive Enhancement como estratégia intermediária</h3>
 <p>Progressive Enhancement começa com HTML funcional e adiciona JavaScript como camada de melhoria. Esta abordagem garante que conteúdo essencial esteja presente no HTML inicial, enquanto JavaScript aprimora a experiência do usuário com interações dinâmicas.</p>
 <p>Implemente essa estratégia renderizando listas, artigos e informações críticas diretamente no HTML do servidor, usando JavaScript apenas para funcionalidades como filtros, ordenação ou atualizações em tempo real. Formulários devem funcionar via POST tradicional antes de JavaScript adicionar validação client-side.</p>
-<p>Esta abordagem é especialmente eficaz para sites de conteúdo híbrido, onde certas seções precisam de interatividade complexa mas o conteúdo principal deve permanecer acessível. Na minha experiência, sites que adotam Progressive Enhancement consistentemente aparecem mais frequentemente em citações de IA, pois seu conteúdo é sempre acessível independente da capacidade JavaScript do crawler.</p>
+<p>Esta abordagem é especialmente eficaz para sites de conteúdo híbrido, onde certas seções precisam de interatividade complexa mas o conteúdo principal deve permanecer acessível. Na minha experiência, sites que adotam Progressive Enhancement consistentemente aparecem mais frequentemente em <a href="/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/">citações de IA</a>, pois seu conteúdo é sempre acessível independente da capacidade JavaScript do crawler.</p>
 <h3 id="tabela-comparativa-impacto-de-cada-abordagem-em-aeo">Tabela comparativa: impacto de cada abordagem em AEO</h3>
 <table>
 <thead>
@@ -337,7 +337,7 @@
 </tbody>
 </table>
 <p>A tabela demonstra que SSG oferece a melhor combinação de visibilidade para crawlers de IA e performance, enquanto Progressive Enhancement fornece flexibilidade para sites que precisam balancear conteúdo estático com funcionalidades interativas. CSR puro, embora mais simples de implementar, sacrifica completamente a visibilidade para crawlers de IA.</p>
-<p>Para otimização AEO, a recomendação é migrar conteúdo crítico para SSG quando possível, implementar SSR para dados dinâmicos essenciais, e usar Progressive Enhancement para funcionalidades interativas secundárias. Esta estratégia garante que crawlers de IA sempre encontrem conteúdo relevante, independente de suas limitações técnicas.</p>
+<p>Para <a href="/blog/5-passos-otimizar-aeo-blogs/">otimização AEO</a>, a recomendação é migrar conteúdo crítico para SSG quando possível, implementar SSR para dados dinâmicos essenciais, e usar Progressive Enhancement para funcionalidades interativas secundárias. Esta estratégia garante que crawlers de IA sempre encontrem conteúdo relevante, independente de suas limitações técnicas.</p>
 <p>A <a href="https://aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/">configuração de acesso para crawlers</a> também deve considerar estas limitações técnicas, priorizando URLs com conteúdo server-rendered sobre páginas que dependem heavily de JavaScript para exibição de informações.</p>
 <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
 <h3 id="como-saber-se-meu-site-react-esta-visivel-para-gptbot">Como saber se meu site React está visível para GPTBot?</h3>

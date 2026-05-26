@@ -250,7 +250,7 @@
 <h2 id="o-que-e-claude-user-e-para-que-serve">O que é Claude-User e para que serve</h2>
 <p><strong>Claude-User</strong> é o user-agent utilizado quando um usuário faz uma pergunta direta ao Claude que requer busca de informações atualizadas na web. Este bot opera sob demanda, ativado apenas quando o contexto da conversa exige acesso a conteúdo externo específico.</p>
 <p>Diferente de crawlers tradicionais, Claude-User não indexa proativamente. Ele acessa URLs específicas mencionadas pelo usuário ou descobertas através de pesquisas contextuais. Por exemplo, se um usuário pergunta "qual o preço atual do produto X no site da empresa Y", Claude-User pode acessar diretamente a página de produto para fornecer informação atualizada.</p>
-<p>Este bot mantém comportamento mais próximo ao de um navegador humano, seguindo links naturalmente e respeitando estruturas de navegação. Na minha experiência implementando AEO, Claude-User tende a gerar menos requisições por sessão, mas com padrões de acesso mais imprevisíveis que crawlers sistemáticos.</p>
+<p>Este bot mantém comportamento mais próximo ao de um navegador humano, seguindo links naturalmente e respeitando estruturas de navegação. Na minha experiência <a href="/blog/5-passos-otimizar-aeo-blogs/">implementando AEO</a>, Claude-User tende a gerar menos requisições por sessão, mas com padrões de acesso mais imprevisíveis que crawlers sistemáticos.</p>
 <p>O volume de requisições do Claude-User varia dramaticamente conforme a popularidade do seu conteúdo nas conversas dos usuários. Sites de referência técnica e documentação frequentemente recebem mais visitas deste bot que sites comerciais convencionais.</p>
 <h2 id="o-que-e-claude-searchbot-e-como-difere-do-claude-user">O que é Claude-SearchBot e como difere do Claude-User</h2>
 <p><strong>Claude-SearchBot</strong> opera como crawler proativo, indexando conteúdo sistematicamente para alimentar a base de conhecimento que suporta as respostas do Claude. Este bot segue padrões mais previsíveis, similar ao Googlebot ou outros crawlers de busca tradicionais.</p>
@@ -439,7 +439,7 @@ Monitore seus logs de acesso procurando especificamente pelos user-agents:
 - `Claude-SearchBot`
 - `ClaudeBot` (user-agent genérico)
 
-Configure alertas para identificar tentativas de acesso a diretórios que deveriam estar bloqueados.
+Configure alertas para [identificar tentativas de acesso a diretórios](/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/) que deveriam estar bloqueados.
 
 **Método 2: Ferramenta robots.txt tester**
 

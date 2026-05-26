@@ -245,8 +245,8 @@
   </div>
 
   <article class="article-body">
-<p>A propriedade <strong>knowsAbout</strong> no Organization Schema permite mapear explicitamente as áreas de conhecimento de uma organização, fornecendo aos modelos de linguagem (LLMs) sinais estruturados sobre autoridade temática. Combinada com propriedades como expertise e areaServed, ela cria um perfil de conhecimento organizacional que pode influenciar a seleção de fontes em respostas contextuais.</p>
-<p>Com LLMs priorizando cada vez mais autoridade e especificidade temática para citações, estruturar conhecimento organizacional via Schema.org se tornou estratégico. Segundo a documentação oficial do Schema.org (2024), o Organization type possui 137 propriedades disponíveis, sendo knowsAbout uma das menos exploradas apesar de seu potencial para AEO.</p>
+<p>A propriedade <strong>knowsAbout</strong> no <a href="/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/">Organization Schema</a> permite mapear explicitamente as áreas de conhecimento de uma organização, fornecendo aos modelos de linguagem (LLMs) sinais estruturados sobre autoridade temática. Combinada com propriedades como expertise e areaServed, ela cria um perfil de conhecimento organizacional que pode influenciar a seleção de fontes em respostas contextuais.</p>
+<p>Com LLMs priorizando cada vez mais <a href="/blog/otimizar-conteudo-citacao-ia-generativa/">autoridade e especificidade temática para citações</a>, estruturar conhecimento organizacional via Schema.org se tornou estratégico. Segundo a documentação oficial do Schema.org (2024), o Organization type possui 137 propriedades disponíveis, sendo knowsAbout uma das menos exploradas apesar de seu potencial para AEO.</p>
 <h2 id="o-que-e-a-propriedade-knowsabout-no-schemaorg">O que é a propriedade knowsAbout no Schema.org</h2>
 <p>A propriedade <strong>knowsAbout</strong> foi introduzida para mapear o conhecimento ou expertise de uma entidade sobre tópicos específicos. No contexto de Organization Schema, ela indica as áreas temáticas onde a organização possui autoridade reconhecida.</p>
 <p>Diferentemente de propriedades descritivas como description ou about, knowsAbout cria uma relação semântica estruturada entre a organização e domínios de conhecimento. Ela aceita tanto valores Text quanto URLs para things conforme especificação Schema.org 15.0, permitindo flexibilidade na implementação.</p>
@@ -255,7 +255,7 @@
 <h2 id="por-que-llms-usam-schemaorg-para-determinar-autoridade-tematica">Por que LLMs usam Schema.org para determinar autoridade temática</h2>
 <p>Os grandes modelos de linguagem utilizam múltiplos sinais para avaliar a autoridade de uma fonte, sendo Schema.org um dos indicadores estruturados mais confiáveis. O Google Knowledge Graph usa Schema.org como um dos sinais para resolução de entidades desde 2011, padrão que se estendeu para sistemas de IA modernos.</p>
 <p>Quando um LLM processa uma query, ele precisa determinar rapidamente quais fontes possuem expertise relevante. Schema markup fornece esses metadados de forma estruturada, eliminando a necessidade de inferência contextual complexa sobre autoridade organizacional.</p>
-<p>Dados de mercado indicam que organizações com Schema.org estruturado apresentam maior taxa de citação em respostas contextuais de LLMs (2024). Isso ocorre porque o markup reduz ambiguidade sobre escopo de conhecimento organizacional, facilitando matching entre queries e expertise.</p>
+<p>Dados de mercado indicam que organizações com <a href="/blog/estruturar-faq-citacao-assistentes-ia/">Schema.org estruturado</a> apresentam maior taxa de citação em respostas contextuais de LLMs (2024). Isso ocorre porque o markup reduz ambiguidade sobre escopo de conhecimento organizacional, facilitando matching entre queries e expertise.</p>
 <p>A propriedade knowsAbout funciona como um "índice semântico" da organização, permitindo que algoritmos identifiquem rapidamente se uma entidade é relevante para um tópico específico. Essa precisão na identificação de expertise é crucial em um ambiente onde LLMs processam milhões de fontes potenciais.</p>
 <h2 id="como-implementar-knowsabout-no-organization-schema">Como implementar knowsAbout no Organization Schema</h2>
 <h3 id="sintaxe-json-ld-basica">Sintaxe JSON-LD básica</h3>
@@ -283,7 +283,7 @@ A estratégia eficaz combina ambas as abordagens: URLs para conceitos estabeleci
 
 ### Validação e teste do markup
 
-Após implementação, use o Rich Results Test do Google para validar a sintaxe JSON-LD. O validator Schema.org também oferece verificação detalhada da estrutura semântica.
+Após implementação, use o [Rich Results Test do Google](/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/) para validar a sintaxe JSON-LD. O validator Schema.org também oferece verificação detalhada da estrutura semântica.
 
 Para testar efetividade, monitore se as páginas com markup aparecem em featured snippets relacionados aos temas mapeados. Ferramentas como o Schema Markup Validator permitem identificar erros de sintaxe que podem impedir o processamento correto.
 
@@ -369,8 +369,8 @@ A propriedade **expertise** complementa knowsAbout mapeando habilidades prática
 <p><strong>Organizações híbridas</strong>: Empresas que atuam em múltiplos mercados podem usar knowsAbout para especificar áreas de conhecimento, evitando que LLMs as associem incorretamente a todos os tópicos relacionados.</p>
 <p>O diferencial aparece quando a organização compete por autoridade com fontes genéricas. Um site de marketing geral pode ter dificuldade para ser citado sobre "Answer Engine Optimization", mas uma organização com knowsAbout específico para esse tema ganha vantagem competitiva.</p>
 <h2 id="como-medir-impacto-de-knowsabout-em-citacoes-por-ia">Como medir impacto de knowsAbout em citações por IA</h2>
-<p>Medir efetividade de knowsAbout requer monitoramento específico de citações em respostas de IA. Estabeleça baseline antes da implementação, documentando quantas vezes a organização é citada para temas-alvo em ChatGPT, Perplexity e Gemini.</p>
-<p>Após implementação, monitore mensalmente as citações usando queries relevantes aos temas mapeados em knowsAbout. Ferramentas como BrightEdge ou MarketMuse podem automatizar parte desse tracking, embora monitoramento manual ainda seja necessário.</p>
+<p>Medir efetividade de knowsAbout requer <a href="/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/">monitoramento específico de citações</a> em respostas de IA. Estabeleça baseline antes da implementação, documentando quantas vezes a organização é citada para temas-alvo em ChatGPT, Perplexity e Gemini.</p>
+<p>Após implementação, monitore mensalmente as citações usando queries relevantes aos temas mapeados em knowsAbout. Ferramentas como BrightEdge ou <a href="/blog/ferramentas-metricas-medir-resultados-aeo/">MarketMuse podem automatizar</a> parte desse tracking, embora monitoramento manual ainda seja necessário.</p>
 <p>Métricas-chave incluem: frequência de citação em respostas temáticas, posição média quando citado (primeira fonte vs referência secundária), e expansão para subtemas relacionados aos mapeados em knowsAbout.</p>
 <p>A correlação entre implementação e aumento de citações geralmente aparece entre 30-60 dias, tempo necessário para reprocessamento do markup pelos sistemas de IA. Documentar mudanças paralelas (novos conteúdos, links) é crucial para isolar o impacto específico do Schema.</p>
 <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
