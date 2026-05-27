@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-26T13:44:49",
-  "count": 46,
+  "generated_at": "2026-05-27T11:06:35",
+  "count": 51,
   "categories": [
     {
       "id": "fundamentos",
@@ -36,6 +36,51 @@
       "date": "2026-05-26",
       "cat_id": "tecnico",
       "cat_label": "Técnico"
+    },
+    {
+      "url": "/blog/ai-visibility-audit-passo-a-passo-auditar-presenca-marca-chatgpt-claude-perplexity-gemini/",
+      "slug": "ai-visibility-audit-passo-a-passo-auditar-presenca-marca-chatgpt-claude-perplexity-gemini",
+      "title": "AI Visibility Audit: passo a passo para auditar presença da sua marca em ChatGPT, Claude, Perplexity e Gemini",
+      "desc": "Metodologia completa para auditar sistematicamente a presença da sua marca em IAs generativas com matriz de testes, documentação e priorização de ações.",
+      "date": "2026-05-26",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
+    },
+    {
+      "url": "/blog/estruturar-authority-signals-answer-engines-framework-ims-aeo/",
+      "slug": "estruturar-authority-signals-answer-engines-framework-ims-aeo",
+      "title": "Como estruturar authority signals para Answer Engines: framework de 3 camadas IMS AEO",
+      "desc": "Framework IMS AEO em 3 camadas para construir authority signals que ChatGPT, Perplexity e Gemini reconhecem durante inferência para citação.",
+      "date": "2026-05-25",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
+    {
+      "url": "/blog/google-ai-mode-autocitacao-17-por-cento-respostas/",
+      "slug": "google-ai-mode-autocitacao-17-por-cento-respostas",
+      "title": "O que significa o Google citar a si mesmo em 17% das respostas do AI Mode?",
+      "desc": "Google AI Mode autocita suas propriedades (YouTube, Maps, Shopping) em 17% das respostas. Entenda o impacto na estratégia AEO e como competir por visibilidade.",
+      "date": "2026-05-24",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
+    {
+      "url": "/blog/como-aparecer-ai-overviews-google-criterio-citacao/",
+      "slug": "como-aparecer-ai-overviews-google-criterio-citacao",
+      "title": "Como aparecer em AI Overviews do Google: o novo critério de citação que ignora posições orgânicas tradicionais",
+      "desc": "AI Overviews do Google criaram novos critérios de citação independentes do ranking orgânico. Descubra os 5 sinais que determinam visibilidade nesta nova realidade.",
+      "date": "2026-05-23",
+      "cat_id": "fundamentos",
+      "cat_label": "Fundamentos"
+    },
+    {
+      "url": "/blog/llm-perception-drift-monitorar-estabilizar-percepcao-marca-llms/",
+      "slug": "llm-perception-drift-monitorar-estabilizar-percepcao-marca-llms",
+      "title": "LLM Perception Drift: como monitorar e estabilizar a percepção da sua marca em LLMs mês a mês",
+      "desc": "Aprenda a criar um sistema de monitoramento mensal para detectar e corrigir variações na percepção da marca em LLMs como ChatGPT, Claude e Gemini.",
+      "date": "2026-05-22",
+      "cat_id": "medicao",
+      "cat_label": "Medição"
     },
     {
       "url": "/blog/otimizar-conteudo-meta-ai-whatsapp-instagram-2/",

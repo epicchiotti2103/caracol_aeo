@@ -317,7 +317,7 @@ Esta configuração é útil para sites que desejam contribuir com conteúdo edu
 
 ### Configuração combinada com outros crawlers de IA
 
-Uma prática recomendada é [configurar robots.txt para crawlers de IA](https://www.aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/) de forma consistente. Exemplo de configuração unificada:
+Uma prática recomendada é [configurar robots.txt para crawlers de IA](https://aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/) de forma consistente. Exemplo de configuração unificada:
 
 </code></pre>
 <p>User-agent: GPTBot
@@ -329,7 +329,7 @@ Disallow: /
 <h2 id="quando-voce-deve-bloquear-ou-permitir-o-applebot-extended">Quando você deve bloquear ou permitir o Applebot-Extended</h2>
 <p>A decisão de bloquear ou permitir o Applebot-Extended depende da sua estratégia de conteúdo e objetivos comerciais. Sites focados em educação, open source ou divulgação científica podem beneficiar-se permitindo acesso, contribuindo para modelos de IA mais precisos em suas áreas de expertise.</p>
 <p>Considere bloquear se seu conteúdo possui valor comercial direto, dados proprietários ou informações que podem ser reproduzidas por IAs de forma que compita com sua proposta de valor. A análise deve incluir o potencial de exposição da marca através de citações em respostas de IA versus o risco de commoditização do conteúdo.</p>
-<p>Publishers de notícias e mídia especializada frequentemente optam por bloqueio, mantendo controle sobre como informações exclusivas são utilizadas. Por outro lado, sites técnicos e educacionais podem escolher permitir acesso seletivo para maximizar utilidade pública de seus conteúdos. Compreender as <a href="https://www.aeobr.com.br/blog/diferenca-crawlers-ia-chatgpt-perplexity/">diferenças entre crawlers de IA</a> ajuda na tomada de decisão informada.</p>
+<p>Publishers de notícias e mídia especializada frequentemente optam por bloqueio, mantendo controle sobre como informações exclusivas são utilizadas. Por outro lado, sites técnicos e educacionais podem escolher permitir acesso seletivo para maximizar utilidade pública de seus conteúdos. Compreender as <a href="https://aeobr.com.br/blog/diferenca-crawlers-ia-chatgpt-perplexity/">diferenças entre crawlers de IA</a> ajuda na tomada de decisão informada.</p>
 <h2 id="como-verificar-se-o-applebot-extended-esta-acessando-seu-site">Como verificar se o Applebot-Extended está acessando seu site</h2>
 <p>A verificação mais eficaz ocorre através da <a href="/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear">análise de logs do servidor web</a>. Procure por entries contendo "AppleBot-Extended" no campo user-agent. No Apache, use o comando: <code>grep "AppleBot-Extended" access.log</code>. No Nginx: <code>grep "AppleBot-Extended" /var/log/nginx/access.log</code>.</p>
 <p>Ferramentas de analytics como Google Analytics ou Adobe Analytics podem não capturar adequadamente este tráfego, pois crawlers frequentemente não executam JavaScript. Para monitoramento contínuo, configure alertas automáticos nos logs do servidor ou utilize <a href="/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt">ferramentas de monitoramento de bots especializadas</a>.</p>

@@ -316,7 +316,7 @@
 <h2 id="como-reconstruir-markup-para-maximizar-citacoes-por-ia">Como reconstruir markup para maximizar citações por IA</h2>
 <p>A reconstrução estratégica foca implementação técnica que facilita extração precisa de informação por algoritmos de processamento de linguagem natural. Cada elemento deve contribuir para compreensão semântica completa do conteúdo.</p>
 <h3 id="implementar-id-e-sameas-corretamente">Implementar @id e sameAs corretamente</h3>
-<p>Configure <code>@id</code> como URL canônica absoluta que identifica unicamente cada entidade. Para artigos, use <code>"@id": "https://www.aeobr.com.br/artigo-slug/"</code>. Para authors, use <code>"@id": "https://www.aeobr.com.br/author/nome-autor/"</code>.</p>
+<p>Configure <code>@id</code> como URL canônica absoluta que identifica unicamente cada entidade. Para artigos, use <code>"@id": "https://aeobr.com.br/artigo-slug/"</code>. Para authors, use <code>"@id": "https://aeobr.com.br/author/nome-autor/"</code>.</p>
 <p>Implemente <code>sameAs</code> arrays linkando para todas as propriedades online relevantes da entidade. Para Organization schema, inclua perfis sociais oficiais, Wikipedia, Crunchbase. Para Person schema, inclua LinkedIn, Twitter, site pessoal.</p>
 <p>Mantenha consistência cross-page garantindo que o mesmo <code>@id</code> value é usado para identificar a mesma entidade em diferentes páginas. Isto facilita graph building pelos crawlers e melhora understanding de relacionamentos entre conteúdos.</p>
 <h3 id="estruturar-article-e-faqpage-para-extracao-por-llms">Estruturar Article e FAQPage para extração por LLMs</h3>

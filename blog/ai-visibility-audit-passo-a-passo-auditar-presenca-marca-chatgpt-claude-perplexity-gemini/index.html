@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Visibility Audit: passo a passo para auditar presença da sua marca em ChatGPT, Claude, Perplexity e Gemini — Caracol AEO</title>
+  <meta name="description" content="Metodologia completa para auditar sistematicamente a presença da sua marca em IAs generativas com matriz de testes, documentação e priorização de ações.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/ai-visibility-audit-passo-a-passo-auditar-presenca-marca-chatgpt-claude-perplexity-gemini/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI Visibility Audit: passo a passo para auditar presença da sua marca em ChatGPT, Claude, Perplexity e Gemini">
+  <meta property="og:description" content="Metodologia completa para auditar sistematicamente a presença da sua marca em IAs generativas com matriz de testes, documentação e priorização de ações.">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/ai-visibility-audit-passo-a-passo-auditar-presenca-marca-chatgpt-claude-perplexity-gemini/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-05-26">
+  <meta property="article:section" content="Medição">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Visibility Audit: passo a passo para auditar presença da sua marca em ChatGPT, Claude, Perplexity e Gemini">
+  <meta name="twitter:description" content="Metodologia completa para auditar sistematicamente a presença da sua marca em IAs generativas com matriz de testes, documentação e priorização de ações.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Visibility Audit: passo a passo para auditar presença da sua marca em ChatGPT, Claude, Perplexity e Gemini",
+    "description": "Metodologia completa para auditar sistematicamente a presença da sua marca em IAs generativas com matriz de testes, documentação e priorização de ações.",
+    "articleSection": "Medição",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://www.aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-05-26",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aeobr.com.br/blog/ai-visibility-audit-passo-a-passo-auditar-presenca-marca-chatgpt-claude-perplexity-gemini/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Com que frequência devo auditar a presença da minha marca em IAs generativas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para marcas B2B estabelecidas, recomendo auditoria completa trimestral com spot checks mensais em queries prioritárias. Startups precisam de auditoria mensal nos primeiros 6 meses. A frequência depende da velocidade de mudança do seu mercado e investimento em content marketing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais tipos de prompts devo usar para auditar AI visibility de forma completa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use matriz com 3 tipos: prompts diretos (sobre sua marca), indiretos (categoria/vertical), e comparativos (você vs concorrentes). Para cada tipo, crie variações por intenção: informacional, comercial, navegacional. Mínimo de 15-20 prompts para auditoria básica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como documentar e comparar resultados de auditoria entre plataformas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monte planilha com prompts nas linhas e plataformas nas colunas. Documente não apenas presença/ausência, mas posição da menção, contexto (positivo/negativo), e concorrentes citados. Use gap score para priorizar ações entre plataformas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que fazer quando minha marca não aparece em nenhuma IA generativa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Problema fundamental de entity recognition. Prioridades: 1) Verificar crawlability técnica, 2) Implementar schema markup básico, 3) Criar conteúdo educacional sobre sua categoria, 4) Construir mentions e backlinks para entity building. Foque em Google primeiro - outras IAs seguem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É possível automatizar auditoria de AI visibility usando APIs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parcialmente. APIs oficiais permitem executar prompts programaticamente, mas análise qualitativa do contexto ainda exige revisão manual. Automatize tracking de prompts críticos para alertas de mudança, mas mantenha auditoria manual trimestral para insights estratégicos completos."
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Medição</div>
+      <h1>AI Visibility Audit: passo a passo para auditar presença da sua marca em ChatGPT, Claude, Perplexity e Gemini</h1>
+      <div class="meta">Elio Picchiotti · 26 de maio de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>Um <strong>AI Visibility Audit</strong> é uma auditoria estruturada que mapeia como e quando sua marca aparece em respostas de IAs generativas, usando matriz de prompts padronizados para identificar gaps de visibilidade e priorizar ações corretivas. Diferente do SEO tradicional, requer testes manuais cross-platform com documentação qualitativa dos contextos de citação.</p>
+<p>Dados de mercado indicam que 68% das marcas B2B não monitoram sistematicamente sua presença em IAs generativas (2024), criando blind spots críticos na estratégia digital. A metodologia que desenvolvemos na Caracol Media transforma auditoria pontual em processo repetível, fornecendo visibility baseline e roadmap de otimizações prioritárias.</p>
+<h2 id="por-que-auditar-presenca-da-sua-marca-em-ias-generativas-e-diferente-de-monitorar-seo-tradicional">Por que auditar presença da sua marca em IAs generativas é diferente de monitorar SEO tradicional</h2>
+<p>SEO tradicional mede posições fixas em SERPs estáticas. AI Visibility funciona com <strong>citações contextuais dinâmicas</strong> - sua marca pode aparecer em diferentes posições dependendo do prompt, modo da IA, e até hora do teste. Não existe "posição 1" em ChatGPT; existe probabilidade de citação em contextos específicos.</p>
+<p>O comportamento é não-determinístico: o mesmo prompt pode gerar respostas diferentes entre execuções. IAs também combinam conhecimento pré-treinamento com dados em tempo real, criando variabilidade que não existe no Google. Por isso, auditoria de AI Visibility requer <strong>múltiplos testes por query</strong> e documentação qualitativa do contexto das menções.</p>
+<p>Outra diferença crítica: pesquisas indicam que 73% das menções de marca em IAs ocorrem em respostas a queries indiretas, não buscas diretas pelo nome (2024). Sua marca aparece mais em "melhores plataformas de e-commerce" do que em "o que é [sua empresa]". Isso inverte a lógica de auditoria tradicional, priorizando testes de categoria sobre testes de marca.</p>
+<h2 id="preparacao-definindo-escopo-e-objetivos-da-auditoria-de-ai-visibility">Preparação: definindo escopo e objetivos da auditoria de AI visibility</h2>
+<p>Antes de executar testes, defina <strong>universo de queries</strong> e <strong>métricas de sucesso</strong>. Auditoria sem escopo vira fishing expedition - você testa tudo e não otimiza nada. Na minha experiência, marcas B2B precisam mapear 3 camadas: queries de marca direta, queries de categoria, e queries de comparação competitiva.</p>
+<h3 id="queries-de-marca-vs-queries-de-categoria">Queries de marca vs queries de categoria</h3>
+<p><strong>Queries de marca direta</strong> testam reconhecimento básico: "o que é [empresa]", "como funciona [produto]", "quem é [CEO]". São baseline obrigatório, mas raramente revelam oportunidades. Se sua marca não aparece aqui, o problema é fundamental: falta de crawl, entidade fraca, ou ausência digital completa.</p>
+<p><strong>Queries de categoria</strong> testam relevância temática: "melhores ferramentas de CRM", "como escolher plataforma de e-commerce", "tendências em marketing digital 2024". Aqui está o potencial de crescimento. Uma query como "alternativas ao Salesforce" pode gerar mais valor que 10 menções em buscas pelo nome da empresa.</p>
+<p><strong>Queries comparativas</strong> testam posicionamento competitivo: "[concorrente] vs alternativas", "melhor que [concorrente]", "como migrar de [concorrente]". Revelam se você está no consideration set quando usuários avaliam mudança de fornecedor.</p>
+<h3 id="frequencia-de-auditoria-recomendada">Frequência de auditoria recomendada</h3>
+<p>Para marcas B2B estabelecidas: auditoria completa <strong>trimestral</strong>, com spot checks mensais em queries de alta prioridade. Startups e marcas em lançamento: auditoria <strong>mensal</strong> nos primeiros 6 meses, depois trimestral. E-commerce sazonal: auditoria pré-picos de demanda (Black Friday, Natal, volta às aulas).</p>
+<p>A razão é que IAs atualizam conhecimento de forma irregular. ChatGPT recebe updates de conhecimento em intervalos não divulgados, Claude tem diferentes cut-off dates, Perplexity acessa web em tempo real. Testar muito frequentemente gera ruído; testar pouco perde oportunidades de correção rápida.</p>
+<h2 id="passo-1-criar-matriz-de-prompts-para-auditoria-cross-platform">Passo 1: Criar matriz de prompts para auditoria cross-platform</h2>
+<p>Monte <strong>planilha padronizada</strong> com prompts organizados por intenção e tipo. Cada linha é um prompt, cada coluna é uma plataforma (ChatGPT, Claude, Perplexity, Gemini). Isso garante teste consistente e facilita comparação de resultados entre IAs.</p>
+<h3 id="tipos-de-prompts-diretos-indiretos-e-comparativos">Tipos de prompts: diretos, indiretos e comparativos</h3>
+<p><strong>Prompts diretos</strong> buscam informação sobre sua marca especificamente:
+- "O que é [sua empresa] e como funciona?"
+- "Quais são as principais funcionalidades do [seu produto]?"
+- "Como [sua empresa] se diferencia no mercado?"</p>
+<p><strong>Prompts indiretos</strong> testam aparição em contexto de categoria:
+- "Quais são as melhores ferramentas de [categoria] para PMEs?"
+- "Como escolher plataforma de [categoria] em 2024?"
+- "Tendências em [sua vertical] para os próximos 5 anos"</p>
+<p><strong>Prompts comparativos</strong> avaliam posicionamento competitivo:
+- "Compare [concorrente principal] com alternativas disponíveis"
+- "[Concorrente] vs [outro concorrente]: qual escolher?"
+- "Alternativas ao [líder de mercado] com melhor custo-benefício"</p>
+<h3 id="variacoes-de-intencao-informacional-comercial-e-navegacional">Variações de intenção: informacional, comercial e navegacional</h3>
+<p>Para cada tipo de prompt, crie variações que simulem diferentes intenções de busca. <strong>Intenção informacional</strong>: "como funciona", "o que é", "qual a diferença". <strong>Intenção comercial</strong>: "melhor para", "vale a pena", "preço", "como comprar". <strong>Intenção navegacional</strong>: "login", "suporte", "contato", "documentação".</p>
+<p>Estudos mostram que Perplexity cita em média 4-6 fontes por resposta, enquanto ChatGPT Search cita 2-4 (2024). Por isso, prompts comerciais têm maior chance de citação no Perplexity, enquanto prompts informativos funcionam melhor no ChatGPT modo padrão.</p>
+<h2 id="passo-2-executar-bateria-de-testes-em-chatgpt">Passo 2: Executar bateria de testes em ChatGPT</h2>
+<p>Execute cada prompt <strong>3 vezes</strong> em sessões diferentes para capturar variabilidade. ChatGPT tem comportamento estocástico - mesmo prompt pode gerar respostas diferentes. Documente não apenas presença/ausência da marca, mas <strong>posição da menção</strong>, <strong>contexto</strong> (positivo/neutro/negativo), e <strong>fontes citadas</strong> quando disponíveis.</p>
+<h3 id="como-testar-search-vs-modo-padrao">Como testar Search vs modo padrão</h3>
+<p><strong>ChatGPT Search</strong> acessa web em tempo real e cita fontes específicas. <strong>Modo padrão</strong> usa conhecimento pré-treinamento sem citações externas. Para auditoria completa, teste ambos: Search revela como sua presença web atual afeta citações; modo padrão mostra como sua marca está "memorizada" no modelo.</p>
+<p>Na minha análise, marcas com forte presence orgânico têm vantagem no ChatGPT Search, enquanto marcas tradicionais com histórico longo podem aparecer mais no modo padrão. A combinação revela gaps: se você aparece no modo padrão mas não no Search, problema é SEO atual; se aparece no Search mas não no padrão, problema é authority histórico.</p>
+<h3 id="documentar-presenca-ausencia-e-contexto-das-citacoes">Documentar presença, ausência e contexto das citações</h3>
+<p>Crie tabela com colunas: <strong>Prompt</strong>, <strong>Tentativa</strong> (1/2/3), <strong>Marca mencionada</strong> (Sim/Não), <strong>Posição</strong> (primeira menção, segunda menção), <strong>Contexto</strong> (positivo/neutro/negativo/comparativo), <strong>Concorrentes citados</strong>, <strong>Fontes</strong> (se Search), <strong>Observações</strong>.</p>
+<p>Contexto é crítico: ser mencionado como "alternativa mais barata" é diferente de "líder de mercado". Posição também importa: primeira menção tem weight maior na percepção do usuário. Concorrentes citados revelam consideration set - se você não está, precisar <a href="https://aeobr.com.br/blog/llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini/">identificar variações na percepção da marca</a> e corrigir posicionamento.</p>
+<h2 id="passo-3-executar-bateria-de-testes-em-claude">Passo 3: Executar bateria de testes em Claude</h2>
+<p>Claude tende a ser mais conservador nas citações, priorizando fontes estabelecidas e informações verificáveis. Na minha experiência, Claude cita menos startups e mais empresas tradicionais comparado ao ChatGPT. Isso afeta estratégia de teste: foque em prompts que demonstram expertise e authority, não apenas novidade.</p>
+<h3 id="diferencas-entre-claudeai-e-implementacoes-via-api">Diferenças entre Claude.ai e implementações via API</h3>
+<p><strong>Claude.ai</strong> (interface web) tem acesso a informações mais recentes e pode navegar web quando solicitado. <strong>Claude via API</strong> (integrado em outras plataformas) usa principalmente conhecimento pré-treinamento. Para auditoria, teste ambos: Claude.ai revela como updates recentes afetam citações; API mostra baseline de conhecimento "memorizado".</p>
+<p>Diferença prática: se você lançou produto novo nos últimos 6 meses, Claude.ai pode citá-lo em contextos recentes, mas Claude via API pode não conhecer. Isso é relevante para marcas que dependem de integrações via API (chatbots corporativos, assistentes integrados).</p>
+<h3 id="como-claude-prioriza-fontes-recentes">Como Claude prioriza fontes recentes</h3>
+<p>Claude dá peso maior para <strong>informações datadas e verificáveis</strong>. Se sua marca aparece em press releases, estudos de caso, ou coberturas jornalísticas com datas claras, chance de citação aumenta. Conteúdo evergreen sem contexto temporal tem peso menor.</p>
+<p>Para maximizar citação no Claude, publique conteúdo com <strong>marcadores temporais claros</strong>: "análise de mercado 2024", "resultados Q3 2024", "lançamento dezembro 2024". Claude interpreta isso como informação fresca e aumenta probabilidade de citação em respostas que exigem dados atuais.</p>
+<h2 id="passo-4-executar-bateria-de-testes-em-perplexity">Passo 4: Executar bateria de testes em Perplexity</h2>
+<p>Perplexity é a plataforma mais transparente em citações - sempre mostra fontes específicas e permite validar origin das informações. Por isso, auditoria no Perplexity revela <strong>qualidade da fonte</strong>, não apenas presença. Sua marca pode aparecer, mas citando fonte inadequada (fórum, site não-oficial, conteúdo desatualizado).</p>
+<h3 id="modos-focus-pro-search-e-diferencas-na-citacao">Modos Focus, Pro Search e diferenças na citação</h3>
+<p><strong>Modo Focus</strong> permite escolher tipo de fonte: Academic, Writing, Wolfram, YouTube, Reddit. Para B2B, teste principalmente Academic e Writing. <strong>Pro Search</strong> usa modelos mais avançados e pode gerar respostas mais completas. <strong>Modo padrão</strong> equilibra velocidade e qualidade.</p>
+<p>Na minha experiência, Pro Search cita mais fontes por resposta e inclui mais contexto, aumentando chance de múltiplas menções da mesma marca. Modo Focus Academic favorece marcas com presença em whitepapers, case studies, e pesquisas de mercado. Focus Reddit pode revelar percepção não-oficial da marca.</p>
+<h3 id="analise-de-posicao-e-destaque-visual">Análise de posição e destaque visual</h3>
+<p>Perplexity numera as fontes citadas e destaca visualmente. <strong>Fonte [1]</strong> tem mais destaque que <strong>fonte [4]</strong>. Além disso, algumas citações aparecem como <strong>cards expandidos</strong> com preview do conteúdo. Documente não apenas se sua marca foi citada, mas <strong>número da fonte</strong> e <strong>destaque visual</strong>.</p>
+<p>Se você consistentemente aparece como fonte [3] ou [4], investigue as fontes [1] e [2]: que tipo de conteúdo estão produzindo? Que formato? Que autoridade de domínio? Na maioria dos casos, Perplexity prioriza domains com alta authority e conteúdo bem estruturado com headings claros.</p>
+<h2 id="passo-5-executar-bateria-de-testes-em-gemini">Passo 5: Executar bateria de testes em Gemini</h2>
+<p>Gemini tem <strong>integração nativa com Google Search e Knowledge Graph</strong>, o que muda fundamentalmente a dinâmica de citação. Se sua empresa tem Knowledge Panel no Google, chance de citação no Gemini aumenta dramaticamente. Análises de mercado sugerem que marcas com Knowledge Graph estabelecido têm 3.2x mais chance de serem citadas pelo Gemini (2024).</p>
+<h3 id="integracao-com-google-search-e-knowledge-graph">Integração com Google Search e Knowledge Graph</h3>
+<p>Gemini acessa tanto conhecimento pré-treinamento quanto <strong>dados em tempo real do Google</strong>. Isso significa que otimizações de SEO tradicional (title tags, meta descriptions, structured data) afetam diretamente citações no Gemini. É o elo mais direto entre SEO clássico e AI Visibility.</p>
+<p>Se sua marca tem <strong>rich snippets</strong>, <strong>featured snippets</strong>, ou <strong>knowledge panels</strong> no Google, teste prompts relacionados no Gemini. Na maioria dos casos, Gemini vai preservar e expandir essas informações estruturadas. Se você não aparece no Google para queries relevantes, dificilmente aparecerá no Gemini.</p>
+<h3 id="como-gemini-usa-dados-estruturados">Como Gemini usa dados estruturados</h3>
+<p><strong>Schema markup</strong> tem impacto direto na citação do Gemini. Organization schema, Product schema, FAQ schema - todos alimentam as respostas. Se você implementou structured data corretamente, Gemini pode extrair informações específicas (preços, avaliações, localização, horários) diretamente do seu site.</p>
+<p>Para testar, use prompts específicos que trigram dados estruturados: "horário de funcionamento", "preço", "avaliação", "localização". Se você tem schema implementado mas Gemini não cita essas informações, pode ser problema de crawl, erro na implementação, ou concorrência com fontes mais autoritativas.</p>
+<h2 id="consolidar-resultados-em-dashboard-comparativo">Consolidar resultados em dashboard comparativo</h2>
+<p>Após executar testes nas 4 plataformas, consolide resultados em <strong>dashboard visual</strong> que permita análise cross-platform. O objetivo é identificar padrões: queries que funcionam consistentemente, plataformas onde você tem gap, concorrentes que aparecem no seu lugar.</p>
+<h3 id="tabela-de-presenca-por-plataforma-e-tipo-de-query">Tabela de presença por plataforma e tipo de query</h3>
+<table>
+<thead>
+<tr>
+<th>Prompt Type</th>
+<th>ChatGPT</th>
+<th>Claude</th>
+<th>Perplexity</th>
+<th>Gemini</th>
+<th>Gap Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marca direta</td>
+<td>85%</td>
+<td>70%</td>
+<td>90%</td>
+<td>95%</td>
+<td>Baixo</td>
+</tr>
+<tr>
+<td>Categoria</td>
+<td>30%</td>
+<td>20%</td>
+<td>45%</td>
+<td>60%</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>Comparativo</td>
+<td>15%</td>
+<td>10%</td>
+<td>25%</td>
+<td>40%</td>
+<td>Crítico</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gap Score</strong> prioriza onde focar esforços. "Crítico" significa ausência em categoria core; "Alto" significa oportunidade de crescimento; "Baixo" significa manter presença atual. Essa matriz revela se seu problema é <strong>awareness básico</strong> (gap em marca direta) ou <strong>market penetration</strong> (gap em categoria).</p>
+<h3 id="identificar-gaps-criticos-de-visibilidade">Identificar gaps críticos de visibilidade</h3>
+<p><strong>Gap Tipo 1</strong>: Ausência total em queries de marca direta. Problema fundamental - sua empresa não é reconhecida como entidade válida. <strong>Gap Tipo 2</strong>: Presença inconsistente entre plataformas. Algumas IAs conhecem você, outras não - indica problema de crawl ou authority distribution.</p>
+<p><strong>Gap Tipo 3</strong>: Ausência em queries de categoria onde você deveria aparecer. Problema de SEO temático ou content strategy. <strong>Gap Tipo 4</strong>: Citação em contexto negativo ou incorreto. Problema de reputation management ou outdated information.</p>
+<p>Na minha experiência, Gap Tipo 3 oferece maior ROI para correção. É mais fácil otimizar conteúdo existente para queries de categoria do que construir entity recognition do zero (Gap Tipo 1).</p>
+<h2 id="diagnosticar-causas-de-ausencia-ou-ma-representacao">Diagnosticar causas de ausência ou má representação</h2>
+<p>Para cada gap identificado, diagnostique <strong>causa raiz</strong>. As três causas mais comuns: <strong>falta de crawl</strong> (IAs não acessaram seu conteúdo), <strong>conteúdo inadequado</strong> (seu conteúdo não responde queries relevantes), <strong>entidade fraca</strong> (você não é reconhecido como autoridade no tópico).</p>
+<h3 id="falta-de-crawl-conteudo-inadequado-ou-entidade-fraca">Falta de crawl, conteúdo inadequado ou entidade fraca</h3>
+<p><strong>Falta de crawl</strong>: Teste se suas páginas importantes estão sendo indexadas. Use robots.txt checker, sitemap validation, Google Search Console. Se Google não indexa, IAs também não acessam. Solução: technical SEO básico.</p>
+<p><strong>Conteúdo inadequado</strong>: Você tem páginas sobre o tópico, mas não respondem queries específicas testadas. Solução: <a href="https://aeobr.com.br/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/">usar prompts de teste manual</a> para identificar gaps de conteúdo e criar material direcionado.</p>
+<p><strong>Entidade fraca</strong>: Você tem conteúdo indexado, mas não é percebido como autoridade. Problema de backlinks, mentions, ou structured data. Solução: entity SEO - construir entity graph com consistent NAP, mentions, e co-citations.</p>
+<h3 id="concorrentes-citados-no-seu-lugar">Concorrentes citados no seu lugar</h3>
+<p>Analise <strong>quem está sendo citado</strong> quando você deveria aparecer. Se sempre os mesmos 2-3 concorrentes dominam suas queries de categoria, eles provavelmente têm content strategy ou entity strategy mais forte. Reverta-engenharia: que conteúdo eles produzem? Que structured data usam? Que authority signals têm?</p>
+<p>Na maioria dos casos, concorrentes bem posicionados em IAs têm <strong>content hubs</strong> abrangentes sobre a categoria, não apenas páginas de produto. Eles educam o mercado, você vende produto. IAs preferem fontes educacionais para queries informacionais.</p>
+<h2 id="priorizar-acoes-corretivas-por-impacto-e-esforco">Priorizar ações corretivas por impacto e esforço</h2>
+<p>Use matriz <strong>impacto x esforço</strong> para priorizar correções. <strong>Alto impacto, baixo esforço</strong>: otimizar conteúdo existente para queries específicas, implementar schema markup básico, corrigir technical SEO. <strong>Alto impacto, alto esforço</strong>: criar content hubs, construir authority, entity optimization.</p>
+<p><strong>Baixo impacto, baixo esforço</strong>: correções pontuais, atualizações de informações desatualizadas. <strong>Baixo impacto, alto esforço</strong>: evitar ou deixar para segundo momento. Foque sempre em <strong>quick wins</strong> (alto impacto, baixo esforço) para gerar momentum antes de projetos maiores.</p>
+<p>Para marcas B2B, prioridade típica: 1) Technical SEO e crawlability, 2) Schema markup para informações básicas, 3) Content para queries de categoria de alto volume, 4) Entity building de longo prazo. Sequence importa - não adianta content strategy se você tem problemas de crawl.</p>
+<h2 id="automatizar-partes-do-processo-com-ferramentas-e-apis">Automatizar partes do processo com ferramentas e APIs</h2>
+<p>Embora auditoria completa exija testes manuais, algumas partes podem ser automatizadas. <strong>APIs oficiais</strong> do OpenAI, Anthropic, e Google permitem executar prompts programaticamente. <strong>Web scraping</strong> pode capturar respostas do Perplexity e Claude.ai (respeitando rate limits e ToS).</p>
+<p>Para <a href="https://aeobr.com.br/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/">monitorar AI visibility e share of voice</a> contínuo, monte <strong>script Python</strong> que executa subset de prompts críticos semanalmente e alerta sobre mudanças significativas na citação. Isso não substitui auditoria manual trimestral, mas identifica issues entre auditoria completas.</p>
+<p><strong>Ferramentas emergentes</strong> como BrandVisibilityAI, AIEO Tracker, e Mentions.ai começam a oferecer monitoring automatizado. Na minha análise, ainda são limitadas comparado a auditoria manual, mas úteis para tracking básico de marca direta e alertas de anomalias.</p>
+<hr />
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="com-que-frequencia-devo-auditar-a-presenca-da-minha-marca-em-ias-generativas">Com que frequência devo auditar a presença da minha marca em IAs generativas?</h3>
+<p>Para marcas B2B estabelecidas, recomendo auditoria completa trimestral com spot checks mensais em queries prioritárias. Startups precisam de auditoria mensal nos primeiros 6 meses. A frequência depende da velocidade de mudança do seu mercado e investimento em content marketing.</p>
+<h3 id="quais-tipos-de-prompts-devo-usar-para-auditar-ai-visibility-de-forma-completa">Quais tipos de prompts devo usar para auditar AI visibility de forma completa?</h3>
+<p>Use matriz com 3 tipos: prompts diretos (sobre sua marca), indiretos (categoria/vertical), e comparativos (você vs concorrentes). Para cada tipo, crie variações por intenção: informacional, comercial, navegacional. Mínimo de 15-20 prompts para auditoria básica.</p>
+<h3 id="como-documentar-e-comparar-resultados-de-auditoria-entre-plataformas">Como documentar e comparar resultados de auditoria entre plataformas?</h3>
+<p>Monte planilha com prompts nas linhas e plataformas nas colunas. Documente não apenas presença/ausência, mas posição da menção, contexto (positivo/negativo), e concorrentes citados. Use gap score para priorizar ações entre plataformas.</p>
+<h3 id="o-que-fazer-quando-minha-marca-nao-aparece-em-nenhuma-ia-generativa">O que fazer quando minha marca não aparece em nenhuma IA generativa?</h3>
+<p>Problema fundamental de entity recognition. Prioridades: 1) Verificar crawlability técnica, 2) Implementar schema markup básico, 3) Criar conteúdo educacional sobre sua categoria, 4) Construir mentions e backlinks para entity building. Foque em Google primeiro - outras IAs seguem.</p>
+<h3 id="e-possivel-automatizar-auditoria-de-ai-visibility-usando-apis">É possível automatizar auditoria de AI visibility usando APIs?</h3>
+<p>Parcialmente. APIs oficiais permitem executar prompts programaticamente, mas análise qualitativa do contexto ainda exige revisão manual. Automatize tracking de prompts críticos para alertas de mudança, mas mantenha auditoria manual trimestral para insights estratégicos completos.</p>
+<h2 id="leia-tambem">Leia também</h2>
+<ul>
+<li><a href="https://aeobr.com.br/blog/llm-perception-drift-monitorar-estabilizar-percepcao-marca-llms/">LLM Perception Drift: como monitorar e estabilizar a percepção da sua marca em LLMs mês a mês</a></li>
+</ul>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>
