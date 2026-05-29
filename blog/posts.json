@@ -1,7 +1,11 @@
 {
-  "generated_at": "2026-05-27T11:06:35",
-  "count": 51,
+  "generated_at": "2026-05-29T20:22:37",
+  "count": 52,
   "categories": [
+    {
+      "id": "giro",
+      "label": "Giro IA"
+    },
     {
       "id": "fundamentos",
       "label": "Fundamentos"
@@ -28,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/cnn-processa-perplexity-direitos-autorais-ia/",
+      "slug": "cnn-processa-perplexity-direitos-autorais-ia",
+      "title": "CNN processa Perplexity: o divisor de águas para direitos autorais em IA",
+      "desc": "CNN processa Perplexity por violação de direitos autorais. Entenda como essa ação judicial pode redefinir as regras de citação em answer engines e o que sua marca deve fazer para proteger conteúdo sem perder visibilidade em IAs.",
+      "date": "2026-05-29",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/aeo-profissionais-liberais-atrair-clientes-assistentes-ia/",
       "slug": "aeo-profissionais-liberais-atrair-clientes-assistentes-ia",
