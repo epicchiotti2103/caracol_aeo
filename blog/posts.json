@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T12:01:55",
-  "count": 53,
+  "generated_at": "2026-06-01T12:02:59",
+  "count": 54,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/amazon-vs-perplexity-cfaa-pode-banir-agentes-ia/",
+      "slug": "amazon-vs-perplexity-cfaa-pode-banir-agentes-ia",
+      "title": "Amazon vs. Perplexity: o CFAA pode banir agentes de IA de sites?",
+      "desc": "Amazon processa Perplexity com base no CFAA, testando se agentes de IA podem acessar sites sem permissão. A decisão redefine crawlers de IA e exige revisão de robots.txt e termos de uso para marcas.",
+      "date": "2026-06-01",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/ai-overviews-consultas-comerciais-muda-aeo-2026/",
       "slug": "ai-overviews-consultas-comerciais-muda-aeo-2026",
