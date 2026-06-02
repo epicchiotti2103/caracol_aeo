@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-01T12:02:59",
-  "count": 54,
+  "generated_at": "2026-06-02T18:45:01",
+  "count": 53,
   "categories": [
     {
       "id": "giro",
@@ -114,18 +114,9 @@
       "cat_label": "Medição"
     },
     {
-      "url": "/blog/otimizar-conteudo-meta-ai-whatsapp-instagram-2/",
-      "slug": "otimizar-conteudo-meta-ai-whatsapp-instagram-2",
-      "title": "Como otimizar conteúdo para Meta AI no WhatsApp e Instagram em 2025?",
-      "desc": "Estratégias práticas para aumentar citações da sua marca na Meta AI integrada ao WhatsApp e Instagram. Táticas específicas para o contexto conversacional.",
-      "date": "2026-05-15",
-      "cat_id": "fundamentos",
-      "cat_label": "Fundamentos"
-    },
-    {
       "url": "/blog/otimizar-conteudo-meta-ai-whatsapp-instagram/",
       "slug": "otimizar-conteudo-meta-ai-whatsapp-instagram",
-      "title": "Como otimizar conteúdo para Meta AI no WhatsApp e Instagram em 2025?",
+      "title": "Como otimizar conteúdo para Meta AI no WhatsApp e Instagram em 2026?",
       "desc": "Guia completo para estruturar perfis e posts nas plataformas Meta para maximizar citações pela Meta AI integrada ao WhatsApp e Instagram.",
       "date": "2026-05-15",
       "cat_id": "fundamentos",
@@ -251,7 +242,7 @@
     {
       "url": "/blog/agentes-ia-autonomos-mudam-estrategia-aeo/",
       "slug": "agentes-ia-autonomos-mudam-estrategia-aeo",
-      "title": "Como agentes de IA autônomos mudam a estratégia de AEO em 2025?",
+      "title": "Como agentes de IA autônomos mudam a estratégia de AEO em 2026?",
       "desc": "Agentes de IA autônomos executam múltiplas buscas sequenciais e acessam APIs. Descubra como adaptar sua estratégia de AEO para essa nova realidade.",
       "date": "2026-04-27",
       "cat_id": "fundamentos",
@@ -269,8 +260,8 @@
     {
       "url": "/blog/5-passos-otimizar-aeo-blogs/",
       "slug": "5-passos-otimizar-aeo-blogs",
-      "title": "5 passos práticos para otimizar AEO em blogs corporativos",
-      "desc": "Checklist completo para adaptar blogs corporativos para Answer Engine Optimization: crawler, conteúdo, schema, meta tags e atualização contínua",
+      "title": "AEO em blogs: 5 passos para ser citado por IAs (checklist)",
+      "desc": "Checklist de Answer Engine Optimization para blogs: crawler, conteúdo, schema e meta tags para ChatGPT, Perplexity e Google AI citarem seus posts.",
       "date": "2026-04-08",
       "cat_id": "tecnico",
       "cat_label": "Técnico"
@@ -278,8 +269,8 @@
     {
       "url": "/blog/estruturar-faq-citacao-assistentes-ia/",
       "slug": "estruturar-faq-citacao-assistentes-ia",
-      "title": "Como estruturar FAQs para maximizar citações em assistentes de IA?",
-      "desc": "Aprenda a criar FAQs com schema markup FAQPage, formatação semântica e linguagem conversacional para aumentar citações em respostas de LLMs.",
+      "title": "Como estruturar FAQ para ChatGPT e Perplexity citarem você",
+      "desc": "Monte FAQs com schema FAQPage e linguagem conversacional que fazem ChatGPT, Perplexity e Google AI citarem sua marca. Passo a passo prático.",
       "date": "2026-04-08",
       "cat_id": "conteudo",
       "cat_label": "Conteúdo"
@@ -341,7 +332,7 @@
     {
       "url": "/blog/otimizar-conteudo-citacao-ia-generativa/",
       "slug": "otimizar-conteudo-citacao-ia-generativa",
-      "title": "Como otimizar conteúdo para ser citado por IAs generativas em 2025",
+      "title": "Como otimizar conteúdo para ser citado por IAs generativas em 2026",
       "desc": "Guia técnico para estruturar conteúdo que aumenta probabilidade de citação por ChatGPT, Perplexity e Claude. Estratégias práticas de AEO.",
       "date": "2026-04-07",
       "cat_id": "fundamentos",
