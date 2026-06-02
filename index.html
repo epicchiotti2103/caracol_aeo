@@ -604,6 +604,8 @@
     const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h==='#')return;e.preventDefault();const t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+    // chegada via link rastreado (#auditoria?cid=... ou ?cid=...) — rola ate o form
+    (function(){var quer=/auditoria/.test(location.hash)||/[?&](cid|utm_)/.test(location.search);if(!quer)return;function ir(){var el=document.getElementById('auditoria');if(!el)return;el.scrollIntoView({behavior:'smooth',block:'start'});var c=el.querySelector('input');if(c)c.focus({preventScroll:!0});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ir);else setTimeout(ir,80);})();
 
     // ============ BLOG LOADER — lê /blog/posts.json gerado pelo build ============
     (async function loadBlogPosts(){
