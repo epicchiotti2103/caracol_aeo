@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-02T18:45:01",
-  "count": 53,
+  "generated_at": "2026-06-03T12:01:47",
+  "count": 54,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/google-search-console-ai-reports-como-usar/",
+      "slug": "google-search-console-ai-reports-como-usar",
+      "title": "Google Search Console AI reports: como usar para monitorar citações",
+      "desc": "Google libera relatórios de desempenho em respostas de IA no Search Console, com controle de bloqueio. Reino Unido exige opt-out. Guia AEO prático para configurar e decidir bloqueios.",
+      "date": "2026-06-03",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/amazon-vs-perplexity-cfaa-pode-banir-agentes-ia/",
       "slug": "amazon-vs-perplexity-cfaa-pode-banir-agentes-ia",
