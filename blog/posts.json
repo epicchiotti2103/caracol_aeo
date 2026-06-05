@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-03T12:01:47",
-  "count": 54,
+  "generated_at": "2026-06-05T12:02:35",
+  "count": 55,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/gsc-ai-overview-reporting/",
+      "slug": "gsc-ai-overview-reporting",
+      "title": "GSC AI Overview Reporting: Como Medir e Otimizar para AEO",
+      "desc": "Google Search Console agora separa dados de AI Overviews. Saiba como extrair métricas de cliques e impressões para ajustar sua estratégia de citação em IAs.",
+      "date": "2026-06-05",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/google-search-console-ai-reports-como-usar/",
       "slug": "google-search-console-ai-reports-como-usar",
