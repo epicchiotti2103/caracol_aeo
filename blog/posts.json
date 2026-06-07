@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-05T12:02:35",
-  "count": 55,
+  "generated_at": "2026-06-07T12:02:22",
+  "count": 56,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/opt-out-ai-overviews-google-2025-como-controlar/",
+      "slug": "opt-out-ai-overviews-google-2025-como-controlar",
+      "title": "Opt Out AI Overviews Google 2025: Como Controlar a Citação da Sua Marca",
+      "desc": "Google permite que sites recusem uso de conteúdo em respostas de IA e lança Search Profiles. Implicações AEO: como marcas podem gerenciar visibilidade em AI Overviews e otimizar autoridade.",
+      "date": "2026-06-07",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/gsc-ai-overview-reporting/",
       "slug": "gsc-ai-overview-reporting",
