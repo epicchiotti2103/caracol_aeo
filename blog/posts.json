@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-07T12:02:22",
-  "count": 56,
+  "generated_at": "2026-06-09T12:02:47",
+  "count": 57,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/expansao-anuncios-chatgpt-como-preparar-sua-marca-ser/",
+      "slug": "expansao-anuncios-chatgpt-como-preparar-sua-marca-ser",
+      "title": "Expansão de anúncios no ChatGPT: como preparar sua marca para ser citada",
+      "desc": "OpenAI anuncia testes com múltiplos anunciantes no ChatGPT. Entenda como a publicidade paga em respostas de IA exige dados estruturados, conteúdo conversacional e orçamento estratégico.",
+      "date": "2026-06-09",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/opt-out-ai-overviews-google-2025-como-controlar/",
       "slug": "opt-out-ai-overviews-google-2025-como-controlar",
