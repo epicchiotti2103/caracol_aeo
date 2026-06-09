@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <meta name="theme-color" content="#050505">
+  <title>Página não encontrada — Caracol AEO</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--amber:#FFB300;--orange-strong:rgba(255,87,34,.28);--bg:#050505;--t1:#f5f5f5;--t2:#a8a8a8;--t3:#6b6b6b;--bdr:rgba(255,255,255,.07);--bdr-h:rgba(255,255,255,.14);--grad:linear-gradient(120deg,var(--orange) 10%,var(--amber) 90%);--ease:cubic-bezier(.16,1,.3,1)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;overflow:hidden;position:relative}
+    .orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+    .orb-1{width:520px;height:520px;background:radial-gradient(circle,rgba(255,87,34,.16),transparent 65%);top:-180px;left:12%;animation:drift 16s ease-in-out infinite}
+    .orb-2{width:420px;height:420px;background:radial-gradient(circle,rgba(255,179,0,.08),transparent 65%);bottom:-140px;right:8%;animation:drift 20s ease-in-out infinite reverse}
+    @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,40px)}}
+    .grid-bg{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 80% 70% at 50% 45%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 45%,#000 30%,transparent 75%);z-index:0}
+    main{position:relative;z-index:1;max-width:560px;opacity:0;transform:translateY(24px);animation:fu .8s var(--ease) .1s forwards}
+    @keyframes fu{to{opacity:1;transform:translateY(0)}}
+    .logo{margin:0 auto 40px;display:block;width:140px}
+    .code{font-family:'JetBrains Mono',monospace;font-size:clamp(80px,16vw,130px);font-weight:500;line-height:1;letter-spacing:-.05em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:18px}
+    h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+    p{font-size:16px;color:var(--t2);line-height:1.65;margin-bottom:36px}
+    .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn-p{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:var(--orange);color:#fff;border-radius:100px;font-weight:600;font-size:15px;text-decoration:none;transition:all .25s var(--ease)}
+    .btn-p:hover{transform:scale(1.04);box-shadow:0 8px 32px var(--orange-strong)}
+    .btn-s{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:transparent;color:var(--t1);border:1px solid var(--bdr-h);border-radius:100px;font-weight:500;font-size:15px;text-decoration:none;transition:all .25s var(--ease)}
+    .btn-s:hover{background:rgba(255,255,255,.05)}
+    .hint{margin-top:44px;font-size:13px;color:var(--t3)}
+    .hint a{color:var(--orange);text-decoration:none}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important}main{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <main>
+    <a href="/"><img class="logo" src="/logo-nav.png" alt="Caracol AEO" width="140" height="45"></a>
+    <div class="code">404</div>
+    <h1>Esta página não foi encontrada</h1>
+    <p>O endereço pode ter mudado ou nunca existiu. Mas, falando nisso: será que o ChatGPT encontra a <em>sua</em> marca quando alguém pergunta sobre o seu mercado?</p>
+    <div class="actions">
+      <a class="btn-p" href="/#auditoria">Descobrir meu Score AEO →</a>
+      <a class="btn-s" href="/">Voltar ao início</a>
+    </div>
+    <div class="hint">Procurando conteúdo? Veja os <a href="/blog/">artigos do blog</a> ou fale com a gente: <a href="mailto:contato@caracol.media">contato@caracol.media</a></div>
+  </main>
+</body>
+</html>
