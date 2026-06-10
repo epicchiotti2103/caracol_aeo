@@ -1,0 +1,887 @@
+{
+ "estudo": "Índice AEO Brasil — E-commerce 2026",
+ "publicado": "2026-06-09",
+ "fonte": "Caracol AEO — https://www.aeobr.com.br",
+ "licenca": "CC BY 4.0 — cite a fonte",
+ "metodologia": "Auditoria automatizada (AEO Auditor v3.4) de até 10 páginas por site em 5 pilares. Top 10 da amostra ancorado no ranking de audiência Conversion (dez/2025).",
+ "sites": [
+  {
+   "posicao": 1,
+   "marca": "Petlove",
+   "dominio": "petlove.com.br",
+   "score_geral": 88,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 100,
+    "Conteudo": 72,
+    "Estrutura": 100,
+    "Meta": 100
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 2,
+   "marca": "Insider",
+   "dominio": "insiderstore.com.br",
+   "score_geral": 87,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 100,
+    "Conteudo": 84,
+    "Estrutura": 87,
+    "Meta": 80
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Shopify",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 3,
+   "marca": "Natura",
+   "dominio": "natura.com.br",
+   "score_geral": 86,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 88,
+    "Conteudo": 72,
+    "Estrutura": 93,
+    "Meta": 100
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 4,
+   "marca": "KaBuM!",
+   "dominio": "kabum.com.br",
+   "score_geral": 82,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 64,
+    "Conteudo": 88,
+    "Estrutura": 93,
+    "Meta": 80
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 5,
+   "marca": "O Boticário",
+   "dominio": "oboticario.com.br",
+   "score_geral": 78,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 68,
+    "Conteudo": 72,
+    "Estrutura": 93,
+    "Meta": 70
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 6,
+   "marca": "Petz",
+   "dominio": "petz.com.br",
+   "score_geral": 78,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 76,
+    "Conteudo": 56,
+    "Estrutura": 93,
+    "Meta": 90
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 7,
+   "marca": "Vivara",
+   "dominio": "vivara.com.br",
+   "score_geral": 76,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 56,
+    "Conteudo": 72,
+    "Estrutura": 80,
+    "Meta": 70
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 8,
+   "marca": "Tok&Stok",
+   "dominio": "tokstok.com.br",
+   "score_geral": 75,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 76,
+    "Conteudo": 64,
+    "Estrutura": 73,
+    "Meta": 70
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 9,
+   "marca": "Sephora Brasil",
+   "dominio": "sephora.com.br",
+   "score_geral": 73,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 76,
+    "Conteudo": 64,
+    "Estrutura": 60,
+    "Meta": 70
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 10,
+   "marca": "Época Cosméticos",
+   "dominio": "epocacosmeticos.com.br",
+   "score_geral": 73,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 56,
+    "Conteudo": 56,
+    "Estrutura": 80,
+    "Meta": 80
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 11,
+   "marca": "Cobasi",
+   "dominio": "cobasi.com.br",
+   "score_geral": 73,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 64,
+    "Conteudo": 60,
+    "Estrutura": 87,
+    "Meta": 70
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 12,
+   "marca": "Renner",
+   "dominio": "lojasrenner.com.br",
+   "score_geral": 72,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 56,
+    "Conteudo": 68,
+    "Estrutura": 87,
+    "Meta": 60
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 13,
+   "marca": "Beleza na Web",
+   "dominio": "belezanaweb.com.br",
+   "score_geral": 72,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 68,
+    "Conteudo": 56,
+    "Estrutura": 93,
+    "Meta": 50
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 14,
+   "marca": "Casas Bahia",
+   "dominio": "casasbahia.com.br",
+   "score_geral": 71,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 64,
+    "Conteudo": 64,
+    "Estrutura": 73,
+    "Meta": 60
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 15,
+   "marca": "Ponto (Ponto Frio)",
+   "dominio": "pontofrio.com.br",
+   "score_geral": 71,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 64,
+    "Conteudo": 60,
+    "Estrutura": 80,
+    "Meta": 60
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 16,
+   "marca": "Farm Rio",
+   "dominio": "farmrio.com.br",
+   "score_geral": 71,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 88,
+    "Conteudo": 56,
+    "Estrutura": 47,
+    "Meta": 80
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 17,
+   "marca": "Riachuelo",
+   "dominio": "riachuelo.com.br",
+   "score_geral": 69,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 24,
+    "Conteudo": 84,
+    "Estrutura": 93,
+    "Meta": 60
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 18,
+   "marca": "Pague Menos",
+   "dominio": "paguemenos.com.br",
+   "score_geral": 68,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 56,
+    "Conteudo": 52,
+    "Estrutura": 80,
+    "Meta": 40
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 19,
+   "marca": "Dafiti",
+   "dominio": "dafiti.com.br",
+   "score_geral": 67,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 12,
+    "Conteudo": 64,
+    "Estrutura": 100,
+    "Meta": 80
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 20,
+   "marca": "Americanas",
+   "dominio": "americanas.com.br",
+   "score_geral": 66,
+   "pilares": {
+    "Acesso": 84,
+    "Identidade": 76,
+    "Conteudo": 20,
+    "Estrutura": 93,
+    "Meta": 70
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [
+    "GPTBot",
+    "Google-Extended"
+   ],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 21,
+   "marca": "Netshoes",
+   "dominio": "netshoes.com.br",
+   "score_geral": 66,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 32,
+    "Conteudo": 48,
+    "Estrutura": 87,
+    "Meta": 80
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 22,
+   "marca": "Drogasil",
+   "dominio": "drogasil.com.br",
+   "score_geral": 66,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 12,
+    "Conteudo": 80,
+    "Estrutura": 93,
+    "Meta": 90
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 23,
+   "marca": "Decathlon Brasil",
+   "dominio": "decathlon.com.br",
+   "score_geral": 66,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 48,
+    "Conteudo": 52,
+    "Estrutura": 80,
+    "Meta": 90
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 24,
+   "marca": "MadeiraMadeira",
+   "dominio": "madeiramadeira.com.br",
+   "score_geral": 64,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 64,
+    "Conteudo": 32,
+    "Estrutura": 60,
+    "Meta": 60
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 25,
+   "marca": "Kalunga",
+   "dominio": "kalunga.com.br",
+   "score_geral": 64,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 0,
+    "Conteudo": 72,
+    "Estrutura": 100,
+    "Meta": 60
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 26,
+   "marca": "Marisa",
+   "dominio": "marisa.com.br",
+   "score_geral": 63,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 12,
+    "Conteudo": 88,
+    "Estrutura": 87,
+    "Meta": 30
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 27,
+   "marca": "Havan",
+   "dominio": "havan.com.br",
+   "score_geral": 63,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 0,
+    "Conteudo": 92,
+    "Estrutura": 93,
+    "Meta": 60
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 28,
+   "marca": "Samsung Brasil",
+   "dominio": "samsung.com.br",
+   "score_geral": 62,
+   "pilares": {
+    "Acesso": 92,
+    "Identidade": 76,
+    "Conteudo": 24,
+    "Estrutura": 53,
+    "Meta": 60
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 29,
+   "marca": "Mercado Livre",
+   "dominio": "mercadolivre.com.br",
+   "score_geral": 61,
+   "pilares": {
+    "Acesso": 52,
+    "Identidade": 44,
+    "Conteudo": 72,
+    "Estrutura": 80,
+    "Meta": 70
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [
+    "GPTBot",
+    "ChatGPT-User",
+    "PerplexityBot",
+    "Perplexity-User",
+    "ClaudeBot",
+    "Amazonbot"
+   ],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 30,
+   "marca": "Carrefour",
+   "dominio": "carrefour.com.br",
+   "score_geral": 59,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 0,
+    "Conteudo": 64,
+    "Estrutura": 87,
+    "Meta": 50
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 31,
+   "marca": "Polishop",
+   "dominio": "polishop.com.br",
+   "score_geral": 56,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 44,
+    "Conteudo": 28,
+    "Estrutura": 53,
+    "Meta": 50
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 32,
+   "marca": "Shein",
+   "dominio": "shein.com",
+   "score_geral": 55,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 44,
+    "Conteudo": 52,
+    "Estrutura": 47,
+    "Meta": 40
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 33,
+   "marca": "Hering",
+   "dominio": "hering.com.br",
+   "score_geral": 54,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 56,
+    "Conteudo": 12,
+    "Estrutura": 60,
+    "Meta": 60
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 34,
+   "marca": "Fast Shop",
+   "dominio": "fastshop.com.br",
+   "score_geral": 53,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 44,
+    "Conteudo": 44,
+    "Estrutura": 47,
+    "Meta": 40
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 35,
+   "marca": "Panvel",
+   "dominio": "panvel.com.br",
+   "score_geral": 49,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 44,
+    "Conteudo": 24,
+    "Estrutura": 47,
+    "Meta": 50
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 36,
+   "marca": "Chilli Beans",
+   "dominio": "chillibeans.com.br",
+   "score_geral": 48,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 0,
+    "Conteudo": 44,
+    "Estrutura": 80,
+    "Meta": 50
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "VTEX",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 37,
+   "marca": "Amazon Brasil",
+   "dominio": "amazon.com.br",
+   "score_geral": 42,
+   "pilares": {
+    "Acesso": 52,
+    "Identidade": 0,
+    "Conteudo": 60,
+    "Estrutura": 67,
+    "Meta": 40
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [
+    "GPTBot",
+    "ChatGPT-User",
+    "Google-Extended",
+    "PerplexityBot",
+    "Perplexity-User",
+    "ClaudeBot",
+    "Claude-Web"
+   ],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 38,
+   "marca": "AliExpress",
+   "dominio": "aliexpress.com",
+   "score_geral": 33,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 12,
+    "Conteudo": 24,
+    "Estrutura": 13,
+    "Meta": 20
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Magento/Adobe",
+   "leitura_limitada_por_antibot": false
+  },
+  {
+   "posicao": 39,
+   "marca": "Magalu",
+   "dominio": "magazineluiza.com.br",
+   "score_geral": 26,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 24,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 40,
+   "marca": "Pichau",
+   "dominio": "pichau.com.br",
+   "score_geral": 26,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 24,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": true,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 41,
+   "marca": "C&A",
+   "dominio": "cea.com.br",
+   "score_geral": 25,
+   "pilares": {
+    "Acesso": 100,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 42,
+   "marca": "Nike Brasil",
+   "dominio": "nike.com.br",
+   "score_geral": 22,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 43,
+   "marca": "Adidas Brasil",
+   "dominio": "adidas.com.br",
+   "score_geral": 22,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 44,
+   "marca": "Leroy Merlin",
+   "dominio": "leroymerlin.com.br",
+   "score_geral": 22,
+   "pilares": {
+    "Acesso": 88,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 45,
+   "marca": "Droga Raia",
+   "dominio": "drogaraia.com.br",
+   "score_geral": 20,
+   "pilares": {
+    "Acesso": 80,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 46,
+   "marca": "Mobly",
+   "dominio": "mobly.com.br",
+   "score_geral": 18,
+   "pilares": {
+    "Acesso": 72,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 47,
+   "marca": "Terabyte",
+   "dominio": "terabyteshop.com.br",
+   "score_geral": 16,
+   "pilares": {
+    "Acesso": 64,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 48,
+   "marca": "Centauro",
+   "dominio": "centauro.com.br",
+   "score_geral": 15,
+   "pilares": {
+    "Acesso": 60,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [
+    "GPTBot",
+    "ChatGPT-User",
+    "Google-Extended",
+    "PerplexityBot",
+    "Perplexity-User",
+    "ClaudeBot",
+    "Claude-Web",
+    "Amazonbot",
+    "Applebot-Extended"
+   ],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 49,
+   "marca": "Arezzo",
+   "dominio": "arezzo.com.br",
+   "score_geral": 14,
+   "pilares": {
+    "Acesso": 56,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  },
+  {
+   "posicao": 50,
+   "marca": "Shopee",
+   "dominio": "shopee.com.br",
+   "score_geral": 12,
+   "pilares": {
+    "Acesso": 48,
+    "Identidade": 0,
+    "Conteudo": 0,
+    "Estrutura": 0,
+    "Meta": 0
+   },
+   "tem_llms_txt": false,
+   "bloqueia_bots_ia": [],
+   "plataforma": "Stack própria",
+   "leitura_limitada_por_antibot": true
+  }
+ ]
+}
