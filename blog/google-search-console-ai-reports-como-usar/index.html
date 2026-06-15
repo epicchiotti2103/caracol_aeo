@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Search Console AI reports: como usar para monitorar citações — Caracol AEO</title>
+  <meta name="description" content="Google libera relatórios de desempenho em respostas de IA no Search Console, com controle de bloqueio. Reino Unido exige opt-out. Guia AEO prático para configurar e decidir bloqueios.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/google-search-console-ai-reports-como-usar/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Google Search Console AI reports: como usar para monitorar citações">
+  <meta property="og:description" content="Google libera relatórios de desempenho em respostas de IA no Search Console, com controle de bloqueio. Reino Unido exige opt-out. Guia AEO prático para configurar e decidir bloqueios.">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/google-search-console-ai-reports-como-usar/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-06-03">
+  <meta property="article:section" content="Giro IA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Search Console AI reports: como usar para monitorar citações">
+  <meta name="twitter:description" content="Google libera relatórios de desempenho em respostas de IA no Search Console, com controle de bloqueio. Reino Unido exige opt-out. Guia AEO prático para configurar e decidir bloqueios.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Google Search Console AI reports: como usar para monitorar citações",
+    "description": "Google libera relatórios de desempenho em respostas de IA no Search Console, com controle de bloqueio. Reino Unido exige opt-out. Guia AEO prático para configurar e decidir bloqueios.",
+    "articleSection": "Giro IA",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://www.aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-06-03",
+    "dateModified": "2026-06-03",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aeobr.com.br/blog/google-search-console-ai-reports-como-usar/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como ativar os relatórios de desempenho em IA no Search Console?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não é necessário ativar nada. O Google está liberando gradualmente para todos os publishers verificados. Se você não vê a opção \"AI Overviews & Answers\" no filtro de tipo de pesquisa, aguarde algumas semanas. Enquanto isso, use a busca por \"site:seudominio.com\" + \"googleusercontent.com\" para identificar citações manuais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bloquear citações em IA prejudica meu SEO tradicional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, potencialmente. O Google usa sinais de citação em IA como indicador de qualidade e relevância. Bloqueios generalizados podem reduzir sua autoridade de domínio. Por isso, recomenda-se bloqueio seletivo por página e por geografia, não bloqueio total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como implementar o opt-out específico para o Reino Unido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use o novo parâmetro `data-geo=\"GB\"` na tag de bloqueio, combinado com a meta tag `google-ai-source`. Exemplo: `<meta name=\"google-ai-source\" content=\"no\" data-geo=\"GB\">`. Verifique no GSC se a regra está sendo aplicada corretamente no relatório de \"Controles de IA\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que fazer se minha CTR em IA for muito baixa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Analise se a resposta da IA está entregando a informação completa sem necessidade de clique. Se sim, considere bloquear aquela página para IA, mas apenas se você tiver tráfego orgânico significativo para a mesma query. Caso contrário, a citação ainda gera exposição de marca."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como medir o Share of Voice em respostas de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O GSC não oferece dados de concorrentes diretamente. Para uma análise completa de Share of Voice em IAs como ChatGPT, Perplexity e Google AI, recomendamos uma **auditoria de visibilidade em IAs** — como a que oferecemos no aeobr.com.br, que mapeia citações da sua marca vs. concorrentes em múltiplas plataformas de IA.  ---  *Elio Picchiotti é especialista em Answer Engine Optimization e founder do aeobr.com.br, onde ajuda marcas a serem citadas pelas IAs que importam.*"
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Giro IA</div>
+      <h1>Google Search Console AI reports: como usar para monitorar citações</h1>
+      <div class="meta">Elio Picchiotti · 3 de junho de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>No dia 3 de junho de 2026, dois movimentos simultâneos redefiniram o jogo da <strong>Answer Engine Optimization (AEO)</strong> para marcas e publishers. De um lado, o Google liberou oficialmente os <strong>relatórios de desempenho em respostas de IA</strong> no Search Console, com controles granulares de bloqueio de conteúdo. Do outro, o Reino Unido determinou que o Google deve permitir que publishers optem por não aparecer em funcionalidades de busca com IA no território britânico.</p>
+<p>Para quem trabalha com AEO, a mensagem é clara: <strong>o Google está oferecendo dados e alavancas de controle, mas a decisão estratégica de onde aparecer — e onde não aparecer — agora é sua</strong>. Ignorar esses relatórios é o mesmo que pilotar um avião sem instrumentos em meio a uma tempestade regulatória.</p>
+<div class="promo-banner" style="margin:2.5rem 0;text-align:center"><a href="https://mediacaracol.com/api/v3/offer/101?aff_sub=aeo&amp;affiliate_id=6&amp;url_id=58589" rel="sponsored noopener" target="_blank"><img src="/assets/img/promo-clear-300x250.gif" width="300" height="250" alt="Promocao Clear" loading="lazy" style="max-width:100%;height:auto;border:0;display:inline-block"></a></div>
+
+<h2 id="o-que-mudou-no-search-console-os-novos-relatorios-de-ia">O que mudou no Search Console: os novos relatórios de IA</h2>
+<p>Até maio de 2026, publishers dependiam de ferramentas de terceiros ou raspagens manuais para saber se seu conteúdo era citado em respostas do Google AI (como o SGE, Gemini integrado à busca, ou snippets avançados). Agora, o Search Console traz uma seção dedicada chamada <strong>"AI Overviews &amp; Answers"</strong>, dentro do relatório de desempenho.</p>
+<p><strong>O que você encontra lá:</strong></p>
+<ul>
+<li><strong>Métrica de impressões em IA</strong>: quantas vezes seu conteúdo foi citado em respostas geradas por IA, com breakdown por query.</li>
+<li><strong>Taxa de cliques (CTR)</strong>: quantos usuários clicaram no link da sua citação dentro da resposta de IA.</li>
+<li><strong>Posição média</strong>: o ranking relativo da sua citação entre as fontes citadas pela IA.</li>
+<li><strong>Controle de bloqueio por página</strong>: um novo campo no robots.txt e na tag meta permite sinalizar "não usar esta página em respostas de IA", sem bloquear o indexamento tradicional.</li>
+</ul>
+<p><strong>Por que isso importa para AEO:</strong> Até agora, marcas tinham que adivinhar se estavam sendo citadas. Agora, você pode <strong>rastrear a frequência e a qualidade das citações</strong>, identificar quais queries geram visibilidade e quais estão drenando tráfego sem retorno.</p>
+<h2 id="a-decisao-do-reino-unido-opt-out-obrigatorio-e-o-dilema-do-bloqueio-seletivo">A decisão do Reino Unido: opt-out obrigatório e o dilema do bloqueio seletivo</h2>
+<p>A Competition and Markets Authority (CMA) do Reino Unido determinou que o Google deve implementar um mecanismo que permita a publishers <strong>optar por não aparecer em respostas de IA</strong> especificamente para usuários britânicos. A justificativa: preocupações com concorrência desleal e apropriação de conteúdo sem compensação.</p>
+<p><strong>O que isso significa na prática:</strong></p>
+<ul>
+<li>O Google está desenvolvendo um <strong>parâmetro de geolocalização</strong> no controle de bloqueio. Você poderá aplicar uma regra que bloqueia citações em IA apenas para tráfego do Reino Unido.</li>
+<li>Publishers que optarem pelo bloqueio total no Reino Unido <strong>não perderão visibilidade em outros mercados</strong> (EUA, Brasil, Europa continental) — desde que configurem corretamente.</li>
+<li>A decisão abre precedente para outros países. A UE já sinalizou interesse em regulação similar.</li>
+</ul>
+<p><strong>O dilema estratégico:</strong> Bloquear citações em IA pode proteger seu modelo de negócios baseado em cliques diretos, mas pode reduzir sua autoridade de marca nas respostas das IAs — e, paradoxalmente, diminuir sua relevância em buscas tradicionais (já que o Google usa citações em IA como sinal de qualidade).</p>
+<h2 id="como-configurar-os-novos-relatorios-no-gsc-e-interpretar-metricas">Como configurar os novos relatórios no GSC e interpretar métricas</h2>
+<p><strong>Passo a passo prático:</strong></p>
+<ol>
+<li><strong>Acesse o Search Console</strong> → Relatórios de desempenho → Selecione "AI Overviews &amp; Answers" no filtro de tipo de pesquisa.</li>
+<li><strong>Exporte os dados</strong> por query, página e país. Compare com o tráfego orgânico tradicional para identificar padrões.</li>
+<li><strong>Analise a CTR</strong>: se sua citação em IA tem alta impressão mas CTR baixíssima (&lt; 0,5%), isso pode indicar que a resposta da IA já entrega a informação completa, sem necessidade de clique. Nesse caso, avalie o bloqueio seletivo.</li>
+<li><strong>Identifique queries canibalizadoras</strong>: queries que antes geravam cliques orgânicos e agora são respondidas pela IA sem clique. Essas são candidatas a bloqueio.</li>
+<li><strong>Teste bloqueios por página</strong>: use a nova tag <code>&lt;meta name="google-ai-source" content="no"&gt;</code> no cabeçalho HTML de páginas específicas. Monitore o impacto por 14 dias antes de escalar.</li>
+</ol>
+<h2 id="o-que-sua-marca-deve-fazer">O que sua marca deve fazer</h2>
+<p><strong>1. Audite seu desempenho atual em IA</strong>
+Antes de bloquear, entenda onde você está sendo citado. Use o novo relatório do GSC para mapear as 50 principais queries que geram citações. Classifique cada uma como "positiva" (gera cliques e autoridade) ou "negativa" (canibaliza tráfego).</p>
+<p><strong>2. Crie uma política de bloqueio por geografia e por página</strong>
+Para o Reino Unido, implemente o opt-out seletivo apenas para páginas com baixa CTR em IA. Não bloqueie páginas de alto valor de autoridade (como guias definitivos, pesquisas originais, dados proprietários) — elas são seu capital AEO.</p>
+<p><strong>3. Otimize conteúdo para ser citado com contexto</strong>
+As respostas de IA priorizam fontes que oferecem respostas diretas, estruturadas e com citação clara da fonte. Inclua <strong>blocos de citação</strong> no seu conteúdo (ex: "Segundo dados do nosso estudo...") e use <strong>marcação schema FAQ</strong> e <strong>HowTo</strong> para aumentar a probabilidade de citação.</p>
+<p><strong>4. Monitore semanalmente e ajuste</strong>
+Crie um dashboard (Google Data Studio + GSC API) com:
+- Impressões em IA vs. orgânicas
+- CTR em IA por query
+- Taxa de bloqueio aplicada
+- Share of Voice em respostas de IA para seus concorrentes</p>
+<p><strong>5. Prepare-se para regulações futuras</strong>
+A decisão do Reino Unido é o primeiro dominó. Comece a estruturar um <strong>comitê de governança de conteúdo para IA</strong> na sua empresa, com participação de SEO, jurídico e produto.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="como-ativar-os-relatorios-de-desempenho-em-ia-no-search-console">Como ativar os relatórios de desempenho em IA no Search Console?</h3>
+<p>Não é necessário ativar nada. O Google está liberando gradualmente para todos os publishers verificados. Se você não vê a opção "AI Overviews &amp; Answers" no filtro de tipo de pesquisa, aguarde algumas semanas. Enquanto isso, use a busca por "site:seudominio.com" + "googleusercontent.com" para identificar citações manuais.</p>
+<h3 id="bloquear-citacoes-em-ia-prejudica-meu-seo-tradicional">Bloquear citações em IA prejudica meu SEO tradicional?</h3>
+<p>Sim, potencialmente. O Google usa sinais de citação em IA como indicador de qualidade e relevância. Bloqueios generalizados podem reduzir sua autoridade de domínio. Por isso, recomenda-se bloqueio seletivo por página e por geografia, não bloqueio total.</p>
+<h3 id="como-implementar-o-opt-out-especifico-para-o-reino-unido">Como implementar o opt-out específico para o Reino Unido?</h3>
+<p>Use o novo parâmetro <code>data-geo="GB"</code> na tag de bloqueio, combinado com a meta tag <code>google-ai-source</code>. Exemplo: <code>&lt;meta name="google-ai-source" content="no" data-geo="GB"&gt;</code>. Verifique no GSC se a regra está sendo aplicada corretamente no relatório de "Controles de IA".</p>
+<h3 id="o-que-fazer-se-minha-ctr-em-ia-for-muito-baixa">O que fazer se minha CTR em IA for muito baixa?</h3>
+<p>Analise se a resposta da IA está entregando a informação completa sem necessidade de clique. Se sim, considere bloquear aquela página para IA, mas apenas se você tiver tráfego orgânico significativo para a mesma query. Caso contrário, a citação ainda gera exposição de marca.</p>
+<h3 id="como-medir-o-share-of-voice-em-respostas-de-ia">Como medir o Share of Voice em respostas de IA?</h3>
+<p>O GSC não oferece dados de concorrentes diretamente. Para uma análise completa de Share of Voice em IAs como ChatGPT, Perplexity e Google AI, recomendamos uma <strong>auditoria de visibilidade em IAs</strong> — como a que oferecemos no aeobr.com.br, que mapeia citações da sua marca vs. concorrentes em múltiplas plataformas de IA.</p>
+<hr />
+<p><em>Elio Picchiotti é especialista em Answer Engine Optimization e founder do aeobr.com.br, onde ajuda marcas a serem citadas pelas IAs que importam.</em></p>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>

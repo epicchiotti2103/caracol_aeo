@@ -2,31 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.aeobr.com.br/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.aeobr.com.br/ferramentas-aeo-brasil</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.aeobr.com.br/blog/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.aeobr.com.br/estudos/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.aeobr.com.br/estudos/indice-aeo-ecommerce-2026/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -163,6 +157,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/criar-conteudo-retrieval-ready-tecnicas-formatacao-llms/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/criar-pesquisas-dados-originais-citacao-llms/</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -229,6 +229,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/gemini-integracao-perfil-empresarial-aeo/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/gemini-integracao-perfil-empresarial-aeo/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/gemini-ultrapassou-perplexity-trafego-referencia-aeo/</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -255,6 +267,18 @@
   <url>
     <loc>https://www.aeobr.com.br/blog/google-search-console-identificar-queries-ia-oportunidades-conteudo/</loc>
     <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/gpt-5-4-deep-research-chatgpt-muda-busca-citacao-fontes/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/grok-aeo-vale-pena-otimizar-chatbot-xai-2026/</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -343,6 +367,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/recommendation-share-metrica-aeo-substitui-posicao-organica/</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -361,6 +391,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/siri-gemini-como-marcas-garantem-citacao-voz/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/speakable-schema-marcar-conteudo-assistentes-voz-busca-audio/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -369,6 +405,12 @@
   <url>
     <loc>https://www.aeobr.com.br/blog/yahoo-scout-novos-answer-engines-aeo/</loc>
     <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/zero-click-ai-overviews-converter-visibilidade-citacoes-ctr-cai-34/</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
