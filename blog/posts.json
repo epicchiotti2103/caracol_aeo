@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-15T22:03:50",
-  "count": 65,
+  "generated_at": "2026-06-17T12:02:02",
+  "count": 66,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/como-diversificar-aeo-gemini-claude-apos-queda-chatgpt/",
+      "slug": "como-diversificar-aeo-gemini-claude-apos-queda-chatgpt",
+      "title": "Como diversificar AEO para Gemini e Claude após queda do ChatGPT",
+      "desc": "ChatGPT cai abaixo de 50% do mercado de chatbots; Gemini e Claude avançam. Saiba como marcas devem diversificar AEO para esses motores com dados estruturados e formatação citável.",
+      "date": "2026-06-17",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/siri-gemini-como-marcas-garantem-citacao-voz/",
       "slug": "siri-gemini-como-marcas-garantem-citacao-voz",
