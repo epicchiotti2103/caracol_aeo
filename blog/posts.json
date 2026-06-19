@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-17T12:02:02",
-  "count": 66,
+  "generated_at": "2026-06-19T12:02:06",
+  "count": 67,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/google-critica-llms-txt-falha-aeo/",
+      "slug": "google-critica-llms-txt-falha-aeo",
+      "title": "Google critica llms.txt e expõe falha na estratégia de AEO",
+      "desc": "Google expõe falha fundamental do llms.txt, enquanto adiciona memória ao Gemini, melhora respostas de saúde e apoia spec de agentes. Saiba como ajustar sua estratégia AEO.",
+      "date": "2026-06-19",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/como-diversificar-aeo-gemini-claude-apos-queda-chatgpt/",
       "slug": "como-diversificar-aeo-gemini-claude-apos-queda-chatgpt",
