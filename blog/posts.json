@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-19T12:02:06",
-  "count": 67,
+  "generated_at": "2026-06-21T12:02:18",
+  "count": 68,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/google-critica-llms-txt/",
+      "slug": "google-critica-llms-txt",
+      "title": "Google critica llms.txt: o que muda na sua estratégia AEO",
+      "desc": "Google expõe falha fundamental do llms.txt enquanto adiciona memória ao Gemini e apoia novo spec de agentes. Saiba como ajustar seu conteúdo para ser citado pelas IAs.",
+      "date": "2026-06-21",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/google-critica-llms-txt-falha-aeo/",
       "slug": "google-critica-llms-txt-falha-aeo",
