@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-21T12:02:18",
-  "count": 68,
+  "generated_at": "2026-06-23T12:01:54",
+  "count": 69,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/google-alerta-markdown-puro-risco-ai-seo-citacoes/",
+      "slug": "google-alerta-markdown-puro-risco-ai-seo-citacoes",
+      "title": "Google Alerta: Markdown Puro é Risco para AI SEO e Citações",
+      "desc": "Google desaconselha sites em Markdown puro para AI SEO. Entenda por que a ausência de HTML, Schema e metadados reduz citações em ChatGPT, Perplexity e AI Overviews.",
+      "date": "2026-06-23",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/google-critica-llms-txt/",
       "slug": "google-critica-llms-txt",

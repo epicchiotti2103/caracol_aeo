@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Alerta: Markdown Puro é Risco para AI SEO e Citações — Caracol AEO</title>
+  <meta name="description" content="Google desaconselha sites em Markdown puro para AI SEO. Entenda por que a ausência de HTML, Schema e metadados reduz citações em ChatGPT, Perplexity e AI Overviews.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/google-alerta-markdown-puro-risco-ai-seo-citacoes/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Google Alerta: Markdown Puro é Risco para AI SEO e Citações">
+  <meta property="og:description" content="Google desaconselha sites em Markdown puro para AI SEO. Entenda por que a ausência de HTML, Schema e metadados reduz citações em ChatGPT, Perplexity e AI Overviews.">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/google-alerta-markdown-puro-risco-ai-seo-citacoes/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-06-23">
+  <meta property="article:section" content="Giro IA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Alerta: Markdown Puro é Risco para AI SEO e Citações">
+  <meta name="twitter:description" content="Google desaconselha sites em Markdown puro para AI SEO. Entenda por que a ausência de HTML, Schema e metadados reduz citações em ChatGPT, Perplexity e AI Overviews.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Google Alerta: Markdown Puro é Risco para AI SEO e Citações",
+    "description": "Google desaconselha sites em Markdown puro para AI SEO. Entenda por que a ausência de HTML, Schema e metadados reduz citações em ChatGPT, Perplexity e AI Overviews.",
+    "articleSection": "Giro IA",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://www.aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-06-23",
+    "dateModified": "2026-06-23",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aeobr.com.br/blog/google-alerta-markdown-puro-risco-ai-seo-citacoes/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Posso usar Markdown para escrever o conteúdo e depois converter para HTML?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, essa é a prática recomendada. O problema não é o formato de escrita, mas o formato de entrega. Use Markdown para produtividade na criação, mas garanta que o build final gere HTML completo com dados estruturados, metadados e semântica. Ferramentas como Astro, Next.js e Hugo fazem isso bem, desde que configuradas corretamente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Se eu usar Markdown puro, minha página nunca será citada por IAs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não é uma sentença de morte absoluta, mas o risco é alto. Motores de resposta como o Google AI Overviews e o Perplexity priorizam fontes que oferecem maior confiança semântica. Páginas em Markdown puro podem ser ignoradas em favor de concorrentes com HTML estruturado, especialmente em tópicos onde há muitas fontes disponíveis. Você está competindo com um pé atado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O Google vai punir sites em Markdown nos resultados de busca tradicionais?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mueller não falou em punição, mas em \"ignorar\". Nos resultados de busca tradicionais (lista azul), o Google ainda pode indexar o texto, mas a falta de dados estruturados pode prejudicar recursos especiais (rich snippets, FAQs, etc.). Para AEO, o impacto é maior porque as IAs são mais exigentes em estrutura do que o algoritmo de busca clássico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber se meu HTML está \"completo\" o suficiente para AEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use o testador de dados estruturados do Google (Rich Results Test) e a ferramenta de inspeção de URL no Search Console. Verifique se o Schema está sendo lido, se os headings (`h1`, `h2`, `h3`) estão presentes e se o título e meta description são identificados. Se tudo aparecer corretamente, seu HTML está no caminho certo. Para um diagnóstico mais profundo de como sua marca é vista pelas IAs, uma auditoria de visibilidade em AEO pode mapear exatamente onde você está perdendo citações — é o tipo d"
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Giro IA</div>
+      <h1>Google Alerta: Markdown Puro é Risco para AI SEO e Citações</h1>
+      <div class="meta">Elio Picchiotti · 23 de junho de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>No último mês, John Mueller, analista de tendências para webmasters do Google, soltou uma declaração que deveria acender um alerta vermelho em qualquer profissional de SEO e AEO: <strong>o Google desaconselha o uso de versões exclusivamente em Markdown para sites voltados a AI SEO</strong>. A justificativa é direta — motores de resposta, como os que alimentam AI Overviews, ChatGPT, Gemini e Perplexity, podem simplesmente ignorar conteúdo que não esteja entregue em HTML completo, com dados estruturados e metadados semânticos.</p>
+<p>Para marcas que estão correndo atrás de serem citadas pelas IAs generativas, essa orientação expõe um erro estratégico comum: achar que, por LLMs (Large Language Models) "lerem" texto puro, simplificar a página para Markdown é um atalho inteligente. Não é. Na prática, é um tiro no pé da visibilidade em respostas de IA.</p>
+<div class="promo-banner" style="margin:2.5rem 0;text-align:center"><a href="https://mediacaracol.com/api/v3/offer/101?aff_sub=aeo&amp;affiliate_id=6&amp;url_id=58589" rel="sponsored noopener" target="_blank"><img src="/assets/img/promo-clear-300x250.gif" width="300" height="250" alt="Promocao Clear" loading="lazy" style="max-width:100%;height:auto;border:0;display:inline-block"></a></div>
+
+<p>Vamos destrinchar o que isso significa para sua marca e como ajustar a rota.</p>
+<h2 id="o-que-mueller-realmente-disse-e-por-que-isso-mexe-com-aeo">O que Mueller realmente disse e por que isso mexe com AEO</h2>
+<p>John Mueller não está dizendo que Markdown é inútil. Ele está alertando contra a criação de sites ou páginas que existam <strong>apenas</strong> em Markdown, sem uma camada de HTML semântico e dados estruturados. O raciocínio é técnico e faz todo sentido quando pensamos em como os crawlers de IA operam hoje.</p>
+<p>Os rastreadores que alimentam modelos como o GPT (via Bing ou parceiros) e o Google (via AI Overviews) não são apenas "leitores de texto". Eles processam a estrutura da página para extrair significado. O HTML completo — com tags semânticas como <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;header&gt;</code>, e atributos de metadados — funciona como um mapa de significado. Já o Markdown puro, por mais limpo que seja visualmente, é uma sopa de caracteres sem hierarquia explícita para a máquina.</p>
+<p>Sem Schema.org (como <code>Article</code>, <code>FAQPage</code>, <code>HowTo</code>), sem metadados de título e descrição, sem uma estrutura de headings clara em HTML, o motor de resposta tem menos segurança para afirmar que aquele conteúdo é a melhor fonte para uma citação. Em AEO, chamamos isso de <strong>perda de autoridade semântica</strong>. A IA pode até ler o texto, mas não consegue validar o contexto, a data de publicação, o autor ou a relação entre as partes do conteúdo.</p>
+<p>O risco prático? Sua marca pode ter o melhor conteúdo do mercado, mas se ele estiver servido em Markdown puro, o Google AI Overviews pode preferir citar um concorrente que tenha uma página HTML bem estruturada, mesmo com um texto inferior. A IA não "prefere" Markdown; ela prefere o que consegue interpretar com alta confiança.</p>
+<h2 id="o-mito-do-markdown-friendly-para-llms">O mito do "Markdown-friendly" para LLMs</h2>
+<p>Muita gente no mercado de AI SEO propagou a ideia de que, como modelos de linguagem são treinados em texto bruto, entregar conteúdo em Markdown seria mais "natural" para eles. Isso é uma meia-verdade perigosa.</p>
+<p>Sim, LLMs entendem Markdown. Mas eles entendem <strong>melhor</strong> HTML com dados estruturados. Por quê? Porque o treinamento desses modelos inclui vastos corpora de HTML da web. O Schema markup, por exemplo, é um dos sinais mais fortes que um motor de resposta pode usar para classificar um conteúdo como "confiável" ou "autoritativo" para uma pergunta específica.</p>
+<p>Quando você entrega Markdown puro, está removendo as muletas que a IA usa para decidir se deve ou não citar sua marca. É como ter um ótimo currículo, mas entregá-lo sem formatação, sem negritos para destacar conquistas e sem seções claras. O recrutador (a IA) pode até ler, mas vai se esforçar mais para extrair o valor — e, em muitos casos, vai pular para o próximo candidato (página concorrente).</p>
+<p>Além disso, o Markdown puro quebra a renderização em muitos crawlers de IA que simulam navegadores. Eles esperam receber um DOM (Document Object Model) completo. Sem HTML, o crawler pode não conseguir executar JavaScript, carregar fontes ou até mesmo identificar o idioma principal da página. Resultado: o conteúdo é descartado ou rebaixado na hierarquia de fontes.</p>
+<h2 id="o-que-sua-marca-deve-fazer">O que sua marca deve fazer</h2>
+<p>A orientação do Google é um chamado à ação para quem leva AEO a sério. Não se trata de abandonar o Markdown como formato de escrita ou edição, mas sim de garantir que a entrega final para os crawlers seja em HTML rico e semântico. Aqui estão as ações concretas:</p>
+<ol>
+<li>
+<p><strong>Migre (ou mantenha) seu conteúdo em HTML válido e semântico.</strong> Use tags como <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> e <code>&lt;footer&gt;</code> para estruturar a página. Não deixe o conteúdo solto em divs genéricas. A IA precisa de landmarks para navegar.</p>
+</li>
+<li>
+<p><strong>Implemente dados estruturados (Schema.org) em todas as páginas.</strong> Para artigos de notícia ou blog, use <code>Article</code> ou <code>NewsArticle</code>. Para páginas de produto, use <code>Product</code>. Para FAQs, use <code>FAQPage</code>. O Schema é a linguagem que a IA entende para confirmar "isso aqui é uma resposta confiável para essa pergunta". Sem ele, você está invisível para muitos filtros de citação.</p>
+</li>
+<li>
+<p><strong>Teste a renderização da sua página nos crawlers de IA.</strong> Use ferramentas como o Google Search Console (inspeção de URL), o Facebook Sharing Debugger (que simula crawlers) ou até extensões que mostram como o ChatGPT/Bing enxergam sua página. Veja se o título, a descrição e os headings estão sendo lidos corretamente. Se o crawler vir apenas texto puro, você tem um problema.</p>
+</li>
+<li>
+<p><strong>Crie uma versão HTML completa mesmo se usar Markdown no backend.</strong> Muitos geradores de site estático (como Hugo, Jekyll ou Next.js com MDX) convertem Markdown para HTML no build. Isso é perfeitamente aceitável. O erro é servir o arquivo <code>.md</code> diretamente ou gerar HTML sem metadados. Verifique se seu SSG está injetando Schema e metadados no HTML final.</p>
+</li>
+<li>
+<p><strong>Monitore seu Share of Voice nas IAs.</strong> A única forma de saber se suas mudanças estão funcionando é medir. Acompanhe em quais respostas do ChatGPT, Perplexity e AI Overviews sua marca aparece. Se você notar que conteúdos sem Schema ou com HTML pobre não são citados, você tem a prova do que Mueller está alertando.</p>
+</li>
+</ol>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="posso-usar-markdown-para-escrever-o-conteudo-e-depois-converter-para-html">Posso usar Markdown para escrever o conteúdo e depois converter para HTML?</h3>
+<p>Sim, essa é a prática recomendada. O problema não é o formato de escrita, mas o formato de entrega. Use Markdown para produtividade na criação, mas garanta que o build final gere HTML completo com dados estruturados, metadados e semântica. Ferramentas como Astro, Next.js e Hugo fazem isso bem, desde que configuradas corretamente.</p>
+<h3 id="se-eu-usar-markdown-puro-minha-pagina-nunca-sera-citada-por-ias">Se eu usar Markdown puro, minha página nunca será citada por IAs?</h3>
+<p>Não é uma sentença de morte absoluta, mas o risco é alto. Motores de resposta como o Google AI Overviews e o Perplexity priorizam fontes que oferecem maior confiança semântica. Páginas em Markdown puro podem ser ignoradas em favor de concorrentes com HTML estruturado, especialmente em tópicos onde há muitas fontes disponíveis. Você está competindo com um pé atado.</p>
+<h3 id="o-google-vai-punir-sites-em-markdown-nos-resultados-de-busca-tradicionais">O Google vai punir sites em Markdown nos resultados de busca tradicionais?</h3>
+<p>Mueller não falou em punição, mas em "ignorar". Nos resultados de busca tradicionais (lista azul), o Google ainda pode indexar o texto, mas a falta de dados estruturados pode prejudicar recursos especiais (rich snippets, FAQs, etc.). Para AEO, o impacto é maior porque as IAs são mais exigentes em estrutura do que o algoritmo de busca clássico.</p>
+<h3 id="como-saber-se-meu-html-esta-completo-o-suficiente-para-aeo">Como saber se meu HTML está "completo" o suficiente para AEO?</h3>
+<p>Use o testador de dados estruturados do Google (Rich Results Test) e a ferramenta de inspeção de URL no Search Console. Verifique se o Schema está sendo lido, se os headings (<code>h1</code>, <code>h2</code>, <code>h3</code>) estão presentes e se o título e meta description são identificados. Se tudo aparecer corretamente, seu HTML está no caminho certo. Para um diagnóstico mais profundo de como sua marca é vista pelas IAs, uma auditoria de visibilidade em AEO pode mapear exatamente onde você está perdendo citações — é o tipo de análise que fazemos no aeobr.com.br, medindo o Share of Voice da sua marca em ChatGPT, Perplexity e Google AI.</p>
+<h2 id="leia-tambem">Leia também</h2>
+<ul>
+<li><a href="https://aeobr.com.br/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/">Como usar llms.txt para aumentar citações do seu site em ChatGPT e Google AI Overviews</a></li>
+<li><a href="https://aeobr.com.br/blog/estruturar-faq-citacao-assistentes-ia/">Como estruturar FAQs para maximizar citações em assistentes de IA?</a></li>
+<li><a href="https://aeobr.com.br/blog/otimizar-conteudo-citacao-ia-generativa/">Como otimizar conteúdo para ser citado por IAs generativas em 2025</a></li>
+</ul>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>
