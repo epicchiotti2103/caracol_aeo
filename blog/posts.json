@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-23T12:01:54",
-  "count": 69,
+  "generated_at": "2026-06-25T12:02:07",
+  "count": 70,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/impressoes-ai-overviews-mueller-explica-metrica-vital-aeo/",
+      "slug": "impressoes-ai-overviews-mueller-explica-metrica-vital-aeo",
+      "title": "Impressões AI Overviews: Mueller explica métrica vital para AEO",
+      "desc": "John Mueller detalha como o Search Console conta impressões de AI Overviews. Entenda a diferença das orgânicas e como auditar seus dados para rankear em IAs.",
+      "date": "2026-06-25",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/google-alerta-markdown-puro-risco-ai-seo-citacoes/",
       "slug": "google-alerta-markdown-puro-risco-ai-seo-citacoes",
