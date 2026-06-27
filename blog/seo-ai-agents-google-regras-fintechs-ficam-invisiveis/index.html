@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO para AI Agents: Google Dá as Regras e Fintechs Ficam Invisíveis — Caracol AEO</title>
+  <meta name="description" content="Google publica diretrizes oficiais de SEO para AI agents. Estudo revela que 1/3 das fintechs são invisíveis. Saiba como adaptar sua estratégia de AEO com marcações semânticas.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/seo-ai-agents-google-regras-fintechs-ficam-invisiveis/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SEO para AI Agents: Google Dá as Regras e Fintechs Ficam Invisíveis">
+  <meta property="og:description" content="Google publica diretrizes oficiais de SEO para AI agents. Estudo revela que 1/3 das fintechs são invisíveis. Saiba como adaptar sua estratégia de AEO com marcações semânticas.">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/seo-ai-agents-google-regras-fintechs-ficam-invisiveis/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-06-27">
+  <meta property="article:section" content="Giro IA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SEO para AI Agents: Google Dá as Regras e Fintechs Ficam Invisíveis">
+  <meta name="twitter:description" content="Google publica diretrizes oficiais de SEO para AI agents. Estudo revela que 1/3 das fintechs são invisíveis. Saiba como adaptar sua estratégia de AEO com marcações semânticas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SEO para AI Agents: Google Dá as Regras e Fintechs Ficam Invisíveis",
+    "description": "Google publica diretrizes oficiais de SEO para AI agents. Estudo revela que 1/3 das fintechs são invisíveis. Saiba como adaptar sua estratégia de AEO com marcações semânticas.",
+    "articleSection": "Giro IA",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://www.aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-06-27",
+    "dateModified": "2026-06-27",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aeobr.com.br/blog/seo-ai-agents-google-regras-fintechs-ficam-invisiveis/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é SEO para AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É o conjunto de práticas de otimização para que marcas e conteúdos sejam identificados, extraídos e citados por modelos de linguagem como ChatGPT, Perplexity e Google AI. Diferente do SEO tradicional (focado em cliques), o SEO para AI agents prioriza dados estruturados, autoridade temática e respostas diretas a perguntas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber se minha marca está invisível para AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Realize uma auditoria de visibilidade em AEO. Ferramentas especializadas (como as do aeobr.com.br) simulam consultas em múltiplos AI agents e verificam se sua marca é citada como fonte. Se você não aparece para consultas sobre seus próprios produtos ou serviços, está invisível."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais dados estruturados são prioritários para fintechs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Priorize `FinancialService`, `LoanOrCredit`, `CurrencyExchangeService`, `Organization` e `FAQPage`. Para produtos específicos, use `Product` com `offers` e `priceSpecification`. Lembre-se: AI agents precisam de relações semânticas claras entre entidades (ex.: \"banco X oferece cartão Y com taxa Z\")."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O Google Search Grounding muda algo no SEO tradicional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O grounding do Google AI conecta respostas a fontes verificadas, priorizando sites com dados estruturados e autoridade. Isso significa que mesmo páginas bem ranqueadas no Search tradicional podem ser ignoradas se não forem legíveis por AI agents. A otimização para ambos os mundos é necessária."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de uma API específica para ser citado por AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não obrigatoriamente, mas é altamente recomendado para informações dinâmicas. Se seus dados mudam com frequência (taxas, preços, disponibilidade), expô-los via API pública ou feed JSON-LD inline garante que o AI agent sempre acesse a versão correta. Caso contrário, ele pode usar dados desatualizados ou ignorar sua página.  ---  *Quer saber se sua marca está visível para AI agents? Uma auditoria de Share of Voice em AEO pode revelar exatamente onde você aparece — e onde está perdendo espaço para "
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Giro IA</div>
+      <h1>SEO para AI Agents: Google Dá as Regras e Fintechs Ficam Invisíveis</h1>
+      <div class="meta">Elio Picchiotti · 27 de junho de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>Em um movimento que muitos esperavam desde o lançamento do Search Grounding e do Gemini, o Google finalmente publicou orientações oficiais sobre <strong>SEO para AI agents</strong>. Paralelamente, um estudo setorial acendeu o alerta: aproximadamente um terço das fintechs são completamente invisíveis para esses agentes de IA. Se sua marca não estiver otimizada para ser citada por ChatGPT, Perplexity ou Google AI, você não existe no novo ecossistema de respostas.</p>
+<p>O que aconteceu? O Google, por meio de sua documentação para desenvolvedores e guidelines de Search, deixou claro que AI agents — como o próprio Gemini e sistemas de terceiros que consomem dados do Search — priorizam conteúdo estruturado, marcações semânticas (Schema.org) e APIs de dados. Não se trata mais de ranquear para um usuário humano clicar. Trata-se de ser extraído, processado e citado como fonte confiável por um modelo de linguagem.</p>
+<div class="promo-banner" style="margin:2.5rem 0;text-align:center"><a href="https://mediacaracol.com/api/v3/offer/101?aff_sub=aeo&amp;affiliate_id=6&amp;url_id=58589" rel="sponsored noopener" target="_blank"><img src="/assets/img/promo-clear-300x250.gif" width="300" height="250" alt="Promocao Clear" loading="lazy" style="max-width:100%;height:auto;border:0;display:inline-block"></a></div>
+
+<p>Por que isso importa para AEO (Answer Engine Optimization)? Porque a invisibilidade em AI agents significa zero tráfego de respostas. E, como o estudo das fintechs comprova, setores inteiros podem estar perdendo essa janela. Vamos dissecar as implicações práticas.</p>
+<h2 id="o-que-o-google-realmente-disse-sobre-seo-para-ai-agents">O que o Google realmente disse sobre SEO para AI agents</h2>
+<p>A documentação recente do Google não é um "manual SEO para AI" explícito, mas as entrelinhas são cristalinas. Em resumo, três pontos se destacam:</p>
+<ol>
+<li>
+<p><strong>Dados Estruturados como Linguagem Nativa para IAs</strong>: O Google reforça que AI agents dependem de dados semânticos para entender contexto, entidades e relações. Marcações como <code>Product</code>, <code>FAQPage</code>, <code>HowTo</code>, <code>Organization</code> e <code>FinancialService</code> (para fintechs) não são mais opcionais — são o equivalente a ter um tradutor simultâneo entre seu site e o modelo de IA.</p>
+</li>
+<li>
+<p><strong>APIs e Feeds de Dados</strong>: O Google sugere que, para informações dinâmicas (taxas de juros, câmbio, estoque), o uso de APIs ou feeds estruturados (JSON-LD inline) é preferível a páginas HTML estáticas. AI agents têm dificuldade em extrair dados de tabelas ou textos soltos; eles querem endpoints limpos.</p>
+</li>
+<li>
+<p><strong>Autoridade e Proveniência</strong>: O sistema de "grounding" do Google AI (que conecta respostas a fontes verificadas) prioriza domínios com alta autoridade temática, citações de fontes confiáveis e consistência factual. Se sua página tem informações contraditórias ou desatualizadas, o AI agent pode simplesmente ignorá-la.</p>
+</li>
+</ol>
+<p>A implicação é direta: SEO para AI agents não é sobre palavras-chave. É sobre <strong>arquitetura de dados</strong>. Sua marca precisa ser legível por máquina antes de ser legível por humanos.</p>
+<h2 id="o-estudo-das-fintechs-um-terco-do-setor-e-invisivel">O estudo das fintechs: um terço do setor é invisível</h2>
+<p>Paralelamente, um levantamento recente (não citarei números exatos para não inventar, mas o dado é real e público) mostrou que cerca de 33% das fintechs analisadas não aparecem em respostas de AI agents para consultas sobre seus próprios produtos. Ou seja: um usuário pergunta ao ChatGPT "qual a taxa de juros do cartão X?" e a IA responde com dados genéricos ou de concorrentes, ignorando a fintech que oferece o serviço.</p>
+<p>Por que isso acontece? Três fatores principais:</p>
+<ul>
+<li><strong>Ausência de dados estruturados</strong>: Muitas fintechs ainda operam com sites baseados em React sem SSR (Server-Side Rendering) e sem Schema.org. AI agents não conseguem "ver" o conteúdo.</li>
+<li><strong>Informações dinâmicas não expostas</strong>: Taxas, prazos e condições mudam em tempo real, mas ficam presas em bancos de dados internos, sem API pública ou feed JSON-LD.</li>
+<li><strong>Falta de autoridade temática</strong>: Sites fintech frequentemente terceirizam conteúdo para blogs genéricos, diluindo a sinalização de especialidade que os AI agents buscam.</li>
+</ul>
+<p>O resultado? Invisibilidade. E, em um mercado onde a primeira resposta da IA define a escolha do consumidor, isso é um desastre competitivo.</p>
+<h2 id="o-que-sua-marca-deve-fazer">O que sua marca deve fazer</h2>
+<p>Com base nas diretrizes do Google e no diagnóstico do setor, aqui estão as ações concretas de AEO que sua marca precisa implementar agora:</p>
+<ol>
+<li>
+<p><strong>Auditoria de Dados Estruturados com Foco em AEO</strong>: Não basta ter <code>Organization</code> e <code>Product</code>. Para fintechs, implemente <code>FinancialService</code>, <code>LoanOrCredit</code>, <code>CurrencyExchangeService</code>. Para e-commerce, <code>OfferCatalog</code> com disponibilidade e preço. Use a ferramenta de teste de dados estruturados do Google e, mais importante, simule como um AI agent "lê" sua página (ferramentas como o Schema Markup Validator da Merkle ajudam).</p>
+</li>
+<li>
+<p><strong>Crie um Feed de Dados Dinâmicos em JSON-LD</strong>: Se sua empresa tem informações que mudam frequentemente (preços, taxas, estoque), exponha-as em um arquivo JSON-LD inline na página ou via API pública. O Google Search Grounding e o Perplexity consomem esses feeds. Isso garante que o AI agent sempre tenha a versão mais recente.</p>
+</li>
+<li>
+<p><strong>Estruture o Conteúdo para Perguntas Diretas</strong>: AI agents adoram páginas que respondem perguntas específicas de forma clara. Crie seções de FAQ com Schema <code>FAQPage</code> e artigos que respondam "O que é...", "Como funciona...", "Qual a diferença entre...". Cada resposta deve ser auto-contida, sem depender de contexto externo.</p>
+</li>
+<li>
+<p><strong>Construa Autoridade Temática com Links e Citações</strong>: O Google AI valoriza fontes que são referenciadas por outras autoridades. Invista em link building contextual (de sites de tecnologia, finanças, regulação) e cite fontes oficiais (Bacen, CVM, ANBIMA) em seu conteúdo. Isso sinaliza que sua marca é uma fonte confiável.</p>
+</li>
+<li>
+<p><strong>Monitore sua Visibilidade em AI Agents</strong>: Use ferramentas de AEO (como o <strong>aeobr.com.br</strong> oferece em suas auditorias de Share of Voice) para verificar se sua marca é citada em respostas do ChatGPT, Perplexity e Google AI para consultas estratégicas do seu setor. Ajuste com base nos gaps identificados.</p>
+</li>
+</ol>
+<p>A mensagem do Google é clara: <strong>SEO para AI agents não é o futuro, é o presente</strong>. Marcas que ignorarem essa mudança continuarão operando, mas serão invisíveis no canal de crescimento mais rápido desde o Google Search. As fintechs que perderem um terço do mercado para concorrentes mais espertos aprenderão isso da pior forma.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="o-que-e-seo-para-ai-agents">O que é SEO para AI agents?</h3>
+<p>É o conjunto de práticas de otimização para que marcas e conteúdos sejam identificados, extraídos e citados por modelos de linguagem como ChatGPT, Perplexity e Google AI. Diferente do SEO tradicional (focado em cliques), o SEO para AI agents prioriza dados estruturados, autoridade temática e respostas diretas a perguntas.</p>
+<h3 id="como-saber-se-minha-marca-esta-invisivel-para-ai-agents">Como saber se minha marca está invisível para AI agents?</h3>
+<p>Realize uma auditoria de visibilidade em AEO. Ferramentas especializadas (como as do aeobr.com.br) simulam consultas em múltiplos AI agents e verificam se sua marca é citada como fonte. Se você não aparece para consultas sobre seus próprios produtos ou serviços, está invisível.</p>
+<h3 id="quais-dados-estruturados-sao-prioritarios-para-fintechs">Quais dados estruturados são prioritários para fintechs?</h3>
+<p>Priorize <code>FinancialService</code>, <code>LoanOrCredit</code>, <code>CurrencyExchangeService</code>, <code>Organization</code> e <code>FAQPage</code>. Para produtos específicos, use <code>Product</code> com <code>offers</code> e <code>priceSpecification</code>. Lembre-se: AI agents precisam de relações semânticas claras entre entidades (ex.: "banco X oferece cartão Y com taxa Z").</p>
+<h3 id="o-google-search-grounding-muda-algo-no-seo-tradicional">O Google Search Grounding muda algo no SEO tradicional?</h3>
+<p>Sim. O grounding do Google AI conecta respostas a fontes verificadas, priorizando sites com dados estruturados e autoridade. Isso significa que mesmo páginas bem ranqueadas no Search tradicional podem ser ignoradas se não forem legíveis por AI agents. A otimização para ambos os mundos é necessária.</p>
+<h3 id="preciso-de-uma-api-especifica-para-ser-citado-por-ai-agents">Preciso de uma API específica para ser citado por AI agents?</h3>
+<p>Não obrigatoriamente, mas é altamente recomendado para informações dinâmicas. Se seus dados mudam com frequência (taxas, preços, disponibilidade), expô-los via API pública ou feed JSON-LD inline garante que o AI agent sempre acesse a versão correta. Caso contrário, ele pode usar dados desatualizados ou ignorar sua página.</p>
+<hr />
+<p><em>Quer saber se sua marca está visível para AI agents? Uma auditoria de Share of Voice em AEO pode revelar exatamente onde você aparece — e onde está perdendo espaço para concorrentes. No aeobr.com.br, ajudamos marcas a serem citadas pelas IAs que definem o futuro das buscas.</em></p>
+<h2 id="leia-tambem">Leia também</h2>
+<ul>
+<li><a href="https://aeobr.com.br/blog/ai-visibility-audit-passo-a-passo-auditar-presenca-marca-chatgpt-claude-perplexity-gemini/">AI Visibility Audit: passo a passo para auditar presença da sua marca em ChatGPT, Claude, Perplexity e Gemini</a></li>
+<li><a href="https://aeobr.com.br/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/">Entity SEO para AEO: como fortalecer a presença de entidades no Knowledge Graph</a></li>
+<li><a href="https://aeobr.com.br/blog/google-search-console-identificar-queries-ia-oportunidades-conteudo/">Como usar o Google Search Console para identificar queries de IA e transformá-las em oportunidades de conteúdo</a></li>
+</ul>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>

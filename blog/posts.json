@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-25T12:02:07",
-  "count": 70,
+  "generated_at": "2026-06-27T12:02:38",
+  "count": 71,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/seo-ai-agents-google-regras-fintechs-ficam-invisiveis/",
+      "slug": "seo-ai-agents-google-regras-fintechs-ficam-invisiveis",
+      "title": "SEO para AI Agents: Google Dá as Regras e Fintechs Ficam Invisíveis",
+      "desc": "Google publica diretrizes oficiais de SEO para AI agents. Estudo revela que 1/3 das fintechs são invisíveis. Saiba como adaptar sua estratégia de AEO com marcações semânticas.",
+      "date": "2026-06-27",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/impressoes-ai-overviews-mueller-explica-metrica-vital-aeo/",
       "slug": "impressoes-ai-overviews-mueller-explica-metrica-vital-aeo",
