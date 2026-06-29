@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-27T12:02:38",
-  "count": 71,
+  "generated_at": "2026-06-29T12:03:08",
+  "count": 72,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/seo-ai-agents-google-cartas-fintechs-somem/",
+      "slug": "seo-ai-agents-google-cartas-fintechs-somem",
+      "title": "SEO para AI Agents: Google Dá as Cartas e Fintechs Somem",
+      "desc": "Google publica diretrizes oficiais de SEO para AI agents. Enquanto isso, estudo aponta que 1/3 das fintechs são invisíveis para ChatGPT e Perplexity. AEO urgente.",
+      "date": "2026-06-29",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/seo-ai-agents-google-regras-fintechs-ficam-invisiveis/",
       "slug": "seo-ai-agents-google-regras-fintechs-ficam-invisiveis",
