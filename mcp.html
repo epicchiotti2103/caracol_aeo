@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- MCP da Caracol AEO — servidor Model Context Protocol publico. -->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP da Caracol AEO: audite seu AEO direto do ChatGPT, Claude e Cursor | Caracol AEO</title>
+<meta name="description" content="O MCP da Caracol AEO conecta seu assistente de IA (ChatGPT, Claude, Cursor) às ferramentas de AEO: audite qualquer site com score 0-100, consulte serviços e o acervo de conteúdo — sem sair do chat. Servidor público, conexão em 1 clique.">
+<link rel="canonical" href="https://www.aeobr.com.br/mcp">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="MCP da Caracol AEO: audite seu AEO direto do ChatGPT, Claude e Cursor">
+<meta property="og:description" content="O MCP da Caracol AEO conecta seu assistente de IA (ChatGPT, Claude, Cursor) às ferramentas de AEO: audite qualquer site com score 0-100, consulte serviços e o acervo de conteúdo — sem sair do chat. Servidor público, conexão em 1 clique.">
+<meta property="og:url" content="https://www.aeobr.com.br/mcp">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0A0A0A;--bg-card:#141414;--border:#2A2A2A;--text:#F5F5F5;--text-muted:#999;--text-dim:#666;--orange:#FF6B1A;--lime:#C8FF00}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px}
+  a{color:var(--orange);text-decoration:none}a:hover{text-decoration:underline}
+  .topbar{border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+  .topbar .back{color:var(--text-muted);font-size:14px}
+  .topbar .back:hover{color:var(--text);text-decoration:none}
+  main.doc{max-width:760px;margin:0 auto;padding:56px 24px 72px}
+  .crumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px}
+  h1{font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:18px}
+  h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:48px 0 16px;line-height:1.25}
+  h3{font-size:19px;font-weight:600;margin:0 0 6px}
+  p{margin-bottom:16px;color:#d8d8d8}
+  strong{color:var(--text)}
+  ul{margin:0 0 16px 20px;color:#d8d8d8}li{margin-bottom:6px}
+  .lead{font-size:18px;color:#e8e8e8;border-left:3px solid var(--orange);padding-left:18px;margin:0 0 8px}
+  .updated{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-bottom:36px}
+  .tablewrap{overflow-x:auto;margin:24px 0;border:1px solid var(--border);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--border)}
+  th{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim);font-weight:500}
+  td{color:#d8d8d8}tr:last-child td{border-bottom:none}
+  .row-hl td{background:rgba(255,107,26,.07)}
+  .row-hl td:first-child{color:var(--orange);font-weight:600}
+  .badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.05em;background:var(--lime);color:#0A0A0A;padding:2px 7px;border-radius:4px;margin-left:8px;vertical-align:middle;font-weight:600}
+  .tool{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:18px 0}
+  .tool.featured{border-color:var(--orange)}
+  .tool .meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-bottom:10px}
+  .tool .meta b{color:var(--lime);font-weight:500}
+  .cta{display:inline-block;background:var(--orange);color:#fff;font-weight:600;padding:14px 24px;border-radius:8px;margin:6px 8px 6px 0}
+  .cta:hover{background:#E55A0F;text-decoration:none}
+  .cta.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+  .cta.ghost:hover{border-color:var(--text-muted);background:transparent}
+  .ctabox{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:32px;margin:40px 0;text-align:center}
+  .ctabox h2{margin-top:0}
+  details{border-bottom:1px solid var(--border);padding:16px 0}
+  summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+ ";color:var(--orange);font-weight:700}
+  details[open] summary::before{content:"– "}
+  details p{margin:12px 0 0}
+  .ft{border-top:1px solid var(--border);padding:28px 24px;text-align:center;color:var(--text-dim);font-size:13px}
+  .ft a{color:var(--text-muted)}
+  .ft .links{margin-bottom:10px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  @media(max-width:600px){h1{font-size:30px}main.doc{padding:40px 18px 56px}}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://www.aeobr.com.br/mcp",
+   "url": "https://www.aeobr.com.br/mcp",
+   "name": "MCP da Caracol AEO: audite seu AEO direto do ChatGPT, Claude e Cursor",
+   "description": "O MCP da Caracol AEO conecta seu assistente de IA (ChatGPT, Claude, Cursor) às ferramentas de AEO: audite qualquer site com score 0-100, consulte serviços e o acervo de conteúdo — sem sair do chat. Servidor público, conexão em 1 clique.",
+   "inLanguage": "pt-BR",
+   "isPartOf": {
+    "@type": "WebSite",
+    "url": "https://www.aeobr.com.br"
+   },
+   "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+     {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "https://www.aeobr.com.br"
+     },
+     {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "MCP",
+      "item": "https://www.aeobr.com.br/mcp"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "SoftwareApplication",
+   "name": "Caracol AEO MCP Server",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "Any (Model Context Protocol)",
+   "url": "https://www.aeobr.com.br/mcp",
+   "downloadUrl": "https://mcp.aeobr.com.br/mcp",
+   "description": "Servidor MCP (Model Context Protocol) que expõe auditoria AEO 0-100 e catálogo de conteúdo da Caracol AEO para assistentes de IA.",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Caracol Media",
+    "url": "https://caracol.media",
+    "sameAs": [
+     "https://caracol.media",
+     "https://www.linkedin.com/company/caracol-media/",
+     "https://www.crunchbase.com/organization/caracol-media"
+    ]
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "O que é o MCP da Caracol AEO?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "É um servidor Model Context Protocol (MCP) público que conecta assistentes de IA como ChatGPT, Claude e Cursor às ferramentas da Caracol AEO. Permite auditar qualquer site (score 0-100), consultar serviços e pesquisar o acervo de conteúdo sobre AEO — tudo dentro do chat, sem instalação local."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Como conectar o MCP no Claude ou no Cursor?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Adicione o servidor https://mcp.aeobr.com.br/mcp como conector MCP no seu cliente (Claude.ai, ChatGPT, Cursor). O transporte é Streamable HTTP e não requer autenticação — é conexão em um clique, sem configurar paths."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "O MCP da Caracol AEO é gratuito?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sim. O servidor é público e a auditoria AEO 0-100 é gratuita. Relatórios detalhados e competitivos são serviços pagos da Caracol AEO."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="/" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="34" style="display:block"></a>
+  <a class="back" href="/">← voltar ao site</a>
+</div>
+
+<main class="doc">
+  <div class="crumb"><a href="/">Início</a> / MCP</div>
+  <h1>MCP da Caracol AEO: audite seu AEO direto do seu assistente de IA</h1>
+  <p class="lead">O <strong>MCP da Caracol AEO</strong> é um servidor <strong>Model Context Protocol</strong> que conecta ChatGPT, Claude, Cursor e outros assistentes às ferramentas de AEO da Caracol: <strong>audite qualquer site (score 0-100)</strong>, consulte serviços e pesquise o acervo de conteúdo — sem sair do chat e sem instalação local.</p>
+  <p class="updated">Servidor público · conexão em 1 clique · sem autenticação</p>
+
+  <h2>Conectar em 1 clique</h2>
+  <p>O servidor usa transporte <strong>Streamable HTTP</strong> e <strong>não exige autenticação</strong>. Adicione esta URL como conector MCP no seu cliente:</p>
+  <div class="tablewrap"><table><tbody>
+    <tr class="row-hl"><td><strong>URL do servidor</strong></td><td><code>https://mcp.aeobr.com.br/mcp</code></td></tr>
+    <tr><td>Transporte</td><td>Streamable HTTP</td></tr>
+    <tr><td>Autenticação</td><td>Nenhuma (público)</td></tr>
+    <tr><td>Custo</td><td>Grátis</td></tr>
+  </tbody></table></div>
+
+  <h3>Claude.ai / Claude Desktop / Cursor</h3>
+  <p>Em <em>Configurações → Conectores</em> (Claude) ou no <code>mcp.json</code> (Cursor), adicione:</p>
+  <pre><code>{
+  "mcpServers": {
+    "caracol-aeo": {
+      "url": "https://mcp.aeobr.com.br/mcp"
+    }
+  }
+}</code></pre>
+  <p>Pronto. Sem instalação local, sem configurar paths.</p>
+
+  <h2>O que dá pra fazer pelo chat</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Ferramenta</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr class="row-hl"><td><code>auditar_site_aeo</code></td><td><strong>Diagnóstico AEO 0-100 de qualquer site</strong>: Schema.org, meta tags, robots.txt para bots de IA (GPTBot, ClaudeBot, PerplexityBot…), estrutura de conteúdo e recomendações priorizadas.</td></tr>
+      <tr><td><code>get_company_info</code></td><td>Informações e metodologia da Caracol AEO.</td></tr>
+      <tr><td><code>get_services</code></td><td>Serviços e planos com preços.</td></tr>
+      <tr><td><code>list_blog_posts</code></td><td>Lista artigos por categoria (fundamentos, técnico, conteúdo, medição, plataformas, mercado).</td></tr>
+      <tr><td><code>search_posts</code></td><td>Busca artigos por palavra-chave.</td></tr>
+      <tr><td><code>get_blog_post</code></td><td>Conteúdo completo de um artigo pelo slug.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Por que um MCP de AEO importa</h2>
+  <p>As IAs estão virando a interface de descoberta de serviços. Em vez de pedir pra alguém abrir um site e rodar uma auditoria, você fala com seu assistente — e ele <strong>audita o AEO ali mesmo</strong>, citando a Caracol como fonte. É a própria tese de <a href="/blog/google-critica-llms-txt/">agent-readiness</a> aplicada: não basta falar de otimização para agentes de IA, é preciso <em>ser consumível</em> por eles.</p>
+
+  <p>Quer o quadro completo das ferramentas de AEO? Veja o <a href="/ferramentas-aeo-brasil">comparativo das melhores ferramentas de AEO no Brasil</a> — ou rode agora um <strong>diagnóstico AEO grátis</strong> do seu site pelo próprio assistente.</p>
+</main>
+
+<footer class="ft">
+  <div class="links">
+    <a href="/">Início</a><a href="/blog/">Blog</a><a href="/ferramentas-aeo-brasil">Ferramentas de AEO</a><a href="/privacidade">Privacidade</a><a href="/termos">Termos</a><a href="/contato">Contato</a>
+  </div>
+  <div>© 2026 Caracol Media · CNPJ 55.097.812/0001-99 · uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+</footer>
+</body>
+</html>

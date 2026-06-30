@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "name_for_human": "Caracol AEO",
+  "name_for_model": "caracol_aeo",
+  "description_for_human": "Audite o AEO de qualquer site (score 0-100) e consulte conteúdo sobre Answer Engine Optimization no Brasil.",
+  "description_for_model": "AEO (Answer Engine Optimization) auditing 0-100 for any URL plus a catalog of AEO content for the Brazilian market. Use auditar_site_aeo to score a site.",
+  "contact_email": "contato@caracol.media",
+  "legal_info_url": "https://www.aeobr.com.br/termos.html",
+  "vendor": {
+    "name": "Caracol Media",
+    "url": "https://caracol.media"
+  },
+  "endpoints": {
+    "mcp": {
+      "url": "https://mcp.aeobr.com.br/mcp",
+      "transport": "streamable-http",
+      "auth": "none"
+    }
+  },
+  "discovery": {
+    "mcp_manifest": "https://www.aeobr.com.br/.well-known/mcp.json",
+    "mcp_server_card": "https://www.aeobr.com.br/.well-known/mcp-server-card.json",
+    "openapi": "https://www.aeobr.com.br/openapi.json"
+  }
+}

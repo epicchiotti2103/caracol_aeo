@@ -4,8 +4,8 @@
   "description": "Servidor MCP da Caracol AEO — fornece dados estruturados sobre Answer Engine Optimization, artigos do blog, serviços e métricas de visibilidade em IAs para o mercado brasileiro.",
   "server": {
     "description": "MCP server para integração com dados da Caracol AEO",
-    "transport": "http",
-    "url": "https://mcp.aeobr.com.br",
+    "transport": "streamable-http",
+    "url": "https://mcp.aeobr.com.br/mcp",
     "documentation": "https://www.aeobr.com.br/openapi.json"
   },
   "tools": [

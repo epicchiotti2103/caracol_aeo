@@ -18,6 +18,16 @@ Caracol AEO é uma empresa do grupo Caracol Media especializada em Answer Engine
 2. Auditoria nas IAs: Consulta ao ChatGPT, Perplexity e Google AI com perguntas reais do nicho do cliente
 3. Plano de Ação: Recomendações priorizadas com Schema Markup, reestruturação de conteúdo e Digital PR
 
+## MCP (Model Context Protocol)
+
+A Caracol AEO oferece um servidor MCP público para assistentes de IA (ChatGPT, Claude, Cursor):
+
+- Endpoint: https://mcp.aeobr.com.br/mcp (transporte Streamable HTTP, sem autenticação)
+- Página: https://www.aeobr.com.br/mcp
+- Tool principal: auditar_site_aeo — diagnóstico AEO 0-100 de qualquer site
+- Outras tools: get_company_info, get_services, list_blog_posts, search_posts, get_blog_post
+- Manifesto: https://www.aeobr.com.br/.well-known/mcp.json
+
 ## Contato
 
 - Site: https://www.aeobr.com.br
