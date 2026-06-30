@@ -287,7 +287,7 @@
 <p>Na minha análise, marcas com forte presence orgânico têm vantagem no ChatGPT Search, enquanto marcas tradicionais com histórico longo podem aparecer mais no modo padrão. A combinação revela gaps: se você aparece no modo padrão mas não no Search, problema é SEO atual; se aparece no Search mas não no padrão, problema é authority histórico.</p>
 <h3 id="documentar-presenca-ausencia-e-contexto-das-citacoes">Documentar presença, ausência e contexto das citações</h3>
 <p>Crie tabela com colunas: <strong>Prompt</strong>, <strong>Tentativa</strong> (1/2/3), <strong>Marca mencionada</strong> (Sim/Não), <strong>Posição</strong> (primeira menção, segunda menção), <strong>Contexto</strong> (positivo/neutro/negativo/comparativo), <strong>Concorrentes citados</strong>, <strong>Fontes</strong> (se Search), <strong>Observações</strong>.</p>
-<p>Contexto é crítico: ser mencionado como "alternativa mais barata" é diferente de "líder de mercado". Posição também importa: primeira menção tem weight maior na percepção do usuário. Concorrentes citados revelam consideration set - se você não está, precisar <a href="https://aeobr.com.br/blog/llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini/">identificar variações na percepção da marca</a> e corrigir posicionamento.</p>
+<p>Contexto é crítico: ser mencionado como "alternativa mais barata" é diferente de "líder de mercado". Posição também importa: primeira menção tem weight maior na percepção do usuário. Concorrentes citados revelam consideration set - se você não está, precisar <a href="https://www.aeobr.com.br/blog/llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini/">identificar variações na percepção da marca</a> e corrigir posicionamento.</p>
 <h2 id="passo-3-executar-bateria-de-testes-em-claude">Passo 3: Executar bateria de testes em Claude</h2>
 <p>Claude tende a ser mais conservador nas citações, priorizando fontes estabelecidas e informações verificáveis. Na minha experiência, Claude cita menos startups e mais empresas tradicionais comparado ao ChatGPT. Isso afeta estratégia de teste: foque em prompts que demonstram expertise e authority, não apenas novidade.</p>
 <h3 id="diferencas-entre-claudeai-e-implementacoes-via-api">Diferenças entre Claude.ai e implementações via API</h3>
@@ -362,7 +362,7 @@
 <p>Para cada gap identificado, diagnostique <strong>causa raiz</strong>. As três causas mais comuns: <strong>falta de crawl</strong> (IAs não acessaram seu conteúdo), <strong>conteúdo inadequado</strong> (seu conteúdo não responde queries relevantes), <strong>entidade fraca</strong> (você não é reconhecido como autoridade no tópico).</p>
 <h3 id="falta-de-crawl-conteudo-inadequado-ou-entidade-fraca">Falta de crawl, conteúdo inadequado ou entidade fraca</h3>
 <p><strong>Falta de crawl</strong>: Teste se suas páginas importantes estão sendo indexadas. Use robots.txt checker, sitemap validation, Google Search Console. Se Google não indexa, IAs também não acessam. Solução: technical SEO básico.</p>
-<p><strong>Conteúdo inadequado</strong>: Você tem páginas sobre o tópico, mas não respondem queries específicas testadas. Solução: <a href="https://aeobr.com.br/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/">usar prompts de teste manual</a> para identificar gaps de conteúdo e criar material direcionado.</p>
+<p><strong>Conteúdo inadequado</strong>: Você tem páginas sobre o tópico, mas não respondem queries específicas testadas. Solução: <a href="https://www.aeobr.com.br/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/">usar prompts de teste manual</a> para identificar gaps de conteúdo e criar material direcionado.</p>
 <p><strong>Entidade fraca</strong>: Você tem conteúdo indexado, mas não é percebido como autoridade. Problema de backlinks, mentions, ou structured data. Solução: entity SEO - construir entity graph com consistent NAP, mentions, e co-citations.</p>
 <h3 id="concorrentes-citados-no-seu-lugar">Concorrentes citados no seu lugar</h3>
 <p>Analise <strong>quem está sendo citado</strong> quando você deveria aparecer. Se sempre os mesmos 2-3 concorrentes dominam suas queries de categoria, eles provavelmente têm content strategy ou entity strategy mais forte. Reverta-engenharia: que conteúdo eles produzem? Que structured data usam? Que authority signals têm?</p>
@@ -373,7 +373,7 @@
 <p>Para marcas B2B, prioridade típica: 1) Technical SEO e crawlability, 2) Schema markup para informações básicas, 3) Content para queries de categoria de alto volume, 4) Entity building de longo prazo. Sequence importa - não adianta content strategy se você tem problemas de crawl.</p>
 <h2 id="automatizar-partes-do-processo-com-ferramentas-e-apis">Automatizar partes do processo com ferramentas e APIs</h2>
 <p>Embora auditoria completa exija testes manuais, algumas partes podem ser automatizadas. <strong>APIs oficiais</strong> do OpenAI, Anthropic, e Google permitem executar prompts programaticamente. <strong>Web scraping</strong> pode capturar respostas do Perplexity e Claude.ai (respeitando rate limits e ToS).</p>
-<p>Para <a href="https://aeobr.com.br/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/">monitorar AI visibility e share of voice</a> contínuo, monte <strong>script Python</strong> que executa subset de prompts críticos semanalmente e alerta sobre mudanças significativas na citação. Isso não substitui auditoria manual trimestral, mas identifica issues entre auditoria completas.</p>
+<p>Para <a href="https://www.aeobr.com.br/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/">monitorar AI visibility e share of voice</a> contínuo, monte <strong>script Python</strong> que executa subset de prompts críticos semanalmente e alerta sobre mudanças significativas na citação. Isso não substitui auditoria manual trimestral, mas identifica issues entre auditoria completas.</p>
 <p><strong>Ferramentas emergentes</strong> como BrandVisibilityAI, AIEO Tracker, e Mentions.ai começam a oferecer monitoring automatizado. Na minha análise, ainda são limitadas comparado a auditoria manual, mas úteis para tracking básico de marca direta e alertas de anomalias.</p>
 <hr />
 <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
@@ -389,7 +389,8 @@
 <p>Parcialmente. APIs oficiais permitem executar prompts programaticamente, mas análise qualitativa do contexto ainda exige revisão manual. Automatize tracking de prompts críticos para alertas de mudança, mas mantenha auditoria manual trimestral para insights estratégicos completos.</p>
 <h2 id="leia-tambem">Leia também</h2>
 <ul>
-<li><a href="https://aeobr.com.br/blog/llm-perception-drift-monitorar-estabilizar-percepcao-marca-llms/">LLM Perception Drift: como monitorar e estabilizar a percepção da sua marca em LLMs mês a mês</a></li>
+<li><a href="https://www.aeobr.com.br/blog/llm-perception-drift-monitorar-estabilizar-percepcao-marca-llms/">LLM Perception Drift: como monitorar e estabilizar a percepção da sua marca em LLMs mês a mês</a></li>
+<li><a href="https://www.aeobr.com.br/ferramentas-aeo-brasil">Melhores ferramentas de AEO no Brasil em 2026: comparativo e como escolher</a></li>
 </ul>
   </article>
 
