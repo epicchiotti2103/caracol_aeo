@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-29T12:03:08",
-  "count": 72,
+  "generated_at": "2026-07-01T12:01:49",
+  "count": 73,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,24 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/plugin-wordpress-conecta-ia-site-chave-aeo-marcas/",
+      "slug": "plugin-wordpress-conecta-ia-site-chave-aeo-marcas",
+      "title": "Plugin WordPress conecta IA ao site: a chave AEO para marcas",
+      "desc": "Anthropic relança Claude Fable 5 com salvaguardas, enquanto plugin WordPress simplifica conexão de sites a LLMs. Saiba como usar isso para ser citado por IAs.",
+      "date": "2026-07-01",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
+    {
+      "url": "/blog/servidor-mcp-aeo-auditar-site-assistente-ia/",
+      "slug": "servidor-mcp-aeo-auditar-site-assistente-ia",
+      "title": "Lançamos um servidor MCP de AEO: audite seu site direto do ChatGPT e do Claude",
+      "desc": "A Caracol AEO agora tem um servidor MCP público: conecte ChatGPT, Claude ou Cursor e audite o AEO de qualquer site (score 0-100) sem sair do chat. Veja como conectar em 1 clique.",
+      "date": "2026-06-30",
+      "cat_id": "tecnico",
+      "cat_label": "Técnico"
+    },
     {
       "url": "/blog/seo-ai-agents-google-cartas-fintechs-somem/",
       "slug": "seo-ai-agents-google-cartas-fintechs-somem",
@@ -71,18 +89,9 @@
     {
       "url": "/blog/google-critica-llms-txt/",
       "slug": "google-critica-llms-txt",
-      "title": "Google critica llms.txt: o que muda na sua estratégia AEO",
-      "desc": "Google expõe falha fundamental do llms.txt enquanto adiciona memória ao Gemini e apoia novo spec de agentes. Saiba como ajustar seu conteúdo para ser citado pelas IAs.",
+      "title": "Google critica o llms.txt: o que muda na sua estratégia de AEO em 2026",
+      "desc": "O Google expôs uma falha fundamental do llms.txt, adicionou memória ao Gemini Live e, com a Microsoft, apoiou um spec de descoberta de agentes. Veja o que muda na sua estratégia de AEO para continuar sendo citado pelas IAs.",
       "date": "2026-06-21",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
-      "url": "/blog/google-critica-llms-txt-falha-aeo/",
-      "slug": "google-critica-llms-txt-falha-aeo",
-      "title": "Google critica llms.txt e expõe falha na estratégia de AEO",
-      "desc": "Google expõe falha fundamental do llms.txt, enquanto adiciona memória ao Gemini, melhora respostas de saúde e apoia spec de agentes. Saiba como ajustar sua estratégia AEO.",
-      "date": "2026-06-19",
       "cat_id": "giro",
       "cat_label": "Giro IA"
     },
