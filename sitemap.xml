@@ -61,6 +61,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/ai-factories-fabricas-ia-empresas-abandonando-cloud-first/</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/ai-overviews-consultas-comerciais-muda-aeo-2026/</loc>
     <lastmod>2026-05-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -115,6 +121,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/ciberseguranca-ia-generativa-proteger-dados-corporativos-chatgpt-anpd-2026/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/claude-searchbot-oai-searchbot-crawlers-busca/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -123,6 +135,12 @@
   <url>
     <loc>https://www.aeobr.com.br/blog/claude-user-claude-searchbot-diferencas-configurar-robots-txt/</loc>
     <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/cloud-hibrida-workloads-ia-quando-migrar-nuvem-publica-infraestrutura-propria/</loc>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -145,6 +163,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/como-criar-primeiro-agente-ia-autonomo-automatizar-tarefas/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/como-diversificar-aeo-gemini-claude-apos-queda-chatgpt/</loc>
     <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -157,8 +181,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/como-usar-chatgpt-excel-google-sheets-sidebar-analise-dados/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/como-usar-deep-research-decisoes-negocio-chatgpt-gemini-perplexity/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/como-usar-llms-txt-aumentar-citacoes-chatgpt-google-ai/</loc>
     <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/computacao-quantica-ia-convergencia-empresas-2026/</loc>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -199,8 +241,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/dslms-modelos-ia-especificos-setor-superam-generalistas/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/entity-seo-aeo-fortalecer-presenca-knowledge-graph/</loc>
     <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/estrategia-multi-modelo-ia-por-que-unica-llm-nao-faz-sentido-2026/</loc>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -247,6 +301,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/gemeos-digitais-pmes-criar-simulacao-processos-reduzir-custos/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/gemini-integracao-perfil-empresarial-aeo/</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -273,6 +333,12 @@
   <url>
     <loc>https://www.aeobr.com.br/blog/google-ai-mode-autocitacao-17-por-cento-respostas/</loc>
     <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/google-ai-overviews-cortando-trafego-sites/</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -307,6 +373,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/gpt-55-instant-memoria-auditavel-chatgpt/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/gpt-55-vs-claude-opus-47-vs-gemini-31-benchmark-corporativo/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/gpt-realtime-modelos-voz-openai-traducao-transcricao-tempo-real/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/gpt-rosalind-modelos-ia-ciencias-vida-biotech-farmaceuticas-2026/</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/green-software-ia-sustentavel-reduzir-pegada-carbono-modelos-ml/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/grok-aeo-vale-pena-otimizar-chatbot-xai-2026/</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -315,6 +411,96 @@
   <url>
     <loc>https://www.aeobr.com.br/blog/gsc-ai-overview-reporting/</loc>
     <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/chatgpt-vs-perplexity-vs-gemini-vs-claude-comparativo/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/como-ias-escolhem-quais-sites-citar/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/seo-morreu-como-aeo-e-seo-trabalham-juntos/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/o-que-e-geo-generative-engine-optimization/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/como-ia-esta-mudando-busca-informacao-brasil/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/como-usar-chatgpt-pesquisa-de-mercado-guia-pratico/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/automacao-ia-pequenas-empresas-por-onde-comecar/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/o-que-e-agente-de-ia-como-pode-trabalhar-empresa/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/ia-generativa-marketing-ferramentas-custos-resultados/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/schema-markup-o-que-e-como-implementar/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/google-ai-overviews-o-que-muda-conteudo-brasil/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/zero-click-search-60-por-cento-buscas-sem-clique/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/como-medir-se-sua-marca-aparece-nas-respostas-de-ias/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/perplexity-vs-google-novo-duelo-busca-2026/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/ia-agentica-pratica-como-implementar-agentes-executam-operacao/</loc>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -349,6 +535,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/microsoft-copilot-pequenas-empresas-custos-roi-2026/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/model-context-protocol-mcp-o-que-e-por-que-desenvolvedores-precisam-conhecer/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -361,8 +559,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/nuvem-vs-infraestrutura-propria-ia-calcular-roi-2026/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/opt-out-ai-overviews-google-2025-como-controlar/</loc>
     <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/orquestracao-agentes-ia-conectar-sistemas-autonomos-controle/</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -403,6 +613,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aeobr.com.br/blog/physical-ai-inteligencia-artificial-mundo-fisico-2026/</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/physical-ai-inteligencia-artificial-operando-robos-drones-dispositivos-mundo-real/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/pl-2338-23-impacto-compliance-ia-empresas/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aeobr.com.br/blog/plugin-wordpress-conecta-ia-site-chave-aeo-marcas/</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -411,6 +639,12 @@
   <url>
     <loc>https://www.aeobr.com.br/blog/recommendation-share-metrica-aeo-substitui-posicao-organica/</loc>
     <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/regulacao-pre-lancamento-ia-governos-testam-modelos-antes-publico/</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -429,6 +663,12 @@
   <url>
     <loc>https://www.aeobr.com.br/blog/schema-org-id-sameas-resolucao-entidades-ia/</loc>
     <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aeobr.com.br/blog/seguranca-agentes-ia-impedir-vazamento-dados-acoes-nao-autorizadas/</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
