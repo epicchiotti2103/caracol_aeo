@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-02T18:54:07",
-  "count": 113,
+  "generated_at": "2026-07-02T20:32:11",
+  "count": 112,
   "categories": [
     {
       "id": "giro",
@@ -112,15 +112,6 @@
       "date": "2026-06-15",
       "cat_id": "fundamentos",
       "cat_label": "Fundamentos"
-    },
-    {
-      "url": "/blog/gemini-integracao-perfil-empresarial-aeo/",
-      "slug": "gemini-integracao-perfil-empresarial-aeo",
-      "title": "Gemini integração Perfil Empresarial: a nova fonte de citação em IA",
-      "desc": "Google integra Gemini ao Perfil Empresarial para respostas locais. Saiba por que sua marca deve tratar o GBP como fonte primária de citação em IA e otimizar NAP e atributos.",
-      "date": "2026-06-15",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
     },
     {
       "url": "/blog/gemini-integracao-perfil-empresarial-aeo/",
