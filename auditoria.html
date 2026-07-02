@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!-- Auditoria AEO instantânea — Caracol AEO. Frontend da API aeobr-audit-api (Vercel). -->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auditoria AEO Grátis: Score 0-100 do seu site na hora | Caracol AEO</title>
+<meta name="description" content="Ferramenta gratuita de auditoria AEO: digite a URL e receba na hora o score 0-100 de visibilidade do seu site em IAs como ChatGPT e Perplexity.">
+<link rel="canonical" href="https://www.aeobr.com.br/auditoria">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Auditoria AEO Grátis — Score do seu site na hora">
+<meta property="og:description" content="Digite a URL e descubra em segundos se o seu site está pronto para ser citado por ChatGPT, Perplexity e Google AI.">
+<meta property="og:url" content="https://www.aeobr.com.br/auditoria">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.aeobr.com.br/logo2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Auditoria AEO Caracol",
+  "url": "https://www.aeobr.com.br/auditoria",
+  "applicationCategory": "SEOApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "provider": { "@type": "Organization", "name": "Caracol Media", "url": "https://www.aeobr.com.br" },
+  "description": "Ferramenta gratuita que gera diagnóstico AEO de qualquer site: score 0-100 com análise de Schema.org, meta tags, robots.txt para bots de IA e estrutura de conteúdo."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "O que é o Score AEO?", "acceptedAnswer": { "@type": "Answer", "text": "O Score AEO é uma nota de 0 a 100 que mede o quanto um site está preparado para ser citado por assistentes de IA como ChatGPT, Perplexity e Google AI. Ele avalia 4 dimensões: dados estruturados (Schema.org), meta tags, estrutura de conteúdo e crawlability técnica para bots de IA." } },
+    { "@type": "Question", "name": "A auditoria AEO é realmente gratuita?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O diagnóstico instantâneo com score, análise por dimensão e principais recomendações é gratuito e ilimitado. O relatório completo com plano de ação priorizado é enviado por e-mail, também sem custo." } },
+    { "@type": "Question", "name": "Qual a diferença entre AEO e SEO?", "acceptedAnswer": { "@type": "Answer", "text": "SEO otimiza um site para ranquear em buscadores tradicionais como o Google. AEO (Answer Engine Optimization) otimiza para que o conteúdo seja citado como fonte nas respostas de assistentes de IA — ChatGPT, Perplexity, Gemini e Google AI Overviews. As técnicas se complementam, mas AEO exige dados estruturados, conteúdo extraível e liberação dos bots de IA no robots.txt." } }
+  ]
+}
+</script>
+<style>
+  :root{--bg:#0A0A0A;--bg-card:#141414;--border:#2A2A2A;--text:#F5F5F5;--text-muted:#999;--text-dim:#666;--orange:#FF6B1A;--lime:#C8FF00;--red:#ff4d4d;--green:#34d399}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px}
+  a{color:var(--orange);text-decoration:none}a:hover{text-decoration:underline}
+  .topbar{border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+  .topbar .back{color:var(--text-muted);font-size:14px}
+  .topbar .back:hover{color:var(--text);text-decoration:none}
+  main.doc{max-width:760px;margin:0 auto;padding:56px 24px 72px}
+  .sl{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--lime);margin-bottom:10px}
+  h1{font-size:36px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+  h2{font-size:22px;font-weight:700;margin:40px 0 10px}
+  p{margin-bottom:16px;color:#d8d8d8}
+  .lead{font-size:17px;color:var(--text-muted)}
+  .card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:26px;margin:26px 0}
+  .urlrow{display:flex;gap:10px;flex-wrap:wrap}
+  .urlrow input{flex:1;min-width:220px;background:#0d0d0d;border:1px solid var(--border);border-radius:8px;padding:14px 16px;color:var(--text);font-size:16px;font-family:inherit;outline:none}
+  .urlrow input:focus{border-color:var(--orange)}
+  .btn{background:var(--orange);color:#fff;font-weight:600;font-size:16px;padding:14px 24px;border:none;border-radius:8px;cursor:pointer;font-family:inherit}
+  .btn:hover{background:#E55A0F}
+  .btn:disabled{opacity:.6;cursor:wait}
+  .err{color:var(--red);font-size:14px;margin-top:10px;display:none}
+  #result{display:none}
+  .scorebox{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+  .gauge{position:relative;width:150px;height:150px;flex-shrink:0}
+  .gauge svg{transform:rotate(-90deg)}
+  .gauge .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .gauge .num b{font-size:40px;line-height:1;letter-spacing:-.02em}
+  .gauge .num span{font-size:12px;color:var(--text-dim);font-family:'JetBrains Mono',monospace}
+  .rating{font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:5px 12px;border-radius:99px;border:1px solid var(--border);display:inline-block;margin-bottom:8px}
+  .audited-url{font-size:14px;color:var(--text-muted);word-break:break-all}
+  .dims{margin-top:6px}
+  .dim{margin:14px 0}
+  .dim .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+  .dim .top b{font-weight:600}
+  .dim .top span{font-family:'JetBrains Mono',monospace;color:var(--text-muted);font-size:13px}
+  .bar{height:8px;background:#222;border-radius:99px;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:99px;background:var(--orange);transition:width .8s ease}
+  .recs{list-style:none}
+  .recs li{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #1e1e1e;font-size:15px;color:#d8d8d8;align-items:baseline}
+  .recs li:last-child{border-bottom:none}
+  .pri{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:3px 8px;border-radius:5px;flex-shrink:0}
+  .pri.alta{background:rgba(255,77,77,.12);color:var(--red)}
+  .pri.media{background:rgba(255,107,26,.12);color:var(--orange)}
+  .pri.baixa{background:rgba(200,255,0,.10);color:var(--lime)}
+  .locked{position:relative;margin-top:8px}
+  .locked .blur{filter:blur(5px);pointer-events:none;user-select:none}
+  .gate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .gatecard{background:rgba(10,10,10,.92);border:1px solid var(--border);border-radius:12px;padding:24px;max-width:420px;width:100%;text-align:center}
+  .gatecard .t{font-weight:700;font-size:17px;margin-bottom:4px}
+  .gatecard .s{font-size:14px;color:var(--text-muted);margin-bottom:14px}
+  .gatecard input{width:100%;background:#0d0d0d;border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font-size:15px;font-family:inherit;outline:none;margin-bottom:10px}
+  .gatecard input:focus{border-color:var(--orange)}
+  .gatecard .btn{width:100%}
+  .gatecard .fn{font-size:12px;color:var(--text-dim);margin-top:10px;margin-bottom:0}
+  .ctabox{border:1px solid var(--border);background:linear-gradient(135deg,#141414,#0d0d0d);border-radius:12px;padding:26px;margin-top:34px}
+  .ctabox b{font-size:17px}
+  .ctabox p{margin:8px 0 14px;font-size:15px;color:var(--text-muted)}
+  .cta{display:inline-block;background:var(--orange);color:#fff;font-weight:600;padding:12px 20px;border-radius:8px}
+  .cta:hover{background:#E55A0F;text-decoration:none}
+  .faq h3{font-size:17px;margin:22px 0 6px}
+  .ft{border-top:1px solid var(--border);padding:28px 24px;text-align:center;color:var(--text-dim);font-size:13px}
+  .ft a{color:var(--text-muted)}
+  .ft .links{margin-bottom:10px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  @media(max-width:540px){h1{font-size:29px}.scorebox{gap:18px}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4282EKRBJD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4282EKRBJD');</script>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="/" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="34" style="display:block"></a>
+  <a class="back" href="/">← voltar ao site</a>
+</div>
+
+<main class="doc">
+  <div class="sl">Ferramenta Gratuita</div>
+  <h1>Auditoria AEO instantânea: o score do seu site nas IAs</h1>
+  <p class="lead">A auditoria AEO é um diagnóstico que mede, de 0 a 100, o quanto um site está pronto para ser citado por ChatGPT, Perplexity e Google AI. Digite a URL e veja o resultado em segundos — Schema.org, meta tags, estrutura de conteúdo e liberação dos bots de IA.</p>
+
+  <div class="card">
+    <form id="auditRun" class="urlrow" onsubmit="runAudit(event)">
+      <input type="text" id="siteUrl" placeholder="https://suaempresa.com.br" required inputmode="url" autocomplete="url" aria-label="URL do site">
+      <button type="submit" class="btn" id="runBtn">Auditar grátis →</button>
+    </form>
+    <p class="err" id="audErr"></p>
+  </div>
+
+  <div id="result">
+    <div class="card">
+      <div class="scorebox">
+        <div class="gauge">
+          <svg width="150" height="150" viewBox="0 0 150 150">
+            <circle cx="75" cy="75" r="64" fill="none" stroke="#222" stroke-width="12"/>
+            <circle id="arc" cx="75" cy="75" r="64" fill="none" stroke="#FF6B1A" stroke-width="12" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
+          </svg>
+          <div class="num"><b id="scoreNum">0</b><span>/ 100</span></div>
+        </div>
+        <div>
+          <span class="rating" id="ratingBadge">—</span>
+          <div class="audited-url" id="auditedUrl"></div>
+          <div class="dims" id="dims"></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>O que corrigir primeiro</h2>
+    <div class="card">
+      <ul class="recs" id="topRecs"></ul>
+      <div class="locked" id="lockedWrap">
+        <ul class="recs blur" id="lockedRecs"></ul>
+        <div class="gate" id="gate">
+          <div class="gatecard">
+            <div class="t" id="gateTitle">Veja o diagnóstico completo</div>
+            <div class="s">Receba todas as recomendações e o plano de ação priorizado no seu e-mail — grátis.</div>
+            <form id="leadForm" onsubmit="sendLead(event)">
+              <input type="text" id="leadNome" placeholder="Seu nome" required autocomplete="name">
+              <input type="email" id="leadEmail" placeholder="nome@empresa.com.br" required autocomplete="email">
+              <button type="submit" class="btn" id="leadBtn">Desbloquear relatório completo →</button>
+            </form>
+            <p class="fn">Sem spam. Sem cartão de crédito.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ctabox">
+      <b>Score baixo? A gente conserta.</b>
+      <p>A Caracol AEO implementa as correções e mede sua visibilidade real nas IAs — incluindo Share of Voice contra concorrentes no ChatGPT e no Perplexity.</p>
+      <a class="cta" href="/#planos">Conhecer os planos →</a>
+    </div>
+  </div>
+
+  <section class="faq">
+    <h2>Perguntas frequentes</h2>
+    <h3>O que é o Score AEO?</h3>
+    <p>É uma nota de 0 a 100 que mede o quanto um site está preparado para ser citado por assistentes de IA. Avalia 4 dimensões: dados estruturados (Schema.org), meta tags, estrutura de conteúdo e crawlability técnica para bots de IA como GPTBot, ClaudeBot e PerplexityBot.</p>
+    <h3>A auditoria é realmente gratuita?</h3>
+    <p>Sim. O diagnóstico instantâneo é gratuito e ilimitado. O relatório completo com plano de ação priorizado é enviado por e-mail, também sem custo.</p>
+    <h3>Qual a diferença entre AEO e SEO?</h3>
+    <p>SEO otimiza para ranquear no Google tradicional; AEO otimiza para ser <em>citado como fonte</em> nas respostas de IAs — ChatGPT, Perplexity, Gemini e AI Overviews. As técnicas se complementam, mas AEO exige conteúdo extraível, dados estruturados e bots de IA liberados no robots.txt.</p>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="links">
+    <a href="/">Início</a><a href="/blog/">Blog</a><a href="/auditoria">Auditoria Grátis</a><a href="/privacidade">Privacidade</a><a href="/termos">Termos</a><a href="/contato">Contato</a>
+  </div>
+  <div>© 2026 Caracol Media · CNPJ 55.097.812/0001-99 · uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+</footer>
+
+<script>
+const API_URL = "https://aeobr-audit-api.vercel.app/api/audit";
+const CF_URL = "https://aeo-lead-receiver-ugzah7lydq-rj.a.run.app";
+const DIM_LABELS = {
+  schema_org: "Dados estruturados (Schema)",
+  meta_tags: "Meta tags",
+  conteudo_estrutura: "Conteúdo e estrutura",
+  tecnico_crawlability: "Técnico / bots de IA"
+};
+let lastResult = null;
+
+async function runAudit(e) {
+  e.preventDefault();
+  const btn = document.getElementById("runBtn");
+  const err = document.getElementById("audErr");
+  const url = document.getElementById("siteUrl").value.trim();
+  err.style.display = "none";
+  btn.disabled = true; btn.textContent = "Auditando...";
+  try {
+    const res = await fetch(API_URL + "?url=" + encodeURIComponent(url));
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    lastResult = data;
+    render(data);
+    gtag("event", "audit_run", { audited_url: data.url, score: data.score });
+  } catch (ex) {
+    err.textContent = "Não consegui auditar essa URL (" + ex.message + "). Confira o endereço e tente de novo.";
+    err.style.display = "block";
+  }
+  btn.disabled = false; btn.textContent = "Auditar grátis →";
+}
+
+function render(d) {
+  document.getElementById("result").style.display = "block";
+  document.getElementById("auditedUrl").textContent = d.url;
+  const badge = document.getElementById("ratingBadge");
+  badge.textContent = d.rating;
+  const color = d.score >= 80 ? "var(--green)" : d.score >= 60 ? "var(--lime)" : d.score >= 40 ? "var(--orange)" : "var(--red)";
+  badge.style.color = color; badge.style.borderColor = color;
+  document.getElementById("arc").style.stroke = color;
+  document.getElementById("arc").style.strokeDashoffset = String(402 - 402 * d.score / 100);
+  animateNum(document.getElementById("scoreNum"), d.score);
+
+  const dims = document.getElementById("dims");
+  dims.innerHTML = "";
+  for (const [key, dim] of Object.entries(d.dimensoes)) {
+    const pct = Math.round(100 * dim.score / dim.max);
+    dims.insertAdjacentHTML("beforeend",
+      '<div class="dim"><div class="top"><b>' + DIM_LABELS[key] + '</b><span>' + dim.score + '/' + dim.max +
+      '</span></div><div class="bar"><i style="width:' + pct + '%"></i></div></div>');
+  }
+
+  const recs = d.recomendacoes_priorizadas || [];
+  const top = recs.slice(0, 3), rest = recs.slice(3);
+  document.getElementById("topRecs").innerHTML = top.map(recHtml).join("") ||
+    "<li>Nenhum problema crítico encontrado — parabéns!</li>";
+  const wrap = document.getElementById("lockedWrap");
+  if (rest.length) {
+    wrap.style.display = "block";
+    document.getElementById("gateTitle").textContent = "+" + rest.length + " recomendações no relatório completo";
+    document.getElementById("lockedRecs").innerHTML = rest.map(recHtml).join("");
+  } else {
+    wrap.style.display = "none";
+  }
+  document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function recHtml(r) {
+  return '<li><span class="pri ' + r.prioridade + '">' + r.prioridade + '</span><span>' + r.acao + '</span></li>';
+}
+
+function animateNum(el, target) {
+  let cur = 0;
+  const step = Math.max(1, Math.round(target / 40));
+  const t = setInterval(() => {
+    cur = Math.min(target, cur + step);
+    el.textContent = cur;
+    if (cur >= target) clearInterval(t);
+  }, 20);
+}
+
+async function sendLead(e) {
+  e.preventDefault();
+  const btn = document.getElementById("leadBtn");
+  const nome = document.getElementById("leadNome").value.trim();
+  const email = document.getElementById("leadEmail").value.trim();
+  const site = (lastResult && lastResult.url) || document.getElementById("siteUrl").value.trim();
+  btn.disabled = true; btn.textContent = "Enviando...";
+  try {
+    const res = await fetch(CF_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nome, email, site })
+    });
+    if (!res.ok) throw new Error();
+    document.querySelector("#lockedRecs").classList.remove("blur");
+    document.getElementById("gate").style.display = "none";
+    gtag("event", "generate_lead", { source: "auditoria-instantanea", score: lastResult ? lastResult.score : null });
+  } catch (ex) {
+    btn.disabled = false; btn.textContent = "Tentar novamente";
+  }
+}
+</script>
+</body>
+</html>
