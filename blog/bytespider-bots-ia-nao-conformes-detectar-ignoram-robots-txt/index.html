@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bytespider e bots de IA não-conformes: como detectar crawlers que ignoram robots.txt e o que fazer — Caracol AEO</title>
+  <title>Bytespider e bots de IA não-conformes: como detectar crawlers que ignoram robots.txt e o que fazer</title>
   <meta name="description" content="Guia completo para detectar e bloquear Bytespider e outros crawlers de IA que ignoram robots.txt, com técnicas de monitoramento e bloqueio em servidor.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -260,84 +260,56 @@
 <p>Os logs de acesso contêm informações precisas sobre quais URLs foram acessadas por cada user-agent. Para identificar violações, compare os padrões de acesso com as regras do seu robots.txt.</p>
 <p>No Apache, os logs ficam tipicamente em <code>/var/log/apache2/access.log</code>. No nginx, em <code>/var/log/nginx/access.log</code>. Extraia requisições do Bytespider com:</p>
 <pre><code class="language-bash">grep &quot;Bytespider&quot; /var/log/nginx/access.log | head -20
-Examine se as URLs acessadas estão em diretórios ou padrões que você bloqueou no robots.txt. Se o arquivo contém `Disallow: /admin/` mas os logs mostram acessos a `/admin/dashboard`, há violação confirmada.
-
-### Padrões de comportamento que indicam violação de robots.txt
-
-Crawlers não-conformes exibem comportamentos distintivos além de simplesmente ignorar Disallow. Eles frequentemente:
-
-- Ignoram diretiva `Crawl-delay`, fazendo requisições em intervalos menores que o especificado
-- Acessam URLs em sitemap.xml mesmo quando o user-agent está bloqueado via robots.txt
-- Fazem requisições ao próprio arquivo robots.txt repetidamente, indicando que o leem mas não o obedecem
-- Crawleiam durante horários definidos em diretivas de tempo, quando presentes
-
-A frequência de requisições também é indicativa. Se você definiu `Crawl-delay: 10` mas o bot faz requisições a cada 1-2 segundos, está violando as regras mesmo que não acesse URLs explicitamente bloqueadas.
-
-### Ferramentas para automatizar detecção de crawlers não-conformes
-
-Para sites com alto volume, análise manual de logs torna-se impraticável. Scripts simples podem automatizar a detecção:
-
-Um script básico em Python pode parsear logs e comparar com regras robots.txt, gerando alertas quando violações são detectadas. Ferramentas de monitoramento como Datadog ou New Relic também podem ser configuradas para alertar sobre padrões anômalos de crawling.
-
-Para implementação própria, considere criar alertas quando o volume de requisições de um user-agent específico excede 20% do normal em URLs que deveriam estar bloqueadas. Isso captura tanto violações diretas quanto comportamento agressivo que indica não-conformidade.
-
-## Bytespider: histórico documentado de não-conformidade
-
-O Bytespider tem histórico consistente de comportamento não-conforme documentado por administradores de sistemas desde 2020. O bot frequentemente ignora tanto diretivas `Disallow` quanto `Crawl-delay`, mantendo padrões agressivos de crawling mesmo em sites que o bloqueiam explicitamente.
-
-### User-agents variantes do Bytespider
-
-O Bytespider opera com múltiplas identificações de user-agent, complicando estratégias de bloqueio:
-
-- `Mozilla/5.0 (compatible; Bytespider; spider-feedback@bytedance.com)`
-- `Bytespider` (versão simplificada)
-- Variantes que incluem informações de versão específicas
-
-Essa diversidade de identificações sugere estratégia deliberada para contornar bloqueios baseados em string matching simples. Administradores relatam que bloquear apenas &quot;Bytespider&quot; frequentemente não é suficiente, sendo necessário usar expressões regulares que capturem todas as variantes.
-
-### Impacto em custos de infraestrutura e performance
-
-O crawling não-conforme do Bytespider gera impacto mensurável em infraestrutura. Sites que implementaram bloqueios específicos para o Bytespider reportam reduções de 15-25% no volume total de requisições de bots.
-
-Para sites de e-commerce com catálogos extensos, o Bytespider pode gerar milhares de requisições por dia mesmo quando bloqueado via robots.txt. Isso resulta em custos desnecessários de CDN, processamento de servidor e pode impactar a experiência de usuários reais durante picos de crawling.
-
-O problema é amplificado pela tendência do Bytespider de não respeitar `Crawl-delay`, fazendo requisições em rajadas que podem sobrecarregar servidores configurados para crawlers mais respeitosos.
-
-## Outros bots de IA com histórico de não-conformidade
-
-O Bytespider não é único em comportamento não-conforme. Vários outros crawlers de IA demonstram padrões similares de ignorar diretivas robots.txt, especialmente quando relacionado a coleta de dados para treinamento de modelos.
-
-[CCBot (Common Crawl)](/blog/diferenca-crawlers-ia-chatgpt-perplexity/) historicamente teve comportamento inconsistente com robots.txt, embora tenha melhorado a conformidade recentemente. **FacebookBot** ocasionalmente ignora regras específicas, especialmente para conteúdo que considera relevante para produtos de IA da Meta.
-
-Bots menos conhecidos como [Claude-Web e variants não-oficiais do GPTBot](/blog/claude-searchbot-oai-searchbot-crawlers-busca/) também apresentam comportamento questionável. A característica comum é priorizar coleta de dados sobre conformidade com protocolos web estabelecidos.
-
-Cloudflare reportou aumento de 300% em requisições de bots de IA entre 2022 e 2024, com parte significativa ignorando diretivas de exclusão. Isso indica que o problema de não-conformidade está crescendo, não diminuindo.
-
-## Como bloquear crawlers não-conformes em nível de servidor
-
-Quando robots.txt falha em controlar crawlers, bloqueios em nível de servidor tornam-se necessários. Essa abordagem é mais efetiva porque impede completamente o acesso, eliminando custos de processamento desnecessários.
-
-### Bloqueio via .htaccess (Apache)
-
-No Apache, adicione regras ao arquivo .htaccess na raiz do site:
-
-```apache
-RewriteEngine On
+</code></pre>
+<p>Examine se as URLs acessadas estão em diretórios ou padrões que você bloqueou no robots.txt. Se o arquivo contém <code>Disallow: /admin/</code> mas os logs mostram acessos a <code>/admin/dashboard</code>, há violação confirmada.</p>
+<h3 id="padroes-de-comportamento-que-indicam-violacao-de-robotstxt">Padrões de comportamento que indicam violação de robots.txt</h3>
+<p>Crawlers não-conformes exibem comportamentos distintivos além de simplesmente ignorar Disallow. Eles frequentemente:</p>
+<ul>
+<li>Ignoram diretiva <code>Crawl-delay</code>, fazendo requisições em intervalos menores que o especificado</li>
+<li>Acessam URLs em sitemap.xml mesmo quando o user-agent está bloqueado via robots.txt</li>
+<li>Fazem requisições ao próprio arquivo robots.txt repetidamente, indicando que o leem mas não o obedecem</li>
+<li>Crawleiam durante horários definidos em diretivas de tempo, quando presentes</li>
+</ul>
+<p>A frequência de requisições também é indicativa. Se você definiu <code>Crawl-delay: 10</code> mas o bot faz requisições a cada 1-2 segundos, está violando as regras mesmo que não acesse URLs explicitamente bloqueadas.</p>
+<h3 id="ferramentas-para-automatizar-deteccao-de-crawlers-nao-conformes">Ferramentas para automatizar detecção de crawlers não-conformes</h3>
+<p>Para sites com alto volume, análise manual de logs torna-se impraticável. Scripts simples podem automatizar a detecção:</p>
+<p>Um script básico em Python pode parsear logs e comparar com regras robots.txt, gerando alertas quando violações são detectadas. Ferramentas de monitoramento como Datadog ou New Relic também podem ser configuradas para alertar sobre padrões anômalos de crawling.</p>
+<p>Para implementação própria, considere criar alertas quando o volume de requisições de um user-agent específico excede 20% do normal em URLs que deveriam estar bloqueadas. Isso captura tanto violações diretas quanto comportamento agressivo que indica não-conformidade.</p>
+<h2 id="bytespider-historico-documentado-de-nao-conformidade">Bytespider: histórico documentado de não-conformidade</h2>
+<p>O Bytespider tem histórico consistente de comportamento não-conforme documentado por administradores de sistemas desde 2020. O bot frequentemente ignora tanto diretivas <code>Disallow</code> quanto <code>Crawl-delay</code>, mantendo padrões agressivos de crawling mesmo em sites que o bloqueiam explicitamente.</p>
+<h3 id="user-agents-variantes-do-bytespider">User-agents variantes do Bytespider</h3>
+<p>O Bytespider opera com múltiplas identificações de user-agent, complicando estratégias de bloqueio:</p>
+<ul>
+<li><code>Mozilla/5.0 (compatible; Bytespider; spider-feedback@bytedance.com)</code></li>
+<li><code>Bytespider</code> (versão simplificada)</li>
+<li>Variantes que incluem informações de versão específicas</li>
+</ul>
+<p>Essa diversidade de identificações sugere estratégia deliberada para contornar bloqueios baseados em string matching simples. Administradores relatam que bloquear apenas "Bytespider" frequentemente não é suficiente, sendo necessário usar expressões regulares que capturem todas as variantes.</p>
+<h3 id="impacto-em-custos-de-infraestrutura-e-performance">Impacto em custos de infraestrutura e performance</h3>
+<p>O crawling não-conforme do Bytespider gera impacto mensurável em infraestrutura. Sites que implementaram bloqueios específicos para o Bytespider reportam reduções de 15-25% no volume total de requisições de bots.</p>
+<p>Para sites de e-commerce com catálogos extensos, o Bytespider pode gerar milhares de requisições por dia mesmo quando bloqueado via robots.txt. Isso resulta em custos desnecessários de CDN, processamento de servidor e pode impactar a experiência de usuários reais durante picos de crawling.</p>
+<p>O problema é amplificado pela tendência do Bytespider de não respeitar <code>Crawl-delay</code>, fazendo requisições em rajadas que podem sobrecarregar servidores configurados para crawlers mais respeitosos.</p>
+<h2 id="outros-bots-de-ia-com-historico-de-nao-conformidade">Outros bots de IA com histórico de não-conformidade</h2>
+<p>O Bytespider não é único em comportamento não-conforme. Vários outros crawlers de IA demonstram padrões similares de ignorar diretivas robots.txt, especialmente quando relacionado a coleta de dados para treinamento de modelos.</p>
+<p><a href="/blog/diferenca-crawlers-ia-chatgpt-perplexity/">CCBot (Common Crawl)</a> historicamente teve comportamento inconsistente com robots.txt, embora tenha melhorado a conformidade recentemente. <strong>FacebookBot</strong> ocasionalmente ignora regras específicas, especialmente para conteúdo que considera relevante para produtos de IA da Meta.</p>
+<p>Bots menos conhecidos como <a href="/blog/claude-searchbot-oai-searchbot-crawlers-busca/">Claude-Web e variants não-oficiais do GPTBot</a> também apresentam comportamento questionável. A característica comum é priorizar coleta de dados sobre conformidade com protocolos web estabelecidos.</p>
+<p>Cloudflare reportou aumento de 300% em requisições de bots de IA entre 2022 e 2024, com parte significativa ignorando diretivas de exclusão. Isso indica que o problema de não-conformidade está crescendo, não diminuindo.</p>
+<h2 id="como-bloquear-crawlers-nao-conformes-em-nivel-de-servidor">Como bloquear crawlers não-conformes em nível de servidor</h2>
+<p>Quando robots.txt falha em controlar crawlers, bloqueios em nível de servidor tornam-se necessários. Essa abordagem é mais efetiva porque impede completamente o acesso, eliminando custos de processamento desnecessários.</p>
+<h3 id="bloqueio-via-htaccess-apache">Bloqueio via .htaccess (Apache)</h3>
+<p>No Apache, adicione regras ao arquivo .htaccess na raiz do site:</p>
+<pre><code class="language-apache">RewriteEngine On
 RewriteCond %{HTTP_USER_AGENT} &quot;Bytespider&quot; [NC]
 RewriteRule .* - [F,L]
 
 RewriteCond %{HTTP_USER_AGENT} &quot;spider-feedback@bytedance&quot; [NC]
 RewriteRule .* - [F,L]
-A flag `[NC]` torna a comparação case-insensitive, capturando variantes com diferentes capitalizações. A flag `[F,L]` retorna erro 403 Forbidden e para o processamento de regras adicionais.
-
-Para bloqueio mais sofisticado, use expressões regulares que capturem todas as variantes conhecidas do Bytespider em uma única regra.
-
-### Bloqueio via nginx.conf
-
-No nginx, adicione regras ao bloco server:
-
-```nginx
-if ($http_user_agent ~* &quot;bytespider|spider-feedback@bytedance&quot;) {
+</code></pre>
+<p>A flag <code>[NC]</code> torna a comparação case-insensitive, capturando variantes com diferentes capitalizações. A flag <code>[F,L]</code> retorna erro 403 Forbidden e para o processamento de regras adicionais.</p>
+<p>Para bloqueio mais sofisticado, use expressões regulares que capturem todas as variantes conhecidas do Bytespider em uma única regra.</p>
+<h3 id="bloqueio-via-nginxconf">Bloqueio via nginx.conf</h3>
+<p>No nginx, adicione regras ao bloco server:</p>
+<pre><code class="language-nginx">if ($http_user_agent ~* &quot;bytespider|spider-feedback@bytedance&quot;) {
     return 403;
 }
 </code></pre>

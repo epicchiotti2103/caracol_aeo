@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como configurar robots.txt para GPTBot, ClaudeBot e PerplexityBot — Caracol AEO</title>
+  <title>Como configurar robots.txt para GPTBot, ClaudeBot e PerplexityBot</title>
   <meta name="description" content="Guia completo para configurar robots.txt com crawlers de IA: sintaxe exata para GPTBot, ClaudeBot e PerplexityBot, com controle granular por diretório.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -268,85 +268,106 @@
 <p>Além dos três principais, <a href="/blog/diferenca-crawlers-ia-chatgpt-perplexity/">outros bots de IA emergentes</a> incluem <code>Google-Extended</code> (para treinamento do Bard/Gemini), <code>Meta-ExternalAgent</code> (Meta AI) e <code>Amazonbot</code> (Alexa). Embora menos documentados, seguem padrões similares de identificação via user-agent específico.</p>
 <h2 id="sintaxe-do-robotstxt-para-permitir-acesso-total">Sintaxe do robots.txt para permitir acesso total</h2>
 <p>Para permitir acesso completo aos crawlers de IA, use a configuração mais simples. Não é necessário especificar permissões explícitas, pois o padrão do robots.txt é permitir acesso quando não há regras restritivas:</p>
-<p>User-agent: GPTBot
-Allow: /</p>
-<p>User-agent: ClaudeBot
-Allow: /</p>
-<p>User-agent: PerplexityBot
-Allow: /</p>
-<pre><code>
-Alternativamente, você pode usar um bloco unificado para múltiplos user-agents:
+<pre><code>User-agent: GPTBot
+Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
 </code></pre>
-<p>User-agent: GPTBot
+<p>Alternativamente, você pode usar um bloco unificado para múltiplos user-agents:</p>
+<pre><code>User-agent: GPTBot
 User-agent: ClaudeBot
 User-agent: PerplexityBot
-Allow: /</p>
-<pre><code>
-Esta abordagem simplifica manutenção quando você quer aplicar regras idênticas a vários bots de IA. Lembre-se de que `Allow: /` é tecnicamente redundante (já que é o comportamento padrão), mas torna a intenção explícita para outros desenvolvedores que revisarem o arquivo.
-
-## Como bloquear crawlers de IA específicos
-
-Para bloquear completamente um crawler específico, use a diretiva `Disallow: /` para o user-agent correspondente:
-
+Allow: /
 </code></pre>
-<p>User-agent: GPTBot
-Disallow: /</p>
-<p>User-agent: ClaudeBot
-Disallow: /</p>
-<p>User-agent: PerplexityBot
-Disallow: /</p>
-<pre><code>
-Se você quiser bloquear todos os bots de IA principais de uma vez, pode usar:
+<p>Esta abordagem simplifica manutenção quando você quer aplicar regras idênticas a vários bots de IA. Lembre-se de que <code>Allow: /</code> é tecnicamente redundante (já que é o comportamento padrão), mas torna a intenção explícita para outros desenvolvedores que revisarem o arquivo.</p>
+<h2 id="como-bloquear-crawlers-de-ia-especificos">Como bloquear crawlers de IA específicos</h2>
+<p>Para bloquear completamente um crawler específico, use a diretiva <code>Disallow: /</code> para o user-agent correspondente:</p>
+<pre><code>User-agent: GPTBot
+Disallow: /
 
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
 </code></pre>
-<p>User-agent: GPTBot
+<p>Se você quiser bloquear todos os bots de IA principais de uma vez, pode usar:</p>
+<pre><code>User-agent: GPTBot
 User-agent: ClaudeBot
 User-agent: PerplexityBot
 User-agent: Google-Extended
-Disallow: /</p>
-<pre><code>
-Esta configuração impede que os crawlers especificados acessem qualquer página do seu site. É importante notar que alguns bots podem não respeitar robots.txt completamente, mas os principais crawlers de IA documentados seguem essas diretrizes.
-
-Para bloquear apenas durante desenvolvimento ou manutenção, considere usar redirecionamentos HTTP 503 temporários em vez de modificar robots.txt permanentemente.
-
-## Controle granular: permitir apenas diretórios específicos
-
-O controle granular permite que você defina exatamente quais seções do site ficam acessíveis para cada tipo de crawler. Esta abordagem é especialmente útil para sites com diferentes tipos de conteúdo:
-
+Disallow: /
 </code></pre>
-<p>User-agent: GPTBot
+<p>Esta configuração impede que os crawlers especificados acessem qualquer página do seu site. É importante notar que alguns bots podem não respeitar robots.txt completamente, mas os principais crawlers de IA documentados seguem essas diretrizes.</p>
+<p>Para bloquear apenas durante desenvolvimento ou manutenção, considere usar redirecionamentos HTTP 503 temporários em vez de modificar robots.txt permanentemente.</p>
+<h2 id="controle-granular-permitir-apenas-diretorios-especificos">Controle granular: permitir apenas diretórios específicos</h2>
+<p>O controle granular permite que você defina exatamente quais seções do site ficam acessíveis para cada tipo de crawler. Esta abordagem é especialmente útil para sites com diferentes tipos de conteúdo:</p>
+<pre><code>User-agent: GPTBot
 Allow: /blog/
 Allow: /recursos/
-Disallow: /</p>
-<p>User-agent: ClaudeBot
+Disallow: /
+
+User-agent: ClaudeBot
 Allow: /artigos/
 Allow: /guias/
-Disallow: /</p>
-<p>User-agent: PerplexityBot
+Disallow: /
+
+User-agent: PerplexityBot
 Allow: /blog/
 Disallow: /admin/
-Disallow: /private/</p>
-<pre><code>
-Na tabela abaixo, compare estratégias comuns de controle granular:
-
-| Estratégia | GPTBot | ClaudeBot | PerplexityBot | Caso de Uso |
-|------------|--------|-----------|---------------|-------------|
-| Blog apenas | `Allow: /blog/` | `Disallow: /` | `Allow: /blog/` | Site corporativo |
-| Conteúdo público | `Allow: /public/` | `Allow: /public/` | `Allow: /public/` | SaaS com docs |
-| Sem área restrita | `Disallow: /admin/` | `Disallow: /private/` | `Disallow: /user/` | E-commerce |
-| Artigos premium | `Disallow: /premium/` | `Allow: /free/` | `Disallow: /premium/` | Portal de notícias |
-
-Lembre-se de que a ordem das regras importa: `Disallow` mais específico sobrescreve `Allow` mais geral quando há conflito no mesmo user-agent.
-
-## Testando sua configuração de robots.txt
-
-Após implementar as configurações, teste usando ferramentas específicas. O Google Search Console oferece testador de robots.txt que funciona para qualquer user-agent, incluindo bots de IA. Acesse a ferramenta e insira o user-agent específico (como `GPTBot`) para validar suas regras.
-
-Para teste manual, use curl ou wget simulando o user-agent:
-
-```bash
-curl -A &quot;GPTBot&quot; https://seusite.com/robots.txt
+Disallow: /private/
+</code></pre>
+<p>Na tabela abaixo, compare estratégias comuns de controle granular:</p>
+<table>
+<thead>
+<tr>
+<th>Estratégia</th>
+<th>GPTBot</th>
+<th>ClaudeBot</th>
+<th>PerplexityBot</th>
+<th>Caso de Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blog apenas</td>
+<td><code>Allow: /blog/</code></td>
+<td><code>Disallow: /</code></td>
+<td><code>Allow: /blog/</code></td>
+<td>Site corporativo</td>
+</tr>
+<tr>
+<td>Conteúdo público</td>
+<td><code>Allow: /public/</code></td>
+<td><code>Allow: /public/</code></td>
+<td><code>Allow: /public/</code></td>
+<td>SaaS com docs</td>
+</tr>
+<tr>
+<td>Sem área restrita</td>
+<td><code>Disallow: /admin/</code></td>
+<td><code>Disallow: /private/</code></td>
+<td><code>Disallow: /user/</code></td>
+<td>E-commerce</td>
+</tr>
+<tr>
+<td>Artigos premium</td>
+<td><code>Disallow: /premium/</code></td>
+<td><code>Allow: /free/</code></td>
+<td><code>Disallow: /premium/</code></td>
+<td>Portal de notícias</td>
+</tr>
+</tbody>
+</table>
+<p>Lembre-se de que a ordem das regras importa: <code>Disallow</code> mais específico sobrescreve <code>Allow</code> mais geral quando há conflito no mesmo user-agent.</p>
+<h2 id="testando-sua-configuracao-de-robotstxt">Testando sua configuração de robots.txt</h2>
+<p>Após implementar as configurações, teste usando ferramentas específicas. O Google Search Console oferece testador de robots.txt que funciona para qualquer user-agent, incluindo bots de IA. Acesse a ferramenta e insira o user-agent específico (como <code>GPTBot</code>) para validar suas regras.</p>
+<p>Para teste manual, use curl ou wget simulando o user-agent:</p>
+<pre><code class="language-bash">curl -A &quot;GPTBot&quot; https://seusite.com/robots.txt
 </code></pre>
 <p>Monitore logs de servidor para confirmar que os crawlers estão respeitando as configurações. Na minha experiência, mudanças no robots.txt são respeitadas pelos principais bots de IA em 24-48 horas, mas alguns podem levar até uma semana para atualizar completamente.</p>
 <p>Ferramentas como Screaming Frog também permitem simular diferentes user-agents para testar comportamento de crawling. Configure o user-agent customizado para cada bot de IA e execute crawling de teste em ambiente de desenvolvimento.</p>

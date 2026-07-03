@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AEO em blogs: 5 passos para ser citado por IAs (checklist) — Caracol AEO</title>
+  <title>AEO em blogs: 5 passos para ser citado por IAs (checklist)</title>
   <meta name="description" content="Checklist de Answer Engine Optimization para blogs: crawler, conteúdo, schema e meta tags para ChatGPT, Perplexity e Google AI citarem seus posts.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -263,15 +263,19 @@
 <p>Verifique também configurações de firewall que podem bloquear user agents específicos. Ferramentas como Cloudflare e outros CDNs frequentemente têm regras padrão que bloqueiam bots não tradicionais.</p>
 <h3 id="configuracao-recomendada-por-crawler">Configuração recomendada por crawler</h3>
 <p>Para liberar acesso completo, adicione estas linhas ao seu robots.txt:</p>
-<p>User-agent: GPTBot
-Allow: /</p>
-<p>User-agent: Claude-Web
-Allow: /</p>
-<p>User-agent: PerplexityBot
-Allow: /</p>
-<p>User-agent: ChatGPT-User
+<pre><code>User-agent: GPTBot
 Allow: /
-Para implementação mais detalhada, consulte nosso guia sobre como <a href="/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/">configurar acesso dos crawlers de IA</a>. Esta liberação é pré-requisito para todos os outros passos funcionarem.</p>
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+</code></pre>
+<p>Para implementação mais detalhada, consulte nosso guia sobre como <a href="/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/">configurar acesso dos crawlers de IA</a>. Esta liberação é pré-requisito para todos os outros passos funcionarem.</p>
 <h2 id="passo-2-reestruturar-conteudo-em-formato-pergunta-resposta">Passo 2: Reestruturar conteúdo em formato pergunta-resposta</h2>
 <p>Conteúdo citável por IA segue uma anatomia específica: pergunta clara seguida de resposta direta nos primeiros 40-60 palavras, depois contexto e detalhamento. Estudo da Semrush (2024) mostra que <a href="/blog/estruturar-faq-citacao-assistentes-ia/">conteúdo estruturado em FAQ</a> tem 3x mais probabilidade de ser citado por assistentes de IA.</p>
 <h3 id="anatomia-de-um-bloco-citavel">Anatomia de um bloco citável</h3>

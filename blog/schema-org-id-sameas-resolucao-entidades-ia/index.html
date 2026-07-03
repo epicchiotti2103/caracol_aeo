@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como usar @id e sameAs no Schema.org para melhorar resolução de entidades por IA? — Caracol AEO</title>
+  <title>Como usar @id e sameAs no Schema.org para melhorar resolução de entidades por IA?</title>
   <meta name="description" content="Aprenda a implementar @id e sameAs no Schema.org para criar identificadores únicos de entidades, facilitando compreensão por IAs e aumentando citações">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -265,39 +265,51 @@
   &quot;name&quot;: &quot;João Silva&quot;,
   &quot;jobTitle&quot;: &quot;Advogado&quot;
 }
-A URI do @id não precisa ser uma página acessível, mas deve ser consistente em todas as menções da entidade. Essa consistência permite que IAs conectem informações dispersas sobre a mesma pessoa ou organização.
-
-### Diferença entre @id relativo e absoluto
-
-IDs absolutos usam URLs completas (`https://site.com/entidade`), enquanto IDs relativos começam com `#` ou `/`. Para AEO, prefira sempre IDs absolutos porque facilitam a resolução entre domínios diferentes:
-
-| Tipo | Formato | Uso recomendado |
-|------|---------|----------------|
-| Absoluto | `https://site.com/pessoa/nome` | Sites com múltiplas entidades |
-| Relativo | `#pessoa1` | Entidades únicas por página |
-| Fragment | `/pessoa/nome` | Estrutura de URL existente |
-
-IDs absolutos são superiores para IAs porque criam referências globalmente únicas, eliminando conflitos entre sites diferentes que podem usar identificadores similares.
-
-## O papel do sameAs na desambiguação de entidades
-
-O **sameAs** conecta sua entidade a perfis autoritativos em outras plataformas, criando um cluster de identidade que IAs podem usar para validação cruzada. Funciona como uma &quot;prova de identidade&quot; digital.
-
-Quando você declara que sua entidade é &quot;sameAs&quot; um perfil LinkedIn, Wikipedia ou site oficial, está fornecendo pontos de referência que IAs podem consultar para confirmar informações e aumentar a confiança na fonte.
-
-### Fontes válidas para sameAs
-
-Priorize plataformas com alta autoridade e verificação de identidade:
-
-- **LinkedIn**: Para profissionais e empresas
-- **Wikipedia**: Para entidades notárias
-- **Sites oficiais**: URLs canônicas da entidade
-- **CNPJ/CPF**: Para validação legal no Brasil
-- **Redes sociais verificadas**: Twitter, Instagram, Facebook
-- **Diretórios profissionais**: CRM, CRA, CREA
-
-```json
-{
+</code></pre>
+<p>A URI do @id não precisa ser uma página acessível, mas deve ser consistente em todas as menções da entidade. Essa consistência permite que IAs conectem informações dispersas sobre a mesma pessoa ou organização.</p>
+<h3 id="diferenca-entre-id-relativo-e-absoluto">Diferença entre @id relativo e absoluto</h3>
+<p>IDs absolutos usam URLs completas (<code>https://site.com/entidade</code>), enquanto IDs relativos começam com <code>#</code> ou <code>/</code>. Para AEO, prefira sempre IDs absolutos porque facilitam a resolução entre domínios diferentes:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Formato</th>
+<th>Uso recomendado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Absoluto</td>
+<td><code>https://site.com/pessoa/nome</code></td>
+<td>Sites com múltiplas entidades</td>
+</tr>
+<tr>
+<td>Relativo</td>
+<td><code>#pessoa1</code></td>
+<td>Entidades únicas por página</td>
+</tr>
+<tr>
+<td>Fragment</td>
+<td><code>/pessoa/nome</code></td>
+<td>Estrutura de URL existente</td>
+</tr>
+</tbody>
+</table>
+<p>IDs absolutos são superiores para IAs porque criam referências globalmente únicas, eliminando conflitos entre sites diferentes que podem usar identificadores similares.</p>
+<h2 id="o-papel-do-sameas-na-desambiguacao-de-entidades">O papel do sameAs na desambiguação de entidades</h2>
+<p>O <strong>sameAs</strong> conecta sua entidade a perfis autoritativos em outras plataformas, criando um cluster de identidade que IAs podem usar para validação cruzada. Funciona como uma "prova de identidade" digital.</p>
+<p>Quando você declara que sua entidade é "sameAs" um perfil LinkedIn, Wikipedia ou site oficial, está fornecendo pontos de referência que IAs podem consultar para confirmar informações e aumentar a confiança na fonte.</p>
+<h3 id="fontes-validas-para-sameas">Fontes válidas para sameAs</h3>
+<p>Priorize plataformas com alta autoridade e verificação de identidade:</p>
+<ul>
+<li><strong>LinkedIn</strong>: Para profissionais e empresas</li>
+<li><strong>Wikipedia</strong>: Para entidades notárias</li>
+<li><strong>Sites oficiais</strong>: URLs canônicas da entidade</li>
+<li><strong>CNPJ/CPF</strong>: Para validação legal no Brasil</li>
+<li><strong>Redes sociais verificadas</strong>: Twitter, Instagram, Facebook</li>
+<li><strong>Diretórios profissionais</strong>: CRM, CRA, CREA</li>
+</ul>
+<pre><code class="language-json">{
   &quot;@context&quot;: &quot;https://schema.org&quot;,
   &quot;@type&quot;: &quot;Person&quot;,
   &quot;@id&quot;: &quot;https://site.com/autor/maria-santos&quot;,

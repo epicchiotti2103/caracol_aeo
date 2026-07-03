@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio — Caracol AEO</title>
+  <title>Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio</title>
   <meta name="description" content="Aprenda a implementar Speakable Schema para controlar quais trechos do seu conteúdo são lidos por assistentes de voz e otimizar para busca por áudio.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -264,18 +264,18 @@
 <h2 id="como-implementar-speakable-schema-json-ld-vs-microdata">Como implementar Speakable Schema: JSON-LD vs microdata</h2>
 <p>A implementação de Speakable Schema pode ser feita através de JSON-LD (recomendado) ou microdata. JSON-LD oferece maior flexibilidade e facilidade de manutenção, sendo a abordagem preferida pela maioria dos desenvolvedores.</p>
 <h3 id="exemplo-de-implementacao-em-json-ld">Exemplo de implementação em JSON-LD</h3>
-<p>```json</p>
-<script type="application/ld+json">
+<pre><code class="language-json">&lt;script type=&quot;application/ld+json&quot;&gt;
 {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Guia completo de AEO para 2024",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [".intro-paragraph", ".key-takeaways", ".conclusion"]
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Article&quot;,
+  &quot;headline&quot;: &quot;Guia completo de AEO para 2024&quot;,
+  &quot;speakable&quot;: {
+    &quot;@type&quot;: &quot;SpeakableSpecification&quot;,
+    &quot;cssSelector&quot;: [&quot;.intro-paragraph&quot;, &quot;.key-takeaways&quot;, &quot;.conclusion&quot;]
   }
 }
-</script>
+&lt;/script&gt;
+</code></pre>
 <p>Esta implementação marca três seções específicas como speakable usando seletores CSS. Alternativamente, você pode usar xpath para maior precisão na seleção de elementos. A vantagem dos seletores CSS é a simplicidade e compatibilidade com sistemas de CMS.</p>
 <h3 id="validacao-com-rich-results-test">Validação com Rich Results Test</h3>
 <p>Após implementar Speakable Schema, utilize o Rich Results Test do Google para validar a marcação. Acesse search.google.com/test/rich-results e insira a URL da página. A ferramenta identificará se a marcação Speakable foi reconhecida corretamente e apontará possíveis erros de sintaxe.</p>

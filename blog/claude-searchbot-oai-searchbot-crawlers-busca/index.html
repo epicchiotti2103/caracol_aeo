@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claude-SearchBot e OAI-SearchBot: como funcionam e o que fazer com esses crawlers — Caracol AEO</title>
+  <title>Claude-SearchBot e OAI-SearchBot: como funcionam e o que fazer com esses crawlers</title>
   <meta name="description" content="Claude-SearchBot e OAI-SearchBot são crawlers específicos para busca conversacional. Saiba como configurar robots.txt corretamente sem perder visibilidade.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -308,29 +308,32 @@
 <p>A configuração ideal depende da sua estratégia de visibilidade versus privacidade. Existem dois cenários principais que atendem diferentes necessidades empresariais.</p>
 <h3 id="cenario-1-permitir-busca-mas-bloquear-treinamento">Cenário 1: Permitir busca mas bloquear treinamento</h3>
 <p>Esta é a configuração que recomendo para a maioria dos sites comerciais. Permite visibilidade nas buscas conversacionais enquanto protege seu conteúdo de uso em treinamento de modelos:</p>
-<p>User-agent: GPTBot
-Disallow: /</p>
-<p>User-agent: ClaudeBot<br />
-Disallow: /</p>
-<p>User-agent: OAI-SearchBot
-Allow: /</p>
-<p>User-agent: Claude-SearchBot
-Allow: /</p>
-<pre><code>
-### Cenário 2: Bloquear ambos
-
-Para sites com conteúdo altamente sensível ou estratégico, você pode bloquear tanto busca quanto treinamento:
-
-</code></pre>
-<p>User-agent: GPTBot
-Disallow: /</p>
-<p>User-agent: ClaudeBot
-Disallow: /</p>
-<p>User-agent: OAI-SearchBot
-Disallow: /</p>
-<p>User-agent: Claude-SearchBot
+<pre><code>User-agent: GPTBot
 Disallow: /
-```</p>
+
+User-agent: ClaudeBot  
+Disallow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+</code></pre>
+<h3 id="cenario-2-bloquear-ambos">Cenário 2: Bloquear ambos</h3>
+<p>Para sites com conteúdo altamente sensível ou estratégico, você pode bloquear tanto busca quanto treinamento:</p>
+<pre><code>User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: Claude-SearchBot
+Disallow: /
+</code></pre>
 <p>Lembre-se de testar suas configurações através das ferramentas de validação do Google Search Console para garantir que não está bloqueando crawlers essenciais inadvertidamente. Para mais detalhes sobre implementação, veja nosso guia sobre <a href="https://aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/">configurar robots.txt para crawlers de IA</a>.</p>
 <h2 id="o-que-fazer-se-voce-ja-bloqueou-esses-crawlers">O que fazer se você já bloqueou esses crawlers</h2>
 <p>Se você já implementou bloqueios genéricos que afetam esses crawlers de busca, é importante revisar sua configuração rapidamente. O primeiro passo é identificar se suas regras atuais estão impactando especificamente esses bots.</p>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como usar knowsAbout e outras propriedades de Organization Schema para aumentar citações em temas específicos — Caracol AEO</title>
+  <title>Como usar knowsAbout e outras propriedades de Organization Schema para aumentar citações em temas específicos</title>
   <meta name="description" content="A propriedade knowsAbout no Schema.org mapeia expertise organizacional para LLMs. Implementação prática com Organization Schema para aumentar citações temáticas.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -273,32 +273,20 @@
     &quot;Entity SEO&quot;
   ]
 }
-A propriedade aceita um array de valores, permitindo mapear múltiplas áreas de conhecimento. Cada valor pode ser uma string de texto livre ou uma URL que referencia um conceito específico em bases de conhecimento estruturadas.
-
-### Escolher os temas certos: URL vs texto livre
-
-A escolha entre URLs estruturadas e texto livre depende da especificidade e disponibilidade do conceito em bases de conhecimento. URLs do Wikidata ou DBpedia são preferíveis para conceitos amplamente reconhecidos, pois criam conexões semânticas mais fortes.
-
-Para temas específicos ou nichos emergentes, texto livre oferece maior flexibilidade. Termos como &quot;Answer Engine Optimization&quot; ou &quot;Schema.org implementation&quot; podem não ter URIs específicas, mas ainda fornecem sinais temáticos valiosos.
-
-A estratégia eficaz combina ambas as abordagens: URLs para conceitos estabelecidos e texto livre para especializações únicas. Isso maximiza tanto a precisão semântica quanto a cobertura temática da organização.
-
-### Validação e teste do markup
-
-Após implementação, use o [Rich Results Test do Google](/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/) para validar a sintaxe JSON-LD. O validator Schema.org também oferece verificação detalhada da estrutura semântica.
-
-Para testar efetividade, monitore se as páginas com markup aparecem em featured snippets relacionados aos temas mapeados. Ferramentas como o Schema Markup Validator permitem identificar erros de sintaxe que podem impedir o processamento correto.
-
-A validação deve incluir verificação de que as URLs referenciadas em knowsAbout retornam status 200 e apontam para conceitos relevantes. Links quebrados ou irrelevantes podem prejudicar a credibilidade do markup.
-
-## Propriedades complementares que reforçam expertise organizacional
-
-### expertise: habilidades específicas da organização
-
-A propriedade **expertise** complementa knowsAbout mapeando habilidades práticas da organização. Enquanto knowsAbout indica áreas de conhecimento, expertise especifica competências técnicas aplicadas.
-
-```json
-{
+</code></pre>
+<p>A propriedade aceita um array de valores, permitindo mapear múltiplas áreas de conhecimento. Cada valor pode ser uma string de texto livre ou uma URL que referencia um conceito específico em bases de conhecimento estruturadas.</p>
+<h3 id="escolher-os-temas-certos-url-vs-texto-livre">Escolher os temas certos: URL vs texto livre</h3>
+<p>A escolha entre URLs estruturadas e texto livre depende da especificidade e disponibilidade do conceito em bases de conhecimento. URLs do Wikidata ou DBpedia são preferíveis para conceitos amplamente reconhecidos, pois criam conexões semânticas mais fortes.</p>
+<p>Para temas específicos ou nichos emergentes, texto livre oferece maior flexibilidade. Termos como "Answer Engine Optimization" ou "Schema.org implementation" podem não ter URIs específicas, mas ainda fornecem sinais temáticos valiosos.</p>
+<p>A estratégia eficaz combina ambas as abordagens: URLs para conceitos estabelecidos e texto livre para especializações únicas. Isso maximiza tanto a precisão semântica quanto a cobertura temática da organização.</p>
+<h3 id="validacao-e-teste-do-markup">Validação e teste do markup</h3>
+<p>Após implementação, use o <a href="/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/">Rich Results Test do Google</a> para validar a sintaxe JSON-LD. O validator Schema.org também oferece verificação detalhada da estrutura semântica.</p>
+<p>Para testar efetividade, monitore se as páginas com markup aparecem em featured snippets relacionados aos temas mapeados. Ferramentas como o Schema Markup Validator permitem identificar erros de sintaxe que podem impedir o processamento correto.</p>
+<p>A validação deve incluir verificação de que as URLs referenciadas em knowsAbout retornam status 200 e apontam para conceitos relevantes. Links quebrados ou irrelevantes podem prejudicar a credibilidade do markup.</p>
+<h2 id="propriedades-complementares-que-reforcam-expertise-organizacional">Propriedades complementares que reforçam expertise organizacional</h2>
+<h3 id="expertise-habilidades-especificas-da-organizacao">expertise: habilidades específicas da organização</h3>
+<p>A propriedade <strong>expertise</strong> complementa knowsAbout mapeando habilidades práticas da organização. Enquanto knowsAbout indica áreas de conhecimento, expertise especifica competências técnicas aplicadas.</p>
+<pre><code class="language-json">{
   &quot;@type&quot;: &quot;Organization&quot;,
   &quot;expertise&quot;: [
     &quot;JSON-LD implementation&quot;,

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como estruturar FAQ para ChatGPT e Perplexity citarem você — Caracol AEO</title>
+  <title>Como estruturar FAQ para ChatGPT e Perplexity citarem você</title>
   <meta name="description" content="Monte FAQs com schema FAQPage e linguagem conversacional que fazem ChatGPT, Perplexity e Google AI citarem sua marca. Passo a passo prático.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -245,7 +245,7 @@
   </div>
 
   <article class="article-body">
-<h1 id="como-estruturar-faqs-para-maximizar-citacoes-em-assistentes-de-ia">Como estruturar FAQs para maximizar citações em assistentes de IA?</h1>
+<h2 id="como-estruturar-faqs-para-maximizar-citacoes-em-assistentes-de-ia">Como estruturar FAQs para maximizar citações em assistentes de IA?</h2>
 <p>Assistentes de IA citam preferencialmente conteúdo estruturado em formato pergunta-resposta com marcação semântica adequada. FAQs bem estruturadas com <strong>schema markup FAQPage</strong>, formatação HTML apropriada e respostas entre 40-300 palavras têm 30-40% mais chance de serem processadas por crawlers de IA (2024).</p>
 <p>Esta técnica de <a href="https://aeobr.com.br/blog/otimizar-conteudo-citacao-ia-generativa/">otimizar conteúdo para citação por IA</a> representa uma evolução natural dos <a href="https://aeobr.com.br/blog/o-que-e-aeo-answer-engine-optimization/">fundamentos de AEO</a>, onde a <a href="/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/">estruturação de informações em formato conversacional</a> facilita a extração automatizada de respostas por modelos de linguagem.</p>
 <div class="promo-banner" style="margin:2.5rem 0;text-align:center"><a href="https://mediacaracol.com/api/v3/offer/101?aff_sub=aeo&amp;affiliate_id=6&amp;url_id=58589" rel="sponsored noopener" target="_blank"><img src="/assets/img/promo-clear-300x250.gif" width="300" height="250" alt="Promocao Clear" loading="lazy" style="max-width:100%;height:auto;border:0;display:inline-block"></a></div>
@@ -271,20 +271,20 @@
 <p>A implementação correta envolve adicionar código <strong>JSON-LD</strong> no cabeçalho da página, definindo cada pergunta como um objeto Question com propriedades name (a pergunta) e acceptedAnswer (a resposta). Esta estruturação permite que sistemas automatizados identifiquem e extraiam pares pergunta-resposta com precisão.</p>
 <h3 id="estrutura-json-ld-para-faqpage">Estrutura JSON-LD para FAQPage</h3>
 <p>O código JSON-LD para FAQPage segue a especificação Schema.org, definindo um objeto do tipo FAQPage que contém um array de objetos Question:</p>
-<p>```json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "Qual o tamanho ideal de uma resposta FAQ?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Respostas FAQ otimizadas para assistentes de IA devem ter entre 40-300 palavras. Este intervalo fornece contexto suficiente sem criar blocos excessivamente longos que dificultam a extração automatizada de informações específicas."
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;FAQPage&quot;,
+  &quot;mainEntity&quot;: [{
+    &quot;@type&quot;: &quot;Question&quot;,
+    &quot;name&quot;: &quot;Qual o tamanho ideal de uma resposta FAQ?&quot;,
+    &quot;acceptedAnswer&quot;: {
+      &quot;@type&quot;: &quot;Answer&quot;,
+      &quot;text&quot;: &quot;Respostas FAQ otimizadas para assistentes de IA devem ter entre 40-300 palavras. Este intervalo fornece contexto suficiente sem criar blocos excessivamente longos que dificultam a extração automatizada de informações específicas.&quot;
     }
   }]
 }
-Cada objeto Question deve ter propriedades name e acceptedAnswer claramente definidas. A propriedade text dentro de acceptedAnswer deve conter a resposta completa em texto plano, sem formatação HTML complexa que possa interferir na interpretação automatizada.</p>
+</code></pre>
+<p>Cada objeto Question deve ter propriedades name e acceptedAnswer claramente definidas. A propriedade text dentro de acceptedAnswer deve conter a resposta completa em texto plano, sem formatação HTML complexa que possa interferir na interpretação automatizada.</p>
 <h3 id="erros-comuns-na-implementacao-de-schema-faq">Erros comuns na implementação de schema FAQ</h3>
 <p>O erro mais frequente é incluir HTML complexo dentro da propriedade text da resposta. Assistentes de IA processam melhor texto plano com formatação mínima. Use apenas tags básicas como <code>&lt;strong&gt;</code> para ênfase e <code>&lt;a&gt;</code> para links essenciais.</p>
 <p>Outro erro comum é criar perguntas muito genéricas que não correspondem a consultas reais dos usuários. "Informações sobre produto X" não é uma pergunta natural, diferentemente de "Quais são as principais características do produto X?". A linguagem deve espelhar como pessoas realmente fazem perguntas.</p>

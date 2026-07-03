@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt — Caracol AEO</title>
+  <title>Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt</title>
   <meta name="description" content="Claude-User e Claude-SearchBot são bots distintos da Anthropic com propósitos diferentes. Aprenda as diferenças práticas e como configurar robots.txt para cada um.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -319,74 +319,57 @@
 <p>O padrão mais comum que implemento é a <a href="/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/">estratégia de três camadas para robots.txt</a>, adaptada especificamente para os diferentes comportamentos destes bots Claude.</p>
 <h2 id="como-configurar-robotstxt-para-claude-user">Como configurar robots.txt para Claude-User</h2>
 <p>Para configurar especificamente o <strong>Claude-User</strong>, utilize o user-agent exato nos seus rules robots.txt:</p>
-<p>User-agent: Claude-User
+<pre><code>User-agent: Claude-User
 Disallow: /admin/
 Disallow: /api/
 Allow: /docs/
 Allow: /blog/
-Crawl-delay: 1</p>
-<pre><code>
-**Bloqueio completo do Claude-User:**
-
+Crawl-delay: 1
 </code></pre>
-<p>User-agent: Claude-User
-Disallow: /</p>
-<pre><code>
-**Acesso seletivo com restrições de rate:**
-
+<p><strong>Bloqueio completo do Claude-User:</strong></p>
+<pre><code>User-agent: Claude-User
+Disallow: /
 </code></pre>
-<p>User-agent: Claude-User
+<p><strong>Acesso seletivo com restrições de rate:</strong></p>
+<pre><code>User-agent: Claude-User
 Disallow: /private/
 Disallow: /temp/
 Allow: /
-Crawl-delay: 2</p>
-<pre><code>
-A configuração de `Crawl-delay` para Claude-User é particularmente importante porque este bot pode gerar rajadas de requisições quando usuários fazem perguntas complexas que exigem consulta a múltiplas páginas do seu site sequencialmente.
-
-Para sites com tráfego alto, recomendo definir crawl-delay entre 1-3 segundos para Claude-User. Valores menores que 1 segundo raramente são respeitados, enquanto valores acima de 5 segundos podem resultar em timeouts que prejudicam a experiência do usuário final no Claude.
-
-## Como configurar robots.txt para Claude-SearchBot
-
-**Claude-SearchBot** segue as convenções padrão de robots.txt, facilitando sua configuração através de regras familiares:
-
+Crawl-delay: 2
 </code></pre>
-<p>User-agent: Claude-SearchBot
+<p>A configuração de <code>Crawl-delay</code> para Claude-User é particularmente importante porque este bot pode gerar rajadas de requisições quando usuários fazem perguntas complexas que exigem consulta a múltiplas páginas do seu site sequencialmente.</p>
+<p>Para sites com tráfego alto, recomendo definir crawl-delay entre 1-3 segundos para Claude-User. Valores menores que 1 segundo raramente são respeitados, enquanto valores acima de 5 segundos podem resultar em timeouts que prejudicam a experiência do usuário final no Claude.</p>
+<h2 id="como-configurar-robotstxt-para-claude-searchbot">Como configurar robots.txt para Claude-SearchBot</h2>
+<p><strong>Claude-SearchBot</strong> segue as convenções padrão de robots.txt, facilitando sua configuração através de regras familiares:</p>
+<pre><code>User-agent: Claude-SearchBot
 Disallow: /admin/
 Disallow: /login/
 Disallow: /search?
 Allow: /
 Crawl-delay: 1
-Sitemap: https://seusite.com/sitemap.xml</p>
-<pre><code>
-**Configuração para acesso prioritário:**
-
+Sitemap: https://seusite.com/sitemap.xml
 </code></pre>
-<p>User-agent: Claude-SearchBot
+<p><strong>Configuração para acesso prioritário:</strong></p>
+<pre><code>User-agent: Claude-SearchBot
 Allow: /
 Disallow: /temp/
 Crawl-delay: 0.5
 Sitemap: https://seusite.com/sitemap.xml
-Sitemap: https://seusite.com/news-sitemap.xml</p>
-<pre><code>
-**Bloqueio específico mantendo acesso geral:**
-
+Sitemap: https://seusite.com/news-sitemap.xml
 </code></pre>
-<p>User-agent: Claude-SearchBot
+<p><strong>Bloqueio específico mantendo acesso geral:</strong></p>
+<pre><code>User-agent: Claude-SearchBot
 Disallow: /api/
 Disallow: /admin/
-Disallow: /<em>.json$
-Disallow: /</em>?print=1
-Allow: /</p>
-<pre><code>
-Claude-SearchBot processa múltiplos sitemaps eficientemente, então declare todos os sitemaps relevantes na seção correspondente. Na minha experiência, sites que fornecem sitemaps específicos por tipo de conteúdo (produtos, artigos, páginas estáticas) recebem indexação mais completa e organizada.
-
-## Configurações avançadas: bloqueio seletivo por diretório
-
-Para controle granular sobre ambos os bots, implemente regras por diretório específico. Esta abordagem é essencial para sites complexos com múltiplas áreas funcionais:
-
+Disallow: /*.json$
+Disallow: /*?print=1
+Allow: /
 </code></pre>
-<h1 id="configuracao-claude-user-acesso-limitado">Configuração Claude-User - Acesso limitado</h1>
-<p>User-agent: Claude-User
+<p>Claude-SearchBot processa múltiplos sitemaps eficientemente, então declare todos os sitemaps relevantes na seção correspondente. Na minha experiência, sites que fornecem sitemaps específicos por tipo de conteúdo (produtos, artigos, páginas estáticas) recebem indexação mais completa e organizada.</p>
+<h2 id="configuracoes-avancadas-bloqueio-seletivo-por-diretorio">Configurações avançadas: bloqueio seletivo por diretório</h2>
+<p>Para controle granular sobre ambos os bots, implemente regras por diretório específico. Esta abordagem é essencial para sites complexos com múltiplas áreas funcionais:</p>
+<pre><code># Configuração Claude-User - Acesso limitado
+User-agent: Claude-User
 Disallow: /admin/
 Disallow: /api/
 Disallow: /checkout/
@@ -394,9 +377,10 @@ Disallow: /account/
 Allow: /docs/
 Allow: /blog/
 Allow: /produtos/
-Crawl-delay: 2</p>
-<h1 id="configuracao-claude-searchbot-indexacao-ampla">Configuração Claude-SearchBot - Indexação ampla</h1>
-<p>User-agent: Claude-SearchBot
+Crawl-delay: 2
+
+# Configuração Claude-SearchBot - Indexação ampla
+User-agent: Claude-SearchBot
 Disallow: /admin/
 Disallow: /api/
 Disallow: /account/
@@ -405,100 +389,80 @@ Disallow: /temp/
 Disallow: *.pdf$
 Allow: /
 Crawl-delay: 1
-Sitemap: https://seusite.com/sitemap.xml</p>
-<h1 id="fallback-para-outros-bots-claude">Fallback para outros bots Claude</h1>
-<p>User-agent: ClaudeBot
-Disallow: /</p>
-<pre><code>
-**Configuração para e-commerce:**
+Sitemap: https://seusite.com/sitemap.xml
 
+# Fallback para outros bots Claude
+User-agent: ClaudeBot
+Disallow: /
 </code></pre>
-<p>User-agent: Claude-SearchBot
+<p><strong>Configuração para e-commerce:</strong></p>
+<pre><code>User-agent: Claude-SearchBot
 Disallow: /cart/
 Disallow: /checkout/
 Disallow: /my-account/
-Disallow: /<em>?add-to-cart=
-Disallow: /</em>?orderby=
+Disallow: /*?add-to-cart=
+Disallow: /*?orderby=
 Allow: /produto/
 Allow: /categoria/
-Allow: /blog/</p>
-<p>User-agent: Claude-User
+Allow: /blog/
+
+User-agent: Claude-User
 Disallow: /cart/
 Disallow: /checkout/
 Disallow: /my-account/
 Allow: /produto/
 Allow: /categoria/
-Crawl-delay: 3</p>
-<pre><code>
-Esta configuração permite que Claude-SearchBot indexe produtos e categorias para responder perguntas sobre seu catálogo, enquanto Claude-User pode acessar produtos específicos quando usuários perguntam sobre itens particulares, mas ambos são bloqueados de áreas transacionais.
-
-## Como testar se suas regras estão funcionando
-
-**Método 1: Análise de logs de servidor**
-
-Monitore seus logs de acesso procurando especificamente pelos user-agents:
-- `Claude-User` 
-- `Claude-SearchBot`
-- `ClaudeBot` (user-agent genérico)
-
-Configure alertas para [identificar tentativas de acesso a diretórios](/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/) que deveriam estar bloqueados.
-
-**Método 2: Ferramenta robots.txt tester**
-
-Use o Google Search Console robots.txt Tester como base, mas adapte para validar especificamente os user-agents Claude:
-
-1. Acesse a ferramenta robots.txt tester
-2. Cole o conteúdo do seu robots.txt
-3. Digite `Claude-SearchBot` como user-agent
-4. Teste URLs específicas que devem ser permitidas/bloqueadas
-5. Repita o processo para `Claude-User`
-
-**Método 3: Monitoramento contínuo**
-
-Implemente monitoramento automatizado que detecte:
+Crawl-delay: 3
+</code></pre>
+<p>Esta configuração permite que Claude-SearchBot indexe produtos e categorias para responder perguntas sobre seu catálogo, enquanto Claude-User pode acessar produtos específicos quando usuários perguntam sobre itens particulares, mas ambos são bloqueados de áreas transacionais.</p>
+<h2 id="como-testar-se-suas-regras-estao-funcionando">Como testar se suas regras estão funcionando</h2>
+<p><strong>Método 1: Análise de logs de servidor</strong></p>
+<p>Monitore seus logs de acesso procurando especificamente pelos user-agents:
+- <code>Claude-User</code> 
+- <code>Claude-SearchBot</code>
+- <code>ClaudeBot</code> (user-agent genérico)</p>
+<p>Configure alertas para <a href="/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/">identificar tentativas de acesso a diretórios</a> que deveriam estar bloqueados.</p>
+<p><strong>Método 2: Ferramenta robots.txt tester</strong></p>
+<p>Use o Google Search Console robots.txt Tester como base, mas adapte para validar especificamente os user-agents Claude:</p>
+<ol>
+<li>Acesse a ferramenta robots.txt tester</li>
+<li>Cole o conteúdo do seu robots.txt</li>
+<li>Digite <code>Claude-SearchBot</code> como user-agent</li>
+<li>Teste URLs específicas que devem ser permitidas/bloqueadas</li>
+<li>Repita o processo para <code>Claude-User</code></li>
+</ol>
+<p><strong>Método 3: Monitoramento contínuo</strong></p>
+<p>Implemente monitoramento automatizado que detecte:
 - Alterações no comportamento de crawling dos bots Claude
 - Violações das regras definidas no robots.txt
-- Picos incomuns de tráfego dos user-agents Claude
-
-Para a [configuração básica de robots.txt para crawlers de IA](/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/), recomendo verificação semanal dos logs durante as primeiras 4 semanas após implementação, depois monitoramento mensal.
-
-## Erros comuns ao configurar robots.txt para bots Claude
-
-**Erro 1: Usar apenas &quot;ClaudeBot&quot; genérico**
-
-Muitos administradores configuram apenas:
+- Picos incomuns de tráfego dos user-agents Claude</p>
+<p>Para a <a href="/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/">configuração básica de robots.txt para crawlers de IA</a>, recomendo verificação semanal dos logs durante as primeiras 4 semanas após implementação, depois monitoramento mensal.</p>
+<h2 id="erros-comuns-ao-configurar-robotstxt-para-bots-claude">Erros comuns ao configurar robots.txt para bots Claude</h2>
+<p><strong>Erro 1: Usar apenas "ClaudeBot" genérico</strong></p>
+<p>Muitos administradores configuram apenas:</p>
+<pre><code>User-agent: ClaudeBot
+Disallow: /
 </code></pre>
-<p>User-agent: ClaudeBot
-Disallow: /</p>
-<pre><code>
-Esta regra pode não capturar Claude-User e Claude-SearchBot especificamente, pois estes user-agents são mais específicos que o genérico ClaudeBot.
+<p>Esta regra pode não capturar Claude-User e Claude-SearchBot especificamente, pois estes user-agents são mais específicos que o genérico ClaudeBot.</p>
+<p><strong>Erro 2: Conflito de regras entre user-agents</strong></p>
+<pre><code># CONFIGURAÇÃO PROBLEMÁTICA
+User-agent: Claude-SearchBot
+Allow: /blog/
 
-**Erro 2: Conflito de regras entre user-agents**
-
+User-agent: *
+Disallow: /blog/
 </code></pre>
-<h1 id="configuracao-problematica">CONFIGURAÇÃO PROBLEMÁTICA</h1>
-<p>User-agent: Claude-SearchBot
-Allow: /blog/</p>
-<p>User-agent: *
-Disallow: /blog/</p>
-<pre><code>
-A regra `User-agent: *` pode conflitar com regras específicas. Sempre declare regras específicas antes do wildcard genérico.
-
-**Erro 3: Crawl-delay inconsistente**
-
-Definir crawl-delay muito baixo (menos de 0.5s) para Claude-User pode resultar em sobrecarga, pois este bot pode fazer múltiplas requisições sequenciais rápidas durante uma única sessão de usuário.
-
-**Erro 4: Não considerar URLs com parâmetros**
-
-Claude-User frequentemente acessa URLs com parâmetros de busca. Configure adequadamente:
-
+<p>A regra <code>User-agent: *</code> pode conflitar com regras específicas. Sempre declare regras específicas antes do wildcard genérico.</p>
+<p><strong>Erro 3: Crawl-delay inconsistente</strong></p>
+<p>Definir crawl-delay muito baixo (menos de 0.5s) para Claude-User pode resultar em sobrecarga, pois este bot pode fazer múltiplas requisições sequenciais rápidas durante uma única sessão de usuário.</p>
+<p><strong>Erro 4: Não considerar URLs com parâmetros</strong></p>
+<p>Claude-User frequentemente acessa URLs com parâmetros de busca. Configure adequadamente:</p>
+<pre><code>User-agent: Claude-User
+Disallow: /*?debug=
+Disallow: /*?test=
+Allow: /*?page=
+Allow: /*?category=
 </code></pre>
-<p>User-agent: Claude-User
-Disallow: /<em>?debug=
-Disallow: /</em>?test=
-Allow: /<em>?page=
-Allow: /</em>?category=
-```</p>
 <p><strong>Erro 5: Esquecer de atualizar sitemaps</strong></p>
 <p>Claude-SearchBot utiliza sitemaps intensivamente. Manter sitemaps desatualizados resulta em indexação incompleta ou tentativas de acesso a URLs inexistentes.</p>
 <p>Como você pode ver na explicação sobre <a href="/blog/claude-searchbot-oai-searchbot-crawlers-busca/">como funciona o Claude-SearchBot</a>, a configuração adequada destes crawlers exige compreensão técnica dos diferentes padrões operacionais de cada bot.</p>

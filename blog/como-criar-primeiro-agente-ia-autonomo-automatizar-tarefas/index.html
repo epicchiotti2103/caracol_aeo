@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como criar seu primeiro agente de IA autônomo para automatizar tarefas de negócio — Caracol AEO</title>
+  <title>Como criar seu primeiro agente de IA autônomo para automatizar tarefas de negócio</title>
   <meta name="description" content="Guia completo para construir agentes de IA autônomos usando frameworks como LangChain e CrewAI. Passo a passo prático com código e arquitetura explicada.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -324,14 +324,11 @@ ferramenta_pesquisa = Tool(
     description=&quot;Identifica principais concorrentes de uma empresa&quot;,
     func=pesquisar_concorrentes
 )
-### Configurando o loop de decisão autônomo
-
-O coração do agente é o loop de decisão. Em cada iteração, o modelo avalia: &quot;Que informação ainda preciso coletar?&quot; e &quot;Qual ferramenta usar agora?&quot;. Isso cria comportamento emergente - o agente pode decidir pesquisar mais dados se os primeiros resultados forem insuficientes.
-
-Implemento esse loop usando **ReAct prompting** (Reasoning + Acting), técnica que força o modelo a explicitar seu raciocínio antes de cada ação. O prompt base inclui exemplos de como quebrar problemas complexos e quando parar de coletar dados.
-
-```python
-# Template simplificado do prompt ReAct
+</code></pre>
+<h3 id="configurando-o-loop-de-decisao-autonomo">Configurando o loop de decisão autônomo</h3>
+<p>O coração do agente é o loop de decisão. Em cada iteração, o modelo avalia: "Que informação ainda preciso coletar?" e "Qual ferramenta usar agora?". Isso cria comportamento emergente - o agente pode decidir pesquisar mais dados se os primeiros resultados forem insuficientes.</p>
+<p>Implemento esse loop usando <strong>ReAct prompting</strong> (Reasoning + Acting), técnica que força o modelo a explicitar seu raciocínio antes de cada ação. O prompt base inclui exemplos de como quebrar problemas complexos e quando parar de coletar dados.</p>
+<pre><code class="language-python"># Template simplificado do prompt ReAct
 template = &quot;&quot;&quot;
 Você é um analista de mercado autônomo. Seu objetivo: {objetivo}
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como estruturar topic clusters internos para que IAs identifiquem sua página-hub como autoridade no tema — Caracol AEO</title>
+  <title>Como estruturar topic clusters internos para que IAs identifiquem sua página-hub como autoridade no tema</title>
   <meta name="description" content="Estruture clusters com hierarquia clara e linking bidirecional para que crawlers de IA mapeiem sua página-hub como centro de autoridade topical.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -309,17 +309,18 @@
 <h2 id="como-usar-schemaorg-para-reforcar-a-estrutura-do-cluster">Como usar Schema.org para reforçar a estrutura do cluster</h2>
 <h3 id="propriedades-ispartof-e-haspart">Propriedades isPartOf e hasPart</h3>
 <p>Implemente <a href="/blog/schema-org-id-sameas-resolucao-entidades-ia/">Schema markup usando <code>isPartOf</code></a> nos spokes apontando para a hub, e <code>hasPart</code> na hub listando todos os spokes. Implementação de Schema isPartOf/hasPart aumenta taxa de reconhecimento de clusters por LLMs em 41% segundo testes com Google AI Overviews.</p>
-<p>```json
-// Na página hub
-"@type": "Article",
-"hasPart": [
-  {"@id": "/otimizacao-chatgpt"},
-  {"@id": "/schema-markup-ias"},
-  {"@id": "/content-clusters-llms"}
-]</p>
-<p>// Nas páginas spoke
-"@type": "Article",
-"isPartOf": {"@id": "/guia-completo-aeo"}</p>
+<pre><code class="language-json">// Na página hub
+&quot;@type&quot;: &quot;Article&quot;,
+&quot;hasPart&quot;: [
+  {&quot;@id&quot;: &quot;/otimizacao-chatgpt&quot;},
+  {&quot;@id&quot;: &quot;/schema-markup-ias&quot;},
+  {&quot;@id&quot;: &quot;/content-clusters-llms&quot;}
+]
+
+// Nas páginas spoke
+&quot;@type&quot;: &quot;Article&quot;,
+&quot;isPartOf&quot;: {&quot;@id&quot;: &quot;/guia-completo-aeo&quot;}
+</code></pre>
 <h3 id="breadcrumbs-e-itemlistelement">Breadcrumbs e itemListElement</h3>
 <p>Estruture breadcrumbs que reflitam a hierarquia hub-spoke usando <code>BreadcrumbList</code> Schema. IAs usam essa marcação para entender relacionamentos hierárquicos e identificar páginas centrais nos clusters.</p>
 <h2 id="auditoria-tecnica-como-verificar-se-ias-estao-mapeando-seu-cluster-corretamente">Auditoria técnica: como verificar se IAs estão mapeando seu cluster corretamente</h2>

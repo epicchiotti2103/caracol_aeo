@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como otimizar conteúdo para agentes de IA autônomos e o protocolo MCP — Caracol AEO</title>
+  <title>Como otimizar conteúdo para agentes de IA autônomos e o protocolo MCP</title>
   <meta name="description" content="Guia completo para preparar conteúdo web para agentes de IA autônomos usando o Model Context Protocol (MCP). Estruture dados para máxima citabilidade.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -283,33 +283,33 @@
 <p>A implementação de servidor MCP requer Node.js 18+ para TypeScript ou Python 3.8+ para implementações Python. Os SDKs oficiais da Anthropic fornecem classes base para servers, clients, e transport layers que simplificam desenvolvimento de integrações customizadas.</p>
 <p>Servidores MCP podem usar diferentes transport protocols: stdio para aplicações desktop, SSE (Server-Sent Events) para web browsers, ou WebSockets para conexões persistentes. A escolha do transport depende do ambiente onde o agente será executado.</p>
 <h3 id="exemplo-de-configuracao-json">Exemplo de configuração JSON</h3>
-<p>```json
-{
-  "name": "knowledge-base-server",
-  "version": "1.0.0",
-  "resources": [
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;knowledge-base-server&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;resources&quot;: [
     {
-      "uri": "knowledge://articles",
-      "name": "Article Database",
-      "mimeType": "application/json",
-      "description": "Searchable article database with AEO best practices"
+      &quot;uri&quot;: &quot;knowledge://articles&quot;,
+      &quot;name&quot;: &quot;Article Database&quot;,
+      &quot;mimeType&quot;: &quot;application/json&quot;,
+      &quot;description&quot;: &quot;Searchable article database with AEO best practices&quot;
     }
   ],
-  "tools": [
+  &quot;tools&quot;: [
     {
-      "name": "search_articles",
-      "description": "Search articles by topic or keyword",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "query": {"type": "string"},
-          "category": {"type": "string", "enum": ["SEO", "AEO", "Content"]}
+      &quot;name&quot;: &quot;search_articles&quot;,
+      &quot;description&quot;: &quot;Search articles by topic or keyword&quot;,
+      &quot;inputSchema&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;query&quot;: {&quot;type&quot;: &quot;string&quot;},
+          &quot;category&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;enum&quot;: [&quot;SEO&quot;, &quot;AEO&quot;, &quot;Content&quot;]}
         },
-        "required": ["query"]
+        &quot;required&quot;: [&quot;query&quot;]
       }
     }
   ]
-}</p>
+}
+</code></pre>
 <h2 id="casos-de-uso-praticos-de-mcp-para-marketing-e-conteudo">Casos de uso práticos de MCP para marketing e conteúdo</h2>
 <h3 id="bases-de-conhecimento-e-documentacao-tecnica">Bases de conhecimento e documentação técnica</h3>
 <p>Documentação técnica se beneficia do MCP ao permitir que agentes naveguem estruturas hierárquicas, filtrem por contexto específico, e combinem informações de múltiplas seções. Agentes podem executar pesquisas semânticas, extrair código específico, ou gerar exemplos baseados em parâmetros fornecidos pelo usuário.</p>

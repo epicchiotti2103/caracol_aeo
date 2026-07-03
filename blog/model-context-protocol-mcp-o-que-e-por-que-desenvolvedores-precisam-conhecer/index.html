@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Model Context Protocol (MCP): o que é e por que todo desenvolvedor precisa conhecer em 2026 — Caracol AEO</title>
+  <title>Model Context Protocol (MCP): o que é e por que todo desenvolvedor precisa conhecer em 2026</title>
   <meta name="description" content="Model Context Protocol é o novo padrão da Anthropic para conectar IAs com dados externos. Entenda por que será essencial para desenvolvedores em 2026.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -343,26 +343,30 @@
 <p>Ferramentas de debugging específicas para MCP estão disponíveis, incluindo um inspetor de protocolo que permite monitorar mensagens trocadas entre cliente e servidor. Isso facilita a identificação de problemas durante o desenvolvimento e testes de integração.</p>
 <h3 id="exemplo-basico-de-servidor-mcp">Exemplo básico de servidor MCP</h3>
 <p>Um servidor MCP mínimo em Python pode ser implementado em poucas linhas de código:</p>
-<p>```python
-from mcp import Server, Resource, Tool
-import mcp.types as types</p>
-<p>app = Server("exemplo-servidor")</p>
-<p>@app.resource("tempo/{cidade}")
+<pre><code class="language-python">from mcp import Server, Resource, Tool
+import mcp.types as types
+
+app = Server(&quot;exemplo-servidor&quot;)
+
+@app.resource(&quot;tempo/{cidade}&quot;)
 async def obter_tempo(cidade: str) -&gt; Resource:
     # Lógica para consultar API do tempo
     return Resource(
-        uri=f"tempo/{cidade}",
-        name=f"Tempo em {cidade}",
-        mimeType="text/plain",
-        text=f"Ensolarado, 25°C"
-    )</p>
-<p>@app.tool("enviar_email")
+        uri=f&quot;tempo/{cidade}&quot;,
+        name=f&quot;Tempo em {cidade}&quot;,
+        mimeType=&quot;text/plain&quot;,
+        text=f&quot;Ensolarado, 25°C&quot;
+    )
+
+@app.tool(&quot;enviar_email&quot;)
 async def enviar_email(destinatario: str, assunto: str, corpo: str):
     # Lógica para envio de email
-    return types.TextContent(text=f"Email enviado para {destinatario}")</p>
-<p>if <strong>name</strong> == "<strong>main</strong>":
+    return types.TextContent(text=f&quot;Email enviado para {destinatario}&quot;)
+
+if __name__ == &quot;__main__&quot;:
     app.run_stdio()
-Este exemplo cria um servidor que expõe um recurso (consulta do tempo) e uma ferramenta (envio de email). O servidor usa transporte stdio, adequado para desenvolvimento local. Para produção, seria necessário implementar autenticação, validação de dados e tratamento robusto de erros.</p>
+</code></pre>
+<p>Este exemplo cria um servidor que expõe um recurso (consulta do tempo) e uma ferramenta (envio de email). O servidor usa transporte stdio, adequado para desenvolvimento local. Para produção, seria necessário implementar autenticação, validação de dados e tratamento robusto de erros.</p>
 <h2 id="ecossistema-e-adocao-do-mcp-em-2026">Ecossistema e adoção do MCP em 2026</h2>
 <p>O ecossistema MCP está crescendo rapidamente. Além dos servidores oficiais da Anthropic para GitHub, Google Drive e bases de dados, a comunidade desenvolveu conectores para Slack, Notion, AWS, e dezenas de outras ferramentas populares. Esta diversidade indica adoção sólida e sustentável do protocolo.</p>
 <p>Grandes empresas de tecnologia começaram a avaliar <a href="/blog/gpt-55-vs-claude-opus-47-vs-gemini-31-benchmark-corporativo/">suporte nativo ao MCP em suas plataformas de IA</a>. Embora detalhes não sejam públicos, movimentos no mercado sugerem que 2026 verá ampliação significativa do suporte ao protocolo além do ecossistema Anthropic.</p>

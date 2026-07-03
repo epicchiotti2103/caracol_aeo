@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entity SEO para AEO: como fortalecer a presença de entidades no Knowledge Graph — Caracol AEO</title>
+  <title>Entity SEO para AEO: como fortalecer a presença de entidades no Knowledge Graph</title>
   <meta name="description" content="Entity SEO conecta sua marca ao Knowledge Graph, aumentando citações em LLMs. Implemente Schema.org, Wikidata e sinais de entidade para melhorar AEO.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -302,16 +302,12 @@
     &quot;addressCountry&quot;: &quot;BR&quot;
   }
 }
-**@type Person** marca executivos, fundadores e profissionais relevantes, estabelecendo relacionamentos com a organização através de propriedades como `worksFor`, `jobTitle` e `alumniOf`. Pessoas com reconhecimento individual fortalecem credibilidade da entidade organizacional.
-
-**@type LocalBusiness** combina propriedades de Organization com informações específicas de negócios locais: horários de funcionamento, métodos de pagamento aceitos, área de atendimento e categorias de negócio. Fundamental para empresas com presença física ou atendimento regionalizado.
-
-### Propriedades sameAs e links para Wikidata, LinkedIn e bases oficiais
-
-**sameAs** conecta diferentes representações da mesma entidade, criando grafo unificado que algoritmos utilizam para consolidar informações. URLs devem apontar para perfis oficiais verificados, evitando links quebrados ou perfis abandonados que prejudicam credibilidade.
-
-```json
-{
+</code></pre>
+<p><strong>@type Person</strong> marca executivos, fundadores e profissionais relevantes, estabelecendo relacionamentos com a organização através de propriedades como <code>worksFor</code>, <code>jobTitle</code> e <code>alumniOf</code>. Pessoas com reconhecimento individual fortalecem credibilidade da entidade organizacional.</p>
+<p><strong>@type LocalBusiness</strong> combina propriedades de Organization com informações específicas de negócios locais: horários de funcionamento, métodos de pagamento aceitos, área de atendimento e categorias de negócio. Fundamental para empresas com presença física ou atendimento regionalizado.</p>
+<h3 id="propriedades-sameas-e-links-para-wikidata-linkedin-e-bases-oficiais">Propriedades sameAs e links para Wikidata, LinkedIn e bases oficiais</h3>
+<p><strong>sameAs</strong> conecta diferentes representações da mesma entidade, criando grafo unificado que algoritmos utilizam para consolidar informações. URLs devem apontar para perfis oficiais verificados, evitando links quebrados ou perfis abandonados que prejudicam credibilidade.</p>
+<pre><code class="language-json">{
   &quot;@context&quot;: &quot;https://schema.org&quot;,
   &quot;@type&quot;: &quot;Organization&quot;,
   &quot;@id&quot;: &quot;https://minhaempresa.com.br/#organization&quot;,

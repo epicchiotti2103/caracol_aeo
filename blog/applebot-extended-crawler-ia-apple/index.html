@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applebot-Extended: o que é e como configurar o crawler de IA da Apple — Caracol AEO</title>
+  <title>Applebot-Extended: o que é e como configurar o crawler de IA da Apple</title>
   <meta name="description" content="Applebot-Extended é o crawler da Apple para treinamento de IA, separado do Applebot tradicional. Saiba como configurar robots.txt para controlá-lo.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -301,33 +301,25 @@
 <h2 id="como-configurar-robotstxt-para-applebot-extended">Como configurar robots.txt para Applebot-Extended</h2>
 <h3 id="bloquear-completamente-o-acesso">Bloquear completamente o acesso</h3>
 <p>Para impedir totalmente o acesso do Applebot-Extended ao seu site, adicione as seguintes linhas ao arquivo robots.txt na raiz do domínio:</p>
-<p>User-agent: AppleBot-Extended
-Disallow: /</p>
-<pre><code>
-Esta configuração bloqueia todo o conteúdo do site para o crawler de IA da Apple, mantendo o acesso normal para o Applebot tradicional e outros crawlers de busca.
-
-### Permitir acesso seletivo por diretório
-
-Para controle granular, você pode permitir acesso apenas a seções específicas do site. Por exemplo, para permitir acesso apenas ao blog enquanto bloqueia outras áreas:
-
+<pre><code>User-agent: AppleBot-Extended
+Disallow: /
 </code></pre>
-<p>User-agent: AppleBot-Extended
+<p>Esta configuração bloqueia todo o conteúdo do site para o crawler de IA da Apple, mantendo o acesso normal para o Applebot tradicional e outros crawlers de busca.</p>
+<h3 id="permitir-acesso-seletivo-por-diretorio">Permitir acesso seletivo por diretório</h3>
+<p>Para controle granular, você pode permitir acesso apenas a seções específicas do site. Por exemplo, para permitir acesso apenas ao blog enquanto bloqueia outras áreas:</p>
+<pre><code>User-agent: AppleBot-Extended
 Allow: /blog/
-Disallow: /</p>
-<pre><code>
-Esta configuração é útil para sites que desejam contribuir com conteúdo educacional para IA mantendo áreas comerciais ou sensíveis protegidas.
-
-### Configuração combinada com outros crawlers de IA
-
-Uma prática recomendada é [configurar robots.txt para crawlers de IA](https://aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/) de forma consistente. Exemplo de configuração unificada:
-
+Disallow: /
 </code></pre>
-<p>User-agent: GPTBot
+<p>Esta configuração é útil para sites que desejam contribuir com conteúdo educacional para IA mantendo áreas comerciais ou sensíveis protegidas.</p>
+<h3 id="configuracao-combinada-com-outros-crawlers-de-ia">Configuração combinada com outros crawlers de IA</h3>
+<p>Uma prática recomendada é <a href="https://aeobr.com.br/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/">configurar robots.txt para crawlers de IA</a> de forma consistente. Exemplo de configuração unificada:</p>
+<pre><code>User-agent: GPTBot
 User-agent: ClaudeBot
 User-agent: AppleBot-Extended
 User-agent: PerplexityBot
 Disallow: /
-```</p>
+</code></pre>
 <h2 id="quando-voce-deve-bloquear-ou-permitir-o-applebot-extended">Quando você deve bloquear ou permitir o Applebot-Extended</h2>
 <p>A decisão de bloquear ou permitir o Applebot-Extended depende da sua estratégia de conteúdo e objetivos comerciais. Sites focados em educação, open source ou divulgação científica podem beneficiar-se permitindo acesso, contribuindo para modelos de IA mais precisos em suas áreas de expertise.</p>
 <p>Considere bloquear se seu conteúdo possui valor comercial direto, dados proprietários ou informações que podem ser reproduzidas por IAs de forma que compita com sua proposta de valor. A análise deve incluir o potencial de exposição da marca através de citações em respostas de IA versus o risco de commoditização do conteúdo.</p>

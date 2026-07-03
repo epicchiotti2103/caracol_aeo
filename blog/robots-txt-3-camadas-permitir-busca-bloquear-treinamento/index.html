@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento — Caracol AEO</title>
+  <title>Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento</title>
   <meta name="description" content="Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -257,108 +257,103 @@
 <p>A primeira camada foca em crawlers que processam conteúdo para responder consultas em tempo real e incluem citações. Esses bots geram valor comercial direto através de tráfego de referência e brand awareness.</p>
 <h3 id="user-agents-a-liberar-para-maximizar-citacoes">User-agents a liberar para maximizar citações</h3>
 <p>Os principais crawlers desta categoria incluem PerplexityBot, que indexa para o Perplexity; SearchGPT-Bot, usado pelo ChatGPT Search; e ClaudeBot, que alimenta respostas do Claude com pesquisa web. Também libere YouBot (motor de busca You.com) e BingBot para Copilot.</p>
-<p>Para implementar, adicione essas linhas ao seu robots.txt:
-User-agent: PerplexityBot
-Allow: /</p>
-<p>User-agent: SearchGPT-Bot
-Allow: /</p>
-<p>User-agent: ClaudeBot
-Allow: /</p>
-<p>User-agent: YouBot
-Allow: /</p>
-<pre><code>
-### Como verificar se esses bots geram tráfego de referência
+<p>Para implementar, adicione essas linhas ao seu robots.txt:</p>
+<pre><code>User-agent: PerplexityBot
+Allow: /
 
-Monitore seus logs de servidor para identificar visitas originadas de answer engines. Configure Google Analytics ou sua ferramenta de analytics para [rastrear referências de perplexity.ai, openai.com/search, e outros](/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/). Na minha experiência, sites que liberam esses crawlers veem aumento de 15-25% no tráfego orgânico qualificado.
+User-agent: SearchGPT-Bot
+Allow: /
 
-Você também pode usar ferramentas como nossa [diferença entre crawlers de IA](/blog/diferenca-crawlers-ia-chatgpt-perplexity/) para identificar quais bots estão visitando seu site e correlacionar com métricas de tráfego.
+User-agent: ClaudeBot
+Allow: /
 
-## Camada 2: bloquear crawlers de treinamento de modelos
-
-A segunda camada bloqueia bots que coletam dados exclusivamente para treinar modelos de linguagem. Esses crawlers não geram tráfego de referência nem citações diretas, apenas extraem conhecimento do seu conteúdo.
-
-### Lista de user-agents de treinamento a bloquear
-
-GPTBot é o crawler oficial da OpenAI para treinamento. CCBot (Common Crawl) alimenta múltiplos modelos através de datasets públicos. Anthropic-Bot coleta dados para treinar modelos da Anthropic. Meta-ExternalAgent é usado pela Meta para seus modelos de IA.
-
-Bloqueie esses crawlers com:
+User-agent: YouBot
+Allow: /
 </code></pre>
-<p>User-agent: GPTBot
-Disallow: /</p>
-<p>User-agent: CCBot
-Disallow: /</p>
-<p>User-agent: Anthropic-Bot
-Disallow: /</p>
-<p>User-agent: Meta-ExternalAgent
-Disallow: /</p>
-<pre><code>
-### Diferença entre bot de inferência e bot de treinamento
+<h3 id="como-verificar-se-esses-bots-geram-trafego-de-referencia">Como verificar se esses bots geram tráfego de referência</h3>
+<p>Monitore seus logs de servidor para identificar visitas originadas de answer engines. Configure Google Analytics ou sua ferramenta de analytics para <a href="/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/">rastrear referências de perplexity.ai, openai.com/search, e outros</a>. Na minha experiência, sites que liberam esses crawlers veem aumento de 15-25% no tráfego orgânico qualificado.</p>
+<p>Você também pode usar ferramentas como nossa <a href="/blog/diferenca-crawlers-ia-chatgpt-perplexity/">diferença entre crawlers de IA</a> para identificar quais bots estão visitando seu site e correlacionar com métricas de tráfego.</p>
+<h2 id="camada-2-bloquear-crawlers-de-treinamento-de-modelos">Camada 2: bloquear crawlers de treinamento de modelos</h2>
+<p>A segunda camada bloqueia bots que coletam dados exclusivamente para treinar modelos de linguagem. Esses crawlers não geram tráfego de referência nem citações diretas, apenas extraem conhecimento do seu conteúdo.</p>
+<h3 id="lista-de-user-agents-de-treinamento-a-bloquear">Lista de user-agents de treinamento a bloquear</h3>
+<p>GPTBot é o crawler oficial da OpenAI para treinamento. CCBot (Common Crawl) alimenta múltiplos modelos através de datasets públicos. Anthropic-Bot coleta dados para treinar modelos da Anthropic. Meta-ExternalAgent é usado pela Meta para seus modelos de IA.</p>
+<p>Bloqueie esses crawlers com:</p>
+<pre><code>User-agent: GPTBot
+Disallow: /
 
-Bots de inferência processam conteúdo para responder consultas específicas de usuários, geralmente incluindo citações. Bots de treinamento fazem scraping massivo para criar ou atualizar modelos de linguagem. A distinção é crucial: o primeiro gera valor comercial, o segundo extrai valor sem contrapartida.
+User-agent: CCBot
+Disallow: /
 
-Por exemplo, quando você faz uma pergunta no [ChatGPT Search, o SearchGPT-Bot](/blog/claude-searchbot-oai-searchbot-crawlers-busca/) busca informações relevantes e inclui links nas respostas. Já o GPTBot coleta conteúdo em massa para melhorar o modelo base, sem gerar tráfego de volta. Para mais detalhes técnicos, confira nosso guia sobre [como configurar robots.txt para crawlers específicos](/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/).
+User-agent: Anthropic-Bot
+Disallow: /
 
-## Camada 3: controle seletivo por diretório e tipo de conteúdo
-
-A terceira camada aplica regras específicas por seção do site. Nem todo conteúdo tem o mesmo valor estratégico: documentação técnica pode ser liberada para IAs enquanto artigos premium ficam restritos.
-
-### Quando bloquear /blog mas liberar /docs
-
-Considere bloquear seções comerciais (/blog, /insights) para crawlers de treinamento, mas liberar documentação técnica (/docs, /help) que beneficia o ecossistema. Conteúdo evergreen em /blog pode ser liberado seletivamente para answer engines.
-
-Uma estratégia comum é liberar conteúdo antigo (mais de 12 meses) para treinamento, mas restringir conteúdo recente. Isso equilibra contribuição para o conhecimento público com proteção de investimento editorial.
-
-### Sintaxe para regras condicionais no robots.txt
-
-Use diretivas Allow e Disallow específicas por diretório:
+User-agent: Meta-ExternalAgent
+Disallow: /
 </code></pre>
-<p>User-agent: GPTBot
+<h3 id="diferenca-entre-bot-de-inferencia-e-bot-de-treinamento">Diferença entre bot de inferência e bot de treinamento</h3>
+<p>Bots de inferência processam conteúdo para responder consultas específicas de usuários, geralmente incluindo citações. Bots de treinamento fazem scraping massivo para criar ou atualizar modelos de linguagem. A distinção é crucial: o primeiro gera valor comercial, o segundo extrai valor sem contrapartida.</p>
+<p>Por exemplo, quando você faz uma pergunta no <a href="/blog/claude-searchbot-oai-searchbot-crawlers-busca/">ChatGPT Search, o SearchGPT-Bot</a> busca informações relevantes e inclui links nas respostas. Já o GPTBot coleta conteúdo em massa para melhorar o modelo base, sem gerar tráfego de volta. Para mais detalhes técnicos, confira nosso guia sobre <a href="/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/">como configurar robots.txt para crawlers específicos</a>.</p>
+<h2 id="camada-3-controle-seletivo-por-diretorio-e-tipo-de-conteudo">Camada 3: controle seletivo por diretório e tipo de conteúdo</h2>
+<p>A terceira camada aplica regras específicas por seção do site. Nem todo conteúdo tem o mesmo valor estratégico: documentação técnica pode ser liberada para IAs enquanto artigos premium ficam restritos.</p>
+<h3 id="quando-bloquear-blog-mas-liberar-docs">Quando bloquear /blog mas liberar /docs</h3>
+<p>Considere bloquear seções comerciais (/blog, /insights) para crawlers de treinamento, mas liberar documentação técnica (/docs, /help) que beneficia o ecossistema. Conteúdo evergreen em /blog pode ser liberado seletivamente para answer engines.</p>
+<p>Uma estratégia comum é liberar conteúdo antigo (mais de 12 meses) para treinamento, mas restringir conteúdo recente. Isso equilibra contribuição para o conhecimento público com proteção de investimento editorial.</p>
+<h3 id="sintaxe-para-regras-condicionais-no-robotstxt">Sintaxe para regras condicionais no robots.txt</h3>
+<p>Use diretivas Allow e Disallow específicas por diretório:</p>
+<pre><code>User-agent: GPTBot
 Disallow: /blog/
 Disallow: /premium/
 Allow: /docs/
-Allow: /help/</p>
-<p>User-agent: PerplexityBot
+Allow: /help/
+
+User-agent: PerplexityBot
 Allow: /
-Disallow: /private/</p>
-<pre><code>
-Também é possível usar wildcards para tipos de arquivo. Para bloquear PDFs de crawlers de treinamento mas permitir para answer engines:
+Disallow: /private/
 </code></pre>
-<p>User-agent: CCBot
-Disallow: /*.pdf$</p>
-<p>User-agent: PerplexityBot
-Allow: /*.pdf$</p>
-<pre><code>
-## Implementação técnica: exemplo de robots.txt em 3 camadas
+<p>Também é possível usar wildcards para tipos de arquivo. Para bloquear PDFs de crawlers de treinamento mas permitir para answer engines:</p>
+<pre><code>User-agent: CCBot
+Disallow: /*.pdf$
 
-Aqui está um exemplo completo de robots.txt implementando a estratégia de 3 camadas:
-
+User-agent: PerplexityBot
+Allow: /*.pdf$
 </code></pre>
-<h1 id="camada-1-answer-engines-e-busca-conversacional-permitir">Camada 1: Answer engines e busca conversacional (PERMITIR)</h1>
-<p>User-agent: PerplexityBot
-Allow: /</p>
-<p>User-agent: SearchGPT-Bot
-Allow: /</p>
-<p>User-agent: ClaudeBot
-Allow: /</p>
-<p>User-agent: YouBot
-Allow: /</p>
-<h1 id="camada-2-crawlers-de-treinamento-bloquear">Camada 2: Crawlers de treinamento (BLOQUEAR)</h1>
-<p>User-agent: GPTBot
-Disallow: /</p>
-<p>User-agent: CCBot
-Disallow: /</p>
-<p>User-agent: Anthropic-Bot
-Disallow: /</p>
-<p>User-agent: Meta-ExternalAgent
-Disallow: /</p>
-<h1 id="camada-3-regras-seletivas-por-conteudo">Camada 3: Regras seletivas por conteúdo</h1>
-<p>User-agent: *
+<h2 id="implementacao-tecnica-exemplo-de-robotstxt-em-3-camadas">Implementação técnica: exemplo de robots.txt em 3 camadas</h2>
+<p>Aqui está um exemplo completo de robots.txt implementando a estratégia de 3 camadas:</p>
+<pre><code># Camada 1: Answer engines e busca conversacional (PERMITIR)
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: SearchGPT-Bot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Camada 2: Crawlers de treinamento (BLOQUEAR)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Anthropic-Bot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Camada 3: Regras seletivas por conteúdo
+User-agent: *
 Disallow: /private/
 Disallow: /admin/
-Allow: /</p>
-<h1 id="sitemap-para-facilitar-descoberta">Sitemap para facilitar descoberta</h1>
-<p>Sitemap: https://seusite.com.br/sitemap.xml
-```</p>
+Allow: /
+
+# Sitemap para facilitar descoberta
+Sitemap: https://seusite.com.br/sitemap.xml
+</code></pre>
 <p>Esta configuração libera answer engines para todo o site, bloqueia crawlers de treinamento completamente, e mantém regras básicas para outros bots. Ajuste conforme sua estratégia de conteúdo específica.</p>
 <h2 id="como-monitorar-e-ajustar-a-estrategia-ao-longo-do-tempo">Como monitorar e ajustar a estratégia ao longo do tempo</h2>
 <p>O monitoramento contínuo é essencial porque novos crawlers surgem constantemente e comportamentos mudam. Configure alertas nos logs do servidor para detectar novos user-agents não classificados. Analise mensalmente quais bots visitam seu site e correlacione com métricas de tráfego.</p>

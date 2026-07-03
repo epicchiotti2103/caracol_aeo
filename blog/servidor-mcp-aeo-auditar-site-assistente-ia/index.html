@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lançamos um servidor MCP de AEO: audite seu site direto do ChatGPT e do Claude — Caracol AEO</title>
+  <title>Lançamos um servidor MCP de AEO: audite seu site direto do ChatGPT e do Claude</title>
   <meta name="description" content="A Caracol AEO agora tem um servidor MCP público: conecte ChatGPT, Claude ou Cursor e audite o AEO de qualquer site (score 0-100) sem sair do chat. Veja como conectar em 1 clique.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -246,15 +246,15 @@
 <p>A <strong>tool principal</strong> é a <code>auditar_site_aeo</code>: ela roda um diagnóstico AEO completo de qualquer URL e devolve um score de 0 a 100 com a pontuação por dimensão (Schema.org, meta tags, técnico/crawlability e conteúdo) e recomendações priorizadas — a mesma metodologia do nosso diagnóstico gratuito, agora acessível por linguagem natural.</p>
 <h2 id="como-conectar-1-clique">Como conectar (1 clique)</h2>
 <p>O servidor usa transporte <strong>Streamable HTTP</strong> e é <strong>público (sem autenticação)</strong>. Em <em>Configurações → Conectores</em> (no Claude) ou no <code>mcp.json</code> (no Cursor), adicione:</p>
-<p>```json
-{
-  "mcpServers": {
-    "caracol-aeo": {
-      "url": "https://mcp.aeobr.com.br/mcp"
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;caracol-aeo&quot;: {
+      &quot;url&quot;: &quot;https://mcp.aeobr.com.br/mcp&quot;
     }
   }
 }
-Pronto. A partir daí, é só pedir em português: <em>"audite o AEO do site exemplo.com.br"</em> e o assistente chama a ferramenta e te traz o score com o plano de ação.</p>
+</code></pre>
+<p>Pronto. A partir daí, é só pedir em português: <em>"audite o AEO do site exemplo.com.br"</em> e o assistente chama a ferramenta e te traz o score com o plano de ação.</p>
 <h2 id="o-que-da-pra-fazer-pelo-chat">O que dá pra fazer pelo chat</h2>
 <ul>
 <li><strong><code>auditar_site_aeo</code></strong> — diagnóstico AEO 0-100 de qualquer site (a estrela).</li>

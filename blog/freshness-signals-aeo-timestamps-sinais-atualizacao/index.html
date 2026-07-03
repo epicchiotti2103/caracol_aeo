@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Freshness signals em AEO: como timestamps e sinais de atualização aumentam citações por IA — Caracol AEO</title>
+  <title>Freshness signals em AEO: como timestamps e sinais de atualização aumentam citações por IA</title>
   <meta name="description" content="LLMs priorizam conteúdo atualizado para citações. Aprenda como implementar timestamps, Schema dateModified e HTTP headers para aumentar citações por IA.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -262,26 +262,17 @@
   &quot;datePublished&quot;: &quot;2024-01-15T10:00:00Z&quot;,
   &quot;dateModified&quot;: &quot;2024-12-19T14:30:00Z&quot;
 }
-### HTTP headers: Last-Modified e ETag
-
-Headers HTTP fornecem informações de freshness diretamente no protocolo de comunicação. O `Last-Modified` header informa quando o recurso foi modificado pela última vez, enquanto `ETag` oferece um identificador único que muda a cada alteração. Pesquisa da Moz (2024) sobre comportamento de crawlers de IA demonstra que Last-Modified header influencia frequência de re-crawl.
-
-Esses headers são especialmente importantes porque funcionam como **cache busting** para IAs. Quando uma IA revisita uma URL, ela compara o ETag ou Last-Modified atual com o valor armazenado. Se houve mudança, o conteúdo é re-indexado com prioridade mais alta para citações futuras.
-
-### Sinais editoriais de atualização no conteúdo
-
-Além dos sinais técnicos, IAs detectam indicadores editoriais de atualização no próprio texto. Frases como &quot;atualizado em dezembro 2024&quot;, &quot;dados mais recentes indicam&quot; ou &quot;última revisão&quot; sinalizam freshness mesmo sem marcação estruturada. Na minha análise de sites que recebem muitas citações, esses sinais editoriais aparecem nos primeiros 200 caracteres do conteúdo.
-
-Seções dedicadas a atualizações também são valorizadas. Um changelog visível ou nota de atualização no início do artigo comunica tanto para IAs quanto para usuários que o conteúdo é mantido atual.
-
-## Como implementar timestamps para maximizar citações
-
-### Estrutura HTML e posicionamento de datas
-
-A data deve aparecer em local proeminente, preferencialmente no primeiro fold da página. O HTML semântico mais eficaz usa a tag `&lt;time&gt;` com atributo `datetime`:
-
-```html
-&lt;time datetime=&quot;2024-12-19T14:30:00Z&quot;&gt;19 de dezembro de 2024&lt;/time&gt;
+</code></pre>
+<h3 id="http-headers-last-modified-e-etag">HTTP headers: Last-Modified e ETag</h3>
+<p>Headers HTTP fornecem informações de freshness diretamente no protocolo de comunicação. O <code>Last-Modified</code> header informa quando o recurso foi modificado pela última vez, enquanto <code>ETag</code> oferece um identificador único que muda a cada alteração. Pesquisa da Moz (2024) sobre comportamento de crawlers de IA demonstra que Last-Modified header influencia frequência de re-crawl.</p>
+<p>Esses headers são especialmente importantes porque funcionam como <strong>cache busting</strong> para IAs. Quando uma IA revisita uma URL, ela compara o ETag ou Last-Modified atual com o valor armazenado. Se houve mudança, o conteúdo é re-indexado com prioridade mais alta para citações futuras.</p>
+<h3 id="sinais-editoriais-de-atualizacao-no-conteudo">Sinais editoriais de atualização no conteúdo</h3>
+<p>Além dos sinais técnicos, IAs detectam indicadores editoriais de atualização no próprio texto. Frases como "atualizado em dezembro 2024", "dados mais recentes indicam" ou "última revisão" sinalizam freshness mesmo sem marcação estruturada. Na minha análise de sites que recebem muitas citações, esses sinais editoriais aparecem nos primeiros 200 caracteres do conteúdo.</p>
+<p>Seções dedicadas a atualizações também são valorizadas. Um changelog visível ou nota de atualização no início do artigo comunica tanto para IAs quanto para usuários que o conteúdo é mantido atual.</p>
+<h2 id="como-implementar-timestamps-para-maximizar-citacoes">Como implementar timestamps para maximizar citações</h2>
+<h3 id="estrutura-html-e-posicionamento-de-datas">Estrutura HTML e posicionamento de datas</h3>
+<p>A data deve aparecer em local proeminente, preferencialmente no primeiro fold da página. O HTML semântico mais eficaz usa a tag <code>&lt;time&gt;</code> com atributo <code>datetime</code>:</p>
+<pre><code class="language-html">&lt;time datetime=&quot;2024-12-19T14:30:00Z&quot;&gt;19 de dezembro de 2024&lt;/time&gt;
 </code></pre>
 <p>Posicione o timestamp próximo ao título (h1) ou byline do autor. IAs escaneiam os primeiros 500 pixels da página com mais atenção, então timestamps "enterrados" no rodapé têm impacto menor. Use formato de data consistente em todo o site - isso ajuda IAs a identificar padrões de atualização.</p>
 <h3 id="schemaorg-article-com-datemodified-correto">Schema.org Article com dateModified correto</h3>

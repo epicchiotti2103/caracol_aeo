@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GPT-Realtime: como usar os modelos de voz da OpenAI para tradução e transcrição ao vivo na sua empresa — Caracol AEO</title>
+  <title>GPT-Realtime: como usar os modelos de voz da OpenAI para tradução e transcrição ao vivo na sua empresa</title>
   <meta name="description" content="Guia prático para implementar GPT-Realtime na sua empresa: desde transcrição de reuniões até tradução simultânea, com custos, limitações e comparações.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Elio Picchiotti">
@@ -313,18 +313,18 @@
 <h3 id="requisitos-tecnicos-e-estrutura-da-api">Requisitos técnicos e estrutura da API</h3>
 <p>A implementação exige conexão WebSocket estável e capacidade de processar áudio PCM em 24kHz. O cliente deve estabelecer conexão wss://api.openai.com/v1/realtime com autenticação via API key no header Authorization.</p>
 <p>A estrutura básica envolve três tipos de eventos: <strong>session.update</strong> para configurar parâmetros iniciais, <strong>input_audio_buffer.append</strong> para enviar chunks de áudio, e <strong>response.audio_transcript.delta</strong> para receber transcrição em tempo real.</p>
-<p>```javascript
-const session_config = {
-  modalities: ["text", "audio"],
-  instructions: "Você é um assistente para transcrição de reuniões",
-  voice: "alloy",
-  input_audio_format: "pcm16",
-  output_audio_format: "pcm16",
+<pre><code class="language-javascript">const session_config = {
+  modalities: [&quot;text&quot;, &quot;audio&quot;],
+  instructions: &quot;Você é um assistente para transcrição de reuniões&quot;,
+  voice: &quot;alloy&quot;,
+  input_audio_format: &quot;pcm16&quot;,
+  output_audio_format: &quot;pcm16&quot;,
   input_audio_transcription: {
-    model: "whisper-1"
+    model: &quot;whisper-1&quot;
   }
 }
-Para produção, implemente buffer de áudio de 100ms para evitar cortes em palavras e sistema de reconexão automática em caso de falha de rede. A gestão de estado da conversa é crucial - mantenha histórico dos últimos 10 minutos para contexto, mas limpe periodicamente para controlar custos.</p>
+</code></pre>
+<p>Para produção, implemente buffer de áudio de 100ms para evitar cortes em palavras e sistema de reconexão automática em caso de falha de rede. A gestão de estado da conversa é crucial - mantenha histórico dos últimos 10 minutos para contexto, mas limpe periodicamente para controlar custos.</p>
 <h3 id="exemplo-pratico-transcricao-de-reunioes-em-tempo-real">Exemplo prático: transcrição de reuniões em tempo real</h3>
 <p>Implementei um sistema de transcrição para uma consultoria com 50 funcionários. O setup captura áudio do microfone principal da sala, processa com GPT-Realtime e exibe transcrição ao vivo numa tela secundária.</p>
 <p>O código principal gerencia três streams simultâneos: captura de áudio via WebRTC, envio para OpenAI via WebSocket, e renderização da transcrição com timestamps. Para reuniões longas, implementamos sistema de chunks de 30 minutos com sobreposição de 2 minutos para manter contexto.</p>
