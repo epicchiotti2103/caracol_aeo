@@ -55,7 +55,7 @@
                 },
                 "example": {
                   "generated_at": "2026-04-27T16:27:10",
-                  "count": 30,
+                  "count": 112,
                   "categories": [
                     {"id": "fundamentos", "label": "Fundamentos"},
                     {"id": "tecnico", "label": "Técnico"}
@@ -123,7 +123,7 @@
         "tags": ["company"],
         "operationId": "getLlmFullGuide",
         "summary": "Guia completo para LLMs com todos os artigos",
-        "description": "Versão expandida do llms.txt com links para todos os 30 artigos do blog organizados por categoria. Ideal para agentes de IA que precisam de contexto completo.",
+        "description": "Versão expandida do llms.txt com links para todos os artigos do blog organizados por categoria. Ideal para agentes de IA que precisam de contexto completo.",
         "responses": {
           "200": {
             "description": "Guia completo retornado com sucesso",
