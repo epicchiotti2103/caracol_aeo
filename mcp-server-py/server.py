@@ -158,8 +158,10 @@ def _audit_content(soup: BeautifulSoup) -> dict[str, Any]:
     text = soup.get_text(" ", strip=True)
     word_count = len(text.split())
 
-    first_p = (paragraphs[0].get_text(strip=True) if paragraphs else "")[:200]
-    is_definition_lead = bool(re.match(r"^[A-Z][^.]+\s+(é|são|significa|consiste em)\s", first_p))
+    # separador " " preserva espaços entre elementos inline (<code>, <strong>...)
+    first_p = (paragraphs[0].get_text(" ", strip=True) if paragraphs else "")[:200]
+    # aceita termos com ponto (ex: "llms.txt") e inicial acentuada; limita a ~1 frase
+    is_definition_lead = bool(re.match(r"^[A-ZÀ-Ü].{0,150}?\s(é|são|significa|consiste em)\s", first_p))
 
     score = 0
     score += 6 if len(h1s) == 1 else (2 if h1s else 0)
