@@ -11,6 +11,7 @@
 - [Estudos da Caracol AEO](https://www.aeobr.com.br/estudos/): pesquisas com dados originais sobre visibilidade de marcas brasileiras em IAs generativas.
 - [Índice AEO Brasil: visibilidade dos 50 maiores e-commerces nas IAs](https://www.aeobr.com.br/estudos/indice-aeo-ecommerce-2026/): Auditoria dos 50 maiores e-commerces do Brasil: nota média 55.2/100, 12 em estado crítico e 4 gigantes bloqueiam os robôs do ChatGPT.
 - [Quem as IAs recomendam quando alguém procura escritório de advocacia empresarial em São Paulo?](https://www.aeobr.com.br/estudos/advocacia-empresarial-sp-2026/): 76 perguntas reais a ChatGPT, Perplexity e Gemini sobre advocacia empresarial em SP — na maioria delas, nenhum escritório é citado.
+- [Índice AEO Brasil: visibilidade de 50 bancos e fintechs nas IAs](https://www.aeobr.com.br/estudos/indice-aeo-bancos-2026/): Auditoria dos 50 maiores bancos e fintechs do Brasil: nota média 47.6/100, fintechs batem bancões e 11 instituições bloqueiam todo acesso automatizado.
 
 ## Servidor MCP
 
@@ -32,8 +33,9 @@ A Caracol AEO oferece um servidor MCP público para assistentes de IA (ChatGPT, 
 
 ## Blog
 
-### Giro IA (15 artigos)
+### Giro IA (16 artigos)
 
+- [1 milhão de palavras-chave IA: impacto nas buscas e AEO](https://www.aeobr.com.br/blog/1-milhao-palavras-chave-ia-impacto-nas-buscas/): Estudo com 1 milhão de palavras-chave revela migração para perguntas complexas. Como marcas devem produzir conteúdo retrieval-ready para serem citadas por IAs mesmo em cenários de zero clique. (Giro IA, 2026-07-03)
 - [Plugin WordPress conecta IA ao site: a chave AEO para marcas](https://www.aeobr.com.br/blog/plugin-wordpress-conecta-ia-site-chave-aeo-marcas/): Anthropic relança Claude Fable 5 com salvaguardas, enquanto plugin WordPress simplifica conexão de sites a LLMs. Saiba como usar isso para ser citado por IAs. (Giro IA, 2026-07-01)
 - [Google critica o llms.txt: o que muda na sua estratégia de AEO em 2026](https://www.aeobr.com.br/blog/google-critica-llms-txt/): Google expôs falha do llms.txt, deu memória ao Gemini Live e apoiou spec de descoberta de agentes com a Microsoft. Veja o que muda na sua AEO. (Giro IA, 2026-06-30)
 - [SEO para AI Agents: Google Dá as Regras e Fintechs Ficam Invisíveis](https://www.aeobr.com.br/blog/seo-ai-agents-google-regras-fintechs-ficam-invisiveis/): Google publicou diretrizes de SEO para AI agents e 1/3 das fintechs somem de ChatGPT e Perplexity. Veja as marcações e ações de AEO para não ficar invisível. (Giro IA, 2026-06-27)
