@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-03T03:22:04",
-  "count": 112,
+  "generated_at": "2026-07-03T04:05:13",
+  "count": 109,
   "categories": [
     {
       "id": "giro",
@@ -60,19 +60,10 @@
       "cat_label": "Técnico"
     },
     {
-      "url": "/blog/seo-ai-agents-google-cartas-fintechs-somem/",
-      "slug": "seo-ai-agents-google-cartas-fintechs-somem",
-      "title": "SEO para AI Agents: Google Dá as Cartas e Fintechs Somem",
-      "desc": "Google publica diretrizes oficiais de SEO para AI agents. Enquanto isso, estudo aponta que 1/3 das fintechs são invisíveis para ChatGPT e Perplexity. AEO urgente.",
-      "date": "2026-06-29",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
       "url": "/blog/seo-ai-agents-google-regras-fintechs-ficam-invisiveis/",
       "slug": "seo-ai-agents-google-regras-fintechs-ficam-invisiveis",
       "title": "SEO para AI Agents: Google Dá as Regras e Fintechs Ficam Invisíveis",
-      "desc": "Google publica diretrizes oficiais de SEO para AI agents. Estudo revela que 1/3 das fintechs são invisíveis. Saiba como adaptar sua estratégia de AEO com marcações semânticas.",
+      "desc": "Google publicou diretrizes de SEO para AI agents e 1/3 das fintechs somem de ChatGPT e Perplexity. Veja as marcações e ações de AEO para não ficar invisível.",
       "date": "2026-06-27",
       "cat_id": "giro",
       "cat_label": "Giro IA"
@@ -224,8 +215,8 @@
     {
       "url": "/blog/physical-ai-inteligencia-artificial-operando-robos-drones-dispositivos-mundo-real/",
       "slug": "physical-ai-inteligencia-artificial-operando-robos-drones-dispositivos-mundo-real",
-      "title": "Physical AI: como a inteligência artificial está saindo do software para operar robôs, drones e dispositivos no mundo real",
-      "desc": "Physical AI combina modelos de IA com atuadores físicos para operar robôs e dispositivos no mundo real, diferindo da IA tradicional por processar dados sensoriais e executar ações físicas em tempo real.",
+      "title": "Physical AI: como a IA opera robôs, drones e dispositivos reais",
+      "desc": "Physical AI é a IA que sai do software para operar robôs e sensores no mundo real. Veja arquitetura, setores, custos de implementação e como avaliar sua adoção.",
       "date": "2026-06-10",
       "cat_id": "mercado",
       "cat_label": "Mercado"
@@ -334,24 +325,6 @@
       "slug": "gpt-rosalind-modelos-ia-ciencias-vida-biotech-farmaceuticas-2026",
       "title": "GPT-Rosalind e modelos de IA para ciências da vida: o que muda para biotech e farmacêuticas em 2026",
       "desc": "GPT-Rosalind acelera descoberta de fármacos em 12-18 meses vs 4-5 anos tradicionais. Como modelos de IA especializados transformam pesquisa farmacêutica em 2026.",
-      "date": "2026-05-27",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/llm-perception-drift-monitorar-estabilizar-percepcao-marca-llms/",
-      "slug": "llm-perception-drift-monitorar-estabilizar-percepcao-marca-llms",
-      "title": "LLM Perception Drift: como monitorar e estabilizar a percepção da sua marca em LLMs mês a mês",
-      "desc": "Aprenda a criar um sistema de monitoramento mensal para detectar e corrigir variações na percepção da marca em LLMs como ChatGPT, Claude e Gemini.",
-      "date": "2026-05-27",
-      "cat_id": "medicao",
-      "cat_label": "Medição"
-    },
-    {
-      "url": "/blog/physical-ai-inteligencia-artificial-mundo-fisico-2026/",
-      "slug": "physical-ai-inteligencia-artificial-mundo-fisico-2026",
-      "title": "Physical AI: como a inteligência artificial está saindo do digital para o mundo físico em 2026",
-      "desc": "Physical AI combina IA com robótica para interagir fisicamente com o mundo real. Descubra casos de uso, custos e como avaliar se sua empresa precisa.",
       "date": "2026-05-27",
       "cat_id": "mercado",
       "cat_label": "Mercado"
@@ -566,8 +539,8 @@
     {
       "url": "/blog/llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini/",
       "slug": "llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini",
-      "title": "LLM Perception Drift: como monitorar e corrigir variações na forma como ChatGPT e Gemini descrevem sua marca",
-      "desc": "LLM Perception Drift faz ChatGPT e Gemini descreverem sua marca inconsistentemente. Aprenda metodologia prática para detectar, monitorar e corrigir através de content anchoring.",
+      "title": "LLM Perception Drift: como monitorar e corrigir variações no ChatGPT",
+      "desc": "LLM Perception Drift é a variação inconsistente na descrição da marca em LLMs. Aprenda a detectar e corrigir via content anchoring e dados estruturados.",
       "date": "2026-05-06",
       "cat_id": "medicao",
       "cat_label": "Medição"

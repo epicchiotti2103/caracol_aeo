@@ -529,12 +529,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aeobr.com.br/blog/llm-perception-drift-monitorar-estabilizar-percepcao-marca-llms/</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.aeobr.com.br/blog/microsoft-copilot-pequenas-empresas-custos-roi-2026/</loc>
     <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -613,12 +607,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aeobr.com.br/blog/physical-ai-inteligencia-artificial-mundo-fisico-2026/</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.aeobr.com.br/blog/physical-ai-inteligencia-artificial-operando-robos-drones-dispositivos-mundo-real/</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -669,12 +657,6 @@
   <url>
     <loc>https://www.aeobr.com.br/blog/seguranca-agentes-ia-impedir-vazamento-dados-acoes-nao-autorizadas/</loc>
     <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.aeobr.com.br/blog/seo-ai-agents-google-cartas-fintechs-somem/</loc>
-    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
