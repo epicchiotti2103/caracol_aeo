@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T04:05:13",
+  "generated_at": "2026-07-03T04:46:51",
   "count": 109,
   "categories": [
     {
@@ -351,7 +351,7 @@
       "url": "/blog/aeo-profissionais-liberais-atrair-clientes-assistentes-ia/",
       "slug": "aeo-profissionais-liberais-atrair-clientes-assistentes-ia",
       "title": "Como profissionais liberais podem usar AEO para atrair clientes via assistentes de IA?",
-      "desc": "Profissionais liberais podem usar Answer Engine Optimization para ser citados por ChatGPT, Perplexity e Gemini através de Schema markup, conteúdo educacional e otimização local.",
+      "desc": "AEO para profissionais liberais é a otimização para ser recomendado por ChatGPT, Perplexity e Gemini: Schema markup, conteúdo educacional e presença local.",
       "date": "2026-05-26",
       "cat_id": "tecnico",
       "cat_label": "Técnico"
@@ -423,7 +423,7 @@
       "url": "/blog/orquestracao-agentes-ia-conectar-sistemas-autonomos-controle/",
       "slug": "orquestracao-agentes-ia-conectar-sistemas-autonomos-controle",
       "title": "Orquestração de agentes de IA: como conectar múltiplos sistemas autônomos sem perder o controle da operação",
-      "desc": "Arquiteturas, padrões e frameworks para coordenar múltiplos agentes de IA especializados mantendo governança e evitando comportamentos imprevisíveis em sistemas empresariais.",
+      "desc": "Orquestração de agentes de IA é a coordenação de múltiplos agentes especializados sob governança, evitando comportamentos imprevisíveis em empresas.",
       "date": "2026-05-14",
       "cat_id": "tecnico",
       "cat_label": "Técnico"
@@ -603,7 +603,7 @@
       "url": "/blog/speakable-schema-marcar-conteudo-assistentes-voz-busca-audio/",
       "slug": "speakable-schema-marcar-conteudo-assistentes-voz-busca-audio",
       "title": "Speakable Schema: como marcar conteúdo otimizado para assistentes de voz e busca por áudio",
-      "desc": "Aprenda a implementar Speakable Schema para controlar quais trechos do seu conteúdo são lidos por assistentes de voz e otimizar para busca por áudio.",
+      "desc": "Speakable Schema é a marcação que indica quais trechos do conteúdo assistentes de voz devem ler em respostas de busca por áudio. Implementação passo a passo.",
       "date": "2026-05-06",
       "cat_id": "conteudo",
       "cat_label": "Conteúdo"
@@ -693,7 +693,7 @@
       "url": "/blog/como-escrever-definition-lead-sentences-ias/",
       "slug": "como-escrever-definition-lead-sentences-ias",
       "title": "Como escrever definition-lead sentences que IAs conseguem extrair facilmente",
-      "desc": "Definition-lead sentences são frases estruturadas que facilitam extração direta por LLMs. Use padrões sintáticos específicos nos primeiros 150 caracteres para maximizar citação.",
+      "desc": "Definition-lead sentences são frases que abrem o texto com uma definição direta, facilitando extração por LLMs. Veja padrões sintáticos e exemplos práticos.",
       "date": "2026-04-08",
       "cat_id": "conteudo",
       "cat_label": "Conteúdo"
@@ -792,7 +792,7 @@
       "url": "/blog/information-gain-conteudo-llms-nao-geram/",
       "slug": "information-gain-conteudo-llms-nao-geram",
       "title": "Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos",
-      "desc": "Information Gain diferencia conteúdo citável de genérico para LLMs. Aprenda a criar valor informacional único através de dados proprietários e experiência documentada.",
+      "desc": "Information Gain é o valor informacional único que LLMs não conseguem gerar. Dados proprietários e experiência documentada tornam seu conteúdo citável.",
       "date": "2026-04-08",
       "cat_id": "conteudo",
       "cat_label": "Conteúdo"
@@ -819,7 +819,7 @@
       "url": "/blog/otimizar-fan-out-queries-chatgpt-bing/",
       "slug": "otimizar-fan-out-queries-chatgpt-bing",
       "title": "Como otimizar para fan-out queries: as sub-pesquisas que ChatGPT faz no Bing",
-      "desc": "Fan-out queries são sub-pesquisas paralelas que ChatGPT executa no Bing para decompor perguntas complexas. Aprenda a estruturar conteúdo para ser encontrado nessas buscas.",
+      "desc": "Fan-out queries são sub-pesquisas paralelas que o ChatGPT executa no Bing para decompor perguntas complexas. Veja como estruturar conteúdo para aparecer nelas.",
       "date": "2026-04-08",
       "cat_id": "tecnico",
       "cat_label": "Técnico"
