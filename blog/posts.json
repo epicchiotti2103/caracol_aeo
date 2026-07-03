@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-03T04:46:51",
-  "count": 109,
+  "generated_at": "2026-07-03T12:01:41",
+  "count": 110,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/1-milhao-palavras-chave-ia-impacto-nas-buscas/",
+      "slug": "1-milhao-palavras-chave-ia-impacto-nas-buscas",
+      "title": "1 milhão de palavras-chave IA: impacto nas buscas e AEO",
+      "desc": "Estudo com 1 milhão de palavras-chave revela migração para perguntas complexas. Como marcas devem produzir conteúdo retrieval-ready para serem citadas por IAs mesmo em cenários de zero clique.",
+      "date": "2026-07-03",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/plugin-wordpress-conecta-ia-site-chave-aeo-marcas/",
       "slug": "plugin-wordpress-conecta-ia-site-chave-aeo-marcas",

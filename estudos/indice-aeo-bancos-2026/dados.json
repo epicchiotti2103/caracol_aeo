@@ -1,0 +1,1230 @@
+{
+ "meta": {
+  "data_auditoria": "2026-07-03",
+  "total": 50,
+  "mensuraveis": 39,
+  "fortalezas_antibot": 11,
+  "media": 47.6,
+  "mediana": 47,
+  "sem_definition_lead": 38
+ },
+ "medias_por_categoria": {
+  "banco": {
+   "media": 40.8,
+   "n": 15
+  },
+  "banco digital": {
+   "media": 46.8,
+   "n": 4
+  },
+  "fintech": {
+   "media": 55.6,
+   "n": 17
+  },
+  "investimentos": {
+   "media": 37,
+   "n": 3
+  }
+ },
+ "ranking": [
+  {
+   "nome": "Cora",
+   "dominio": "cora.com.br",
+   "categoria": "fintech",
+   "score": 76,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 25,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 23,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Stone",
+   "dominio": "stone.com.br",
+   "categoria": "fintech",
+   "score": 69,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 6,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 25,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 3,
+   "robots_ia": "explícito",
+   "top_recomendacao": "Adicionar Schema Organization ou LocalBusiness com @id e sameAs"
+  },
+  {
+   "nome": "Asaas",
+   "dominio": "asaas.com",
+   "categoria": "fintech",
+   "score": 68,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 14,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 16,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 6,
+   "robots_ia": "explícito",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Celcoin",
+   "dominio": "celcoin.com.br",
+   "categoria": "fintech",
+   "score": 66,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 13,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 17,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 10,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Banco Safra",
+   "dominio": "safra.com.br",
+   "categoria": "banco",
+   "score": 64,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 13,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 9,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "PagBank",
+   "dominio": "pagbank.com.br",
+   "categoria": "fintech",
+   "score": 64,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 8,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 4,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "InfinitePay (CloudWalk)",
+   "dominio": "infinitepay.io",
+   "categoria": "fintech",
+   "score": 64,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 8,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 8,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Banco BMG",
+   "dominio": "bancobmg.com.br",
+   "categoria": "banco",
+   "score": 62,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 8,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 18,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 2,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Banco Inter",
+   "dominio": "inter.co",
+   "categoria": "banco digital",
+   "score": 61,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 8,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 17,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 4,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Nomad",
+   "dominio": "nomadglobal.com",
+   "categoria": "fintech",
+   "score": 60,
+   "rating": "Bom",
+   "dim": {
+    "schema_org": {
+     "score": 8,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 2,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Creditas",
+   "dominio": "creditas.com",
+   "categoria": "fintech",
+   "score": 59,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 3,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 22,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 9,
+   "robots_ia": "explícito",
+   "top_recomendacao": "Adicionar Schema Organization ou LocalBusiness com @id e sameAs"
+  },
+  {
+   "nome": "Banco BV",
+   "dominio": "bv.com.br",
+   "categoria": "banco",
+   "score": 53,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 8,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 18,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 4,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Nubank",
+   "dominio": "nubank.com.br",
+   "categoria": "fintech",
+   "score": 51,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "QI Tech",
+   "dominio": "qitech.com.br",
+   "categoria": "fintech",
+   "score": 51,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 3,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 17,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 2,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema Organization ou LocalBusiness com @id e sameAs"
+  },
+  {
+   "nome": "Efí (ex-Gerencianet)",
+   "dominio": "sejaefi.com.br",
+   "categoria": "fintech",
+   "score": 51,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "RecargaPay",
+   "dominio": "recargapay.com.br",
+   "categoria": "fintech",
+   "score": 50,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 8,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 15,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 6,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Reescrever 1º parágrafo em formato definition-lead ('X é...') para extração direta por LLMs"
+  },
+  {
+   "nome": "Mercado Pago",
+   "dominio": "mercadopago.com.br",
+   "categoria": "fintech",
+   "score": 48,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 6,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 8,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 3,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema Organization ou LocalBusiness com @id e sameAs"
+  },
+  {
+   "nome": "Warren Investimentos",
+   "dominio": "warren.com.br",
+   "categoria": "investimentos",
+   "score": 48,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 18,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 12,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "EBANX",
+   "dominio": "ebanx.com",
+   "categoria": "fintech",
+   "score": 48,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 17,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Sicredi",
+   "dominio": "sicredi.com.br",
+   "categoria": "banco",
+   "score": 47,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Banco BS2",
+   "dominio": "bs2.com",
+   "categoria": "banco digital",
+   "score": 47,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 5,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 17,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 12,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 9,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema Organization ou LocalBusiness com @id e sameAs"
+  },
+  {
+   "nome": "PicPay",
+   "dominio": "picpay.com",
+   "categoria": "fintech",
+   "score": 46,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 8,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 14,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 6,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 5,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar um H1 à página"
+  },
+  {
+   "nome": "Banco Original",
+   "dominio": "original.com.br",
+   "categoria": "banco digital",
+   "score": 45,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 18,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Neon",
+   "dominio": "neon.com.br",
+   "categoria": "fintech",
+   "score": 45,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 12,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Sicoob",
+   "dominio": "sicoob.com.br",
+   "categoria": "banco",
+   "score": 42,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 18,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 16,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 8,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Banco Pine",
+   "dominio": "pine.com",
+   "categoria": "banco",
+   "score": 42,
+   "rating": "Regular",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 8,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Bradesco",
+   "dominio": "bradesco.com.br",
+   "categoria": "banco",
+   "score": 39,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 13,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 1,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 25,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "explícito",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "BTG Pactual",
+   "dominio": "btgpactual.com",
+   "categoria": "banco",
+   "score": 39,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 20,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 1,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Paraná Banco",
+   "dominio": "paranabanco.com.br",
+   "categoria": "banco",
+   "score": 38,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 13,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 25,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 0,
+     "max": 30
+    }
+   },
+   "definition_lead": true,
+   "schema_tipos": 0,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Banco ABC Brasil",
+   "dominio": "abcbrasil.com.br",
+   "categoria": "banco",
+   "score": 37,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 10,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 14,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Toro Investimentos",
+   "dominio": "toroinvestimentos.com.br",
+   "categoria": "investimentos",
+   "score": 37,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 12,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 12,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Banco do Nordeste",
+   "dominio": "bnb.gov.br",
+   "categoria": "banco",
+   "score": 36,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 10,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 8,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Caixa Econômica Federal",
+   "dominio": "caixa.gov.br",
+   "categoria": "banco",
+   "score": 35,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 10,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 12,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Banco Daycoval",
+   "dominio": "daycoval.com.br",
+   "categoria": "banco",
+   "score": 35,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 16,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 1,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema Organization ou LocalBusiness com @id e sameAs"
+  },
+  {
+   "nome": "Agibank",
+   "dominio": "agibank.com.br",
+   "categoria": "banco digital",
+   "score": 34,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 13,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 8,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Will Bank",
+   "dominio": "willbank.com.br",
+   "categoria": "fintech",
+   "score": 30,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 7,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 18,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 5,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Banco do Brasil",
+   "dominio": "bb.com.br",
+   "categoria": "banco",
+   "score": 27,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 8,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 1,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "robots inacessível",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Órama",
+   "dominio": "orama.com.br",
+   "categoria": "investimentos",
+   "score": 26,
+   "rating": "Ruim",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 7,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 1,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 18,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  },
+  {
+   "nome": "Banrisul",
+   "dominio": "banrisul.com.br",
+   "categoria": "banco",
+   "score": 16,
+   "rating": "Crítico",
+   "dim": {
+    "schema_org": {
+     "score": 0,
+     "max": 25
+    },
+    "meta_tags": {
+     "score": 2,
+     "max": 20
+    },
+    "conteudo_estrutura": {
+     "score": 1,
+     "max": 25
+    },
+    "tecnico_crawlability": {
+     "score": 13,
+     "max": 30
+    }
+   },
+   "definition_lead": false,
+   "schema_tipos": 0,
+   "robots_ia": "nenhuma regra explícita",
+   "top_recomendacao": "Adicionar Schema.org JSON-LD na página (ausente)"
+  }
+ ],
+ "nao_mensuraveis": [
+  {
+   "nome": "Itaú Unibanco",
+   "dominio": "itau.com.br",
+   "categoria": "banco",
+   "motivo": "Falha ao buscar URL: HTTPError"
+  },
+  {
+   "nome": "Santander Brasil",
+   "dominio": "santander.com.br",
+   "categoria": "banco",
+   "motivo": "Falha ao buscar URL: HTTPError"
+  },
+  {
+   "nome": "Banco Pan",
+   "dominio": "bancopan.com.br",
+   "categoria": "banco",
+   "motivo": "Falha ao buscar URL: ConnectTimeout"
+  },
+  {
+   "nome": "Banco Master",
+   "dominio": "bancomaster.com.br",
+   "categoria": "banco",
+   "motivo": "Falha ao buscar URL: SSLError"
+  },
+  {
+   "nome": "C6 Bank",
+   "dominio": "c6bank.com.br",
+   "categoria": "banco digital",
+   "motivo": "Falha ao buscar URL: HTTPError"
+  },
+  {
+   "nome": "Banco Sofisa",
+   "dominio": "sofisa.com.br",
+   "categoria": "banco",
+   "motivo": "json_invalido"
+  },
+  {
+   "nome": "XP Investimentos",
+   "dominio": "xpi.com.br",
+   "categoria": "investimentos",
+   "motivo": "Falha ao buscar URL: HTTPError"
+  },
+  {
+   "nome": "Rico",
+   "dominio": "rico.com.vc",
+   "categoria": "investimentos",
+   "motivo": "Falha ao buscar URL: HTTPError"
+  },
+  {
+   "nome": "Clear Corretora",
+   "dominio": "clear.com.br",
+   "categoria": "investimentos",
+   "motivo": "Falha ao buscar URL: HTTPError"
+  },
+  {
+   "nome": "Genial Investimentos",
+   "dominio": "genialinvestimentos.com.br",
+   "categoria": "investimentos",
+   "motivo": "Falha ao buscar URL: ReadTimeout"
+  },
+  {
+   "nome": "Modalmais",
+   "dominio": "modalmais.com.br",
+   "categoria": "investimentos",
+   "motivo": "Falha ao buscar URL: HTTPError"
+  }
+ ]
+}
