@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-03T12:01:41",
-  "count": 110,
+  "generated_at": "2026-07-05T12:03:03",
+  "count": 111,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/cloudflare-ai-crawler-rules-googlebot-aeo/",
+      "slug": "cloudflare-ai-crawler-rules-googlebot-aeo",
+      "title": "Cloudflare AI Crawler Rules: risco de bloquear Googlebot e AEO",
+      "desc": "Cloudflare lança regras para gerenciar crawlers de IA que, se mal configuradas, bloqueiam o Googlebot, ameaçando indexação e citações em answer engines como ChatGPT e Perplexity.",
+      "date": "2026-07-05",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/1-milhao-palavras-chave-ia-impacto-nas-buscas/",
       "slug": "1-milhao-palavras-chave-ia-impacto-nas-buscas",
