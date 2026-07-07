@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-05T12:03:03",
-  "count": 111,
+  "generated_at": "2026-07-07T12:03:06",
+  "count": 112,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/62-das-recomendacoes-marca-ia-somem-apos-1/",
+      "slug": "62-das-recomendacoes-marca-ia-somem-apos-1",
+      "title": "62% das recomendações de marca em IA somem após 1 pergunta",
+      "desc": "Estudo Clovion mostra que 62% das recomendações de marca em IAs generativas desaparecem após uma pergunta de follow-up. Saiba como sustentar citações em diálogos multimodais com AEO.",
+      "date": "2026-07-07",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/cloudflare-ai-crawler-rules-googlebot-aeo/",
       "slug": "cloudflare-ai-crawler-rules-googlebot-aeo",
