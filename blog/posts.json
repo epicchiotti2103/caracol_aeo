@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-07T12:03:06",
-  "count": 112,
+  "generated_at": "2026-07-09T12:01:56",
+  "count": 113,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/como-evitar-perda-propriedade-geo-outcomes-ia-guia/",
+      "slug": "como-evitar-perda-propriedade-geo-outcomes-ia-guia",
+      "title": "Como evitar perda de propriedade GEO outcomes em IA: guia AEO",
+      "desc": "Estudo revela que IAs generativas reescrevem mensagens de marca, reduzindo citações controladas. Saiba como reaver o ownership com entidades, dados proprietários e AI Visibility audit.",
+      "date": "2026-07-09",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/62-das-recomendacoes-marca-ia-somem-apos-1/",
       "slug": "62-das-recomendacoes-marca-ia-somem-apos-1",
