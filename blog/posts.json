@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-09T12:01:56",
-  "count": 113,
+  "generated_at": "2026-07-15T12:01:45",
+  "count": 115,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,24 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/alemanha-exige-resumos-ia-sigam-leis-midia-impacto/",
+      "slug": "alemanha-exige-resumos-ia-sigam-leis-midia-impacto",
+      "title": "Alemanha exige que resumos de IA sigam leis de mídia: impacto AEO",
+      "desc": "Alemanha determina que AI Overviews do Google cumpram legislação de mídia. Entenda como a exigência de autoria, data e estrutura formal redefine a elegibilidade de fontes para citação por IAs.",
+      "date": "2026-07-15",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
+    {
+      "url": "/blog/como-proteger-sua-marca-contra-deepfakes-gerados-ia/",
+      "slug": "como-proteger-sua-marca-contra-deepfakes-gerados-ia",
+      "title": "Como proteger sua marca contra deepfakes gerados por IA",
+      "desc": "Meta remove recurso de deepfake no Instagram após backlash. Entenda como imagens falsas de IA podem prejudicar a reputação da marca e ser capturadas por answer engines como ChatGPT e Perplexity.",
+      "date": "2026-07-11",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/como-evitar-perda-propriedade-geo-outcomes-ia-guia/",
       "slug": "como-evitar-perda-propriedade-geo-outcomes-ia-guia",
