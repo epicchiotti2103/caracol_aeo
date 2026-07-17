@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-15T12:01:45",
-  "count": 115,
+  "generated_at": "2026-07-17T12:02:34",
+  "count": 116,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/ai-mode-connected-apps-aeo-como-marcas-serao/",
+      "slug": "ai-mode-connected-apps-aeo-como-marcas-serao",
+      "title": "AI Mode Connected Apps AEO: como marcas serão citadas em 2027",
+      "desc": "UE obriga Google a compartilhar dados de busca com rivais a partir de 2027; AI Mode com Connected Apps (Instacart, Canva) cria novo campo de batalha por citação em IA. Estratégias AEO para marcas.",
+      "date": "2026-07-17",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/alemanha-exige-resumos-ia-sigam-leis-midia-impacto/",
       "slug": "alemanha-exige-resumos-ia-sigam-leis-midia-impacto",
