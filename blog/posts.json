@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-17T12:02:34",
-  "count": 116,
+  "generated_at": "2026-07-19T12:03:07",
+  "count": 117,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/gemini-notebook-aeo-otimizacao/",
+      "slug": "gemini-notebook-aeo-otimizacao",
+      "title": "Gemini Notebook AEO otimizacao: como ser citado",
+      "desc": "Google integra NotebookLM ao Gemini como Gemini Notebook, mudando a lógica de citação em respostas detalhadas. Marcas precisam de conteúdo scholar-like para serem referenciadas.",
+      "date": "2026-07-19",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/ai-mode-connected-apps-aeo-como-marcas-serao/",
       "slug": "ai-mode-connected-apps-aeo-como-marcas-serao",
