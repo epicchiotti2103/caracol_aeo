@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-19T12:03:07",
-  "count": 117,
+  "generated_at": "2026-07-21T12:02:19",
+  "count": 118,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/anuncios-google-ai-mode-palavras-chave-comerciais-muda/",
+      "slug": "anuncios-google-ai-mode-palavras-chave-comerciais-muda",
+      "title": "Anúncios Google AI Mode em palavras-chave comerciais: o que muda",
+      "desc": "Liz Reid confirma anúncios no AI Mode e busca autônoma. Dados mostram Google como 2º domínio mais citado. Impacto direto na visibilidade de marca em respostas generativas.",
+      "date": "2026-07-21",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/gemini-notebook-aeo-otimizacao/",
       "slug": "gemini-notebook-aeo-otimizacao",
