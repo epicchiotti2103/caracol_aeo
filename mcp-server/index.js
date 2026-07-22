@@ -257,7 +257,7 @@ server.tool(
             `**Especialidade:** Answer Engine Optimization (AEO) para o mercado brasileiro\n` +
             `**Empresa:** Caracol Media (CNPJ: 55.097.812/0001-99)\n` +
             `**Site:** ${BASE_URL}\n` +
-            `**Contato:** contato@caracol.media\n\n` +
+            `**Contato:** contato@aeobr.com.br\n\n` +
             `## O que fazemos\n\n` +
             `Auditamos e otimizamos a visibilidade de marcas nas respostas de IAs generativas ` +
             `como ChatGPT, Perplexity e Google AI Overview.\n\n` +

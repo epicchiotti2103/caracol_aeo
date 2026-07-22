@@ -326,7 +326,7 @@ async def get_company_info() -> str:
     return (
         f"# Caracol AEO\n\n**Especialidade:** Answer Engine Optimization (AEO) — mercado brasileiro\n"
         f"**Empresa:** Caracol Media (CNPJ: 55.097.812/0001-99)\n"
-        f"**Site:** {BASE_URL} | **Contato:** contato@caracol.media\n\n"
+        f"**Site:** {BASE_URL} | **Contato:** contato@aeobr.com.br\n\n"
         f"## Metodologia (4 dimensões)\n1. Dados Estruturados (Schema)\n2. Conteúdo e Estrutura\n"
         f"3. Técnico/Crawlability\n4. Meta Tags\n\n## Serviços\n\n{svc}\n\n## Blog ({posts['count']} artigos)\n\n{cats}"
     )
