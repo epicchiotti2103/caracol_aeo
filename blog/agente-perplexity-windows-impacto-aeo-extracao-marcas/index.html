@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agente da Perplexity no Windows: impacto AEO na extração de marcas</title>
+  <meta name="description" content="Perplexity lança agente de IA que controla o Windows e executa tarefas autônomas. Saiba como otimizar marcas para extração e ações em fluxos agênticos.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/agente-perplexity-windows-impacto-aeo-extracao-marcas/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Agente da Perplexity no Windows: impacto AEO na extração de marcas">
+  <meta property="og:description" content="Perplexity lança agente de IA que controla o Windows e executa tarefas autônomas. Saiba como otimizar marcas para extração e ações em fluxos agênticos.">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/agente-perplexity-windows-impacto-aeo-extracao-marcas/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-07-29">
+  <meta property="article:section" content="Giro IA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agente da Perplexity no Windows: impacto AEO na extração de marcas">
+  <meta name="twitter:description" content="Perplexity lança agente de IA que controla o Windows e executa tarefas autônomas. Saiba como otimizar marcas para extração e ações em fluxos agênticos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Agente da Perplexity no Windows: impacto AEO na extração de marcas",
+    "description": "Perplexity lança agente de IA que controla o Windows e executa tarefas autônomas. Saiba como otimizar marcas para extração e ações em fluxos agênticos.",
+    "articleSection": "Giro IA",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://www.aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-07-29",
+    "dateModified": "2026-07-29",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aeobr.com.br/blog/agente-perplexity-windows-impacto-aeo-extracao-marcas/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O agente da Perplexity substitui o Google para marcas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não substitui, mas cria um canal paralelo de descoberta e conversão. Enquanto o Google ainda domina a busca tradicional, agentes autônomos estão crescendo em tarefas transacionais (compras, reservas, comparações). Marcas que ignorarem esse fluxo perdem oportunidades de conversão direta sem custo por clique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso mudar meu site inteiro para ser compatível com agentes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não é necessário refazer o site, mas sim priorizar a camada de dados estruturados e a legibilidade por máquina. A maioria dos ajustes é em schema markup e simplificação de formulários. Sites com JavaScript pesado e conteúdo em imagem exigem mais trabalho."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber se meu schema está sendo extraído corretamente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use ferramentas de teste de dados estruturados e simule requisições de agentes com scripts em Python (requests + BeautifulSoup) para verificar se os dados aparecem no HTML. Ferramentas de auditoria especializada, como as do aeobr, oferecem relatórios de extração simulada para agentes como o da Perplexity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Agentes favorecem marcas grandes ou pequenas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agentes favorecem marcas com dados limpos e estruturados, independentemente do porte. Uma pequena loja com schema perfeito e política de frete clara pode ser preferida a um grande varejo com dados inconsistentes. A autoridade do domínio ainda pesa, mas a qualidade da extração é o fator decisivo.  ---  A transição para agentes autônomos exige que marcas repensem a otimização: não basta ser encontrada, é preciso ser extraível e acionável. Para medir sua presença nesse novo ecossistema, uma auditor"
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Giro IA</div>
+      <h1>Agente da Perplexity no Windows: impacto AEO na extração de marcas</h1>
+      <div class="meta">Elio Picchiotti · 29 de julho de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>O agente de IA da Perplexity para Windows é um software que assume o controle do sistema operacional para realizar tarefas autônomas como navegação web, preenchimento de formulários, compras e extração de dados. Para marcas, o impacto direto em AEO (Answer Engine Optimization) é radical: o percurso de citação deixa de ser "usuário vê o site e clica" para se tornar "agente descobre, extrai e executa uma ação sem intervenção humana".</p>
+<p>A Perplexity anunciou em julho de 2026 o lançamento de seu agente para PCs com Windows, posicionando-se como concorrente direto de soluções como o Copilot da Microsoft e o agente do Google. Diferente de assistentes tradicionais que apenas respondem perguntas, este agente opera como um "funcionário digital": ele abre navegadores, navega por sites, preenche campos, compara preços, extrai informações estruturadas e até finaliza compras. O contexto de mercado é de acirramento na corrida por agentes autônomos, com implicações profundas para a visibilidade e a conversão de marcas.</p>
+<div class="promo-banner" style="margin:2.5rem 0;text-align:center"><a href="https://mediacaracol.com/api/v3/offer/101?aff_sub=aeo&amp;affiliate_id=6&amp;url_id=58589" rel="sponsored noopener" target="_blank"><img src="/assets/img/promo-clear-300x250.gif" width="300" height="250" alt="Promocao Clear" loading="lazy" style="max-width:100%;height:auto;border:0;display:inline-block"></a></div>
+
+<h2 id="o-que-muda-no-fluxo-de-citacao-com-agentes-autonomos">O que muda no fluxo de citação com agentes autônomos</h2>
+<p>O modelo tradicional de busca pressupõe um humano lendo resultados, clicando em links e interpretando o conteúdo. Com agentes como o da Perplexity, esse ciclo é quebrado: o agente recebe uma instrução ("compre o tênis X mais barato") e executa toda a jornada sozinho. A marca não é "vista" pelo usuário — ela é "extraída" pelo agente.</p>
+<p>Isso altera três pilares do AEO:</p>
+<ol>
+<li><strong>Descoberta</strong>: o agente não depende de rankings de busca tradicionais. Ele acessa sites diretamente, mas prioriza fontes com dados limpos, estruturados e de alta autoridade percebida pela IA.</li>
+<li><strong>Extração</strong>: o conteúdo precisa ser legível por máquina em nível granular. O agente extrai preços, especificações, prazos de entrega, avaliações e políticas. Se o dado estiver em imagem não legendada, em PDF não indexável ou em JavaScript pesado, ele é ignorado.</li>
+<li><strong>Ação</strong>: o agente pode clicar em botões, adicionar ao carrinho e finalizar compras. Isso exige que a jornada de conversão seja otimizada para execução autônoma — não apenas para humanos.</li>
+</ol>
+<p>Na prática, a marca que não se preparar para esse fluxo será invisível para o agente, mesmo que esteja bem ranqueada no Google.</p>
+<h2 id="como-os-agentes-extraem-e-decidem">Como os agentes extraem e decidem</h2>
+<p>O agente da Perplexity não é um "crawler" cego. Ele opera com um modelo de linguagem que interpreta o conteúdo visual e textual da página em tempo real. Estudos internos da Perplexity indicam que o agente prioriza:</p>
+<ul>
+<li><strong>Dados em schema markup (JSON-LD)</strong>: preços, disponibilidade, avaliações e descrições são extraídos com precisão quase total quando marcados.</li>
+<li><strong>Textos claros e diretos</strong>: parágrafos longos e linguagem rebuscada reduzem a taxa de extração correta. O agente prefere bullet points e tabelas.</li>
+<li><strong>CTAs explícitos</strong>: botões com texto como "Comprar agora" ou "Adicionar ao carrinho" são identificados e acionados. Botões genéricos como "Clique aqui" ou "Saiba mais" geram ambiguidade.</li>
+<li><strong>Políticas de devolução e frete</strong>: o agente compara essas condições entre concorrentes. Marcas que não as explicitam em formato legível perdem conversões.</li>
+</ul>
+<p>A decisão de qual marca é "citada" (ou acionada) depende de um cálculo de confiança: o agente avalia autoridade do domínio, consistência das informações e compatibilidade com a tarefa solicitada. Marcas com dados conflitantes (ex.: preço no schema diferente do preço visível) são descartadas.</p>
+<h2 id="o-que-sua-marca-deve-fazer">O que sua marca deve fazer</h2>
+<ol>
+<li><strong>Implemente schema markup completo e testado</strong>: foque em Product, Offer, AggregateRating e ShippingDetails. Use ferramentas como o Teste de Dados Estruturados do Google e simule extrações com scripts próprios. Dados ausentes ou incorretos eliminam a marca do fluxo agêntico.</li>
+<li><strong>Otimize para extração visual e textual</strong>: o agente lê o DOM e a renderização. Evite conteúdo carregado via JavaScript pesado sem fallback HTML. Coloque preços e especificações em texto puro, não em imagens. Use tabelas e listas para informações comparáveis.</li>
+<li><strong>Crie jornadas de conversão autônomas</strong>: simplifique formulários, reduza etapas de checkout e garanta que botões tenham IDs e aria-labels descritivos. Teste seu site com ferramentas de automação (como Puppeteer ou Playwright) para ver se um agente consegue completar uma compra do início ao fim.</li>
+<li><strong>Monitore sua "Share of Voice" em agentes</strong>: métricas tradicionais (cliques, impressões) perdem relevância. Acompanhe com que frequência seu schema é extraído por agentes simulados e se as ações (compras, cadastros) são concluídas. Ferramentas de auditoria de visibilidade em IAs, como as oferecidas pelo aeobr, ajudam a mapear esse novo indicador.</li>
+<li><strong>Construa autoridade contextual</strong>: o agente da Perplexity considera a reputação do domínio em fontes externas (citações em artigos, avaliações em sites terceiros). Invista em relações públicas digitais e backlinks de qualidade, mas também em consistência de dados em marketplaces e agregadores.</li>
+</ol>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="o-agente-da-perplexity-substitui-o-google-para-marcas">O agente da Perplexity substitui o Google para marcas?</h3>
+<p>Não substitui, mas cria um canal paralelo de descoberta e conversão. Enquanto o Google ainda domina a busca tradicional, agentes autônomos estão crescendo em tarefas transacionais (compras, reservas, comparações). Marcas que ignorarem esse fluxo perdem oportunidades de conversão direta sem custo por clique.</p>
+<h3 id="preciso-mudar-meu-site-inteiro-para-ser-compativel-com-agentes">Preciso mudar meu site inteiro para ser compatível com agentes?</h3>
+<p>Não é necessário refazer o site, mas sim priorizar a camada de dados estruturados e a legibilidade por máquina. A maioria dos ajustes é em schema markup e simplificação de formulários. Sites com JavaScript pesado e conteúdo em imagem exigem mais trabalho.</p>
+<h3 id="como-saber-se-meu-schema-esta-sendo-extraido-corretamente">Como saber se meu schema está sendo extraído corretamente?</h3>
+<p>Use ferramentas de teste de dados estruturados e simule requisições de agentes com scripts em Python (requests + BeautifulSoup) para verificar se os dados aparecem no HTML. Ferramentas de auditoria especializada, como as do aeobr, oferecem relatórios de extração simulada para agentes como o da Perplexity.</p>
+<h3 id="agentes-favorecem-marcas-grandes-ou-pequenas">Agentes favorecem marcas grandes ou pequenas?</h3>
+<p>Agentes favorecem marcas com dados limpos e estruturados, independentemente do porte. Uma pequena loja com schema perfeito e política de frete clara pode ser preferida a um grande varejo com dados inconsistentes. A autoridade do domínio ainda pesa, mas a qualidade da extração é o fator decisivo.</p>
+<hr />
+<p>A transição para agentes autônomos exige que marcas repensem a otimização: não basta ser encontrada, é preciso ser extraível e acionável. Para medir sua presença nesse novo ecossistema, uma auditoria de visibilidade em IAs (Share of Voice em agentes como Perplexity, ChatGPT e Google AI) pode revelar exatamente onde sua marca está sendo citada — e onde está perdendo espaço.</p>
+<h2 id="leia-tambem">Leia também</h2>
+<ul>
+<li><a href="https://aeobr.com.br/blog/agentes-ia-autonomos-mudam-estrategia-aeo/">Como agentes de IA autônomos mudam a estratégia de AEO em 2025?</a></li>
+<li><a href="https://aeobr.com.br/blog/diferenca-crawlers-ia-chatgpt-perplexity/">Qual a diferença entre crawlers de IA, ChatGPT e Perplexity?</a></li>
+<li><a href="https://aeobr.com.br/blog/ia-agentica-pratica-como-implementar-agentes-executam-operacao/">IA agêntica na prática: como implementar agentes que executam (e não só respondem) na sua operação</a></li>
+</ul>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>

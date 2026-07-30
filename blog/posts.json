@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-23T12:02:56",
-  "count": 119,
+  "generated_at": "2026-07-30T11:22:15",
+  "count": 121,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,24 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/agente-perplexity-windows-impacto-aeo-extracao-marcas/",
+      "slug": "agente-perplexity-windows-impacto-aeo-extracao-marcas",
+      "title": "Agente da Perplexity no Windows: impacto AEO na extração de marcas",
+      "desc": "Perplexity lança agente de IA que controla o Windows e executa tarefas autônomas. Saiba como otimizar marcas para extração e ações em fluxos agênticos.",
+      "date": "2026-07-29",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
+    {
+      "url": "/blog/chatgpt-health-como-ser-citado-autoridade-medica/",
+      "slug": "chatgpt-health-como-ser-citado-autoridade-medica",
+      "title": "ChatGPT Health: como ser citado com autoridade médica",
+      "desc": "OpenAI libera ChatGPT Health para todos nos EUA e enfrenta processo por erro médico. Implicação AEO: marcas de saúde precisam de EEAT e schema para serem citadas pelas IAs.",
+      "date": "2026-07-25",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/anthropic-us-1-5b-settlement-implicacoes-marcas-aeo/",
       "slug": "anthropic-us-1-5b-settlement-implicacoes-marcas-aeo",
