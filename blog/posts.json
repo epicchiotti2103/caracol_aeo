@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-30T11:22:15",
-  "count": 121,
+  "generated_at": "2026-07-31T12:02:12",
+  "count": 122,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/ia-favorece-marcas-familiares-como-ser-citado/",
+      "slug": "ia-favorece-marcas-familiares-como-ser-citado",
+      "title": "IA favorece marcas familiares: como ser citado",
+      "desc": "Estudos mostram que IAs reconhecem 96% das marcas, mas citam poucas. Entenda o viés de familiaridade e como reforçar sua entidade para ser recomendado.",
+      "date": "2026-07-31",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/agente-perplexity-windows-impacto-aeo-extracao-marcas/",
       "slug": "agente-perplexity-windows-impacto-aeo-extracao-marcas",
