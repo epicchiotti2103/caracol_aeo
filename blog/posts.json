@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-01T12:01:25",
-  "count": 123,
+  "generated_at": "2026-08-03T12:02:28",
+  "count": 124,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/como-aparecer-gemini-casa-guia-aeo/",
+      "slug": "como-aparecer-gemini-casa-guia-aeo",
+      "title": "Como aparecer no Gemini para Casa: guia AEO",
+      "desc": "Gemini para Casa chega ao Brasil e cria nova superfície de respostas por voz. Saiba como ajustar entidades, schema e conteúdo para ser citado.",
+      "date": "2026-08-03",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/siri-ia-paga-como-aparecer-nas-respostas-premium/",
       "slug": "siri-ia-paga-como-aparecer-nas-respostas-premium",
