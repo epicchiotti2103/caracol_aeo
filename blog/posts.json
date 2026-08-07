@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-03T12:02:28",
-  "count": 124,
+  "generated_at": "2026-08-07T12:01:52",
+  "count": 125,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/marca-precisa-estar-reddit-ser-citada-ia/",
+      "slug": "marca-precisa-estar-reddit-ser-citada-ia",
+      "title": "Marca precisa estar no Reddit para ser citada por IA",
+      "desc": "IAs priorizam Reddit como fonte de autoridade. Saiba como criar presença genuína na plataforma e ser citado pelo ChatGPT e Perplexity.",
+      "date": "2026-08-07",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/como-aparecer-gemini-casa-guia-aeo/",
       "slug": "como-aparecer-gemini-casa-guia-aeo",
