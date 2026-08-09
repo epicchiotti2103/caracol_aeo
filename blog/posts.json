@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-07T12:01:52",
-  "count": 125,
+  "generated_at": "2026-08-09T12:01:38",
+  "count": 126,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/como-preparar-marca-ia-preditiva-ser-citado-antes/",
+      "slug": "como-preparar-marca-ia-preditiva-ser-citado-antes",
+      "title": "Como preparar marca para IA preditiva e ser citado antes",
+      "desc": "Vazamento do Pixel 11 revela IA que prevê necessidades. Saiba como preparar marca para IA preditiva e garantir citação automática pelos LLMs.",
+      "date": "2026-08-09",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/marca-precisa-estar-reddit-ser-citada-ia/",
       "slug": "marca-precisa-estar-reddit-ser-citada-ia",
