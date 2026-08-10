@@ -247,7 +247,6 @@
   <article class="article-body">
 <p>Robots.txt em 3 camadas é a configuração que libera bots de answer engines (Perplexity, SearchGPT), bloqueia crawlers de treinamento (GPTBot, CCBot) e aplica regras seletivas por diretório. Essa abordagem granular maximiza a <a href="/blog/o-que-e-aeo-answer-engine-optimization/">visibilidade em answer engines</a> sem alimentar LLMs gratuitamente.</p>
 <p>O cenário atual exige essa nuance porque bots de IA representam cerca de 40% do tráfego de crawlers em sites de conteúdo (Cloudflare, 2024), mas nem todos têm a mesma finalidade. Enquanto alguns citam e direcionam tráfego, outros apenas coletam dados para treinamento sem retorno comercial.</p>
-
 <h2 id="por-que-a-estrategia-binaria-de-robotstxt-nao-funciona-para-ias">Por que a estratégia binária de robots.txt não funciona para IAs</h2>
 <p>A abordagem tradicional de "bloquear tudo" ou "liberar tudo" ignora as diferentes funções dos crawlers de IA. Bloquear indiscriminadamente prejudica a visibilidade em answer engines que podem gerar tráfego qualificado. Dados de mercado indicam que Perplexity e SearchGPT incluem links de referência em mais de 60% das citações.</p>
 <p>Por outro lado, liberar todos os bots alimenta gratuitamente modelos de IA sem contrapartida. OpenAI documentou em 2023 que GPTBot é usado exclusivamente para treinamento, não para inferência em tempo real. Isso significa que seu conteúdo treina modelos sem gerar tráfego de volta.</p>

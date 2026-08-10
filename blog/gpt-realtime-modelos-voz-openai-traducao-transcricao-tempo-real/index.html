@@ -247,7 +247,6 @@
   <article class="article-body">
 <p>GPT-Realtime é a nova API de voz da OpenAI que permite conversas naturais com latência ultra-baixa, substituindo o modelo tradicional de "gravar → transcrever → processar → responder" por um fluxo contínuo de voz para voz. Lançada em outubro de 2024, oferece latência média de 320ms e suporte a 57 idiomas (OpenAI, 2024).</p>
 <p>Para empresas, isso significa implementar tradução simultânea e transcrição ao vivo com qualidade superior aos sistemas tradicionais. O modelo processa áudio diretamente sem conversão intermediária para texto, mantendo nuances de entonação e contexto que se perdem em pipelines convencionais.</p>
-
 <h2 id="o-que-e-gpt-realtime-e-como-funciona-a-api-de-voz-da-openai">O que é GPT-Realtime e como funciona a API de voz da OpenAI</h2>
 <p>GPT-Realtime representa uma arquitetura completamente nova para processamento de voz. Diferente do <strong>Whisper</strong> que converte áudio em texto para depois processar com GPT, o Realtime trabalha diretamente com sinais de áudio através de conexões WebSocket bidirecionais.</p>
 <p>O modelo utiliza tokens de áudio nativos, não texto tokenizado. Cada segundo de áudio é dividido em aproximadamente 50 tokens especializados que capturam não apenas palavras, mas tom, pausas e inflexões. Isso permite que a IA mantenha contexto conversacional mesmo em diálogos complexos.</p>
