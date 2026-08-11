@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-10T17:03:25",
-  "count": 126,
+  "generated_at": "2026-08-11T12:01:40",
+  "count": 127,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/guia-definitivo-geo-aparecer-nas-respostas-chatgpt-gemini/",
+      "slug": "guia-definitivo-geo-aparecer-nas-respostas-chatgpt-gemini",
+      "title": "Guia definitivo GEO para aparecer nas respostas do ChatGPT, Gemini e Google AI",
+      "desc": "Guia definitivo de GEO ensina a otimizar conteúdo para ChatGPT, Gemini e Google AI. Extraímos ações práticas de AEO para sua marca ser citada.",
+      "date": "2026-08-11",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/como-preparar-marca-ia-preditiva-ser-citado-antes/",
       "slug": "como-preparar-marca-ia-preditiva-ser-citado-antes",
