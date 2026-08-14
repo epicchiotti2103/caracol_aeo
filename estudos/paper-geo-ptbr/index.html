@@ -177,6 +177,18 @@
     .art h3{font-size:16px;font-weight:700;margin-bottom:6px}
     .art p{font-size:13.5px;color:var(--t2);line-height:1.55}
     .art .u{font-family:var(--mono);font-size:11.5px;color:var(--t3);margin-top:10px;word-break:break-all}
+    .tbl-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:18px;padding:10px 14px;overflow-x:auto}
+    table.tec{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px}
+    .tec th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);text-align:right;padding:10px 12px;border-bottom:1px solid var(--bdr);font-weight:500;white-space:nowrap}
+    .tec th:first-child{text-align:left}
+    .tec td{padding:9px 12px;border-bottom:1px solid var(--bdr);text-align:right;font-family:var(--mono);font-weight:600;white-space:nowrap}
+    .tec tr:last-child td{border-bottom:none}
+    .tec tr:hover td{background:rgba(255,255,255,.03)}
+    .tec td.t{font-family:var(--body);text-align:left;font-weight:600}
+    .tec td.t small{display:block;font-size:11px;color:var(--t4);font-weight:400}
+    .tec .pos{color:var(--green)}
+    .tec .neg{color:var(--red)}
+    .tec .ns{color:var(--t4);font-weight:400}
     .met{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
     .met ol{margin:18px 0 0 20px;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:var(--t2)}
     .met a{color:var(--orange)}
@@ -252,6 +264,31 @@
       <div class="insight reveal"><h3>5 de 9 técnicas fazem a IA citar fonte que não responde</h3><p>Em 25 perguntas-controle, deliberadamente impossíveis de responder com as fontes dadas, o baseline se comporta: visibilidade zero. Cinco técnicas quebram isso e induzem a IA a citar a fonte otimizada mesmo ela não respondendo a pergunta — uma falha de segurança, não uma otimização. Um terço do benchmark é saúde, onde esse tipo de erro custa caro.</p></div>
       <div class="insight reveal"><h3>A IA mais reativa responde 5 a 17× mais forte que a menos reativa</h3><p>Mesmo nas técnicas em que as três IAs concordam na direção, a magnitude não é comparável: o gpt-5.6-luna reage de 5 a 17 vezes mais que o gemini-3.5-flash-lite ao mesmo texto, com o claude-haiku-4-5 no meio. Um número único de "ganho da técnica" esconde mais do que informa.</p></div>
       <div class="insight reveal"><h3>Técnicas de 2023 diante de engines de 2026</h3><p>O catálogo replicado vem do estudo original de 2023, medido sobre engines bem menos maduros que os atuais — e os ganhos de +27% a +41% daquela época não aparecem nos engines de 2026 que testamos. No nosso teste, quem menos caiu nas estratégias foi o gemini-3.5-flash-lite: nenhuma técnica move a visibilidade de forma relevante nele, e ele praticamente nunca deixa de citar uma fonte que já citava. É consistente com a hipótese de que truques de otimização envelhecem conforme os modelos evoluem — o paper registra o limite dessa leitura: os três engines são do tier econômico, e confirmar a hipótese exigiria testar modelos de fronteira.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:10px">
+    <div class="container">
+      <div class="sl">O placar completo</div>
+      <h2>9 técnicas × 3 IAs</h2>
+      <p class="sd">Mediana da mudança de visibilidade da fonte otimizada, por técnica e por IA, no conjunto primário do paper (queries em que a fonte já era citada no baseline). <span style="color:var(--green)">Verde</span>/<span style="color:var(--red)">vermelho</span> = efeito distinguível de zero após correção de Holm; <span style="color:var(--t4)">cinza</span> = indeterminado.</p>
+      <div class="tbl-wrap reveal">
+        <table class="tec">
+          <thead><tr><th>Técnica</th><th>gemini-3.5-flash-lite</th><th>claude-haiku-4-5</th><th>gpt-5.6-luna</th></tr></thead>
+          <tbody>
+            <tr><td class="t">Fluency Optimization<small>reescrever para ler melhor</small></td><td class="ns">+0,2%</td><td class="pos">+7,9%</td><td class="neg">−6,9%</td></tr>
+            <tr><td class="t">Technical Terms<small>adicionar termos técnicos</small></td><td class="ns">+1,9%</td><td class="ns">−4,4%</td><td class="neg">−12,4%</td></tr>
+            <tr><td class="t">Cite Sources<small>adicionar referências às fontes</small></td><td class="ns">+0,5%</td><td class="ns">−2,3%</td><td class="neg">−12,1%</td></tr>
+            <tr><td class="t">Quotation Addition<small>adicionar citações diretas</small></td><td class="ns">+0,0%</td><td class="ns">−2,1%</td><td class="neg">−9,6%</td></tr>
+            <tr><td class="t">Statistics Addition<small>adicionar estatísticas</small></td><td class="ns">−1,4%</td><td class="ns">+0,6%</td><td class="neg">−81,5%</td></tr>
+            <tr><td class="t">Authoritative<small>tom mais autoritativo</small></td><td class="neg">−3,1%</td><td class="neg">−8,1%</td><td class="neg">−48,7%</td></tr>
+            <tr><td class="t">Easy-to-Understand<small>simplificar a linguagem</small></td><td class="neg">−5,4%</td><td class="neg">−10,7%</td><td class="neg">−31,4%</td></tr>
+            <tr><td class="t">Unique Words<small>vocabulário incomum</small></td><td class="neg">−3,2%</td><td class="neg">−54,1%</td><td class="neg">−55,4%</td></tr>
+            <tr><td class="t">Keyword Stuffing<small>empilhar palavras-chave</small></td><td class="neg">−9,1%</td><td class="neg">−28,6%</td><td class="neg">−45,3%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Leituras rápidas: a única célula verde do placar é a da Fluency Optimization no claude-haiku-4-5 — e a mesma técnica é vermelha no gpt-5.6-luna, a inversão que dá título ao paper. As quatro linhas de baixo são as técnicas em que as três IAs concordam: todas prejudicam. O gpt-5.6-luna é a coluna inteira em vermelho (9 de 9); o gemini-3.5-flash-lite não tem nenhum efeito positivo distinguível e é onde tudo se move menos. Dos 27 testes, 18 sobrevivem à correção (Holm e Benjamini–Hochberg selecionam os mesmos 18). Intervalos de confiança e conjuntos de sensibilidade: tabelas completas no <a href="geo-ptbr.pdf">paper</a>.</p>
     </div>
   </section>
 
