@@ -12,6 +12,7 @@
 - [Índice AEO Brasil: visibilidade dos 50 maiores e-commerces nas IAs](https://www.aeobr.com.br/estudos/indice-aeo-ecommerce-2026/): Auditoria dos 50 maiores e-commerces do Brasil: nota média 55.2/100, 12 em estado crítico e 4 gigantes bloqueiam os robôs do ChatGPT.
 - [Quem as IAs recomendam quando alguém procura escritório de advocacia empresarial em São Paulo?](https://www.aeobr.com.br/estudos/advocacia-empresarial-sp-2026/): 76 perguntas reais a ChatGPT, Perplexity e Gemini sobre advocacia empresarial em SP — na maioria delas, nenhum escritório é citado.
 - [Índice AEO Brasil: visibilidade de 50 bancos e fintechs nas IAs](https://www.aeobr.com.br/estudos/indice-aeo-bancos-2026/): Auditoria dos 50 maiores bancos e fintechs do Brasil: nota média 47.6/100, fintechs batem bancões e 11 instituições bloqueiam todo acesso automatizado.
+- [GEO-PTBR: o primeiro paper científico de GEO em português brasileiro](https://www.aeobr.com.br/estudos/paper-geo-ptbr/): Estudo científico da Caracol AEO com 525 perguntas, 9 técnicas de otimização e 3 IAs generativas: o efeito de uma técnica de GEO depende de qual IA responde. Paper (PDF), dataset e código abertos, DOI 10.5281/zenodo.21936792.
 
 ## Servidor MCP
 
