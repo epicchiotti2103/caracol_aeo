@@ -189,6 +189,13 @@
     .tec .pos{color:var(--green)}
     .tec .neg{color:var(--red)}
     .tec .ns{color:var(--t4);font-weight:400}
+    .gl-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+    .gl{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:18px 20px}
+    .gl h4{font-size:14.5px;font-weight:700;margin-bottom:5px}
+    .gl h4 small{font-family:var(--mono);font-size:10px;color:var(--t4);font-weight:400;margin-left:6px;text-transform:uppercase;letter-spacing:.05em}
+    .gl p{font-size:13px;color:var(--t2);line-height:1.55}
+    .gl p em{color:var(--t3);font-style:normal}
+    @media(max-width:720px){.gl-list{grid-template-columns:1fr}}
     .met{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
     .met ol{margin:18px 0 0 20px;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:var(--t2)}
     .met a{color:var(--orange)}
@@ -289,6 +296,18 @@
         </table>
       </div>
       <p class="nota">Leituras rápidas: a única célula verde do placar é a da Fluency Optimization no claude-haiku-4-5 — e a mesma técnica é vermelha no gpt-5.6-luna, a inversão que dá título ao paper. As quatro linhas de baixo são as técnicas em que as três IAs concordam: todas prejudicam. O gpt-5.6-luna é a coluna inteira em vermelho (9 de 9); o gemini-3.5-flash-lite não tem nenhum efeito positivo distinguível e é onde tudo se move menos. Dos 27 testes, 18 sobrevivem à correção (Holm e Benjamini–Hochberg selecionam os mesmos 18). Intervalos de confiança e conjuntos de sensibilidade: tabelas completas no <a href="geo-ptbr.pdf">paper</a>.</p>
+
+      <div class="gl-list">
+        <div class="gl reveal"><h4>Fluency Optimization<small>a única que subiu em algum lugar</small></h4><p>Reescrever o texto para ficar mais fluido e natural, sem mudar o conteúdo. <em>Exemplo: "Imóvel. Documentos: RG, CPF, comprovante de renda" vira "Para comprar o imóvel, você vai precisar de RG, CPF e comprovante de renda".</em></p></div>
+        <div class="gl reveal"><h4>Technical Terms</h4><p>Trocar palavras comuns pelos termos técnicos da área. <em>Exemplo: em vez de "dor de cabeça forte", escrever "cefaleia intensa"; em vez de "dono do imóvel", "proprietário/promitente vendedor".</em></p></div>
+        <div class="gl reveal"><h4>Cite Sources</h4><p>Acrescentar referências dizendo de onde a informação vem. <em>Exemplo: adicionar "segundo o Código Civil, art. 421" ou "de acordo com o Ministério da Saúde" às afirmações do texto.</em></p></div>
+        <div class="gl reveal"><h4>Quotation Addition</h4><p>Inserir falas entre aspas atribuídas a alguém. <em>Exemplo: acrescentar "'O contrato precisa ser registrado em cartório', explica a advogada" no meio do texto.</em></p></div>
+        <div class="gl reveal"><h4>Statistics Addition<small>a maior penalidade do estudo</small></h4><p>Adicionar números e percentuais ao texto. <em>Exemplo: trocar "muitos inquilinos atrasam o aluguel" por "23% dos inquilinos atrasam o aluguel".</em> O perigo que o paper mede: quando a fonte não tem o dado, a reescrita o <strong>inventa</strong> — e a IA cita o texto como se ele respondesse.</p></div>
+        <div class="gl reveal"><h4>Authoritative</h4><p>Reescrever num tom mais confiante, de autoridade no assunto. <em>Exemplo: trocar "talvez seja bom consultar um médico" por "consulte um médico: este é o procedimento indicado".</em></p></div>
+        <div class="gl reveal"><h4>Easy-to-Understand</h4><p>Simplificar a linguagem para qualquer pessoa entender. <em>Exemplo: trocar o juridiquês "o adimplemento da obrigação pecuniária" por "o pagamento da dívida".</em></p></div>
+        <div class="gl reveal"><h4>Unique Words</h4><p>Trocar palavras comuns por vocabulário raro, para o texto se destacar. <em>Exemplo: em vez de "importante", usar "imprescindível" ou "primordial".</em> Nas IAs testadas, foi das que mais derrubaram visibilidade.</p></div>
+        <div class="gl reveal"><h4>Keyword Stuffing<small>perde nas 3 IAs</small></h4><p>Repetir as palavras-chave da busca por todo o texto — o velho truque de SEO. <em>Exemplo: encaixar "melhor advogado trabalhista em SP" em cada parágrafo.</em> Perde visibilidade nas três IAs — e é a única técnica com efeito estável nos três setores do estudo, sempre negativo.</p></div>
+      </div>
     </div>
   </section>
 
