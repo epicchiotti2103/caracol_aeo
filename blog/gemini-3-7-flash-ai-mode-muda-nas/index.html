@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini 3.7 Flash no AI Mode: o que muda nas citações — Caracol AEO</title>
+  <meta name="description" content="Google atualiza AI Mode com Gemini 3.7 Flash e remove marca d'água. Entenda o impacto na geração de citações e como adaptar sua estratégia de AEO.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Elio Picchiotti">
+  <link rel="canonical" href="https://www.aeobr.com.br/blog/gemini-3-7-flash-ai-mode-muda-nas/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Gemini 3.7 Flash no AI Mode: o que muda nas citações">
+  <meta property="og:description" content="Google atualiza AI Mode com Gemini 3.7 Flash e remove marca d'água. Entenda o impacto na geração de citações e como adaptar sua estratégia de AEO.">
+  <meta property="og:url" content="https://www.aeobr.com.br/blog/gemini-3-7-flash-ai-mode-muda-nas/">
+  <meta property="og:site_name" content="Caracol AEO">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:author" content="Elio Picchiotti">
+  <meta property="article:published_time" content="2026-08-15">
+  <meta property="article:section" content="Giro IA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gemini 3.7 Flash no AI Mode: o que muda nas citações">
+  <meta name="twitter:description" content="Google atualiza AI Mode com Gemini 3.7 Flash e remove marca d'água. Entenda o impacto na geração de citações e como adaptar sua estratégia de AEO.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#FF5722;--orange-dim:#e04d1d;--orange-glow:rgba(255,87,34,.12);--orange-strong:rgba(255,87,34,.25);--lime:#C8FF00;--bg:#050505;--bg2:#0a0a0a;--card:#111;--card-h:#181818;--elevated:#1c1c1c;--t1:#f5f5f5;--t2:#a0a0a0;--t3:#666;--t4:#444;--red:#ff4d4d;--green:#34d399;--bdr:rgba(255,255,255,.06);--bdr-h:rgba(255,255,255,.12);--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;--body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono','SF Mono',monospace;--ease:cubic-bezier(.16,1,.3,1);--max:1120px;--gut:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--orange);color:#fff}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+    button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(5,5,5,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:36px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{font-size:14px;color:var(--t2);transition:color .2s;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--t1)}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:100px;font-weight:600;font-size:13px!important;transition:all .25s var(--ease)}
+    .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 20px var(--orange-strong)}
+    .mobile-toggle{display:none;width:40px;height:40px;cursor:pointer;color:var(--t1);font-size:20px;border-radius:var(--r-sm)}
+
+    /* SECTION HEADERS */
+    .sl{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .st{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+    .sd{font-size:17px;color:var(--t2);max-width:560px;line-height:1.6}
+
+    /* PAGE HEADER */
+    .page-header{padding:140px 0 60px;text-align:center}
+    .page-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:780px;margin:0 auto 16px}
+    .page-header .meta{font-size:14px;color:var(--t3)}
+
+    /* BLOG — TOOLBAR (filtros + busca) */
+    .blog-toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t2);background:transparent;border:1px solid var(--bdr);padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s var(--ease);letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+    .chip:hover{border-color:var(--bdr-h);color:var(--t1)}
+    .chip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+    .chip-n{font-size:10px;opacity:.7;font-variant-numeric:tabular-nums}
+    .search-wrap{position:relative;max-width:420px;width:100%}
+    .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--t4);pointer-events:none}
+    .search-input{width:100%;padding:11px 14px 11px 40px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;font-family:var(--body);transition:all .2s}
+    .search-input::placeholder{color:var(--t4)}
+    .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:none;align-items:center;justify-content:center;color:var(--t3);cursor:pointer;border-radius:50%}
+    .search-clear:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+    .search-wrap.has-value .search-clear{display:flex}
+
+    /* BLOG CARDS — estilo tipográfico */
+    .bg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bc{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-lg);padding:24px;transition:all .35s var(--ease);cursor:pointer;display:flex;flex-direction:column;position:relative;text-decoration:none}
+    .bc:hover{border-color:var(--bdr-h);transform:translateY(-4px);background:var(--card-h)}
+    .bc:hover .bcf{gap:10px}
+    .bc.hidden{display:none}
+    .bcm{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .bct{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .bcd{width:3px;height:3px;border-radius:50%;background:var(--t4)}
+    .bcdt{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.03em}
+    .bcb{flex-grow:1;display:flex;flex-direction:column}
+    .bcb h3{font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.35;color:var(--t1)}
+    .bcb p{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px;flex-grow:1}
+    .bcf{font-size:13px;color:var(--orange);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease);margin-top:auto}
+
+    /* FEATURED: card largo ocupando toda a linha */
+    .bc-featured{grid-column:1/-1;padding:40px;background:linear-gradient(135deg,var(--card) 0%,rgba(255,87,34,.04) 100%);border-color:rgba(255,87,34,.18)}
+    .bc-featured:hover{border-color:rgba(255,87,34,.35);background:linear-gradient(135deg,var(--card-h) 0%,rgba(255,87,34,.06) 100%)}
+    .bc-featured .bcm{margin-bottom:20px}
+    .bc-featured .bcm::before{content:'Destaque';font-family:var(--mono);font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding:3px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;margin-right:4px}
+    .bc-featured .bcb h3{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:14px;letter-spacing:-.02em;max-width:760px}
+    .bc-featured .bcb p{font-size:16px;line-height:1.65;margin-bottom:24px;max-width:680px;color:var(--t2)}
+    .bc-featured .bcf{font-size:14px}
+
+    /* ESTADO VAZIO (sem resultados de busca/filtro) */
+    .empty-state{grid-column:1/-1;text-align:center;padding:80px 24px;color:var(--t3);font-size:15px;display:none}
+    .empty-state.show{display:block}
+    .empty-state button{color:var(--orange);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:14px;margin-top:12px}
+
+    /* ARTICLE BODY */
+    .article-body{max-width:780px;margin:0 auto;padding:0 var(--gut) 80px}
+    .article-body h2{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:48px 0 16px;color:var(--t1)}
+    .article-body h3{font-size:clamp(18px,2.5vw,22px);font-weight:600;margin:36px 0 12px;color:var(--t1)}
+    .article-body p{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+    .article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:hover{color:var(--orange-dim)}
+    .article-body ul,.article-body ol{margin:16px 0 24px 24px;color:var(--t2)}
+    .article-body li{margin-bottom:8px;font-size:16px;line-height:1.6}
+    .article-body strong{color:var(--t1);font-weight:600}
+    .article-body blockquote{border-left:3px solid var(--orange);padding:16px 20px;margin:24px 0;background:rgba(255,87,34,.04);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .article-body blockquote p{color:var(--t2);margin-bottom:0}
+    .article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .article-body thead{background:var(--card)}
+    .article-body th{padding:12px 16px;text-align:left;font-weight:600;color:var(--t1);border-bottom:2px solid var(--bdr-h)}
+    .article-body td{padding:12px 16px;border-bottom:1px solid var(--bdr);color:var(--t2)}
+    .article-body tr:hover td{background:rgba(255,255,255,.02)}
+    .article-body code{font-family:var(--mono);font-size:14px;background:var(--card);padding:2px 8px;border-radius:4px;color:var(--orange)}
+    .article-body pre{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r-md);padding:20px;overflow-x:auto;margin:24px 0}
+    .article-body pre code{background:none;padding:0;color:var(--t1)}
+    .article-body img{border-radius:var(--r-md);margin:24px 0}
+
+    /* FOOTER */
+    footer{padding:48px 0 32px;border-top:1px solid var(--bdr)}
+    .ftp{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--bdr)}
+    .fba{display:flex;flex-direction:column;gap:12px}
+    .flg{display:flex;align-items:center;gap:10px}
+    .flg img{height:32px;width:auto}
+    .ftl{font-size:13px;color:var(--t4);max-width:300px;line-height:1.5}
+    .ftl a{color:var(--orange)}
+    .fls{display:flex;gap:24px}
+    .fls a{font-size:13px;color:var(--t3);transition:color .2s}
+    .fls a:hover{color:var(--t1)}
+    .fbt{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .fcp{font-size:12px;color:var(--t4)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){.bg{grid-template-columns:1fr;gap:14px}.bc-featured{padding:28px}.bc-featured .bcb h3{font-size:22px}.bc-featured .bcb p{font-size:15px}.chip-row{gap:6px}.chip{padding:7px 12px;font-size:11px}}
+    @media(max-width:640px){:root{--gut:16px}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.page-header{padding:120px 16px 40px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gemini 3.7 Flash no AI Mode: o que muda nas citações",
+    "description": "Google atualiza AI Mode com Gemini 3.7 Flash e remove marca d'água. Entenda o impacto na geração de citações e como adaptar sua estratégia de AEO.",
+    "articleSection": "Giro IA",
+    "author": {
+      "@type": "Person",
+      "name": "Elio Picchiotti",
+      "url": "https://www.aeobr.com.br/pages/sobre.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Caracol AEO",
+      "url": "https://www.aeobr.com.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aeobr.com.br/logo-negativo.png"
+      }
+    },
+    "datePublished": "2026-08-15",
+    "dateModified": "2026-08-15",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aeobr.com.br/blog/gemini-3-7-flash-ai-mode-muda-nas/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O Gemini 3.7 Flash no AI Mode prioriza sites com mais autoridade ou com respostas mais diretas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O Gemini 3.7 Flash equilibra ambos, mas com uma mudança importante: a capacidade de resposta direta ganhou peso significativo. Sites com alta autoridade que enterram respostas em meio a conteúdo extenso tendem a perder espaço para páginas menores, porém mais objetivas e estruturadas. O modelo avalia se um trecho específico funciona como resposta autônoma à pergunta — se sim, a citação é atribuída mesmo que o domínio tenha menos autoridade consolidada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como a remoção da marca d'água de IA afeta a confiança do usuário nas respostas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A remoção do selo tende a aumentar a confiança percebida, já que os usuários passam a tratar as respostas geradas como resultados orgânicos tradicionais. Isso eleva o nível de exigência sobre a precisão das informações citadas — e, para as marcas, aumenta a responsabilidade de garantir que o conteúdo citado seja factualmente correto e atualizado, pois a cobrança por erros será maior sem o atenuante do selo de IA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é AI Max em Search campaigns e quando devo migrar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI Max é a evolução das campanhas de busca do Google para funcionar dentro do AI Mode, permitindo que anúncios sejam exibidos como fontes complementares às respostas geradas por IA. O Google definiu um cronograma de migração, mas recomenda-se que as marcas comecem a preparar campanhas separadas para AI Max imediatamente, testando variações de anúncio que respondam a perguntas de acompanhamento e que sejam estruturadas para extração direta pelo modelo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso mudar meu schema markup por causa do Gemini 3.7 Flash?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, vale revisar. O Gemini 3.7 Flash demonstra preferência por dados estruturados consistentes, mas com uma hierarquia lógica de informações. O schema tradicional (Article, FAQPage, HowTo) continua relevante, mas o modelo favorece implementações que organizam a informação em blocos de resposta isolados — ou seja, cada seção da página deve ser autocontida e marcada de forma que o modelo possa extraí-la sem ambiguidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como monitorar minhas citações no AI Mode sem o selo visual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A remoção do selo exige monitoramento ativo. Ferramentas de rastreamento de menções em respostas de IA, consultas manuais periódicas no AI Mode com variações de perguntas, e análise de tráfego referente a sessões com comportamento de busca conversacional são os caminhos mais práticos. Para uma visão estruturada da sua presença nas respostas geradas, uma auditoria de visibilidade em IAs — como a que fazemos no aeobr — pode mapear seu Share of Voice nos principais mecanismos de resposta, incluindo"
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="36"></a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="/#como-funciona">Como Funciona</a></li>
+        <li><a href="/#auditoria">Auditoria</a></li>
+        <li><a href="/#precos">Planos</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#auditoria" class="nav-cta">Auditar Meu Site →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-header">
+    <div class="container">
+      <div class="sl">Giro IA</div>
+      <h1>Gemini 3.7 Flash no AI Mode: o que muda nas citações</h1>
+      <div class="meta">Elio Picchiotti · 15 de agosto de 2026</div>
+    </div>
+  </div>
+
+  <article class="article-body">
+<p>O Gemini 3.7 Flash no AI Mode é a nova arquitetura de processamento que o Google passou a usar para gerar respostas sintéticas no seu mecanismo de busca conversacional, substituindo o modelo anterior e alterando diretamente a forma como o sistema seleciona, pondera e exibe fontes citadas. Para marcas que disputam visibilidade em respostas de IA, essa troca de motor significa que a relevância semântica agora é calculada com critérios diferentes, exigindo reavaliação imediata das estratégias de otimização para não perder terreno nas menções geradas pelo AI Mode.</p>
+<p>O anúncio foi feito pelo Google em meados de agosto de 2026, acompanhado de duas mudanças complementares: a marca d'água de IA, antes exibida nas respostas do AI Mode, tornou-se opcional para os usuários, e a empresa definiu um cronograma oficial de migração para o AI Max em Search campaigns. O movimento é significativo porque o AI Mode vinha sendo tratado como um campo de testes para respostas generativas; agora, com a remoção do selo visual que distinguia conteúdo sintético, a fronteira entre resultado orgânico tradicional e resposta gerada por IA fica mais difusa para o usuário final — e mais desafiadora para marcas que dependiam do selo como sinalizador de presença.</p>
+<h2 id="o-que-muda-na-geracao-de-citacoes-com-o-gemini-37-flash">O que muda na geração de citações com o Gemini 3.7 Flash</h2>
+<p>A troca para o Gemini 3.7 Flash não é apenas uma atualização incremental de velocidade ou eficiência. Esse modelo foi projetado com uma arquitetura de raciocínio mais distribuído, o que significa que o Google agora consegue processar consultas complexas com múltiplas intenções simultâneas — algo que impacta diretamente a curadoria de fontes. No AI Mode anterior, o sistema tendia a priorizar páginas com autoridade consolidada e estrutura semântica clara. Com o 3.7 Flash, a ênfase mudou para a capacidade de resposta direta: o modelo avalia se um trecho específico do seu conteúdo responde à pergunta de forma autônoma, sem depender de contexto adicional da página inteira.</p>
+<p>Isso tem implicações práticas imediatas. Páginas que antes ranqueavam bem por autoridade de domínio, mas que enterravam a resposta em meio a parágrafos longos, tendem a perder espaço para conteúdos mais diretos e estruturados em formato de resposta. O Gemini 3.7 Flash também demonstra preferência por fontes que utilizam dados estruturados de forma consistente — não apenas schema.org, mas uma hierarquia lógica de informações que permita ao modelo extrair a resposta sem ambiguidade. Na prática, o que vemos é uma aproximação entre o que o Google considera "citável" e o que um assistente de IA consideraria "respondível".</p>
+<p>Outro ponto crítico é a avaliação de confiabilidade. O 3.7 Flash incorpora camadas adicionais de verificação factual no momento da geração da resposta, o que significa que o sistema agora cruza informações de múltiplas fontes antes de atribuir uma citação. Se o seu conteúdo contradiz outras páginas de alta autoridade sobre o mesmo tópico, as chances de ser citado caem drasticamente — mesmo que a sua informação esteja correta. Isso reforça a necessidade de alinhamento semântico com o consenso do mercado, a menos que você tenha dados originais que possam ser verificados de forma independente.</p>
+<h2 id="a-remocao-da-marca-dagua-e-o-impacto-na-percepcao-de-marca">A remoção da marca d'água e o impacto na percepção de marca</h2>
+<p>A decisão de tornar a marca d'água de IA opcional é mais do que uma mudança cosmética. O selo visual servia como um sinalizador para os usuários de que a resposta era gerada por IA, o que criava uma expectativa de "conteúdo sintético" e, em muitos casos, reduzia a cobrança sobre a precisão das informações. Sem o selo, as respostas do AI Mode passam a ser percebidas como resultados orgânicos tradicionais, o que eleva o nível de confiança depositado no conteúdo — e, consequentemente, a responsabilidade das marcas citadas.</p>
+<p>Para estratégias de AEO, a remoção do selo tem um efeito colateral importante: a perda do feedback visual. Antes, uma marca podia identificar rapidamente se estava sendo citada no AI Mode pelo selo de IA. Agora, a distinção entre uma listagem orgânica e uma resposta gerada fica menos evidente, exigindo monitoramento mais sofisticado. Isso não é necessariamente negativo — na verdade, é um sinal de maturidade do ecossistema —, mas exige que as marcas invistam em ferramentas de rastreamento que identifiquem menções em respostas sintéticas, independentemente da presença de selos visuais.</p>
+<p>Há também um componente de atribuição. Com o selo removido, o Google pode estar testando a aceitação do usuário a respostas geradas sem distinção visual. Se a taxa de cliques e o engajamento permanecerem estáveis ou aumentarem, a tendência é que o AI Mode se torne o padrão de busca para consultas informacionais — o que tornaria a otimização para respostas de IA não mais uma vantagem competitiva, mas um requisito básico de visibilidade.</p>
+<h2 id="ai-max-em-search-campaigns-o-novo-campo-de-batalha">AI Max em Search campaigns: o novo campo de batalha</h2>
+<p>O cronograma de migração para AI Max em Search campaigns representa a formalização do AI Mode como superfície publicitária. O Google está sinalizando que as campanhas de busca tradicionais precisarão ser adaptadas para funcionar em um ambiente onde a resposta gerada é o ponto de partida, e não o anúncio. Isso significa que o texto do anúncio, as extensões e até a landing page precisarão ser otimizados não apenas para o algoritmo de rankeamento tradicional, mas também para o modelo de linguagem que decide se o seu conteúdo é digno de ser citado na resposta gerada.</p>
+<p>A implicação mais imediata é a necessidade de separar orçamento e estratégia. Campanhas que dependiam exclusivamente de posicionamento pago tradicional precisarão ser revistas para incluir variações de anúncio que funcionem como "fontes complementares" à resposta gerada pelo AI Max. Na prática, isso significa criar conteúdo que responda a perguntas de acompanhamento — aquelas que o usuário faz depois da resposta inicial — e que seja estruturado para extração direta pelo modelo.</p>
+<p>Além disso, o AI Max deve intensificar a competição por trechos de resposta. Se antes o objetivo era aparecer no topo da página de resultados, agora o objetivo é ser a fonte que o Gemini 3.7 Flash escolhe para montar sua resposta sintética. Isso muda métricas de sucesso: CTR e impressões perdem relevância; taxa de menção em respostas geradas e posição da citação dentro da resposta ganham importância. Marcas que não adaptarem seus dashboards de performance para medir esses novos indicadores estarão navegando às cegas.</p>
+<h2 id="o-que-sua-marca-deve-fazer">O que sua marca deve fazer</h2>
+<ol>
+<li>
+<p><strong>Audite seu conteúdo para extração direta</strong>: Revise suas páginas mais importantes e identifique se elas respondem a perguntas específicas em blocos de texto isolados, sem depender de contexto extenso. O Gemini 3.7 Flash prioriza trechos que funcionam como respostas autônomas — se o seu conteúdo exige leitura completa para fazer sentido, você perde pontos na seleção de citações.</p>
+</li>
+<li>
+<p><strong>Monitore menções no AI Mode sem depender de selo visual</strong>: Configure alertas e ferramentas de rastreamento que identifiquem quando seu domínio é citado em respostas geradas, independentemente de marca d'água. A remoção do selo elimina o sinal visual; você precisa de monitoramento ativo para saber onde está aparecendo.</p>
+</li>
+<li>
+<p><strong>Prepare campanhas para AI Max com foco em perguntas de acompanhamento</strong>: Estruture suas campanhas de Search para capturar não apenas a consulta principal, mas as perguntas secundárias que o usuário faz após a resposta inicial. O AI Max tende a citar fontes que cobrem o tópico de forma abrangente, não apenas a resposta direta.</p>
+</li>
+<li>
+<p><strong>Revise a consistência factual do seu conteúdo</strong>: Com o Gemini 3.7 Flash cruzando informações entre fontes, contradições com o consenso do mercado podem eliminar suas chances de citação. Garanta que seus dados estejam alinhados com as principais referências do seu setor — ou que sejam claramente originais e verificáveis.</p>
+</li>
+<li>
+<p><strong>Trate a ausência de selo como oportunidade de posicionamento</strong>: Sem a distinção visual, respostas geradas por IA ganham aura de organicidade. Isso aumenta a responsabilidade sobre a qualidade do que é citado — use isso a seu favor, produzindo conteúdo que seja tão bom que o Google não tenha escolha a não ser citar você.</p>
+</li>
+</ol>
+<h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3 id="o-gemini-37-flash-no-ai-mode-prioriza-sites-com-mais-autoridade-ou-com-respostas-mais-diretas">O Gemini 3.7 Flash no AI Mode prioriza sites com mais autoridade ou com respostas mais diretas?</h3>
+<p>O Gemini 3.7 Flash equilibra ambos, mas com uma mudança importante: a capacidade de resposta direta ganhou peso significativo. Sites com alta autoridade que enterram respostas em meio a conteúdo extenso tendem a perder espaço para páginas menores, porém mais objetivas e estruturadas. O modelo avalia se um trecho específico funciona como resposta autônoma à pergunta — se sim, a citação é atribuída mesmo que o domínio tenha menos autoridade consolidada.</p>
+<h3 id="como-a-remocao-da-marca-dagua-de-ia-afeta-a-confianca-do-usuario-nas-respostas">Como a remoção da marca d'água de IA afeta a confiança do usuário nas respostas?</h3>
+<p>A remoção do selo tende a aumentar a confiança percebida, já que os usuários passam a tratar as respostas geradas como resultados orgânicos tradicionais. Isso eleva o nível de exigência sobre a precisão das informações citadas — e, para as marcas, aumenta a responsabilidade de garantir que o conteúdo citado seja factualmente correto e atualizado, pois a cobrança por erros será maior sem o atenuante do selo de IA.</p>
+<h3 id="o-que-e-ai-max-em-search-campaigns-e-quando-devo-migrar">O que é AI Max em Search campaigns e quando devo migrar?</h3>
+<p>AI Max é a evolução das campanhas de busca do Google para funcionar dentro do AI Mode, permitindo que anúncios sejam exibidos como fontes complementares às respostas geradas por IA. O Google definiu um cronograma de migração, mas recomenda-se que as marcas comecem a preparar campanhas separadas para AI Max imediatamente, testando variações de anúncio que respondam a perguntas de acompanhamento e que sejam estruturadas para extração direta pelo modelo.</p>
+<h3 id="preciso-mudar-meu-schema-markup-por-causa-do-gemini-37-flash">Preciso mudar meu schema markup por causa do Gemini 3.7 Flash?</h3>
+<p>Sim, vale revisar. O Gemini 3.7 Flash demonstra preferência por dados estruturados consistentes, mas com uma hierarquia lógica de informações. O schema tradicional (Article, FAQPage, HowTo) continua relevante, mas o modelo favorece implementações que organizam a informação em blocos de resposta isolados — ou seja, cada seção da página deve ser autocontida e marcada de forma que o modelo possa extraí-la sem ambiguidade.</p>
+<h3 id="como-monitorar-minhas-citacoes-no-ai-mode-sem-o-selo-visual">Como monitorar minhas citações no AI Mode sem o selo visual?</h3>
+<p>A remoção do selo exige monitoramento ativo. Ferramentas de rastreamento de menções em respostas de IA, consultas manuais periódicas no AI Mode com variações de perguntas, e análise de tráfego referente a sessões com comportamento de busca conversacional são os caminhos mais práticos. Para uma visão estruturada da sua presença nas respostas geradas, uma auditoria de visibilidade em IAs — como a que fazemos no aeobr — pode mapear seu Share of Voice nos principais mecanismos de resposta, incluindo o AI Mode com o novo modelo.</p>
+<h2 id="leia-tambem">Leia também</h2>
+<ul>
+<li><a href="https://aeobr.com.br/blog/google-ai-mode-autocitacao-17-por-cento-respostas/">O que significa o Google citar a si mesmo em 17% das respostas do AI Mode?</a></li>
+<li><a href="https://aeobr.com.br/blog/gpt-5-4-deep-research-chatgpt-muda-busca-citacao-fontes/">GPT-5.4 e deep research: como o novo modelo do ChatGPT muda a forma de buscar e citar fontes</a></li>
+<li><a href="https://aeobr.com.br/blog/como-aparecer-ai-overviews-google-criterio-citacao/">Como aparecer em AI Overviews do Google: o novo critério de citação que ignora posições orgânicas tradicionais</a></li>
+</ul>
+  </article>
+
+
+  <footer>
+    <div class="container">
+      <div class="ftp">
+        <div class="fba">
+          <div class="flg"><img src="/logo-negativo.png" alt="Caracol Media" height="32"></div>
+          <div class="ftl"><strong>Caracol AEO</strong> — uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="fls">
+            <a href="/">Home</a>
+            <a href="/#auditoria">Auditoria</a>
+            <a href="/#precos">Planos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="fbt">
+        <div class="fcp">&copy; 2026 Caracol Media. Todos os direitos reservados.</div>
+        <div class="fcp">CNPJ: 55.097.812/0001-99</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleMenu(){const n=document.querySelector('.nav-links');n.classList.toggle('active')}
+  </script>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-13T12:02:38",
-  "count": 128,
+  "generated_at": "2026-08-15T12:01:45",
+  "count": 129,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/gemini-3-7-flash-ai-mode-muda-nas/",
+      "slug": "gemini-3-7-flash-ai-mode-muda-nas",
+      "title": "Gemini 3.7 Flash no AI Mode: o que muda nas citações",
+      "desc": "Google atualiza AI Mode com Gemini 3.7 Flash e remove marca d'água. Entenda o impacto na geração de citações e como adaptar sua estratégia de AEO.",
+      "date": "2026-08-15",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/guia-definitivo-geo-como-aparecer-nas-respostas-chatgpt/",
       "slug": "guia-definitivo-geo-como-aparecer-nas-respostas-chatgpt",
