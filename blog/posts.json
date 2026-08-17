@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-15T12:01:45",
-  "count": 129,
+  "generated_at": "2026-08-17T12:01:54",
+  "count": 130,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/gemini-1-bilhao-usuarios-mensais-nova-era-aeo/",
+      "slug": "gemini-1-bilhao-usuarios-mensais-nova-era-aeo",
+      "title": "Gemini 1 bilhão de usuários mensais: nova era AEO",
+      "desc": "Google Gemini atinge 1 bilhão de usuários/mês e remove marca d'água visual. Impacto direto na estratégia AEO: como ser citado pelo assistente.",
+      "date": "2026-08-17",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/gemini-3-7-flash-ai-mode-muda-nas/",
       "slug": "gemini-3-7-flash-ai-mode-muda-nas",
