@@ -28,6 +28,10 @@ A Caracol AEO oferece um servidor MCP público para assistentes de IA (ChatGPT, 
 
 ### Giro IA
 
+- [Gemini 1 bilhão de usuários mensais: nova era AEO](https://www.aeobr.com.br/blog/gemini-1-bilhao-usuarios-mensais-nova-era-aeo/): Google Gemini atinge 1 bilhão de usuários/mês e remove marca d'água visual. Impacto direto na estratégia AEO: como ser citado pelo assistente.
+- [Gemini 3.7 Flash no AI Mode: o que muda nas citações](https://www.aeobr.com.br/blog/gemini-3-7-flash-ai-mode-muda-nas/): Google atualiza AI Mode com Gemini 3.7 Flash e remove marca d'água. Entenda o impacto na geração de citações e como adaptar sua estratégia de AEO.
+- [Guia definitivo GEO: como aparecer nas respostas do ChatGPT, Gemini e Google AI](https://www.aeobr.com.br/blog/guia-definitivo-geo-como-aparecer-nas-respostas-chatgpt/): Guia definitivo de GEO ensina otimização para IAs generativas. Extraímos ações práticas de AEO para sua marca ser citada no ChatGPT, Gemini e Google AI.
+- [Guia definitivo GEO para aparecer nas respostas do ChatGPT, Gemini e Google AI](https://www.aeobr.com.br/blog/guia-definitivo-geo-aparecer-nas-respostas-chatgpt-gemini/): Guia definitivo de GEO ensina a otimizar conteúdo para ChatGPT, Gemini e Google AI. Extraímos ações práticas de AEO para sua marca ser citada.
 - [Como preparar marca para IA preditiva e ser citado antes](https://www.aeobr.com.br/blog/como-preparar-marca-ia-preditiva-ser-citado-antes/): Vazamento do Pixel 11 revela IA que prevê necessidades. Saiba como preparar marca para IA preditiva e garantir citação automática pelos LLMs.
 - [Marca precisa estar no Reddit para ser citada por IA](https://www.aeobr.com.br/blog/marca-precisa-estar-reddit-ser-citada-ia/): IAs priorizam Reddit como fonte de autoridade. Saiba como criar presença genuína na plataforma e ser citado pelo ChatGPT e Perplexity.
 - [Como aparecer no Gemini para Casa: guia AEO](https://www.aeobr.com.br/blog/como-aparecer-gemini-casa-guia-aeo/): Gemini para Casa chega ao Brasil e cria nova superfície de respostas por voz. Saiba como ajustar entidades, schema e conteúdo para ser citado.
