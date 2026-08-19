@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-17T12:01:54",
-  "count": 130,
+  "generated_at": "2026-08-19T12:02:43",
+  "count": 131,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/gemini-1-bilhao-usuarios-mensais-novo-seo/",
+      "slug": "gemini-1-bilhao-usuarios-mensais-novo-seo",
+      "title": "Gemini 1 bilhão de usuários mensais: o novo SEO",
+      "desc": "Google Gemini atinge 1 bilhão de usuários mensais e remove marca d'água visual. Para o AEO, isso exige auditar citações e reforçar entidades.",
+      "date": "2026-08-19",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/gemini-1-bilhao-usuarios-mensais-nova-era-aeo/",
       "slug": "gemini-1-bilhao-usuarios-mensais-nova-era-aeo",
