@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-19T12:02:43",
-  "count": 131,
+  "generated_at": "2026-08-21T12:02:46",
+  "count": 132,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/gemini-1-bilhao-usuarios-mensais-aeo-agora-mainstream/",
+      "slug": "gemini-1-bilhao-usuarios-mensais-aeo-agora-mainstream",
+      "title": "Gemini 1 bilhão de usuários mensais: AEO agora é mainstream",
+      "desc": "Google Gemini atinge 1 bilhão de usuários mensais e torna marca d'água opcional. Otimizar para AI Overviews vira prioridade para marcas serem citadas.",
+      "date": "2026-08-21",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/gemini-1-bilhao-usuarios-mensais-novo-seo/",
       "slug": "gemini-1-bilhao-usuarios-mensais-novo-seo",
