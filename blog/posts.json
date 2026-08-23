@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-21T12:02:46",
-  "count": 132,
+  "generated_at": "2026-08-23T12:01:40",
+  "count": 133,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/melhor-ferramenta-ia-estudar-como-ser-citado/",
+      "slug": "melhor-ferramenta-ia-estudar-como-ser-citado",
+      "title": "Melhor ferramenta de IA para estudar: como ser citado",
+      "desc": "Google libera Gemini pago para estudantes no Classroom. Saiba como sua marca de educação pode ser a resposta da IA para 'melhor ferramenta de IA para estudar'.",
+      "date": "2026-08-23",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/gemini-1-bilhao-usuarios-mensais-aeo-agora-mainstream/",
       "slug": "gemini-1-bilhao-usuarios-mensais-aeo-agora-mainstream",
