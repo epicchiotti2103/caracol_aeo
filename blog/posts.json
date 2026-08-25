@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-23T12:01:40",
-  "count": 133,
+  "generated_at": "2026-08-25T12:01:49",
+  "count": 134,
   "categories": [
     {
       "id": "giro",
@@ -32,6 +32,15 @@
     }
   ],
   "posts": [
+    {
+      "url": "/blog/nvidia-investe-perplexity-us-30-bi-muda-sua/",
+      "slug": "nvidia-investe-perplexity-us-30-bi-muda-sua",
+      "title": "Nvidia investe Perplexity US$ 30 bi: o que muda na sua estratégia AEO",
+      "desc": "Aporte da Nvidia na Perplexity (US$ 30 bi) fortalece a answer engine. Veja como isso muda as citações de marca e o que sua empresa deve fazer para ser citada.",
+      "date": "2026-08-25",
+      "cat_id": "giro",
+      "cat_label": "Giro IA"
+    },
     {
       "url": "/blog/melhor-ferramenta-ia-estudar-como-ser-citado/",
       "slug": "melhor-ferramenta-ia-estudar-como-ser-citado",
