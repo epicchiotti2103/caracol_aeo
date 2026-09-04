@@ -39,9 +39,9 @@
       "tagline": "Auditoria técnica completa por página",
       "description": "Auditoria técnica completa com análise por página, severidade de erros e recomendações priorizadas. Inclui tudo do diagnóstico gratuito mais análise granular por URL, lista de erros classificados por severidade (crítico, alto, médio, baixo) e plano de ação.",
       "price": {
-        "amount": 29.90,
+        "amount": 89.90,
         "currency": "BRL",
-        "formatted": "R$ 29,90",
+        "formatted": "R$ 89,90",
         "model": "one-time"
       },
       "features": [
@@ -63,9 +63,9 @@
       "tagline": "Share of Voice + benchmarking contra concorrentes",
       "description": "Relatório completo com análise competitiva: mede o Share of Voice da marca nas respostas do ChatGPT, Perplexity e Google AI versus concorrentes. Inclui todos os itens do Relatório Detalhado mais auditoria nas IAs com perguntas reais do nicho.",
       "price": {
-        "amount": 59.90,
+        "amount": 299.90,
         "currency": "BRL",
-        "formatted": "R$ 59,90",
+        "formatted": "R$ 299,90",
         "model": "one-time"
       },
       "features": [
@@ -123,7 +123,7 @@
     },
     {
       "question": "Qual plano devo escolher?",
-      "answer": "Para entender o cenário atual: Diagnóstico Gratuito. Para implementar melhorias técnicas: Relatório Detalhado (R$29,90). Para empresas em mercados competitivos que precisam entender posicionamento versus concorrentes: Relatório Competitivo (R$59,90)."
+      "answer": "Para entender o cenário atual: Diagnóstico Gratuito. Para implementar melhorias técnicas: Relatório Detalhado (R$89,90). Para empresas em mercados competitivos que precisam entender posicionamento versus concorrentes: Relatório Competitivo (R$299,90)."
     }
   ]
 }
