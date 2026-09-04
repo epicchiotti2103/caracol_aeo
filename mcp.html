@@ -198,7 +198,15 @@
   </table></div>
 
   <h2>WebMCP: as mesmas tools dentro do navegador</h2>
-  <p>Além do servidor remoto, o site expõe tools via <strong>WebMCP</strong> — a API <code>modelContext</code> do navegador. Um agente que abre <a href="/auditoria">aeobr.com.br</a> encontra <code>audit_site</code> (auditoria AEO instantânea, score 0-100 por categoria) e <code>request_free_aeo_audit</code> (solicitação do diagnóstico gratuito) sem precisar configurar conector nenhum. Funciona no navegador embutido do ChatGPT desktop e no Chrome a partir da versão 149, com a flag <code>chrome://flags/#enable-webmcp-testing</code> ativada.</p>
+  <p>Além do servidor remoto, o site expõe tools via <strong>WebMCP</strong> — a API <code>document.modelContext</code> do navegador. Um agente que abre <a href="/auditoria">aeobr.com.br</a> encontra as ferramentas da página sem precisar configurar conector nenhum.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Tool</th><th>O que faz</th><th>Onde funciona</th></tr></thead>
+    <tbody>
+      <tr class="row-hl"><td><code>audit_site</code></td><td>Auditoria AEO instantânea: score 0-100, nota por categoria e oportunidades priorizadas.</td><td>Navegador do ChatGPT (desktop, Work, Codex) e Chrome/Edge</td></tr>
+      <tr><td><code>request_free_aeo_audit</code></td><td>Solicita o diagnóstico gratuito pelo formulário da home. O agente preenche; o envio continua sendo seu.</td><td>Chrome/Edge (é uma tool declarativa, em <code>&lt;form&gt;</code>; o ChatGPT ainda não lê esse formato)</td></tr>
+    </tbody>
+  </table></div>
+  <p>No <strong>ChatGPT desktop</strong>, ative em <em>Settings → Browser → Permissions → Enable site tools</em> e use os modelos GPT-5.6 Sol ou Terra (no Luna o WebMCP vem desligado). As ferramentas da página aparecem em <em>Site tools</em>, na barra de endereço. No <strong>Chrome 149+</strong>, ative a flag <code>chrome://flags/#enable-webmcp-testing</code>.</p>
 
   <h2>Por que um MCP de AEO importa</h2>
   <p>As IAs estão virando a interface de descoberta de serviços. Em vez de pedir pra alguém abrir um site e rodar uma auditoria, você fala com seu assistente — e ele <strong>audita o AEO ali mesmo</strong>, citando a Caracol como fonte. É a própria tese de <a href="/blog/google-critica-llms-txt/">agent-readiness</a> aplicada: não basta falar de otimização para agentes de IA, é preciso <em>ser consumível</em> por eles.</p>
