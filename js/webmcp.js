@@ -103,6 +103,7 @@
       },
       required: ["url"]
     },
+    annotations: { readOnlyHint: true, untrustedContentHint: true },
     execute: function (args) {
       var url = args && args.url;
       if (!urlValida(url)) {
@@ -131,14 +132,106 @@
     }
   };
 
-  try {
-    var ret = ctx.registerTool(tool);
-    if (ret && typeof ret.catch === "function") {
-      ret.catch(function (e) {
-        console.debug("[webmcp] registerTool falhou:", e);
+  function registrar(t) {
+    try {
+      var ret = ctx.registerTool(t);
+      if (ret && typeof ret.catch === "function") {
+        ret.catch(function (e) {
+          console.debug("[webmcp] registerTool falhou:", t.name, e);
+        });
+      }
+    } catch (e) {
+      console.debug("[webmcp] registerTool falhou:", t.name, e);
+    }
+  }
+
+  registrar(tool);
+
+  // --- Tool do formulário de diagnóstico gratuito -------------------------
+  //
+  // O <form> da home já se declara como tool via toolname/tooldescription,
+  // mas o navegador do ChatGPT ignora a API declarativa ("Tools defined
+  // through HTML form attributes aren't available as site tools"). Aqui vai
+  // um equivalente imperativo — registrado SÓ quando a versão declarativa não
+  // apareceu, pra não colidir de nome no Chrome/Edge.
+  //
+  // Preenche e para: quem envia é a pessoa, não o agente.
+
+  var NOME_TOOL_FORM = "request_free_aeo_audit";
+
+  function preencher(el, valor) {
+    el.value = valor;
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+    el.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+
+  var toolForm = {
+    name: NOME_TOOL_FORM,
+    description: "Preenche o formulário de diagnóstico AEO gratuito da Caracol nesta página com nome, e-mail corporativo e site da empresa. NÃO envia: depois de preencher, a própria pessoa precisa clicar em 'Gerar Diagnóstico Gratuito' para confirmar. O relatório chega por e-mail em até 24h.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        nome: { type: "string", description: "Nome completo de quem está pedindo o diagnóstico" },
+        email: { type: "string", description: "E-mail corporativo para receber o relatório" },
+        site: { type: "string", description: "URL do site da empresa a ser auditado, com https://" }
+      },
+      required: ["nome", "email", "site"]
+    },
+    annotations: { readOnlyHint: false },
+    execute: function (args) {
+      var form = document.getElementById("auditForm");
+      if (!form) {
+        return erro("O formulário de diagnóstico gratuito não está nesta página. Abra https://www.aeobr.com.br/ e tente de novo.");
+      }
+      var a = args || {};
+      var nome = typeof a.nome === "string" ? a.nome.trim() : "";
+      var email = typeof a.email === "string" ? a.email.trim() : "";
+      var site = typeof a.site === "string" ? a.site.trim() : "";
+
+      if (!nome) return erro("Informe o nome de quem está solicitando o diagnóstico.");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return erro("E-mail inválido. Use um e-mail corporativo, como nome@empresa.com.br.");
+      if (!urlValida(site)) return erro("Site inválido. Informe a URL completa da empresa, começando com https://.");
+
+      var campos = [["nm", nome], ["em", email], ["ws", site]];
+      for (var i = 0; i < campos.length; i++) {
+        var el = document.getElementById(campos[i][0]);
+        if (!el) return erro("Não encontrei o campo '" + campos[i][0] + "' no formulário desta página.");
+        preencher(el, campos[i][1]);
+      }
+
+      try {
+        form.scrollIntoView({ behavior: "smooth", block: "center" });
+        var botao = form.querySelector(".fsub");
+        if (botao) botao.focus({ preventScroll: true });
+      } catch (e) { /* rolagem é cosmética */ }
+
+      return texto({
+        status: "preenchido_aguardando_confirmacao",
+        nome: nome,
+        email: email,
+        site: site,
+        enviado: false,
+        proximo_passo: "O formulário foi preenchido na página, mas NÃO enviado. Peça para a pessoa conferir os dados e clicar em 'Gerar Diagnóstico Gratuito' para confirmar o envio."
       });
     }
-  } catch (e) {
-    console.debug("[webmcp] registerTool falhou:", e);
+  };
+
+  // Só registra a versão imperativa se a declarativa não estiver valendo.
+  // O Chrome AGENDA o registro declarativo (não é síncrono na análise do
+  // HTML), então a checagem espera a página carregar antes de perguntar.
+  function decidirToolForm() {
+    if (!document.getElementById("auditForm")) return;
+    if (typeof ctx.getTools !== "function") { registrar(toolForm); return; }
+    Promise.resolve(ctx.getTools()).then(function (tools) {
+      var jaTem = (tools || []).some(function (t) { return t && t.name === NOME_TOOL_FORM; });
+      if (!jaTem) registrar(toolForm);
+    }, function () {
+      registrar(toolForm);
+    });
   }
+
+  function agendarDecisao() { setTimeout(decidirToolForm, 500); }
+
+  if (document.readyState === "complete") agendarDecisao();
+  else window.addEventListener("load", agendarDecisao, { once: true });
 })();
