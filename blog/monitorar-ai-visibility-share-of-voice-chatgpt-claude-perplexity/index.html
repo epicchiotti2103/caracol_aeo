@@ -162,7 +162,7 @@
       }
     },
     "datePublished": "2026-04-08",
-    "dateModified": "2026-08-10",
+    "dateModified": "2026-09-04",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://www.aeobr.com.br/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/"
@@ -346,6 +346,26 @@
 <p><strong>3. Confira o que a IA diz de você agora.</strong> Se a resposta traz dados desatualizados ou atribui seu diferencial a um concorrente, o problema é de narrativa: as fontes que a IA usa sobre você envelheceram. Atualize as páginas de referência (sobre, imprensa, dados institucionais) e publique conteúdo novo com data explícita.</p>
 <p><strong>4. Reforce o que os concorrentes que te substituíram têm e você não.</strong> Rode o comparativo de SoV da seção anterior e olhe as respostas em que você saiu e eles entraram: em geral há um padrão — dado original, página de definição direta, FAQ estruturada — que você consegue replicar com mérito próprio (o <a href="/checkout-competitivo?tier=competitive">Relatório Competitivo</a> entrega esse comparativo pronto, resposta a resposta).</p>
 <p><strong>5. Re-meça em ciclos de 4 semanas.</strong> Respostas de IA variam; recuperação real é tendência em múltiplas medições, não uma resposta boa isolada.</p>
+<h2 id="como-medir-quantas-vezes-minha-marca-aparece-nas-respostas-do-chatgpt">Como medir quantas vezes minha marca aparece nas respostas do ChatGPT?</h2>
+<p>Conte as aparições sobre um conjunto fixo de prompts, repetido em datas fixas. Não existe "número de menções no ChatGPT" absoluto: existe a sua taxa de menção em um banco de prompts que você controla. O procedimento que funciona:</p>
+<p><strong>1. Monte um banco de 20 a 30 prompts</strong> que um cliente real faria na sua categoria ("qual a melhor ferramenta para X", "como resolver Y em 2026", "quais empresas fazem Z no Brasil"). Guarde o texto exato: a medição só vale se o prompt for idêntico a cada rodada.</p>
+<p><strong>2. Confirme que o modelo buscou antes de contar.</strong> Pergunta genérica e atemporal costuma ser respondida de memória, sem consultar a web, e aí não há citação de ninguém: o zero é não-medição, não resultado. Prefira prompts que forçam recuperação (pedir fontes, citar o ano, pedir "busque na web") e descarte as respostas em que não aparece nenhuma fonte.</p>
+<p><strong>3. Registre três coisas por resposta:</strong> se a marca foi mencionada, se foi citada como fonte (link) e em que posição apareceu. Menção e citação são métricas diferentes, e a segunda é a que traz tráfego.</p>
+<p><strong>4. Rode cada prompt três vezes na mesma semana</strong> e use a média. Uma execução isolada tem variação demais para virar número.</p>
+<p>A taxa final é simples: prompts com menção dividido pelo total de prompts válidos. Se quiser um proxy oficial em vez de contagem manual, a <a href="/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/">aba AI Performance do Bing Webmaster Tools</a> mostra impressões do seu site no Copilot, e o <a href="/blog/google-search-console-identificar-queries-ia-oportunidades-conteudo/">Search Console registra as sub-consultas do AI Mode</a> do Google. Nenhum dos dois cobre o ChatGPT, mas os dois medem a mesma capacidade: ser escolhido como fonte.</p>
+<h2 id="quem-monitora-citacoes-no-gemini-e-no-perplexity-em-portugues">Quem monitora citações no Gemini e no Perplexity em português?</h2>
+<p>Poucas ferramentas, e com coberturas diferentes. O Perplexity é o motor mais fácil de medir, porque cita as fontes de forma explícita em toda resposta. O Gemini é o mais difícil: as respostas do app e do AI Mode do Google nem sempre mostram fonte, e o rastro fica indireto, nas impressões do Search Console.</p>
+<p>No Brasil, a <a href="/ferramentas-aeo-brasil">Caracol AEO</a> monitora citações em ChatGPT, Gemini, Claude e Perplexity com prompts escritos em português, que é o ponto que muda o resultado: a mesma pergunta em inglês e em português recebe fontes diferentes, e a maioria das plataformas internacionais (Profound, Peec AI, Otterly) foi construída sobre prompts e benchmarks em inglês. Elas aceitam prompts em português, mas o comparativo com concorrentes e os painéis foram pensados para o mercado americano.</p>
+<p>Se a demanda for pontual, dá para fazer na mão: banco de prompts em português, uma rodada semanal no Perplexity anotando as fontes citadas, e uma no Gemini anotando quais marcas aparecem no texto. Para Portugal a lógica é a mesma, mas o banco de prompts precisa usar o vocabulário local, porque as IAs respondem com fontes portuguesas quando a pergunta soa portuguesa.</p>
+<h2 id="como-monitorar-varias-marcas-ao-mesmo-tempo-numa-plataforma-de-ai-visibility">Como monitorar várias marcas ao mesmo tempo numa plataforma de AI visibility?</h2>
+<p>Separe um espaço por marca, mas compartilhe a estrutura entre elas. É o arranjo que agências e grupos com várias marcas usam para não multiplicar o trabalho:</p>
+<ul>
+<li><strong>Banco de prompts por categoria, não por marca.</strong> Os prompts descrevem a necessidade do cliente ("melhor seguro viagem para Europa"), e cada marca é medida contra o mesmo banco. Isso permite comparar marcas do mesmo grupo e reaproveitar o banco quando entra uma marca nova.</li>
+<li><strong>Conjunto de concorrentes por marca.</strong> Cada marca tem os seus 5 concorrentes diretos; o share of voice é calculado dentro desse conjunto, não contra o mercado inteiro.</li>
+<li><strong>Cadência única.</strong> Todas as marcas são medidas na mesma semana, com os mesmos prompts e os mesmos motores, para que a variação entre elas seja de visibilidade e não de calendário.</li>
+<li><strong>Um painel consolidado</strong> com uma linha por marca: taxa de citação, share of voice, principal concorrente que aparece no lugar dela e variação em relação ao mês anterior. O detalhe resposta a resposta fica no painel da marca.</li>
+</ul>
+<p>Ao escolher a plataforma, exija três coisas: suporte a várias marcas com conjuntos de concorrentes independentes, exportação dos dados brutos (para cruzar com Search Console e GA4) e alerta quando uma marca some de uma categoria em que era citada. Sem o alerta, a perda de visibilidade é descoberta semanas depois, quando o cliente pergunta.</p>
 <h2 id="limitacoes-atuais-e-o-que-esperar-do-futuro-do-tracking">Limitações atuais e o que esperar do futuro do tracking</h2>
 <p>O monitoramento de AI visibility ainda enfrece limitações técnicas significativas. <a href="/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/">IAs não fornecem APIs públicas para tracking automatizado</a>, forçando métodos manuais ou soluções de screen scraping que violam termos de uso.</p>
 <p>A inconsistência nas respostas é outro desafio. O mesmo prompt pode gerar citações diferentes em execuções subsequentes, mesmo usando parâmetros idênticos. Isso torna necessário testar múltiplas vezes e trabalhar com médias estatísticas.</p>
