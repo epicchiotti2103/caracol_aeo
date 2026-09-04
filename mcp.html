@@ -197,6 +197,9 @@
     </tbody>
   </table></div>
 
+  <h2>WebMCP: as mesmas tools dentro do navegador</h2>
+  <p>Além do servidor remoto, o site expõe tools via <strong>WebMCP</strong> — a API <code>modelContext</code> do navegador. Um agente que abre <a href="/auditoria">aeobr.com.br</a> encontra <code>audit_site</code> (auditoria AEO instantânea, score 0-100 por categoria) e <code>request_free_aeo_audit</code> (solicitação do diagnóstico gratuito) sem precisar configurar conector nenhum. Funciona no navegador embutido do ChatGPT desktop e no Chrome a partir da versão 149, com a flag <code>chrome://flags/#enable-webmcp-testing</code> ativada.</p>
+
   <h2>Por que um MCP de AEO importa</h2>
   <p>As IAs estão virando a interface de descoberta de serviços. Em vez de pedir pra alguém abrir um site e rodar uma auditoria, você fala com seu assistente — e ele <strong>audita o AEO ali mesmo</strong>, citando a Caracol como fonte. É a própria tese de <a href="/blog/google-critica-llms-txt/">agent-readiness</a> aplicada: não basta falar de otimização para agentes de IA, é preciso <em>ser consumível</em> por eles.</p>
 
@@ -209,5 +212,6 @@
   </div>
   <div>© 2026 Caracol Media · CNPJ 55.097.812/0001-99 · uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
 </footer>
+<script src="/js/webmcp.js" defer></script>
 </body>
 </html>

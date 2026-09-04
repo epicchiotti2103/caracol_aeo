@@ -706,10 +706,12 @@
         <div class="afc reveal rd1">
           <div class="aft">Relatório Gratuito</div>
           <div class="afs">Preencha e receba sua auditoria por e-mail</div>
-          <form id="auditForm" onsubmit="handleSubmit(event)">
-            <div class="fg"><label for="nm">Nome</label><input type="text" id="nm" placeholder="Seu nome completo" required autocomplete="name"></div>
-            <div class="fg"><label for="em">E-mail corporativo</label><input type="email" id="em" placeholder="nome@empresa.com.br" required autocomplete="email"></div>
-            <div class="fg"><label for="ws">Site da empresa</label><input type="text" id="ws" placeholder="https://suaempresa.com.br" required></div>
+          <form id="auditForm" onsubmit="handleSubmit(event)"
+                toolname="request_free_aeo_audit"
+                tooldescription="Solicita o diagnóstico AEO gratuito de um site. Relatório enviado por e-mail em até 24h. Requer nome, e-mail corporativo e URL do site da empresa.">
+            <div class="fg"><label for="nm">Nome</label><input type="text" id="nm" name="nome" placeholder="Seu nome completo" required autocomplete="name"></div>
+            <div class="fg"><label for="em">E-mail corporativo</label><input type="email" id="em" name="email" placeholder="nome@empresa.com.br" required autocomplete="email"></div>
+            <div class="fg"><label for="ws">Site da empresa</label><input type="text" id="ws" name="site" placeholder="https://suaempresa.com.br" required></div>
             <button type="submit" class="fsub">Gerar Diagnóstico Gratuito →</button>
             <p class="fn">Sem spam. Sem cartão de crédito. Relatório em até 24h.</p>
           </form>
@@ -724,7 +726,7 @@
       <div class="ctab reveal">
         <div class="sl" style="justify-content:center">Novo · para devs e power users</div>
         <h2>Audite seu AEO direto do <span class="a">ChatGPT, Claude ou Cursor</span></h2>
-        <p>Conecte o servidor MCP da Caracol AEO e rode auditorias AEO de 0 a 100 em qualquer site sem sair do chat. Público, sem autenticação, conexão em 1 clique.</p>
+        <p>Conecte o servidor MCP da Caracol AEO e rode auditorias AEO de 0 a 100 em qualquer site sem sair do chat. Público, sem autenticação, conexão em 1 clique. E, via <strong>WebMCP</strong>, as tools deste site ficam disponíveis também para agentes que rodam dentro do navegador.</p>
         <a href="/mcp" class="btn-primary">Conectar o MCP →</a>
       </div>
     </div>
@@ -1033,5 +1035,6 @@
       }
     })();
   </script>
+<script src="/js/webmcp.js" defer></script>
 </body>
 </html>
