@@ -160,7 +160,8 @@
               <input type="email" id="leadEmail" placeholder="nome@empresa.com.br" required autocomplete="email">
               <button type="submit" class="btn" id="leadBtn">Desbloquear relatório completo →</button>
             </form>
-            <p class="fn">Sem spam. Sem cartão de crédito.</p>
+            <p class="fn" id="leadErr" role="alert" style="display:none;color:var(--red);font-weight:600"></p>
+            <p class="fn">Use o e-mail da sua empresa (Gmail, Hotmail e similares não são aceitos). Sem spam. Sem cartão de crédito.</p>
           </div>
         </div>
       </div>
@@ -285,11 +286,21 @@ async function sendLead(e) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome, email, site })
     });
-    if (!res.ok) throw new Error();
+    let data = {};
+    try { data = await res.json(); } catch (_) {}
+    if (!res.ok) {
+      const msg = (data.errors && data.errors.join(" ")) || data.error || "Não foi possível enviar. Tente de novo.";
+      throw new Error(msg);
+    }
+    document.getElementById("leadErr").style.display = "none";
     document.querySelector("#lockedRecs").classList.remove("blur");
     document.getElementById("gate").style.display = "none";
     gtag("event", "generate_lead", { source: "auditoria-instantanea", score: lastResult ? lastResult.score : null });
   } catch (ex) {
+    const errEl = document.getElementById("leadErr");
+    errEl.textContent = ex.message || "Erro de conexão. Tente de novo.";
+    errEl.style.display = "block";
+    gtag("event", "lead_error", { reason: (ex.message || "rede").slice(0, 90) });
     btn.disabled = false; btn.textContent = "Tentar novamente";
   }
 }

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-25T12:01:49",
-  "count": 134,
+  "generated_at": "2026-09-16T14:08:46",
+  "count": 131,
   "categories": [
     {
       "id": "giro",
@@ -51,24 +51,6 @@
       "cat_label": "Giro IA"
     },
     {
-      "url": "/blog/gemini-1-bilhao-usuarios-mensais-aeo-agora-mainstream/",
-      "slug": "gemini-1-bilhao-usuarios-mensais-aeo-agora-mainstream",
-      "title": "Gemini 1 bilhão de usuários mensais: AEO agora é mainstream",
-      "desc": "Google Gemini atinge 1 bilhão de usuários mensais e torna marca d'água opcional. Otimizar para AI Overviews vira prioridade para marcas serem citadas.",
-      "date": "2026-08-21",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
-      "url": "/blog/gemini-1-bilhao-usuarios-mensais-novo-seo/",
-      "slug": "gemini-1-bilhao-usuarios-mensais-novo-seo",
-      "title": "Gemini 1 bilhão de usuários mensais: o novo SEO",
-      "desc": "Google Gemini atinge 1 bilhão de usuários mensais e remove marca d'água visual. Para o AEO, isso exige auditar citações e reforçar entidades.",
-      "date": "2026-08-19",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
       "url": "/blog/gemini-1-bilhao-usuarios-mensais-nova-era-aeo/",
       "slug": "gemini-1-bilhao-usuarios-mensais-nova-era-aeo",
       "title": "Gemini 1 bilhão de usuários mensais: nova era AEO",
@@ -83,15 +65,6 @@
       "title": "Gemini 3.7 Flash no AI Mode: o que muda nas citações",
       "desc": "Google atualiza AI Mode com Gemini 3.7 Flash e remove marca d'água. Entenda o impacto na geração de citações e como adaptar sua estratégia de AEO.",
       "date": "2026-08-15",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
-      "url": "/blog/guia-definitivo-geo-como-aparecer-nas-respostas-chatgpt/",
-      "slug": "guia-definitivo-geo-como-aparecer-nas-respostas-chatgpt",
-      "title": "Guia definitivo GEO: como aparecer nas respostas do ChatGPT, Gemini e Google AI",
-      "desc": "Guia definitivo de GEO ensina otimização para IAs generativas. Extraímos ações práticas de AEO para sua marca ser citada no ChatGPT, Gemini e Google AI.",
-      "date": "2026-08-13",
       "cat_id": "giro",
       "cat_label": "Giro IA"
     },
