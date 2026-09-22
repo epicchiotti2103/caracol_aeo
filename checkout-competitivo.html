@@ -301,6 +301,9 @@ const CHECKOUT_ENDPOINT = "https://aeo-checkout-create-ugzah7lydq-rj.a.run.app";
   if (c) { try { localStorage.setItem("caracol_cid", c); } catch(_){} }
 })();
 
+var CARACOL_ITEMS={detailed:{item_id:"detailed",item_name:"Relatório Detalhado",price:29.90},competitive:{item_id:"competitive",item_name:"Relatório Competitivo",price:59.90}};
+function caracolGa(ev,extra){try{var it=CARACOL_ITEMS["competitive"];if(!it)return;var p=Object.assign({currency:"BRL",value:it.price,items:[Object.assign({quantity:1},it)]},extra||{});gtag("event",ev,p);}catch(_){}}
+caracolGa("begin_checkout");
 function showError(msg) {
   const el = document.getElementById("errorMsg");
   el.textContent = msg;
@@ -371,6 +374,7 @@ async function submitCheckout() {
     if (!data.init_point) throw new Error("Resposta inválida do servidor.");
     // Marca tier pra disparar postback de conversão na obrigado.html
     try { localStorage.setItem("caracol_tier", "competitive"); } catch(_){}
+    caracolGa("add_payment_info", {payment_type: "mercado_pago", transport_type: "beacon"});
     window.location.href = data.init_point;
   } catch (e) {
     setLoading(false);

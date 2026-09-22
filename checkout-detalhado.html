@@ -213,6 +213,9 @@
     // Tier vem da query string (?tier=detailed). Default é detailed.
     const params = new URLSearchParams(window.location.search);
     const TIER = params.get("tier") || "detailed";
+    var CARACOL_ITEMS={detailed:{item_id:"detailed",item_name:"Relatório Detalhado",price:29.90},competitive:{item_id:"competitive",item_name:"Relatório Competitivo",price:59.90}};
+    function caracolGa(ev,extra){try{var it=CARACOL_ITEMS["detailed"];if(!it)return;var p=Object.assign({currency:"BRL",value:it.price,items:[Object.assign({quantity:1},it)]},extra||{});gtag("event",ev,p);}catch(_){}}
+    caracolGa("begin_checkout");
 
     // Captura click_id (?cid=...) e persiste pro postback de conversão
     (function(){
@@ -273,6 +276,7 @@
         if (res.ok && data.init_point) {
           // Marca tier pra disparar postback de conversão na obrigado.html
           try { localStorage.setItem("caracol_tier", "detailed"); } catch(_){}
+          caracolGa("add_payment_info", {payment_type: "mercado_pago", transport_type: "beacon"});
           // Redireciona para o checkout do Mercado Pago
           window.location.href = data.init_point;
           return;
@@ -280,9 +284,11 @@
 
         const msg = (data.errors && data.errors.join(" ")) || data.error || "Erro inesperado. Tente novamente.";
         showAlert(msg);
+        caracolGa("checkout_error", {reason: String(msg).slice(0, 90)});
       } catch (err) {
         console.error(err);
         showAlert("Erro de conexão. Verifique sua internet e tente novamente.");
+        caracolGa("checkout_error", {reason: "rede"});
       } finally {
         btn.classList.remove("loading");
         btn.disabled = false;

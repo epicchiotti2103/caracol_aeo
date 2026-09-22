@@ -135,6 +135,7 @@
 
     // Pagamento falhou: limpa tier pra não disparar postback indevidamente.
     // Mantém caracol_cid pra eventual retry com sucesso.
+    try { gtag("event", "payment_failed", {status: status || "desconhecido", tier: localStorage.getItem("caracol_tier") || ""}); } catch(_){}
     try { localStorage.removeItem("caracol_tier"); } catch(_){}
   </script>
 </body>
