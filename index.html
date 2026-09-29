@@ -226,6 +226,9 @@
 
     .hero-actions{display:flex;gap:16px;align-items:center;opacity:0;transform:translateY(30px);animation:fu .8s var(--ease) .85s forwards}
     @keyframes fu{to{opacity:1;transform:translateY(0)}}
+    @media(min-width:641px){.hero-prompt{display:none}}
+    .hero-film{width:100%;max-width:1100px;margin:64px auto 0;opacity:0;transform:translateY(40px);animation:fu 1s var(--ease) 1.05s forwards}
+    .hero-film video{display:block;width:100%;height:auto;aspect-ratio:32/15;background:var(--bg);--fx:linear-gradient(90deg,transparent,#000 3.5%,#000 96.5%,transparent);--fy:linear-gradient(180deg,transparent,#000 4%,#000 90%,transparent);-webkit-mask-image:var(--fx),var(--fy);-webkit-mask-composite:source-in;mask-image:var(--fx),var(--fy);mask-composite:intersect}
     .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 34px;background:var(--orange);color:#fff;border-radius:100px;font-weight:600;font-size:15px;cursor:pointer;transition:all .25s var(--ease);position:relative;overflow:hidden}
     .btn-primary::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s var(--ease)}
     .btn-primary:hover{transform:scale(1.045);box-shadow:0 8px 36px var(--orange-strong)}
@@ -464,14 +467,14 @@
       *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
       html{scroll-behavior:auto}
       .reveal{opacity:1;transform:none;filter:none}
-      .hero-badge,.hero h1,.hero-sub,.hero-prompt,.hero-actions{opacity:1;transform:none}
+      .hero-badge,.hero h1,.hero-sub,.hero-prompt,.hero-actions,.hero-film{opacity:1;transform:none}
       .cm .cb{opacity:1;transform:none}
       .marquee{animation:none}
     }
 
     /* ===== RESPONSIVE ===== */
     @media(max-width:900px){.pg,.al,.pvg{grid-template-columns:1fr;gap:40px}.sg,.bg{grid-template-columns:1fr;gap:14px}.prg{grid-template-columns:1fr;gap:14px;max-width:420px;margin:0 auto}.proof-inner{gap:12px}.proof-item{flex:1 1 calc(50% - 12px);min-width:0}.def-vs{grid-template-columns:1fr}}
-    @media(max-width:640px){:root{--gut:16px}section{padding:80px 0}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.hero{min-height:auto;padding:130px 16px 80px}.hero-actions{flex-direction:column;width:100%}.hero-actions a{width:100%;justify-content:center}.hp-text{font-size:13px}.afc{padding:26px 18px}.ctab{padding:56px 20px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}.def-card{padding:32px 22px}.gauge-side{text-align:center}.hero-scroll{display:none}}
+    @media(max-width:640px){:root{--gut:16px}section{padding:80px 0}.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:200}.nav-links.active{display:flex}.nav-links a{font-size:20px!important}.mobile-toggle{display:flex;align-items:center;justify-content:center;z-index:300}.hero{min-height:auto;padding:130px 16px 80px}.hero-actions{flex-direction:column;width:100%}.hero-actions a{width:100%;justify-content:center}.hp-text{font-size:13px}.afc{padding:26px 18px}.ctab{padding:56px 20px}.ftp{flex-direction:column}.fbt{flex-direction:column;text-align:center}.def-card{padding:32px 22px}.gauge-side{text-align:center}.hero-scroll{display:none}.hero-film{display:none}}
   </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4282EKRBJD"></script>
@@ -532,6 +535,9 @@
       <a href="#auditoria" class="btn-primary">Descobrir meu Score AEO →</a>
       <a href="#como-funciona" class="btn-secondary">Como funciona</a>
     </div>
+    <figure class="hero-film">
+      <video id="hero-video" muted loop playsinline preload="none" poster="video/hero-poster.jpg" width="1920" height="900" aria-label="Demonstração das duas medidas da Caracol AEO: o diagnóstico do site, que resulta no Score AEO de 0 a 100, e a presença da marca nas respostas do ChatGPT, Perplexity, Gemini e Claude, medida como Share of Voice."></video>
+    </figure>
     <div class="hero-scroll" aria-hidden="true">↓</div>
   </header>
 
@@ -876,6 +882,9 @@
     const CF_URL="https://aeo-lead-receiver-ugzah7lydq-rj.a.run.app";async function handleSubmit(e){e.preventDefault();const f=e.target,btn=f.querySelector(".fsub"),nome=f.querySelector("#nm").value.trim(),email=f.querySelector("#em").value.trim(),site=f.querySelector("#ws").value.trim();btn.textContent="Enviando...";btn.disabled=!0;btn.style.opacity="0.7";try{const res=await fetch(CF_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({nome,email,site})});const data=await res.json();if(res.ok){btn.textContent="Diagnóstico solicitado ✓";btn.style.background="#34d399";btn.style.opacity="1"}else{const msg=data.errors?data.errors.join(" "):data.error||"Erro ao enviar.";btn.textContent="Tentar novamente";btn.style.background="#ff4d4d";btn.style.opacity="1";btn.disabled=!1;alert(msg)}}catch(err){btn.textContent="Erro de conexão";btn.style.background="#ff4d4d";btn.style.opacity="1";btn.disabled=!1}}
 
     const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ===== vídeo do hero (fica de fora no mobile, via CSS) =====
+    (function(){const v=document.getElementById('hero-video');if(!v||!window.matchMedia('(min-width:641px)').matches)return;if(reduceMotion)return;v.src='video/hero-loop.mp4';v.play().catch(()=>{})})();
 
     // ===== reveal on scroll =====
     const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
