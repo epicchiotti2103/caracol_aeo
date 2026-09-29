@@ -213,7 +213,7 @@
     // Tier vem da query string (?tier=detailed). Default é detailed.
     const params = new URLSearchParams(window.location.search);
     const TIER = params.get("tier") || "detailed";
-    var CARACOL_ITEMS={detailed:{item_id:"detailed",item_name:"Relatório Detalhado",price:29.90},competitive:{item_id:"competitive",item_name:"Relatório Competitivo",price:59.90}};
+    var CARACOL_ITEMS={detailed:{item_id:"detailed",item_name:"Relatório Detalhado",price:89.90},competitive:{item_id:"competitive",item_name:"Relatório Competitivo",price:299.90}};
     function caracolGa(ev,extra){try{var it=CARACOL_ITEMS["detailed"];if(!it)return;var p=Object.assign({currency:"BRL",value:it.price,items:[Object.assign({quantity:1},it)]},extra||{});gtag("event",ev,p);}catch(_){}}
     caracolGa("begin_checkout");
 

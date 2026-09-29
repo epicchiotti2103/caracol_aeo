@@ -164,7 +164,7 @@
       try { if (localStorage.getItem(firedKey)) return; } catch(_){}
 
       try {
-        var CARACOL_ITEMS={detailed:{item_id:"detailed",item_name:"Relatório Detalhado",price:29.90},competitive:{item_id:"competitive",item_name:"Relatório Competitivo",price:59.90}};
+        var CARACOL_ITEMS={detailed:{item_id:"detailed",item_name:"Relatório Detalhado",price:89.90},competitive:{item_id:"competitive",item_name:"Relatório Competitivo",price:299.90}};
         var it = CARACOL_ITEMS[tier];
         if (it) gtag("event", "purchase", {transaction_id: paymentId || ("sem-id-" + Date.now()), currency: "BRL",
           value: it.price, items: [Object.assign({quantity: 1}, it)]});

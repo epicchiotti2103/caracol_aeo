@@ -301,7 +301,7 @@ const CHECKOUT_ENDPOINT = "https://aeo-checkout-create-ugzah7lydq-rj.a.run.app";
   if (c) { try { localStorage.setItem("caracol_cid", c); } catch(_){} }
 })();
 
-var CARACOL_ITEMS={detailed:{item_id:"detailed",item_name:"Relatório Detalhado",price:29.90},competitive:{item_id:"competitive",item_name:"Relatório Competitivo",price:59.90}};
+var CARACOL_ITEMS={detailed:{item_id:"detailed",item_name:"Relatório Detalhado",price:89.90},competitive:{item_id:"competitive",item_name:"Relatório Competitivo",price:299.90}};
 function caracolGa(ev,extra){try{var it=CARACOL_ITEMS["competitive"];if(!it)return;var p=Object.assign({currency:"BRL",value:it.price,items:[Object.assign({quantity:1},it)]},extra||{});gtag("event",ev,p);}catch(_){}}
 caracolGa("begin_checkout");
 function showError(msg) {
