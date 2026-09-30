@@ -573,10 +573,10 @@
   <!-- PROOF -->
   <div class="proof-bar">
     <div class="proof-inner container">
-      <div class="proof-item reveal"><div class="proof-number"><span class="count" data-target="4">0</span><span class="a">+</span></div><div class="proof-label">Categorias Analisadas</div></div>
-      <div class="proof-item reveal rd1"><div class="proof-number"><span class="count" data-target="20">0</span><span class="a">+</span></div><div class="proof-label">Páginas por Auditoria</div></div>
-      <div class="proof-item reveal rd2"><div class="proof-number">&lt;<span class="count" data-target="24">0</span><span class="a">h</span></div><div class="proof-label">Para seu Relatório</div></div>
-      <div class="proof-item reveal rd3"><div class="proof-number">0<span class="a">→</span><span class="count" data-target="100">0</span></div><div class="proof-label">Score de Visibilidade</div></div>
+      <div class="proof-item reveal"><div class="proof-number"><span class="count" data-target="4">4</span><span class="a">+</span></div><div class="proof-label">Categorias Analisadas</div></div>
+      <div class="proof-item reveal rd1"><div class="proof-number"><span class="count" data-target="20">20</span><span class="a">+</span></div><div class="proof-label">Páginas por Auditoria</div></div>
+      <div class="proof-item reveal rd2"><div class="proof-number">&lt;<span class="count" data-target="24">24</span><span class="a">h</span></div><div class="proof-label">Para seu Relatório</div></div>
+      <div class="proof-item reveal rd3"><div class="proof-number">0<span class="a">→</span><span class="count" data-target="100">100</span></div><div class="proof-label">Score de Visibilidade</div></div>
     </div>
   </div>
 
@@ -937,7 +937,8 @@
           })(t0);
         });
       },{threshold:.5});
-      els.forEach(e=>io.observe(e));
+      // O HTML já traz o número final (robô sem JS lê o valor certo); zera só pra animar.
+      els.forEach(e=>{if(!reduceMotion)e.textContent=0;io.observe(e)});
     })();
 
     // ===== chat demo: mensagens entram em sequência =====
