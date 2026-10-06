@@ -111,6 +111,7 @@
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4282EKRBJD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4282EKRBJD');</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div class="topbar">
@@ -171,6 +172,7 @@
                 <option value="indicacao">Indicação</option>
                 <option value="outro">Outro</option>
               </select>
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAACt1vAwgGfkyFXos" data-theme="dark" data-language="pt-br" style="margin-bottom:10px"></div>
               <button type="submit" class="btn" id="leadBtn">Desbloquear relatório completo →</button>
             </form>
             <p class="fn" id="leadErr" role="alert" style="display:none;color:var(--red);font-weight:600"></p>
@@ -317,6 +319,8 @@ sessionStorage.setItem("aeo_src",(q.get("utm_source")||r||"direto").slice(0,60))
 function leadCtx(){var o=document.getElementById("leadOrigem");var s="";try{s=sessionStorage.getItem("aeo_src")||"";}catch(_){}
 return {como_conheceu:(o&&o.value)||"nao_informado",origem_sessao:s};}
 
+function tsToken(f) { const i = f && f.querySelector('[name="cf-turnstile-response"]'); return i ? i.value : ""; }
+
 async function sendLead(e) {
   e.preventDefault();
   const btn = document.getElementById("leadBtn");
@@ -328,7 +332,7 @@ async function sendLead(e) {
     const res = await fetch(CF_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nome, email, site })
+      body: JSON.stringify(Object.assign({ nome, email, site, cf_turnstile_response: tsToken(document.getElementById("leadForm")) }, leadCtx()))
     });
     let data = {};
     try { data = await res.json(); } catch (_) {}
@@ -345,6 +349,7 @@ async function sendLead(e) {
     errEl.textContent = ex.message || "Erro de conexão. Tente de novo.";
     errEl.style.display = "block";
     gtag("event", "lead_error", Object.assign({ reason: (ex.message || "rede").slice(0, 90) }, leadCtx()));
+    try { turnstile.reset(); } catch (_) {}
     btn.disabled = false; btn.textContent = "Tentar novamente";
   }
 }

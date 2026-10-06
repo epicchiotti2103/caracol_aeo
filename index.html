@@ -492,6 +492,7 @@
     if (c) { try { localStorage.setItem("caracol_cid", c); } catch(_){} }
   })();
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -719,6 +720,7 @@
             <div class="fg"><label for="nm">Nome</label><input type="text" id="nm" name="nome" placeholder="Seu nome completo" required autocomplete="name"></div>
             <div class="fg"><label for="em">E-mail corporativo</label><input type="email" id="em" name="email" placeholder="nome@empresa.com.br" required autocomplete="email"></div>
             <div class="fg"><label for="ws">Site da empresa</label><input type="text" id="ws" name="site" placeholder="https://suaempresa.com.br" required></div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACt1vAwgGfkyFXos" data-theme="dark" data-language="pt-br" style="margin-bottom:10px"></div>
             <button type="submit" class="fsub">Gerar Diagnóstico Gratuito →</button>
             <p class="fn">Sem spam. Sem cartão de crédito. Relatório em até 24h.</p>
           </form>
@@ -881,7 +883,7 @@
     function toggleMenu(){document.querySelector('.nav-links').classList.toggle('active')}
     function closeMenu(){document.querySelector('.nav-links').classList.remove('active')}
     function tg(b){const i=b.parentElement,a=b.nextElementSibling,c=i.classList.contains('active');document.querySelectorAll('.fi.active').forEach(e=>{e.classList.remove('active');e.querySelector('.fa').style.maxHeight='0'});if(!c){i.classList.add('active');a.style.maxHeight=a.scrollHeight+'px'}}
-    const CF_URL="https://aeo-lead-receiver-ugzah7lydq-rj.a.run.app";async function handleSubmit(e){e.preventDefault();const f=e.target,btn=f.querySelector(".fsub"),nome=f.querySelector("#nm").value.trim(),email=f.querySelector("#em").value.trim(),site=f.querySelector("#ws").value.trim();btn.textContent="Enviando...";btn.disabled=!0;btn.style.opacity="0.7";try{const res=await fetch(CF_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({nome,email,site})});const data=await res.json();if(res.ok){btn.textContent="Diagnóstico solicitado ✓";btn.style.background="#34d399";btn.style.opacity="1"}else{const msg=data.errors?data.errors.join(" "):data.error||"Erro ao enviar.";btn.textContent="Tentar novamente";btn.style.background="#ff4d4d";btn.style.opacity="1";btn.disabled=!1;alert(msg)}}catch(err){btn.textContent="Erro de conexão";btn.style.background="#ff4d4d";btn.style.opacity="1";btn.disabled=!1}}
+    const CF_URL="https://aeo-lead-receiver-ugzah7lydq-rj.a.run.app";(function(){try{if(sessionStorage.getItem("aeo_src"))return;var q=new URLSearchParams(location.search);var r=document.referrer?new URL(document.referrer).hostname:"";if(r===location.hostname)r="";sessionStorage.setItem("aeo_src",(q.get("utm_source")||r||"direto").slice(0,60))}catch(_){}})();function homeSrc(){try{return sessionStorage.getItem("aeo_src")||""}catch(_){return""}}function homeEv(n,p){try{gtag("event",n,Object.assign({source:"home-form",origem_sessao:homeSrc()},p||{}))}catch(_){}}async function handleSubmit(e){e.preventDefault();const f=e.target,btn=f.querySelector(".fsub"),nome=f.querySelector("#nm").value.trim(),email=f.querySelector("#em").value.trim(),site=f.querySelector("#ws").value.trim();btn.textContent="Enviando...";btn.disabled=!0;btn.style.opacity="0.7";try{const res=await fetch(CF_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({nome,email,site,origem_sessao:homeSrc(),cf_turnstile_response:(f.querySelector('[name="cf-turnstile-response"]')||{}).value||""})});const data=await res.json();if(res.ok){btn.textContent="Diagnóstico solicitado ✓";homeEv("generate_lead");btn.style.background="#34d399";btn.style.opacity="1"}else{const msg=data.errors?data.errors.join(" "):data.error||"Erro ao enviar.";btn.textContent="Tentar novamente";btn.style.background="#ff4d4d";btn.style.opacity="1";btn.disabled=!1;homeEv("lead_error",{reason:msg.slice(0,90)});try{turnstile.reset()}catch(_){}alert(msg)}}catch(err){homeEv("lead_error",{reason:"rede"});btn.textContent="Erro de conexão";btn.style.background="#ff4d4d";btn.style.opacity="1";btn.disabled=!1}}
 
     const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
