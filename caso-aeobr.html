@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- Case próprio — como o aeobr saiu do zero e virou fonte das IAs. Caracol AEO. Criada 06/10/2026 (§27). Sem números absolutos (decisão do Du). -->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do Zero a Fonte da IA do Google: o Caso aeobr | Caracol AEO</title>
+<meta name="description" content="Como um domínio criado do zero em 2026 passou a ser usado pelo Google AI e citado pelo ChatGPT. O nosso próprio caso de AEO, do primeiro score ao primeiro cliente que chegou pela IA.">
+<link rel="canonical" href="https://www.aeobr.com.br/caso-aeobr">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Do zero a fonte da IA do Google: o caso aeobr">
+<meta property="og:description" content="Como um domínio novo passou a ser usado pelo Google AI e citado pelo ChatGPT — o nosso próprio caso de AEO.">
+<meta property="og:url" content="https://www.aeobr.com.br/caso-aeobr">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0A0A0A;--bg-card:#141414;--border:#2A2A2A;--text:#F5F5F5;--text-muted:#999;--text-dim:#666;--orange:#FF6B1A;--lime:#C8FF00}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:17px}
+  a{color:var(--orange);text-decoration:none}a:hover{text-decoration:underline}
+  .topbar{border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+  .topbar .back{color:var(--text-muted);font-size:14px}
+  .topbar .back:hover{color:var(--text);text-decoration:none}
+  main.doc{max-width:720px;margin:0 auto;padding:56px 24px 72px}
+  .crumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--lime);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+  h1{font-size:42px;font-weight:700;letter-spacing:-.025em;line-height:1.12;margin-bottom:20px}
+  h1 .accent{color:var(--orange)}
+  h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:56px 0 14px;line-height:1.25}
+  .act{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:56px;display:block}
+  .act + h2{margin-top:6px}
+  p{margin-bottom:18px;color:#d8d8d8}
+  strong{color:var(--text)}
+  .lead{font-size:20px;color:#e8e8e8;line-height:1.6;margin-bottom:10px}
+  .updated{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-bottom:40px}
+  .quote{border-left:3px solid var(--orange);padding:4px 0 4px 20px;margin:28px 0;font-size:21px;line-height:1.5;color:var(--text);font-weight:500}
+  .scores{display:flex;gap:16px;flex-wrap:wrap;margin:28px 0}
+  .score{flex:1 1 200px;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:22px}
+  .score .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim)}
+  .score .num{font-size:52px;font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-top:6px}
+  .score .num span{font-size:18px;color:var(--text-dim);font-weight:500}
+  .score.after{border-color:var(--orange)}.score.after .num{color:var(--orange)}
+  .lessons{counter-reset:l;list-style:none;margin:24px 0;padding:0}
+  .lessons li{counter-increment:l;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px 22px 20px 64px;margin-bottom:12px;position:relative;color:#d8d8d8}
+  .lessons li::before{content:counter(l);position:absolute;left:22px;top:18px;font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--orange);font-weight:500}
+  .lessons li strong{display:block;margin-bottom:4px}
+  .ctabox{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:32px;margin:48px 0 0}
+  .ctabox h2{margin-top:0}
+  .ft{border-top:1px solid var(--border);padding:28px 24px;text-align:center;color:var(--text-dim);font-size:13px}
+  .ft a{color:var(--text-muted)}
+  .ft .links{margin-bottom:10px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  @media(max-width:600px){h1{font-size:32px}main.doc{padding:40px 16px 56px}.topbar{padding:16px}.ctabox{padding:24px 18px}.quote{font-size:19px}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4282EKRBJD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4282EKRBJD');</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Article",
+      "headline":"Do zero a fonte da IA do Google: o caso aeobr",
+      "description":"Como um domínio criado do zero em 2026 passou a ser usado pelo Google AI e citado pelo ChatGPT — o caso próprio da Caracol AEO.",
+      "inLanguage":"pt-BR",
+      "datePublished":"2026-10-06",
+      "dateModified":"2026-10-06",
+      "author":{"@id":"https://www.aeobr.com.br/#organization"},
+      "publisher":{"@id":"https://www.aeobr.com.br/sobre#caracol-media"},
+      "about":{"@type":"Thing","name":"Answer Engine Optimization"},
+      "mainEntityOfPage":"https://www.aeobr.com.br/caso-aeobr"
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Início","item":"https://www.aeobr.com.br/"},
+        {"@type":"ListItem","position":2,"name":"Sobre","item":"https://www.aeobr.com.br/sobre"},
+        {"@type":"ListItem","position":3,"name":"O caso aeobr","item":"https://www.aeobr.com.br/caso-aeobr"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="/" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="34" style="display:block"></a>
+  <a class="back" href="/">← voltar ao site</a>
+</div>
+
+<main class="doc">
+  <div class="crumb"><a href="/">Início</a> / <a href="/sobre">Sobre</a> / O caso aeobr</div>
+  <div class="kicker">O nosso próprio caso</div>
+  <h1>Do zero a fonte da <span class="accent">IA do Google</span></h1>
+  <p class="lead">Em fevereiro de 2026, o aeobr.com.br era um domínio recém-registrado: nenhuma visita, nenhum link, nenhuma história. Oito meses depois, é uma das páginas que o Google usa para montar as respostas de IA sobre AEO no Brasil — e o ChatGPT manda leitores para os nossos estudos. Esta é a história de como chegamos lá, incluindo o que não funcionou.</p>
+  <p class="updated">Outubro de 2026 · Caracol AEO, uma empresa da Caracol Media</p>
+
+  <p>Toda conversa com cliente chega, cedo ou tarde, na mesma pergunta: <em>"dá para uma marca que ninguém conhece aparecer no ChatGPT?"</em> A resposta honesta é "depende do que você fizer". Mas resposta honesta não convence ninguém sem prova. Então decidimos fazer o teste com a nossa própria marca.</p>
+  <p>Em vez de colocar a AEO como mais uma página no site da Caracol Media, que já tinha história, criamos um domínio do zero. Sem atalho, sem autoridade herdada. Se o método funcionasse aqui, funcionaria em qualquer lugar.</p>
+
+  <span class="act">Fevereiro e março · O ponto de partida</span>
+  <h2>A primeira auditoria foi a nossa</h2>
+  <p>A primeira coisa que fizemos com a nossa ferramenta de diagnóstico foi apontá-la para nós mesmos. O resultado foi desconfortável: o site que ia vender visibilidade em IA era, ele mesmo, quase ilegível para as IAs. Faltavam dados estruturados, as respostas estavam enterradas no meio do texto e nada dizia às máquinas quem éramos.</p>
+  <div class="scores">
+    <div class="score"><div class="lbl">Score AEO · março</div><div class="num">26<span> / 100</span></div></div>
+    <div class="score after"><div class="lbl">Score AEO · julho</div><div class="num">99<span> / 100</span></div></div>
+  </div>
+
+  <span class="act">A partir de abril · Arrumar a casa</span>
+  <h2>Falar a língua das máquinas</h2>
+  <p>Antes de produzir qualquer coisa nova, consertamos o básico. Marcamos a empresa, os serviços, os preços e as perguntas frequentes com dados estruturados. Liberamos explicitamente os robôs das IAs. Publicamos um <code style="font-family:'JetBrains Mono',monospace;font-size:14px">llms.txt</code>, o guia que os modelos de linguagem leem para entender um site, e abrimos um servidor MCP para que assistentes como o ChatGPT e o Claude consultem a nossa ferramenta diretamente. Reescrevemos as páginas para que cada uma respondesse à sua pergunta logo no primeiro parágrafo.</p>
+  <p>Nada disso aparece para o visitante. Tudo isso aparece para quem decide o que entra numa resposta de IA.</p>
+
+  <span class="act">O desvio · O que não funcionou</span>
+  <h2>Volume não é visibilidade</h2>
+  <p>Fizemos o que quase todo mundo faz: publicamos muito conteúdo de blog, sobre todos os ângulos de AEO. Os artigos foram indexados e apareceram em buscas — mas quase ninguém clicou, e quase nada disso virou citação em IA.</p>
+  <div class="quote">A IA não cita quem escreve mais. Cita quem responde melhor a pergunta de quem está decidindo.</div>
+  <p>Foi o aprendizado mais caro do projeto, e o que mudou a nossa estratégia. Paramos de publicar em volume e passamos a perguntar: quais perguntas alguém faz <em>antes de contratar</em>? E quem, hoje, responde bem a elas?</p>
+
+  <span class="act">Junho · A virada</span>
+  <h2>Responder a pergunta de quem vai comprar</h2>
+  <p>A pergunta mais óbvia do nosso mercado era também a mais mal respondida: <em>"quais são as ferramentas de AEO no Brasil, e quanto custam?"</em> As respostas existentes eram listas em inglês, com preços em dólar, escritas para outro mercado.</p>
+  <p>Publicamos um <a href="/ferramentas-aeo-brasil">comparativo das ferramentas de AEO</a> pensado para quem decide no Brasil: tabela, preços em reais, para quem serve cada uma e as perguntas que um comprador faz. Nos meses seguintes, essa página passou a ser usada pelo Google nas respostas de IA. Hoje ela é, sozinha, responsável pela maior parte das aparições do site nos recursos de IA do Google — quase cinco vezes mais que a página inicial.</p>
+
+  <span class="act">Julho e agosto · Ter algo que só nós temos</span>
+  <h2>Dado original vira citação</h2>
+  <p>As IAs repetem o que já está em todo lugar. Para ser citado, é preciso ter algo que não está. Fomos medir o que ninguém tinha medido no Brasil: auditamos <a href="/estudos/indice-aeo-bancos-2026/">os maiores bancos e fintechs</a>, <a href="/estudos/indice-aeo-ecommerce-2026/">os maiores e-commerces</a> e perguntamos às IAs <a href="/estudos/advocacia-empresarial-sp-2026/">quais escritórios de advocacia empresarial de São Paulo elas recomendam</a>.</p>
+  <p>Em agosto, publicamos <a href="/estudos/paper-geo-ptbr/">o primeiro estudo científico de GEO em português</a>, com dados e código abertos e registro com DOI. Foi aí que o ChatGPT começou a citar os nossos estudos e a mandar leitores para eles. Leitores de verdade: são as visitas mais longas do site, com gente lendo por mais de dez minutos.</p>
+
+  <span class="act">Setembro · O resultado que importa</span>
+  <h2>Quando a IA passa a indicar você</h2>
+  <p>Visibilidade só vale se vira conversa. Em setembro, chegaram os primeiros pedidos de diagnóstico vindos de busca orgânica, sem anúncio. Um deles nos marcou: um escritório de advocacia de São Paulo, que chegou ao site <strong>vindo do ChatGPT</strong>, leu sobre nós e pediu a auditoria.</p>
+  <p>É exatamente a cena que vendemos aos nossos clientes: alguém pergunta a uma IA, a IA indica uma empresa, a empresa recebe o contato. Desta vez, a empresa éramos nós. Entre abril e setembro, a presença do site nas buscas do Google cresceu mais de cinco vezes — sem um real em mídia.</p>
+
+  <h2>O que aprendemos — e aplicamos nos clientes</h2>
+  <ol class="lessons">
+    <li><strong>Primeiro a base técnica, depois o conteúdo.</strong>Dados estruturados, robôs liberados e respostas no primeiro parágrafo. Sem isso, o melhor texto do mundo não é lido.</li>
+    <li><strong>Uma página que responde bem vale mais que cem que respondem mais ou menos.</strong>O nosso maior resultado veio de uma única página, feita para a pergunta de quem está decidindo.</li>
+    <li><strong>Dado original é o que a IA não encontra em outro lugar.</strong>Estudos próprios, abertos e citáveis transformam a marca em fonte.</li>
+    <li><strong>Meça o que importa.</strong>Aparecer na resposta, ser citado com link e virar contato. Impressão de blog não paga as contas.</li>
+    <li><strong>Seja honesto, inclusive sobre os concorrentes.</strong>A IA cruza fontes. Comparativo que só fala bem de si mesmo perde credibilidade, com o leitor e com a máquina.</li>
+  </ol>
+
+  <div class="ctabox">
+    <h2>A sua empresa é a próxima história</h2>
+    <p>O primeiro passo foi o mesmo para nós: descobrir como as IAs leem o seu site. Rode o diagnóstico gratuito e veja o seu score em segundos.</p>
+    <form action="/auditoria" method="get" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px" onsubmit="try{gtag('event','estudo_cta',{pagina:location.pathname})}catch(_){}">
+      <input type="hidden" name="via" value="caso">
+      <input type="text" name="url" required inputmode="url" placeholder="https://suaempresa.com.br" aria-label="URL do seu site" style="flex:1 1 220px;min-width:0;background:#0d0d0d;border:1px solid #2A2A2A;border-radius:8px;padding:12px 14px;color:#F5F5F5;font:inherit;font-size:15px">
+      <button type="submit" style="background:#FF6B1A;color:#fff;border:0;border-radius:8px;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer">Auditar meu site →</button>
+    </form>
+    <p style="margin:16px 0 0;font-size:15px;color:var(--text-muted)">Prefere conversar? <a href="/contato">Fale com a gente</a>.</p>
+  </div>
+</main>
+
+<footer class="ft">
+  <div class="links">
+    <a href="/">Início</a><a href="/estudos/">Estudos</a><a href="/ferramentas-aeo-brasil">Ferramentas de AEO</a><a href="/como-monitorar-marca-nas-ias">Como monitorar sua marca</a><a href="/sobre">Sobre</a><a href="/contato">Contato</a>
+  </div>
+  <div>© 2026 Caracol Media · CNPJ 55.097.812/0001-99 · uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+</footer>
+</body>
+</html>
