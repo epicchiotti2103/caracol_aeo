@@ -225,7 +225,16 @@
         </tr>
   </table>
 
-  <h2>Onde a posição está aberta</h2>
+<div style="background:#141414;border:1px solid #2A2A2A;border-left:3px solid #FF6B1A;border-radius:12px;padding:22px 24px;margin:32px 0">
+        <div style="font-weight:700;font-size:18px;color:#F5F5F5;margin-bottom:6px">Seu escritório está pronto para ser citado?</div>
+        <div style="color:#bbb;font-size:15px;margin-bottom:14px">Rode o diagnóstico AEO gratuito do seu site: score de 0 a 100 em segundos.</div>
+        <form action="/auditoria" method="get" style="display:flex;gap:10px;flex-wrap:wrap" onsubmit="try{gtag('event','estudo_cta',{pagina:location.pathname})}catch(_){}">
+          <input type="hidden" name="via" value="estudo-advocacia">
+          <input type="text" name="url" required inputmode="url" placeholder="https://suaempresa.com.br" aria-label="URL do seu site" style="flex:1 1 220px;min-width:0;background:#0d0d0d;border:1px solid #2A2A2A;border-radius:8px;padding:12px 14px;color:#F5F5F5;font:inherit;font-size:15px">
+          <button type="submit" style="background:#FF6B1A;color:#fff;border:0;border-radius:8px;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer">Auditar meu site →</button>
+        </form>
+      </div>
+      <h2>Onde a posição está aberta</h2>
   <p class="h2sub">Perguntas por tema — e em quantas nenhuma empresa foi recomendada.</p>
   <table>
     <tr><th>Tema</th><th style="text-align:right">Perguntas</th><th style="text-align:right">Sem citação</th><th style="text-align:right">% aberto</th></tr>

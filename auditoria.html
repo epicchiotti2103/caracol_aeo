@@ -71,6 +71,8 @@
   .gauge .num span{font-size:12px;color:var(--text-dim);font-family:'JetBrains Mono',monospace}
   .rating{font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:5px 12px;border-radius:99px;border:1px solid var(--border);display:inline-block;margin-bottom:8px}
   .audited-url{font-size:14px;color:var(--text-muted);word-break:break-all}
+  .sharebtn{margin-top:10px;background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);font:inherit;font-size:13px;padding:7px 12px;cursor:pointer}
+  .sharebtn:hover{color:var(--text);border-color:var(--orange)}
   .dims{margin-top:6px}
   .dim{margin:14px 0}
   .dim .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
@@ -142,6 +144,7 @@
         <div>
           <span class="rating" id="ratingBadge">—</span>
           <div class="audited-url" id="auditedUrl"></div>
+          <button type="button" class="sharebtn" id="shareBtn" onclick="copyShare()">Copiar link deste resultado</button>
           <div class="dims" id="dims"></div>
         </div>
       </div>
@@ -215,9 +218,13 @@ let lastResult = null;
 
 async function runAudit(e) {
   e.preventDefault();
+  return doAudit(document.getElementById("siteUrl").value.trim(), "form");
+}
+
+// /auditoria?url=... roda sozinho: e o link compartilhavel do resultado e o destino do campo embutido nos estudos
+async function doAudit(url, via) {
   const btn = document.getElementById("runBtn");
   const err = document.getElementById("audErr");
-  const url = document.getElementById("siteUrl").value.trim();
   err.style.display = "none";
   btn.disabled = true; btn.textContent = "Auditando...";
   try {
@@ -226,13 +233,33 @@ async function runAudit(e) {
     if (data.error) throw new Error(data.error);
     lastResult = data;
     render(data);
-    gtag("event", "audit_run", { audited_url: data.url, score: data.score });
+    try { history.replaceState(null, "", "/auditoria?url=" + encodeURIComponent(data.url)); } catch (_) {}
+    gtag("event", "audit_run", { audited_url: data.url, score: data.score, via: via });
   } catch (ex) {
     err.textContent = "Não consegui auditar essa URL (" + ex.message + "). Confira o endereço e tente de novo.";
     err.style.display = "block";
   }
   btn.disabled = false; btn.textContent = "Auditar grátis →";
 }
+
+function copyShare() {
+  if (!lastResult) return;
+  const link = location.origin + "/auditoria?url=" + encodeURIComponent(lastResult.url);
+  const b = document.getElementById("shareBtn");
+  const done = () => { b.textContent = "Link copiado ✓"; setTimeout(() => { b.textContent = "Copiar link deste resultado"; }, 2500); };
+  if (navigator.clipboard) navigator.clipboard.writeText(link).then(done, () => prompt("Copie o link:", link));
+  else prompt("Copie o link:", link);
+  gtag("event", "share_result", { audited_url: lastResult.url, score: lastResult.score });
+}
+
+(function () {
+  const u = new URLSearchParams(location.search).get("url");
+  if (!u) return;
+  document.getElementById("siteUrl").value = u;
+  const via = new URLSearchParams(location.search).get("via") || "link";
+  window.addEventListener("DOMContentLoaded", () => doAudit(u, via));
+  if (document.readyState !== "loading") doAudit(u, via);
+})();
 
 function render(d) {
   document.getElementById("result").style.display = "block";

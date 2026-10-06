@@ -282,6 +282,15 @@
   <section style="padding-top:10px">
     <div class="container">
       <div class="sl">O placar completo</div>
+<div style="background:#141414;border:1px solid #2A2A2A;border-left:3px solid #FF6B1A;border-radius:12px;padding:22px 24px;margin:32px 0">
+        <div style="font-weight:700;font-size:18px;color:#F5F5F5;margin-bottom:6px">E o seu site, como as IAs leem?</div>
+        <div style="color:#bbb;font-size:15px;margin-bottom:14px">Rode o diagnóstico AEO gratuito: score de 0 a 100 em segundos, com o que corrigir primeiro.</div>
+        <form action="/auditoria" method="get" style="display:flex;gap:10px;flex-wrap:wrap" onsubmit="try{gtag('event','estudo_cta',{pagina:location.pathname})}catch(_){}">
+          <input type="hidden" name="via" value="paper">
+          <input type="text" name="url" required inputmode="url" placeholder="https://suaempresa.com.br" aria-label="URL do seu site" style="flex:1 1 220px;min-width:0;background:#0d0d0d;border:1px solid #2A2A2A;border-radius:8px;padding:12px 14px;color:#F5F5F5;font:inherit;font-size:15px">
+          <button type="submit" style="background:#FF6B1A;color:#fff;border:0;border-radius:8px;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer">Auditar meu site →</button>
+        </form>
+      </div>
       <h2>9 técnicas × 3 IAs</h2>
       <p class="sd">Mediana da mudança de visibilidade da fonte otimizada, por técnica e por IA, no conjunto primário do paper (queries em que a fonte já era citada no baseline). <span style="color:var(--green)">Verde</span>/<span style="color:var(--red)">vermelho</span> = efeito distinguível de zero após correção de Holm; <span style="color:var(--t4)">cinza</span> = indeterminado.</p>
       <div class="tbl-wrap reveal">
