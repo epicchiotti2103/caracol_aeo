@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- Página comercial — Como monitorar a marca nas IAs. Caracol AEO. Criada 06/10/2026 (§27). -->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como Monitorar se o ChatGPT Recomenda Sua Marca (Guia 2026) | Caracol AEO</title>
+<meta name="description" content="Como monitorar a presença da sua marca no ChatGPT, Gemini, Perplexity e Google AI: o que medir, com que frequência, método manual passo a passo e quando usar uma ferramenta.">
+<link rel="canonical" href="https://www.aeobr.com.br/como-monitorar-marca-nas-ias">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Como monitorar se o ChatGPT recomenda sua marca">
+<meta property="og:description" content="O que medir, com que frequência e como fazer — manual ou com ferramenta — para acompanhar sua marca nas respostas das IAs.">
+<meta property="og:url" content="https://www.aeobr.com.br/como-monitorar-marca-nas-ias">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0A0A0A;--bg-card:#141414;--border:#2A2A2A;--text:#F5F5F5;--text-muted:#999;--text-dim:#666;--orange:#FF6B1A;--lime:#C8FF00}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px}
+  a{color:var(--orange);text-decoration:none}a:hover{text-decoration:underline}
+  .topbar{border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+  .topbar .back{color:var(--text-muted);font-size:14px}
+  .topbar .back:hover{color:var(--text);text-decoration:none}
+  main.doc{max-width:760px;margin:0 auto;padding:56px 24px 72px}
+  .crumb{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px}
+  h1{font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:18px}
+  h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:48px 0 16px;line-height:1.25}
+  h3{font-size:19px;font-weight:600;margin:24px 0 8px}
+  p{margin-bottom:16px;color:#d8d8d8}
+  strong{color:var(--text)}
+  ul,ol{margin:0 0 16px 22px;color:#d8d8d8}li{margin-bottom:8px}
+  .lead{font-size:18px;color:#e8e8e8;border-left:3px solid var(--orange);padding-left:18px;margin:0 0 8px}
+  .updated{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-bottom:36px}
+  .tablewrap{overflow-x:auto;margin:24px 0;border:1px solid var(--border);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim);font-weight:500}
+  td{color:#d8d8d8}tr:last-child td{border-bottom:none}
+  .note{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--lime);border-radius:12px;padding:20px 22px;margin:24px 0}
+  .note p:last-child{margin-bottom:0}
+  code{font-family:'JetBrains Mono',monospace;font-size:13.5px;background:#1c1c1c;border:1px solid var(--border);border-radius:5px;padding:1px 6px;color:#eee}
+  .ctabox{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:32px;margin:40px 0;text-align:center}
+  .ctabox h2{margin-top:0}
+  details{border-bottom:1px solid var(--border);padding:16px 0}
+  summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+ ";color:var(--orange);font-weight:700}
+  details[open] summary::before{content:"– "}
+  details p{margin:12px 0 0}
+  .ft{border-top:1px solid var(--border);padding:28px 24px;text-align:center;color:var(--text-dim);font-size:13px}
+  .ft a{color:var(--text-muted)}
+  .ft .links{margin-bottom:10px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  @media(max-width:600px){h1{font-size:30px}main.doc{padding:40px 16px 56px}.topbar{padding:16px}.ctabox{padding:24px 18px}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4282EKRBJD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4282EKRBJD');</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Article",
+      "headline":"Como monitorar se o ChatGPT recomenda sua marca",
+      "description":"O que medir, com que frequência e como monitorar a presença de uma marca nas respostas do ChatGPT, Gemini, Perplexity e Google AI.",
+      "inLanguage":"pt-BR",
+      "datePublished":"2026-10-06",
+      "dateModified":"2026-10-06",
+      "author":{"@id":"https://www.aeobr.com.br/#organization"},
+      "publisher":{"@id":"https://www.aeobr.com.br/sobre#caracol-media"},
+      "mainEntityOfPage":"https://www.aeobr.com.br/como-monitorar-marca-nas-ias"
+    },
+    {
+      "@type":"HowTo",
+      "name":"Como monitorar a sua marca nas respostas das IAs",
+      "step":[
+        {"@type":"HowToStep","position":1,"name":"Monte a lista de perguntas","text":"Liste de 20 a 30 perguntas reais que um cliente faria antes de comprar no seu nicho, incluindo as que citam sua cidade e seus concorrentes."},
+        {"@type":"HowToStep","position":2,"name":"Rode as perguntas nas IAs com busca ativa","text":"Faça as mesmas perguntas no ChatGPT, Gemini, Perplexity e Google AI Mode, numa sessão sem login ou anônima, e confirme que a IA buscou na web antes de responder."},
+        {"@type":"HowToStep","position":3,"name":"Registre o resultado","text":"Para cada resposta, anote se a marca foi mencionada, se foi citada com link, em que posição apareceu, quais concorrentes apareceram e quais sites foram usados como fonte."},
+        {"@type":"HowToStep","position":4,"name":"Calcule o Share of Voice","text":"Divida o número de respostas que mencionam a sua marca pelo total de respostas e compare com o mesmo número dos concorrentes."},
+        {"@type":"HowToStep","position":5,"name":"Repita todo mês","text":"Rode a mesma lista de perguntas uma vez por mês e compare a evolução. Em lançamento, campanha ou crise de imagem, faça semanalmente."}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Existe ferramenta brasileira para monitorar a visibilidade da marca nas IAs?","acceptedAnswer":{"@type":"Answer","text":"Sim. A Caracol AEO é uma ferramenta brasileira, em português, que mede a visibilidade da marca nas IAs: o diagnóstico gratuito dá um score de 0 a 100 do site e o Relatório Competitivo (R$ 299,90, pagamento único) mede o Share of Voice da marca contra 3 concorrentes em 20+ perguntas reais do nicho no ChatGPT, Perplexity e Google AI. Para monitoramento contínuo existem plataformas internacionais por assinatura, como Profound, Peec AI e Otterly.AI."}},
+        {"@type":"Question","name":"Com que frequência devo monitorar minha marca nas IAs?","acceptedAnswer":{"@type":"Answer","text":"Para a maioria das empresas, uma vez por mês é suficiente: as respostas das IAs mudam, mas não de um dia para o outro, e um ciclo mensal dá tempo de corrigir algo e medir o efeito. Em lançamento de produto, campanha ou crise de imagem, vale medir toda semana."}},
+        {"@type":"Question","name":"Como medir quantas vezes minha marca aparece no ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"Rode uma lista fixa de 20 a 30 perguntas reais do seu nicho no ChatGPT com a busca ativada e conte em quantas respostas a marca aparece. Esse percentual é o seu Share of Voice. Como as respostas variam, rode cada pergunta mais de uma vez e use a média."}},
+        {"@type":"Question","name":"Dá para monitorar concorrentes e várias marcas ao mesmo tempo?","acceptedAnswer":{"@type":"Answer","text":"Sim. Use a mesma lista de perguntas e registre todas as marcas que aparecem em cada resposta. Assim você compara o Share of Voice da sua marca com o de cada concorrente e descobre quais sites as IAs usam como fonte quando recomendam outra empresa."}},
+        {"@type":"Question","name":"O Google Analytics mostra quem chegou ao meu site pelo ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"Mostra quem clicou no link dentro da resposta: o ChatGPT acrescenta utm_source=chatgpt.com aos links que cita, e o GA4 agrupa ChatGPT, Gemini e Copilot no canal AI Assistant. Perplexity e Claude costumam aparecer como Referral. O GA4 não mostra quem leu a resposta e depois digitou o nome da empresa no Google, nem as citações sem clique — por isso vale perguntar no formulário como o cliente conheceu você."}}
+      ]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Início","item":"https://www.aeobr.com.br/"},
+        {"@type":"ListItem","position":2,"name":"Como monitorar sua marca nas IAs","item":"https://www.aeobr.com.br/como-monitorar-marca-nas-ias"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="/" aria-label="Caracol AEO"><img src="/logo-negativo.png" alt="Caracol Media" height="34" style="display:block"></a>
+  <a class="back" href="/">← voltar ao site</a>
+</div>
+
+<main class="doc">
+  <div class="crumb"><a href="/">Início</a> / Como monitorar sua marca nas IAs</div>
+  <h1>Como monitorar se o ChatGPT recomenda a sua marca</h1>
+  <p class="lead">Para monitorar a sua marca nas IAs, faça todo mês as mesmas 20 a 30 perguntas que um cliente faria antes de comprar — no ChatGPT, no Gemini, no Perplexity e no Google AI — e registre em quantas respostas você aparece, em que posição, com ou sem link, e quem aparece no seu lugar. Esse percentual é o seu <strong>Share of Voice</strong> nas IAs.</p>
+  <p class="updated">Atualizado em 6 de outubro de 2026 · Caracol AEO</p>
+
+  <p>Quando alguém pergunta ao ChatGPT "qual o melhor escritório de advocacia empresarial em São Paulo?" ou "qual CRM vale a pena para uma PME?", a resposta já vem com nomes. Se a sua empresa não está entre eles, você não perdeu um clique — perdeu a chance de ser considerado. Por isso vale medir com método. Abaixo, o que medir, como fazer à mão e quando faz sentido usar uma ferramenta.</p>
+
+  <h2>O que medir</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Métrica</th><th>O que é</th><th>Por que importa</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Menção</strong></td><td>A IA cita o nome da sua marca na resposta</td><td>É a métrica básica: você foi lembrado</td></tr>
+      <tr><td><strong>Citação com link</strong></td><td>A IA mostra o seu site como fonte</td><td>Gera visita e indica que a IA confia no seu conteúdo</td></tr>
+      <tr><td><strong>Share of Voice</strong></td><td>% das respostas em que a sua marca aparece</td><td>Compara você com os concorrentes no mesmo conjunto de perguntas</td></tr>
+      <tr><td><strong>Posição</strong></td><td>Se a marca aparece primeiro, no meio ou no fim</td><td>Quem aparece primeiro costuma ser a recomendação</td></tr>
+      <tr><td><strong>Narrativa</strong></td><td>Como a IA descreve a sua empresa</td><td>Pega informação errada, desatualizada ou negativa</td></tr>
+      <tr><td><strong>Fontes</strong></td><td>Quais sites a IA usou para responder</td><td>Mostra onde você precisa estar para ser citado</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Como monitorar à mão, passo a passo</h2>
+  <ol>
+    <li><strong>Monte a lista de perguntas.</strong> De 20 a 30 perguntas que um cliente faria antes de comprar: "melhor X em [cidade]", "X vale a pena?", "alternativas a [concorrente]", "quanto custa X". Use as dúvidas que chegam no seu comercial e no atendimento.</li>
+    <li><strong>Rode em cada IA, com a busca ligada.</strong> ChatGPT, Gemini, Perplexity e o modo IA do Google, de preferência numa janela anônima. Faça cada pergunta mais de uma vez: a resposta varia.</li>
+    <li><strong>Registre numa planilha.</strong> Uma linha por pergunta e por IA, com as colunas: marca mencionada (sim/não), com link (sim/não), posição, concorrentes citados e sites usados como fonte.</li>
+    <li><strong>Calcule o Share of Voice.</strong> Respostas que mencionam você ÷ total de respostas. Faça a mesma conta para cada concorrente.</li>
+    <li><strong>Repita todo mês, com a mesma lista.</strong> Só assim dá para comparar a evolução.</li>
+  </ol>
+
+  <div class="note">
+    <p><strong>O erro mais comum: medir resposta sem busca.</strong> Nos nossos testes, perguntas genéricas e atemporais ("o que é marketing digital?") muitas vezes são respondidas só com a memória do modelo, sem buscar na web — e aí nenhuma empresa é citada. Esse zero não quer dizer que você é invisível: quer dizer que não houve busca. Antes de anotar o resultado, confira se a IA mostrou fontes ou pesquisou. Perguntas com cidade, ano, preço ou comparação ("melhor X em São Paulo em 2026") forçam a busca e são as que importam para quem quer vender.</p>
+  </div>
+
+  <h2>Com que frequência monitorar</h2>
+  <p><strong>Uma vez por mês</strong> resolve para a maioria das empresas. As respostas das IAs mudam, mas não de um dia para o outro, e um ciclo mensal dá tempo de corrigir algo — um dado estruturado, uma página que faltava, uma menção em outro site — e medir o efeito. <strong>Toda semana</strong> só faz sentido em lançamento, campanha ou crise de imagem.</p>
+
+  <h2>Como acompanhar concorrentes</h2>
+  <p>Com a mesma lista de perguntas, anote <strong>todas</strong> as marcas que aparecem em cada resposta, não só a sua. Em poucas rodadas fica claro quem domina cada tipo de pergunta. A coluna mais valiosa é a de <strong>fontes</strong>: quando a IA recomenda um concorrente, ela quase sempre se apoia em algum site — uma lista, uma reportagem, um comparativo. Estar nessas fontes é o caminho mais curto para entrar na resposta.</p>
+
+  <h2>Como ver no Google Analytics quem chegou pelas IAs</h2>
+  <p>O monitoramento mostra se você aparece; o Analytics mostra se isso vira visita. No GA4:</p>
+  <ul>
+    <li>Em <strong>Aquisição de tráfego</strong>, use a dimensão <strong>Origem da sessão</strong> e procure <code>chatgpt.com</code>, <code>perplexity.ai</code>, <code>gemini.google.com</code>, <code>claude.ai</code> e <code>copilot.microsoft.com</code>.</li>
+    <li>O ChatGPT acrescenta <code>utm_source=chatgpt.com</code> aos links que cita, e o GA4 já agrupa ChatGPT, Gemini e Copilot no canal <strong>AI Assistant</strong>. Perplexity e Claude costumam cair em Referral.</li>
+    <li>O GA4 <strong>não</strong> mostra quem leu a resposta e depois digitou o nome da sua empresa no Google, nem as citações sem clique. Para isso, pergunte no formulário de contato: "Como nos conheceu?" — com a opção "ChatGPT ou outra IA". O número do Analytics é piso, não o total.</li>
+  </ul>
+
+  <h2>Manual, relatório ou plataforma?</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Jeito</th><th>Custo</th><th>Quando faz sentido</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Manual (planilha)</strong></td><td>Grátis, umas 3 horas por mês</td><td>Para começar e entender o seu nicho</td></tr>
+      <tr><td><strong>Relatório pontual</strong> — <a href="/auditoria">Caracol AEO</a></td><td>Diagnóstico grátis · Relatório Competitivo R$ 299,90 (pagamento único)</td><td>Para ter um retrato completo com concorrentes, em português, sem assinar nada</td></tr>
+      <tr><td><strong>Plataforma contínua</strong> — Profound, Peec AI, Otterly.AI</td><td>Assinatura mensal em dólar ou euro</td><td>Para times grandes que acompanham muitas marcas e mercados</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>A Caracol AEO é uma ferramenta brasileira de relatório, não uma plataforma de monitoramento contínuo: o <strong>Relatório Competitivo</strong> roda 20+ perguntas reais do seu nicho no ChatGPT, no Perplexity e no Google AI e mede o seu Share of Voice contra 3 concorrentes. Quem quer acompanhar a evolução repete o relatório ou mantém a planilha mensal a partir dele. Veja também o <a href="/ferramentas-aeo-brasil">comparativo das ferramentas de AEO no Brasil</a>.</p>
+
+  <div class="ctabox">
+    <h2>Comece pelo diagnóstico gratuito</h2>
+    <p>Antes de medir as respostas, veja se o seu site está pronto para ser lido pelas IAs: score de 0 a 100 em segundos.</p>
+    <div style="background:#141414;border:1px solid #2A2A2A;border-left:3px solid #FF6B1A;border-radius:12px;padding:22px 24px;margin:16px 0 0;text-align:left">
+      <form action="/auditoria" method="get" style="display:flex;gap:10px;flex-wrap:wrap" onsubmit="try{gtag('event','estudo_cta',{pagina:location.pathname})}catch(_){}">
+        <input type="hidden" name="via" value="monitorar">
+        <input type="text" name="url" required inputmode="url" placeholder="https://suaempresa.com.br" aria-label="URL do seu site" style="flex:1 1 220px;min-width:0;background:#0d0d0d;border:1px solid #2A2A2A;border-radius:8px;padding:12px 14px;color:#F5F5F5;font:inherit;font-size:15px">
+        <button type="submit" style="background:#FF6B1A;color:#fff;border:0;border-radius:8px;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer">Auditar meu site →</button>
+      </form>
+    </div>
+  </div>
+
+  <h2>Perguntas frequentes</h2>
+  <details><summary>Existe ferramenta brasileira para monitorar a visibilidade da marca nas IAs?</summary>
+    <p>Sim. A Caracol AEO é uma ferramenta brasileira, em português, que mede a visibilidade da marca nas IAs: o diagnóstico gratuito dá um score de 0 a 100 do site e o Relatório Competitivo (R$ 299,90, pagamento único) mede o Share of Voice da marca contra 3 concorrentes em 20+ perguntas reais do nicho no ChatGPT, Perplexity e Google AI. Para monitoramento contínuo existem plataformas internacionais por assinatura, como Profound, Peec AI e Otterly.AI.</p></details>
+  <details><summary>Com que frequência devo monitorar minha marca nas IAs?</summary>
+    <p>Para a maioria das empresas, uma vez por mês é suficiente: as respostas das IAs mudam, mas não de um dia para o outro, e um ciclo mensal dá tempo de corrigir algo e medir o efeito. Em lançamento de produto, campanha ou crise de imagem, vale medir toda semana.</p></details>
+  <details><summary>Como medir quantas vezes minha marca aparece no ChatGPT?</summary>
+    <p>Rode uma lista fixa de 20 a 30 perguntas reais do seu nicho no ChatGPT com a busca ativada e conte em quantas respostas a marca aparece. Esse percentual é o seu Share of Voice. Como as respostas variam, rode cada pergunta mais de uma vez e use a média.</p></details>
+  <details><summary>Dá para monitorar concorrentes e várias marcas ao mesmo tempo?</summary>
+    <p>Sim. Use a mesma lista de perguntas e registre todas as marcas que aparecem em cada resposta. Assim você compara o Share of Voice da sua marca com o de cada concorrente e descobre quais sites as IAs usam como fonte quando recomendam outra empresa.</p></details>
+  <details><summary>O Google Analytics mostra quem chegou ao meu site pelo ChatGPT?</summary>
+    <p>Mostra quem clicou no link dentro da resposta: o ChatGPT acrescenta utm_source=chatgpt.com aos links que cita, e o GA4 agrupa ChatGPT, Gemini e Copilot no canal AI Assistant. Perplexity e Claude costumam aparecer como Referral. O GA4 não mostra quem leu a resposta e depois digitou o nome da empresa no Google, nem as citações sem clique — por isso vale perguntar no formulário como o cliente conheceu você.</p></details>
+</main>
+
+<footer class="ft">
+  <div class="links">
+    <a href="/">Início</a><a href="/blog/">Blog</a><a href="/ferramentas-aeo-brasil">Ferramentas de AEO</a><a href="/auditoria">Auditoria Grátis</a><a href="/sobre">Sobre</a><a href="/privacidade">Privacidade</a><a href="/termos">Termos</a><a href="/contato">Contato</a>
+  </div>
+  <div>© 2026 Caracol Media · CNPJ 55.097.812/0001-99 · uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
+</footer>
+</body>
+</html>
