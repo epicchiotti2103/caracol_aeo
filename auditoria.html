@@ -93,6 +93,7 @@
   .gatecard .s{font-size:14px;color:var(--text-muted);margin-bottom:14px}
   .gatecard input{width:100%;background:#0d0d0d;border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font-size:15px;font-family:inherit;outline:none;margin-bottom:10px}
   .gatecard input:focus{border-color:var(--orange)}
+  .gatecard select{width:100%;background:#0d0d0d;border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font-size:15px;font-family:inherit;outline:none;margin-bottom:10px}
   .gatecard .btn{width:100%}
   .gatecard .fn{font-size:12px;color:var(--text-dim);margin-top:10px;margin-bottom:0}
   .ctabox{border:1px solid var(--border);background:linear-gradient(135deg,#141414,#0d0d0d);border-radius:12px;padding:26px;margin-top:34px}
@@ -158,6 +159,15 @@
             <form id="leadForm" onsubmit="sendLead(event)">
               <input type="text" id="leadNome" placeholder="Seu nome" required autocomplete="name">
               <input type="email" id="leadEmail" placeholder="nome@empresa.com.br" required autocomplete="email">
+              <select id="leadOrigem" aria-label="Como conheceu a Caracol AEO?">
+                <option value="">Como nos conheceu? (opcional)</option>
+                <option value="chatgpt">ChatGPT</option>
+                <option value="outra_ia">Outra IA (Gemini, Perplexity, Claude, Copilot)</option>
+                <option value="google">Busca no Google</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="indicacao">Indicação</option>
+                <option value="outro">Outro</option>
+              </select>
               <button type="submit" class="btn" id="leadBtn">Desbloquear relatório completo →</button>
             </form>
             <p class="fn" id="leadErr" role="alert" style="display:none;color:var(--red);font-weight:600"></p>
@@ -187,7 +197,7 @@
 
 <footer class="ft">
   <div class="links">
-    <a href="/">Início</a><a href="/blog/">Blog</a><a href="/auditoria">Auditoria Grátis</a><a href="/privacidade">Privacidade</a><a href="/termos">Termos</a><a href="/contato">Contato</a>
+    <a href="/">Início</a><a href="/blog/">Blog</a><a href="/auditoria">Auditoria Grátis</a><a href="/sobre">Sobre</a><a href="/privacidade">Privacidade</a><a href="/termos">Termos</a><a href="/contato">Contato</a>
   </div>
   <div>© 2026 Caracol Media · CNPJ 55.097.812/0001-99 · uma empresa do grupo <a href="https://caracol.media" target="_blank" rel="noopener">caracol.media</a></div>
 </footer>
@@ -273,6 +283,13 @@ function animateNum(el, target) {
   }, 20);
 }
 
+// origem de 1o toque (referrer/utm da sessao que chegou ao site) — fica no navegador do visitante
+(function(){try{if(sessionStorage.getItem("aeo_src"))return;var q=new URLSearchParams(location.search);
+var r=document.referrer?new URL(document.referrer).hostname:"";if(r===location.hostname)r="";
+sessionStorage.setItem("aeo_src",(q.get("utm_source")||r||"direto").slice(0,60));}catch(_){}})();
+function leadCtx(){var o=document.getElementById("leadOrigem");var s="";try{s=sessionStorage.getItem("aeo_src")||"";}catch(_){}
+return {como_conheceu:(o&&o.value)||"nao_informado",origem_sessao:s};}
+
 async function sendLead(e) {
   e.preventDefault();
   const btn = document.getElementById("leadBtn");
@@ -295,12 +312,12 @@ async function sendLead(e) {
     document.getElementById("leadErr").style.display = "none";
     document.querySelector("#lockedRecs").classList.remove("blur");
     document.getElementById("gate").style.display = "none";
-    gtag("event", "generate_lead", { source: "auditoria-instantanea", score: lastResult ? lastResult.score : null });
+    gtag("event", "generate_lead", Object.assign({ source: "auditoria-instantanea", score: lastResult ? lastResult.score : null }, leadCtx()));
   } catch (ex) {
     const errEl = document.getElementById("leadErr");
     errEl.textContent = ex.message || "Erro de conexão. Tente de novo.";
     errEl.style.display = "block";
-    gtag("event", "lead_error", { reason: (ex.message || "rede").slice(0, 90) });
+    gtag("event", "lead_error", Object.assign({ reason: (ex.message || "rede").slice(0, 90) }, leadCtx()));
     btn.disabled = false; btn.textContent = "Tentar novamente";
   }
 }
