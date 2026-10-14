@@ -109,14 +109,15 @@
   .form-group .hint {
     font-size: 12px; color: var(--text-dim); margin-top: 4px; line-height: 1.45;
   }
-  .form-group input, .form-group textarea {
+  .form-group input, .form-group textarea, .form-group select {
     width: 100%; background: var(--bg-input);
     border: 1px solid var(--border-strong); color: var(--text);
     padding: 11px 14px; border-radius: 6px; font-size: 14px;
     font-family: inherit; transition: border-color 0.15s;
     resize: vertical;
   }
-  .form-group input:focus, .form-group textarea:focus {
+  .form-group select option { background: #111; color: #fff; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
     outline: none; border-color: var(--orange);
   }
   .form-group input::placeholder, .form-group textarea::placeholder {
@@ -270,6 +271,19 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label for="comoConheceu">Como conheceu a Caracol AEO?</label>
+      <select id="comoConheceu" name="como_conheceu">
+          <option value="">Selecione (opcional)</option>
+          <option value="chatgpt">ChatGPT</option>
+          <option value="outra_ia">Outra IA (Gemini, Perplexity, Claude, Copilot)</option>
+          <option value="google">Busca no Google</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="indicacao">Indicação</option>
+          <option value="outro">Outro</option>
+      </select>
+    </div>
+
     <div class="delivery-note">
       ⏱ <strong>Tempo de entrega:</strong> após confirmação do pagamento, o relatório
       é processado e enviado por email em <strong>até 20 minutos</strong>.
@@ -294,6 +308,12 @@
 
 <script>
 const CHECKOUT_ENDPOINT = "https://aeo-checkout-create-ugzah7lydq-rj.a.run.app";
+// origem de 1o toque + "como nos conheceu" (mesmo padrao da /auditoria)
+(function(){try{if(sessionStorage.getItem("aeo_src"))return;var q=new URLSearchParams(location.search);
+var r=document.referrer?new URL(document.referrer).hostname:"";if(r===location.hostname)r="";
+sessionStorage.setItem("aeo_src",(q.get("utm_source")||r||"direto").slice(0,60));}catch(_){}})();
+function ckCtx(){var o=document.getElementById("comoConheceu");var s="";try{s=sessionStorage.getItem("aeo_src")||"";}catch(_){}
+return {como_conheceu:(o&&o.value)||"nao_informado",origem_sessao:s};}
 
 // Captura click_id (?cid=...) e persiste pro postback de conversão
 (function(){
@@ -364,6 +384,7 @@ async function submitCheckout() {
         site: site,
         nicho_descricao: nicho,
         competitor_sites: [c1, c2, c3],
+        ...ckCtx(),
       }),
     });
     if (!r.ok) {
@@ -374,7 +395,7 @@ async function submitCheckout() {
     if (!data.init_point) throw new Error("Resposta inválida do servidor.");
     // Marca tier pra disparar postback de conversão na obrigado.html
     try { localStorage.setItem("caracol_tier", "competitive"); } catch(_){}
-    caracolGa("add_payment_info", {payment_type: "mercado_pago", transport_type: "beacon"});
+    caracolGa("add_payment_info", {payment_type: "mercado_pago", transport_type: "beacon", como_conheceu: ckCtx().como_conheceu, origem_sessao: ckCtx().origem_sessao});
     window.location.href = data.init_point;
   } catch (e) {
     setLoading(false);

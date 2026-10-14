@@ -60,9 +60,11 @@
     .form-sub{font-size:13px;color:var(--t3);margin-bottom:24px}
     .fg{margin-bottom:16px}
     .fg label{display:block;font-size:13px;font-weight:500;color:var(--t2);margin-bottom:6px}
-    .fg input{width:100%;padding:12px 16px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;transition:all .2s}
+    .fg select{font-family:inherit;appearance:auto}
+    .fg select option{background:#111;color:#fff}
+    .fg input,.fg select{width:100%;padding:12px 16px;background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:var(--r-sm);color:var(--t1);font-size:14px;transition:all .2s}
     .fg input::placeholder{color:var(--t4)}
-    .fg input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+    .fg input:focus,.fg select:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
     .fg .err{display:none;font-size:12px;color:var(--red);margin-top:6px}
     .fg.invalid input{border-color:var(--red)}
     .fg.invalid .err{display:block}
@@ -185,6 +187,19 @@
             <div class="err">URL inválida — use o formato https://...</div>
           </div>
 
+          <div class="fg" id="fg-como">
+            <label for="comoConheceu">Como conheceu a Caracol AEO?</label>
+            <select id="comoConheceu" name="como_conheceu">
+          <option value="">Selecione (opcional)</option>
+          <option value="chatgpt">ChatGPT</option>
+          <option value="outra_ia">Outra IA (Gemini, Perplexity, Claude, Copilot)</option>
+          <option value="google">Busca no Google</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="indicacao">Indicação</option>
+          <option value="outro">Outro</option>
+            </select>
+          </div>
+
           <button type="submit" class="pay-btn" id="payBtn">
             <span class="lbl">Pagar R$ 89,90 →</span>
             <span class="spin"></span>
@@ -246,6 +261,12 @@
       return s;
     }
 
+    // origem de 1o toque + "como nos conheceu" (mesmo padrao da /auditoria)
+(function(){try{if(sessionStorage.getItem("aeo_src"))return;var q=new URLSearchParams(location.search);
+var r=document.referrer?new URL(document.referrer).hostname:"";if(r===location.hostname)r="";
+sessionStorage.setItem("aeo_src",(q.get("utm_source")||r||"direto").slice(0,60));}catch(_){}})();
+function ckCtx(){var o=document.getElementById("comoConheceu");var s="";try{s=sessionStorage.getItem("aeo_src")||"";}catch(_){}
+return {como_conheceu:(o&&o.value)||"nao_informado",origem_sessao:s};}
     async function handleCheckout(e) {
       e.preventDefault();
       hideAlert();
@@ -269,14 +290,14 @@
         const res = await fetch(CHECKOUT_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ nome, email, site, tier: TIER })
+          body: JSON.stringify(Object.assign({ nome, email, site, tier: TIER }, ckCtx()))
         });
         const data = await res.json();
 
         if (res.ok && data.init_point) {
           // Marca tier pra disparar postback de conversão na obrigado.html
           try { localStorage.setItem("caracol_tier", "detailed"); } catch(_){}
-          caracolGa("add_payment_info", {payment_type: "mercado_pago", transport_type: "beacon"});
+          caracolGa("add_payment_info", {payment_type: "mercado_pago", transport_type: "beacon", como_conheceu: ckCtx().como_conheceu, origem_sessao: ckCtx().origem_sessao});
           // Redireciona para o checkout do Mercado Pago
           window.location.href = data.init_point;
           return;
