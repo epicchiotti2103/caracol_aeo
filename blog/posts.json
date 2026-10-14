@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-16T14:08:46",
-  "count": 131,
+  "generated_at": "2026-10-14T17:39:02",
+  "count": 75,
   "categories": [
     {
       "id": "giro",
@@ -123,15 +123,6 @@
       "cat_label": "Giro IA"
     },
     {
-      "url": "/blog/agente-perplexity-windows-impacto-aeo-extracao-marcas/",
-      "slug": "agente-perplexity-windows-impacto-aeo-extracao-marcas",
-      "title": "Agente da Perplexity no Windows: impacto AEO na extração de marcas",
-      "desc": "Perplexity lança agente de IA que controla o Windows e executa tarefas autônomas. Saiba como otimizar marcas para extração e ações em fluxos agênticos.",
-      "date": "2026-07-29",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
       "url": "/blog/chatgpt-health-como-ser-citado-autoridade-medica/",
       "slug": "chatgpt-health-como-ser-citado-autoridade-medica",
       "title": "ChatGPT Health: como ser citado com autoridade médica",
@@ -155,15 +146,6 @@
       "title": "Anúncios Google AI Mode em palavras-chave comerciais: o que muda",
       "desc": "Liz Reid confirma anúncios no AI Mode e busca autônoma. Dados mostram Google como 2º domínio mais citado. Impacto direto na visibilidade de marca em respostas generativas.",
       "date": "2026-07-21",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
-      "url": "/blog/gemini-notebook-aeo-otimizacao/",
-      "slug": "gemini-notebook-aeo-otimizacao",
-      "title": "Gemini Notebook AEO otimizacao: como ser citado",
-      "desc": "Google integra NotebookLM ao Gemini como Gemini Notebook, mudando a lógica de citação em respostas detalhadas. Marcas precisam de conteúdo scholar-like para serem referenciadas.",
-      "date": "2026-07-19",
       "cat_id": "giro",
       "cat_label": "Giro IA"
     },
@@ -339,15 +321,6 @@
       "cat_label": "Fundamentos"
     },
     {
-      "url": "/blog/gsc-ai-overview-reporting/",
-      "slug": "gsc-ai-overview-reporting",
-      "title": "GSC AI Overview Reporting: Como Medir e Otimizar para AEO",
-      "desc": "Google Search Console agora separa dados de AI Overviews. Saiba como extrair métricas de cliques e impressões para ajustar sua estratégia de citação em IAs.",
-      "date": "2026-06-15",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
       "url": "/blog/recommendation-share-metrica-aeo-substitui-posicao-organica/",
       "slug": "recommendation-share-metrica-aeo-substitui-posicao-organica",
       "title": "Recommendation Share: a nova métrica AEO que substitui posição orgânica como KPI principal",
@@ -375,51 +348,6 @@
       "cat_label": "Fundamentos"
     },
     {
-      "url": "/blog/cloud-hibrida-workloads-ia-quando-migrar-nuvem-publica-infraestrutura-propria/",
-      "slug": "cloud-hibrida-workloads-ia-quando-migrar-nuvem-publica-infraestrutura-propria",
-      "title": "Cloud híbrida para workloads de IA: quando migrar da nuvem pública para infraestrutura própria vale a pena?",
-      "desc": "Empresas processando mais de 10 milhões de requisições mensais em IA podem economizar 40-60% migrando para infraestrutura própria. Analise o breakeven point.",
-      "date": "2026-06-10",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/computacao-quantica-ia-convergencia-empresas-2026/",
-      "slug": "computacao-quantica-ia-convergencia-empresas-2026",
-      "title": "Computação quântica e IA: o que muda para empresas quando os dois convergirem em 2026",
-      "desc": "IBM e Google já oferecem acesso comercial a processadores quânticos. Entenda como a convergência quantum + IA muda estratégias corporativas até 2026.",
-      "date": "2026-06-10",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/estrategia-multi-modelo-ia-por-que-unica-llm-nao-faz-sentido-2026/",
-      "slug": "estrategia-multi-modelo-ia-por-que-unica-llm-nao-faz-sentido-2026",
-      "title": "Estratégia multi-modelo de IA: por que escolher uma única LLM já não faz sentido em 2026",
-      "desc": "Empresas que adotam estratégias multi-modelo de IA performam 40% melhor e reduzem custos em 30-45%. Descubra por que o modelo único já não funciona.",
-      "date": "2026-06-10",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/green-software-ia-sustentavel-reduzir-pegada-carbono-modelos-ml/",
-      "slug": "green-software-ia-sustentavel-reduzir-pegada-carbono-modelos-ml",
-      "title": "Green software e IA sustentável: como reduzir a pegada de carbono dos seus modelos de machine learning",
-      "desc": "Green software reduz a pegada de carbono de modelos de IA sem perder performance. Guia prático de infraestrutura, otimização e mensuração.",
-      "date": "2026-06-10",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/physical-ai-inteligencia-artificial-operando-robos-drones-dispositivos-mundo-real/",
-      "slug": "physical-ai-inteligencia-artificial-operando-robos-drones-dispositivos-mundo-real",
-      "title": "Physical AI: como a IA opera robôs, drones e dispositivos reais",
-      "desc": "Physical AI é a IA que sai do software para operar robôs e sensores no mundo real. Veja arquitetura, setores, custos de implementação e como avaliar sua adoção.",
-      "date": "2026-06-10",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
       "url": "/blog/expansao-anuncios-chatgpt-como-preparar-sua-marca-ser/",
       "slug": "expansao-anuncios-chatgpt-como-preparar-sua-marca-ser",
       "title": "Expansão de anúncios no ChatGPT: como preparar sua marca para ser citada",
@@ -438,33 +366,6 @@
       "cat_label": "Giro IA"
     },
     {
-      "url": "/blog/gemeos-digitais-pmes-criar-simulacao-processos-reduzir-custos/",
-      "slug": "gemeos-digitais-pmes-criar-simulacao-processos-reduzir-custos",
-      "title": "Gêmeos digitais para PMEs: como criar sua primeira simulação de processos e reduzir custos operacionais em 2026",
-      "desc": "Guia completo para PMEs implementarem gêmeos digitais: ferramentas acessíveis, passo a passo prático e como reduzir 15-30% dos custos operacionais em 2026.",
-      "date": "2026-06-02",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/amazon-vs-perplexity-cfaa-pode-banir-agentes-ia/",
-      "slug": "amazon-vs-perplexity-cfaa-pode-banir-agentes-ia",
-      "title": "Amazon vs. Perplexity: o CFAA pode banir agentes de IA de sites?",
-      "desc": "Amazon processa Perplexity com base no CFAA, testando se agentes de IA podem acessar sites sem permissão. Veja como revisar robots.txt e termos de uso.",
-      "date": "2026-06-01",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
-      "url": "/blog/ai-overviews-consultas-comerciais-muda-aeo-2026/",
-      "slug": "ai-overviews-consultas-comerciais-muda-aeo-2026",
-      "title": "AI Overviews em consultas comerciais: o que muda na AEO para 2026",
-      "desc": "O AI Overview do Google trata queries comerciais com formato e fontes próprias. Ajuste sua estratégia de AEO de e-commerce para ser citado em 2026.",
-      "date": "2026-05-31",
-      "cat_id": "giro",
-      "cat_label": "Giro IA"
-    },
-    {
       "url": "/blog/cnn-processa-perplexity-direitos-autorais-ia/",
       "slug": "cnn-processa-perplexity-direitos-autorais-ia",
       "title": "CNN processa Perplexity: o divisor de águas para direitos autorais em IA",
@@ -472,15 +373,6 @@
       "date": "2026-05-29",
       "cat_id": "giro",
       "cat_label": "Giro IA"
-    },
-    {
-      "url": "/blog/ai-factories-fabricas-ia-empresas-abandonando-cloud-first/",
-      "slug": "ai-factories-fabricas-ia-empresas-abandonando-cloud-first",
-      "title": "AI Factories: o que são as fábricas de IA e por que empresas estão abandonando o modelo cloud-first",
-      "desc": "AI Factories são datacenters dedicados a cargas de IA que empresas como Meta e Tesla construíram para reduzir custos e aumentar controle versus soluções cloud.",
-      "date": "2026-05-27",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
     },
     {
       "url": "/blog/ai-visibility-audit-passo-a-passo-auditar-presenca-marca-chatgpt-claude-perplexity-gemini/",
@@ -519,33 +411,6 @@
       "cat_label": "Fundamentos"
     },
     {
-      "url": "/blog/gpt-rosalind-modelos-ia-ciencias-vida-biotech-farmaceuticas-2026/",
-      "slug": "gpt-rosalind-modelos-ia-ciencias-vida-biotech-farmaceuticas-2026",
-      "title": "GPT-Rosalind e modelos de IA para ciências da vida: o que muda para biotech e farmacêuticas em 2026",
-      "desc": "GPT-Rosalind acelera descoberta de fármacos em 12-18 meses vs 4-5 anos tradicionais. Como modelos de IA especializados transformam pesquisa farmacêutica em 2026.",
-      "date": "2026-05-27",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/regulacao-pre-lancamento-ia-governos-testam-modelos-antes-publico/",
-      "slug": "regulacao-pre-lancamento-ia-governos-testam-modelos-antes-publico",
-      "title": "Regulação pré-lançamento de IA: o que muda quando governos testam modelos antes do público",
-      "desc": "Análise de como a regulação pré-lançamento de IA afeta empresas brasileiras, custos de compliance e mudanças no mercado com avaliação governamental prévia.",
-      "date": "2026-05-27",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/seguranca-agentes-ia-impedir-vazamento-dados-acoes-nao-autorizadas/",
-      "slug": "seguranca-agentes-ia-impedir-vazamento-dados-acoes-nao-autorizadas",
-      "title": "Segurança de agentes de IA: dados e ações não autorizados",
-      "desc": "Agentes de IA autônomos apresentam riscos únicos de segurança. Framework completo para proteger dados corporativos e controlar ações não autorizadas.",
-      "date": "2026-05-27",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
       "url": "/blog/aeo-profissionais-liberais-atrair-clientes-assistentes-ia/",
       "slug": "aeo-profissionais-liberais-atrair-clientes-assistentes-ia",
       "title": "Como profissionais liberais podem usar AEO para atrair clientes via assistentes de IA?",
@@ -564,78 +429,6 @@
       "cat_label": "Fundamentos"
     },
     {
-      "url": "/blog/bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt/",
-      "slug": "bytespider-bots-ia-nao-conformes-detectar-ignoram-robots-txt",
-      "title": "Bytespider e bots de IA não-conformes: como detectar crawlers que ignoram robots.txt e o que fazer",
-      "desc": "Guia completo para detectar e bloquear Bytespider e outros crawlers de IA que ignoram robots.txt, com técnicas de monitoramento e bloqueio em servidor.",
-      "date": "2026-05-14",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/ciberseguranca-ia-generativa-proteger-dados-corporativos-chatgpt-anpd-2026/",
-      "slug": "ciberseguranca-ia-generativa-proteger-dados-corporativos-chatgpt-anpd-2026",
-      "title": "Cibersegurança e IA generativa: como proteger dados corporativos quando 79% vazam pelo ChatGPT (e o que a ANPD exige em 2026)",
-      "desc": "79% das empresas enfrentam vazamentos via IA generativa. Descubra como proteger dados corporativos e atender às exigências da ANPD em 2026.",
-      "date": "2026-05-14",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/como-usar-chatgpt-excel-google-sheets-sidebar-analise-dados/",
-      "slug": "como-usar-chatgpt-excel-google-sheets-sidebar-analise-dados",
-      "title": "ChatGPT no Excel e Google Sheets: como usar a sidebar (guia prático)",
-      "desc": "A sidebar do ChatGPT no Excel e Google Sheets cria fórmulas, analisa dados e gera relatórios por linguagem natural. Veja como instalar e configurar.",
-      "date": "2026-05-14",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/estruturar-topic-clusters-internos-ias-pagina-hub-autoridade/",
-      "slug": "estruturar-topic-clusters-internos-ias-pagina-hub-autoridade",
-      "title": "Como estruturar topic clusters internos para que IAs identifiquem sua página-hub como autoridade no tema",
-      "desc": "Estruture clusters com hierarquia clara e linking bidirecional para que crawlers de IA mapeiem sua página-hub como centro de autoridade topical.",
-      "date": "2026-05-14",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/gpt-realtime-modelos-voz-openai-traducao-transcricao-tempo-real/",
-      "slug": "gpt-realtime-modelos-voz-openai-traducao-transcricao-tempo-real",
-      "title": "GPT-Realtime: como usar os modelos de voz da OpenAI para tradução e transcrição ao vivo na sua empresa",
-      "desc": "Guia prático para implementar GPT-Realtime na sua empresa: desde transcrição de reuniões até tradução simultânea, com custos, limitações e comparações.",
-      "date": "2026-05-14",
-      "cat_id": "plataformas",
-      "cat_label": "Plataformas"
-    },
-    {
-      "url": "/blog/negative-ai-seo-proteger-marca-ai-poisoning-mencoes-negativas/",
-      "slug": "negative-ai-seo-proteger-marca-ai-poisoning-mencoes-negativas",
-      "title": "Negative AI SEO: como proteger sua marca contra AI poisoning e menções negativas plantadas",
-      "desc": "Negative AI SEO é uma nova forma de ataque que planta conteúdo negativo para manipular como LLMs descrevem marcas. Saiba como detectar, prevenir e responder.",
-      "date": "2026-05-14",
-      "cat_id": "fundamentos",
-      "cat_label": "Fundamentos"
-    },
-    {
-      "url": "/blog/orquestracao-agentes-ia-conectar-sistemas-autonomos-controle/",
-      "slug": "orquestracao-agentes-ia-conectar-sistemas-autonomos-controle",
-      "title": "Orquestração de agentes de IA: como conectar múltiplos sistemas autônomos sem perder o controle da operação",
-      "desc": "Orquestração de agentes de IA é a coordenação de múltiplos agentes especializados sob governança, evitando comportamentos imprevisíveis em empresas.",
-      "date": "2026-05-14",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/otimizar-chatgpt-shopping-estrategias-aeo-ecommerce/",
-      "slug": "otimizar-chatgpt-shopping-estrategias-aeo-ecommerce",
-      "title": "Como otimizar para ChatGPT Shopping: estratégias AEO para e-commerce serem citados nas buscas de produto por IA",
-      "desc": "Guia técnico para e-commerces otimizarem Product Schema, descrições e markup para serem citados e recomendados pelo ChatGPT Shopping através de estratégias AEO.",
-      "date": "2026-05-14",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
       "url": "/blog/auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear/",
       "slug": "auditar-crawl-to-referral-ratio-bots-ia-decidir-bloquear",
       "title": "Como auditar o crawl-to-referral ratio dos bots de IA no seu site e decidir o que bloquear",
@@ -643,51 +436,6 @@
       "date": "2026-05-06",
       "cat_id": "medicao",
       "cat_label": "Medição"
-    },
-    {
-      "url": "/blog/auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026/",
-      "slug": "auditar-reconstruir-estrategia-schema-markup-atualizacao-marco-2026",
-      "title": "Como auditar e reconstruir sua estratégia de schema markup após a atualização de março de 2026",
-      "desc": "Guia técnico para auditar schema markup existente e reconstruir a estratégia com base nos novos padrões de interpretação por IA pós-março de 2026.",
-      "date": "2026-05-06",
-      "cat_id": "medicao",
-      "cat_label": "Medição"
-    },
-    {
-      "url": "/blog/claude-user-claude-searchbot-diferencas-configurar-robots-txt/",
-      "slug": "claude-user-claude-searchbot-diferencas-configurar-robots-txt",
-      "title": "Claude-User vs Claude-SearchBot: diferenças práticas e como configurar robots.txt",
-      "desc": "Claude-User e Claude-SearchBot são bots distintos da Anthropic com propósitos diferentes. Aprenda as diferenças práticas e como configurar robots.txt para cada um.",
-      "date": "2026-05-06",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/como-criar-primeiro-agente-ia-autonomo-automatizar-tarefas/",
-      "slug": "como-criar-primeiro-agente-ia-autonomo-automatizar-tarefas",
-      "title": "Como criar seu primeiro agente de IA autônomo para automatizar tarefas de negócio",
-      "desc": "Guia completo para construir agentes de IA autônomos usando frameworks como LangChain e CrewAI. Passo a passo prático com código e arquitetura explicada.",
-      "date": "2026-05-06",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/como-usar-deep-research-decisoes-negocio-chatgpt-gemini-perplexity/",
-      "slug": "como-usar-deep-research-decisoes-negocio-chatgpt-gemini-perplexity",
-      "title": "Como usar Deep Research para decisões de negócio: guia prático com ChatGPT, Gemini e Perplexity",
-      "desc": "Guia completo para usar Deep Research do ChatGPT, Gemini e Perplexity em decisões corporativas. Compare funcionalidades e aprenda metodologia prática.",
-      "date": "2026-05-06",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/dslms-modelos-ia-especificos-setor-superam-generalistas/",
-      "slug": "dslms-modelos-ia-especificos-setor-superam-generalistas",
-      "title": "DSLMs: por que modelos de IA específicos por setor superam os generalistas em resultados corporativos?",
-      "desc": "DSLMs mostram 37% mais precisão que GPT-4 em medicina e 42% menos erros em análise jurídica. Entenda quando investir em modelos especializados versus generalistas.",
-      "date": "2026-05-06",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
     },
     {
       "url": "/blog/google-search-console-identificar-queries-ia-oportunidades-conteudo/",
@@ -699,60 +447,6 @@
       "cat_label": "Fundamentos"
     },
     {
-      "url": "/blog/gpt-55-instant-memoria-auditavel-chatgpt/",
-      "slug": "gpt-55-instant-memoria-auditavel-chatgpt",
-      "title": "GPT-5.5 Instant: o que mudou e como aproveitar a nova memória auditável do ChatGPT",
-      "desc": "GPT-5.5 Instant traz memória auditável e 40% menos latência. Entenda as mudanças técnicas e impactos para compliance corporativo.",
-      "date": "2026-05-06",
-      "cat_id": "plataformas",
-      "cat_label": "Plataformas"
-    },
-    {
-      "url": "/blog/gpt-55-vs-claude-opus-47-vs-gemini-31-benchmark-corporativo/",
-      "slug": "gpt-55-vs-claude-opus-47-vs-gemini-31-benchmark-corporativo",
-      "title": "GPT-5.5 vs Claude Opus 4.7 vs Gemini 3.1: qual IA performa melhor em tarefas corporativas?",
-      "desc": "Benchmark completo dos novos modelos de IA para empresas: GPT-5.5, Claude Opus 4.7 e Gemini 3.1. Análise de custo-benefício em tarefas corporativas reais.",
-      "date": "2026-05-06",
-      "cat_id": "plataformas",
-      "cat_label": "Plataformas"
-    },
-    {
-      "url": "/blog/ia-agentica-pratica-como-implementar-agentes-executam-operacao/",
-      "slug": "ia-agentica-pratica-como-implementar-agentes-executam-operacao",
-      "title": "IA agêntica na prática: como implementar agentes que executam (e não só respondem) na sua operação",
-      "desc": "Guia completo para implementar IA agêntica na prática: arquitetura, ferramentas, custos e ROI real de agentes que executam tarefas operacionais autônomas.",
-      "date": "2026-05-06",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/knowsabout-organization-schema-aumentar-citacoes-temas/",
-      "slug": "knowsabout-organization-schema-aumentar-citacoes-temas",
-      "title": "Como usar knowsAbout e outras propriedades de Organization Schema para aumentar citações em temas específicos",
-      "desc": "A propriedade knowsAbout no Schema.org mapeia expertise organizacional para LLMs. Implementação prática com Organization Schema para aumentar citações temáticas.",
-      "date": "2026-05-06",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini/",
-      "slug": "llm-perception-drift-monitorar-corrigir-variacoes-chatgpt-gemini",
-      "title": "LLM Perception Drift: como monitorar e corrigir variações no ChatGPT",
-      "desc": "LLM Perception Drift é a variação inconsistente na descrição da marca em LLMs. Aprenda a detectar e corrigir via content anchoring e dados estruturados.",
-      "date": "2026-05-06",
-      "cat_id": "medicao",
-      "cat_label": "Medição"
-    },
-    {
-      "url": "/blog/microsoft-copilot-pequenas-empresas-custos-roi-2026/",
-      "slug": "microsoft-copilot-pequenas-empresas-custos-roi-2026",
-      "title": "Microsoft Copilot para pequenas empresas: quanto custa e qual o ROI real em 2026?",
-      "desc": "Copilot custa US$ 30 por usuário/mês e exige Microsoft 365 E3/E5. Análise completa de custos reais, ROI e quando vale a pena para PMEs brasileiras.",
-      "date": "2026-05-06",
-      "cat_id": "plataformas",
-      "cat_label": "Plataformas"
-    },
-    {
       "url": "/blog/model-context-protocol-mcp-o-que-e-por-que-desenvolvedores-precisam-conhecer/",
       "slug": "model-context-protocol-mcp-o-que-e-por-que-desenvolvedores-precisam-conhecer",
       "title": "Model Context Protocol (MCP): o que é e por que todo desenvolvedor precisa conhecer em 2026",
@@ -762,15 +456,6 @@
       "cat_label": "Plataformas"
     },
     {
-      "url": "/blog/nuvem-vs-infraestrutura-propria-ia-calcular-roi-2026/",
-      "slug": "nuvem-vs-infraestrutura-propria-ia-calcular-roi-2026",
-      "title": "Nuvem vs infraestrutura própria para IA: como calcular o ROI real para sua empresa em 2026",
-      "desc": "Framework prático para calcular TCO e ROI entre nuvem e infraestrutura própria de IA, com números reais de mercado e break-even points para empresas.",
-      "date": "2026-05-06",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
       "url": "/blog/otimizar-queries-intencao-chatgpt-ai-overviews-claude/",
       "slug": "otimizar-queries-intencao-chatgpt-ai-overviews-claude",
       "title": "Como otimizar para queries por intenção: diferenças entre ChatGPT, AI Overviews e Claude",
@@ -778,24 +463,6 @@
       "date": "2026-05-06",
       "cat_id": "fundamentos",
       "cat_label": "Fundamentos"
-    },
-    {
-      "url": "/blog/pl-2338-23-impacto-compliance-ia-empresas/",
-      "slug": "pl-2338-23-impacto-compliance-ia-empresas",
-      "title": "Como o PL 2338/23 vai impactar sua empresa: guia prático de compliance em IA",
-      "desc": "O PL 2338/23 cria obrigações de compliance para empresas que usam IA no Brasil: classificação de risco, prazos, multas e checklist prático.",
-      "date": "2026-05-06",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/schema-org-dados-produto-agentes-ia-compras-autonomas/",
-      "slug": "schema-org-dados-produto-agentes-ia-compras-autonomas",
-      "title": "Como preparar dados de produto com Schema.org para agentes de IA realizarem compras autônomas",
-      "desc": "Implemente Schema.org Product de forma completa para agentes de IA autônomos. Guia técnico com propriedades essenciais e validação para agentic commerce.",
-      "date": "2026-05-06",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
     },
     {
       "url": "/blog/speakable-schema-marcar-conteudo-assistentes-voz-busca-audio/",
@@ -816,24 +483,6 @@
       "cat_label": "Mercado"
     },
     {
-      "url": "/blog/agentes-ia-autonomos-mudam-estrategia-aeo/",
-      "slug": "agentes-ia-autonomos-mudam-estrategia-aeo",
-      "title": "Como agentes de IA autônomos mudam a estratégia de AEO em 2026?",
-      "desc": "Agentes de IA autônomos executam múltiplas buscas sequenciais e acessam APIs. Descubra como adaptar sua estratégia de AEO para essa nova realidade.",
-      "date": "2026-04-27",
-      "cat_id": "fundamentos",
-      "cat_label": "Fundamentos"
-    },
-    {
-      "url": "/blog/estruturar-conteudo-busca-voz-assistentes-multimodais/",
-      "slug": "estruturar-conteudo-busca-voz-assistentes-multimodais",
-      "title": "Como estruturar conteúdo para busca por voz e assistentes multimodais em 2026?",
-      "desc": "Framework técnico para otimizar conteúdo para consultas por voz e multimodais. Schema markup, formato answer-first e requisitos por assistente.",
-      "date": "2026-04-15",
-      "cat_id": "conteudo",
-      "cat_label": "Conteúdo"
-    },
-    {
       "url": "/blog/5-passos-otimizar-aeo-blogs/",
       "slug": "5-passos-otimizar-aeo-blogs",
       "title": "AEO em blogs: 5 passos para ser citado por IAs (checklist)",
@@ -852,15 +501,6 @@
       "cat_label": "Técnico"
     },
     {
-      "url": "/blog/auditar-visibilidade-marca-ias-prompts-teste-manual/",
-      "slug": "auditar-visibilidade-marca-ias-prompts-teste-manual",
-      "title": "Como auditar a visibilidade da sua marca em IAs usando prompts de teste manual",
-      "desc": "Framework prático de prompts para auditar citações da marca em ChatGPT, Claude, Perplexity e Gemini, criando baseline mensurável de visibilidade.",
-      "date": "2026-04-08",
-      "cat_id": "medicao",
-      "cat_label": "Medição"
-    },
-    {
       "url": "/blog/bing-webmaster-tools-ai-performance-rastrear-citacoes/",
       "slug": "bing-webmaster-tools-ai-performance-rastrear-citacoes",
       "title": "Como usar o Bing Webmaster Tools AI Performance para rastrear citações da sua marca em IAs",
@@ -868,15 +508,6 @@
       "date": "2026-04-08",
       "cat_id": "medicao",
       "cat_label": "Medição"
-    },
-    {
-      "url": "/blog/claude-searchbot-oai-searchbot-crawlers-busca/",
-      "slug": "claude-searchbot-oai-searchbot-crawlers-busca",
-      "title": "Claude-SearchBot e OAI-SearchBot: como funcionam e o que fazer com esses crawlers",
-      "desc": "Claude-SearchBot e OAI-SearchBot são crawlers específicos para busca conversacional. Saiba como configurar robots.txt corretamente sem perder visibilidade.",
-      "date": "2026-04-08",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
     },
     {
       "url": "/blog/cloudflare-pay-per-crawl-monetizar-bots-ia/",
@@ -904,15 +535,6 @@
       "date": "2026-04-08",
       "cat_id": "tecnico",
       "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/crawlers-ia-nao-renderizam-javascript-client-side/",
-      "slug": "crawlers-ia-nao-renderizam-javascript-client-side",
-      "title": "Por que crawlers de IA não renderizam JavaScript client-side e como auditar seu conteúdo",
-      "desc": "Crawlers de IA como GPTBot e ClaudeBot não executam JavaScript, deixando conteúdo client-side invisível. Aprenda a auditar e resolver este problema de AEO.",
-      "date": "2026-04-08",
-      "cat_id": "medicao",
-      "cat_label": "Medição"
     },
     {
       "url": "/blog/criar-pesquisas-dados-originais-citacao-llms/",
@@ -960,24 +582,6 @@
       "cat_label": "Medição"
     },
     {
-      "url": "/blog/freshness-signals-aeo-timestamps-sinais-atualizacao/",
-      "slug": "freshness-signals-aeo-timestamps-sinais-atualizacao",
-      "title": "Freshness signals em AEO: como timestamps e sinais de atualização aumentam citações por IA",
-      "desc": "LLMs priorizam conteúdo atualizado para citações. Aprenda como implementar timestamps, Schema dateModified e HTTP headers para aumentar citações por IA.",
-      "date": "2026-04-08",
-      "cat_id": "conteudo",
-      "cat_label": "Conteúdo"
-    },
-    {
-      "url": "/blog/gemini-ultrapassou-perplexity-trafego-referencia-aeo/",
-      "slug": "gemini-ultrapassou-perplexity-trafego-referencia-aeo",
-      "title": "Por que Gemini ultrapassou Perplexity em tráfego de referência e o que isso muda na sua estratégia AEO",
-      "desc": "Análise completa do crescimento do Gemini como fonte de tráfego AEO em 2024, superando Perplexity, e ajustes práticos necessários na estratégia editorial.",
-      "date": "2026-04-08",
-      "cat_id": "plataformas",
-      "cat_label": "Plataformas"
-    },
-    {
       "url": "/blog/geo-aeo-llm-seo-qual-abordagem-escolher/",
       "slug": "geo-aeo-llm-seo-qual-abordagem-escolher",
       "title": "GEO vs AEO vs LLM SEO: qual abordagem escolher para sua estratégia em 2026?",
@@ -987,15 +591,6 @@
       "cat_label": "Fundamentos"
     },
     {
-      "url": "/blog/information-gain-conteudo-llms-nao-geram/",
-      "slug": "information-gain-conteudo-llms-nao-geram",
-      "title": "Information Gain: como criar conteúdo que LLMs não conseguem gerar sozinhos",
-      "desc": "Information Gain é o valor informacional único que LLMs não conseguem gerar. Dados proprietários e experiência documentada tornam seu conteúdo citável.",
-      "date": "2026-04-08",
-      "cat_id": "conteudo",
-      "cat_label": "Conteúdo"
-    },
-    {
       "url": "/blog/monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity/",
       "slug": "monitorar-ai-visibility-share-of-voice-chatgpt-claude-perplexity",
       "title": "Como monitorar AI visibility e share of voice nas respostas de ChatGPT, Claude e Perplexity",
@@ -1003,69 +598,6 @@
       "date": "2026-04-08",
       "cat_id": "medicao",
       "cat_label": "Medição"
-    },
-    {
-      "url": "/blog/otimizar-conteudo-agentes-ia-autonomos-protocolo-mcp/",
-      "slug": "otimizar-conteudo-agentes-ia-autonomos-protocolo-mcp",
-      "title": "Como otimizar conteúdo para agentes de IA autônomos e o protocolo MCP",
-      "desc": "Guia completo para preparar conteúdo web para agentes de IA autônomos usando o Model Context Protocol (MCP). Estruture dados para máxima citabilidade.",
-      "date": "2026-04-08",
-      "cat_id": "plataformas",
-      "cat_label": "Plataformas"
-    },
-    {
-      "url": "/blog/otimizar-fan-out-queries-chatgpt-bing/",
-      "slug": "otimizar-fan-out-queries-chatgpt-bing",
-      "title": "Como otimizar para fan-out queries: as sub-pesquisas que ChatGPT faz no Bing",
-      "desc": "Fan-out queries são sub-pesquisas paralelas que o ChatGPT executa no Bing para decompor perguntas complexas. Veja como estruturar conteúdo para aparecer nelas.",
-      "date": "2026-04-08",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/robots-txt-3-camadas-permitir-busca-bloquear-treinamento/",
-      "slug": "robots-txt-3-camadas-permitir-busca-bloquear-treinamento",
-      "title": "Como implementar robots.txt em 3 camadas para IAs: permitir busca e bloquear treinamento",
-      "desc": "Estratégia intermediária de robots.txt que permite bots de answer engines para citações mas bloqueia crawlers de treinamento de modelos de IA.",
-      "date": "2026-04-08",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/schema-org-id-sameas-resolucao-entidades-ia/",
-      "slug": "schema-org-id-sameas-resolucao-entidades-ia",
-      "title": "Como usar @id e sameAs no Schema.org para melhorar resolução de entidades por IA?",
-      "desc": "@id e sameAs no Schema.org criam identificadores únicos que ajudam IAs a resolver ambiguidades de entidades e aumentam a precisão das citações.",
-      "date": "2026-04-08",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/yahoo-scout-novos-answer-engines-aeo/",
-      "slug": "yahoo-scout-novos-answer-engines-aeo",
-      "title": "Yahoo Scout e novos answer engines: o que profissionais de AEO precisam saber",
-      "desc": "Yahoo Scout representa a diversificação do ecossistema de answer engines. Entenda como adaptar sua estratégia AEO para múltiplas plataformas sem diluir esforços.",
-      "date": "2026-04-08",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/configurar-robots-txt-gptbot-claudebot-perplexitybot/",
-      "slug": "configurar-robots-txt-gptbot-claudebot-perplexitybot",
-      "title": "Como configurar robots.txt para GPTBot, ClaudeBot e PerplexityBot",
-      "desc": "Guia completo para configurar robots.txt com crawlers de IA: sintaxe exata para GPTBot, ClaudeBot e PerplexityBot, com controle granular por diretório.",
-      "date": "2026-04-07",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
-    },
-    {
-      "url": "/blog/diferenca-crawlers-ia-chatgpt-perplexity/",
-      "slug": "diferenca-crawlers-ia-chatgpt-perplexity",
-      "title": "Qual a diferença entre crawlers de IA, ChatGPT e Perplexity?",
-      "desc": "Crawlers coletam dados para treinamento, ChatGPT opera com modelo estático e Perplexity faz busca ativa em tempo real. Entenda as diferenças técnicas.",
-      "date": "2026-04-07",
-      "cat_id": "tecnico",
-      "cat_label": "Técnico"
     },
     {
       "url": "/blog/otimizar-conteudo-citacao-ia-generativa/",
@@ -1126,42 +658,6 @@
       "slug": "como-ia-esta-mudando-busca-informacao-brasil",
       "title": "Como a inteligência artificial está mudando a busca por informação no Brasil",
       "desc": "O Brasil se tornou um dos maiores mercados de IA fora dos EUA. Veja como os brasileiros buscam informação e o impacto para empresas locais.",
-      "date": "2026-03-19",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/como-usar-chatgpt-pesquisa-de-mercado-guia-pratico/",
-      "slug": "como-usar-chatgpt-pesquisa-de-mercado-guia-pratico",
-      "title": "Como usar o ChatGPT para pesquisa de mercado: guia prático",
-      "desc": "Guia completo com prompts e exemplos práticos para usar ChatGPT em pesquisa de mercado, análise competitiva e identificação de tendências.",
-      "date": "2026-03-19",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/automacao-ia-pequenas-empresas-por-onde-comecar/",
-      "slug": "automacao-ia-pequenas-empresas-por-onde-comecar",
-      "title": "Automação com IA para pequenas empresas: por onde começar?",
-      "desc": "Guia prático com ferramentas de automação com IA acessíveis para pequenas empresas. Processos, custos e implementação sem programação.",
-      "date": "2026-03-19",
-      "cat_id": "mercado",
-      "cat_label": "Mercado"
-    },
-    {
-      "url": "/blog/o-que-e-agente-de-ia-como-pode-trabalhar-empresa/",
-      "slug": "o-que-e-agente-de-ia-como-pode-trabalhar-empresa",
-      "title": "O que é um agente de IA e como ele pode trabalhar pela sua empresa?",
-      "desc": "Agentes de IA executam tarefas multi-step de forma autônoma, indo além de chatbots para automatizar processos completos em empresas brasileiras.",
-      "date": "2026-03-19",
-      "cat_id": "fundamentos",
-      "cat_label": "Fundamentos"
-    },
-    {
-      "url": "/blog/ia-generativa-marketing-ferramentas-custos-resultados/",
-      "slug": "ia-generativa-marketing-ferramentas-custos-resultados",
-      "title": "IA generativa para marketing: ferramentas, custos e resultados reais",
-      "desc": "Comparativo prático de ferramentas de IA para marketing com preços em reais, ROI estimado e análise de qual ferramenta usar para cada tipo de negócio.",
       "date": "2026-03-19",
       "cat_id": "mercado",
       "cat_label": "Mercado"
